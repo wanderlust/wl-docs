@@ -1,0 +1,2422 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<!-- Created by GNU Texinfo 5.2, http://www.gnu.org/software/texinfo/ -->
+<head>
+<title>FLIM 1.14 Reference Manual about MIME Features</title>
+
+<meta name="description" content="FLIM 1.14 Reference Manual about MIME Features">
+<meta name="keywords" content="FLIM 1.14 Reference Manual about MIME Features">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="texi2any">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<link href="#Top" rel="start" title="Top">
+<link href="#Concept-Index" rel="index" title="Concept Index">
+<link href="dir.html#Top" rel="up" title="(dir)">
+<style type="text/css">
+<!--
+a.summary-letter {text-decoration: none}
+blockquote.smallquotation {font-size: smaller}
+div.display {margin-left: 3.2em}
+div.example {margin-left: 3.2em}
+div.indentedblock {margin-left: 3.2em}
+div.lisp {margin-left: 3.2em}
+div.smalldisplay {margin-left: 3.2em}
+div.smallexample {margin-left: 3.2em}
+div.smallindentedblock {margin-left: 3.2em; font-size: smaller}
+div.smalllisp {margin-left: 3.2em}
+kbd {font-style:oblique}
+pre.display {font-family: inherit}
+pre.format {font-family: inherit}
+pre.menu-comment {font-family: serif}
+pre.menu-preformatted {font-family: serif}
+pre.smalldisplay {font-family: inherit; font-size: smaller}
+pre.smallexample {font-size: smaller}
+pre.smallformat {font-family: inherit; font-size: smaller}
+pre.smalllisp {font-size: smaller}
+span.nocodebreak {white-space:nowrap}
+span.nolinebreak {white-space:nowrap}
+span.roman {font-family:serif; font-weight:normal}
+span.sansserif {font-family:sans-serif; font-weight:normal}
+ul.no-bullet {list-style: none}
+-->
+</style>
+<link rel="stylesheet" type="text/css" href="janix-texinfo.css">
+
+
+</head>
+
+<body lang="en" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
+<h1 class="settitle" align="center">FLIM 1.14 Reference Manual about MIME Features</h1>
+<a name="Top"></a>
+<div class="header">
+<p>
+Next: <a href="#Introduction" accesskey="n" rel="next">Introduction</a>, Previous: <a href="dir.html#Top" accesskey="p" rel="prev">(dir)</a>, Up: <a href="dir.html#Top" accesskey="u" rel="up">(dir)</a> &nbsp; [<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<a name="FLIM-1_002e14-Reference-Manual-about-MIME-Features"></a>
+<h1 class="top">FLIM 1.14 Reference Manual about MIME Features</h1>
+
+
+<p>This file documents MIME features of FLIM, a fundamental library to
+process Internet Messages for GNU Emacsen.
+</p>
+<table class="menu" border="0" cellspacing="0">
+<tr><td align="left" valign="top">&bull; <a href="#Introduction" accesskey="1">Introduction</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">What is FLIM?
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="#How-to-use" accesskey="2">How to use</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">How to use MIME features
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="#Entity" accesskey="3">Entity</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Message and Entity
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="#Content_002dType" accesskey="4">Content-Type</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Information of Content-Type field
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="#Content_002dDisposition" accesskey="5">Content-Disposition</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Information of Content-Disposition field
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="#Content_002dTransfer_002dEncoding" accesskey="6">Content-Transfer-Encoding</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Encoding Method
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="#encoded_002dword" accesskey="7">encoded-word</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Network representation of header
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="#custom" accesskey="8">custom</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Various Customization
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="#Appendix" accesskey="9">Appendix</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="#Concept-Index">Concept Index</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="#Function-Index">Function Index</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="#Variable-Index">Variable Index</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+</table>
+
+<hr>
+<a name="Introduction"></a>
+<div class="header">
+<p>
+Next: <a href="#How-to-use" accesskey="n" rel="next">How to use</a>, Previous: <a href="#Top" accesskey="p" rel="prev">Top</a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a> &nbsp; [<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<a name="What-is-FLIM_003f"></a>
+<h2 class="chapter">1 What is FLIM?</h2>
+
+<p>FLIM is a library to provide basic features about message
+representation or encoding.
+</p>
+
+<hr>
+<a name="How-to-use"></a>
+<div class="header">
+<p>
+Next: <a href="#Entity" accesskey="n" rel="next">Entity</a>, Previous: <a href="#Introduction" accesskey="p" rel="prev">Introduction</a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a> &nbsp; [<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<a name="How-to-use-MIME-features"></a>
+<h2 class="chapter">2 How to use MIME features</h2>
+
+<p>Please eval following to use MIME features provided by FLIM:
+</p>
+<div class="lisp">
+<pre class="lisp">(require 'mime)
+</pre></div>
+
+
+
+<hr>
+<a name="Entity"></a>
+<div class="header">
+<p>
+Next: <a href="#Content_002dType" accesskey="n" rel="next">Content-Type</a>, Previous: <a href="#How-to-use" accesskey="p" rel="prev">How to use</a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a> &nbsp; [<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<a name="Message-and-Entity"></a>
+<h2 class="chapter">3 Message and Entity</h2>
+<a name="index-mime_002dentity"></a>
+<a name="index-entity"></a>
+
+<p>According to RFC 2045 (<a href="#RFC-2045">RFC 2045</a>), &lsquo;The term &ldquo;entity&rdquo;, refers
+specifically to the MIME-defined header fields and contents of either a
+message or one of the parts in the body of a multipart entity.&rsquo;  In this
+document, the term <strong>entity</strong> indicates all of header fields and
+body.
+</p>
+<p>The definition of RFC 2045 indicates that a MIME message is a tree, and
+each node of the tree is an entity.  Namely MIME extends message to tree
+structure.
+</p>
+<p>FLIM uses <strong>mime-entity</strong> structure to represent
+information of entity.  In this document, it is called simply
+&lsquo;mime-entity&rsquo;.
+</p>
+
+<table class="menu" border="0" cellspacing="0">
+<tr><td align="left" valign="top">&bull; <a href="#Entity-creation" accesskey="1">Entity creation</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Functions to create mime-entity
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="#Entity-hierarchy" accesskey="2">Entity hierarchy</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Features about message tree
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="#Entity-Search" accesskey="3">Entity Search</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Find Entity
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="#Entity-Attributes" accesskey="4">Entity Attributes</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Functions about attributes of mime-entity
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="#Entity_002dheader" accesskey="5">Entity-header</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Information of entity header
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="#entity-formatting" accesskey="6">entity formatting</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Text presentation of entity
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="#Entity_002dcontent" accesskey="7">Entity-content</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Contents of Entity
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="#Entity_002dnetwork_002drepresentation" accesskey="8">Entity-network-representation</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Network representation of Entity
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="#Entity-buffer" accesskey="9">Entity buffer</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Entity as buffer representation
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="#mm_002dbackend">mm-backend</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Entity representations and implementations
+</td></tr>
+</table>
+
+<hr>
+<a name="Entity-creation"></a>
+<div class="header">
+<p>
+Next: <a href="#Entity-hierarchy" accesskey="n" rel="next">Entity hierarchy</a>, Previous: <a href="#Entity" accesskey="p" rel="prev">Entity</a>, Up: <a href="#Entity" accesskey="u" rel="up">Entity</a> &nbsp; [<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<a name="Functions-to-create-mime_002dentity"></a>
+<h3 class="section">3.1 Functions to create mime-entity</h3>
+
+<dl>
+<dt><a name="index-mime_002dopen_002dentity"></a>Function: <strong>mime-open-entity</strong> <em>&amp;optional  type location</em></dt>
+<dd>
+<p>Open an entity and return it.
+</p>
+<p><var>type</var> is representation-type. (cf. <a href="#mm_002dbackend">mm-backend</a>) 
+</p>
+<p><var>location</var> is location of entity.  Specification of it is depended
+on representation-type.
+</p></dd></dl>
+
+
+<dl>
+<dt><a name="index-mime_002dparse_002dbuffer"></a>Function: <strong>mime-parse-buffer</strong> <em>&amp;optional  buffer type</em></dt>
+<dd>
+<p>Parse <var>buffer</var> as message, and set the result to buffer local
+variable <code>mime-message-structure</code> of <var>buffer</var> as
+mime-entity.
+</p>
+<p>If <var>buffer</var> is omitted, current buffer is used.
+</p>
+<p><var>type</var> is representation-type of created
+mime-entity. (cf. <a href="#mm_002dbackend">mm-backend</a>) Default value is <var>buffer</var>.
+</p></dd></dl>
+
+
+
+<hr>
+<a name="Entity-hierarchy"></a>
+<div class="header">
+<p>
+Next: <a href="#Entity-Search" accesskey="n" rel="next">Entity Search</a>, Previous: <a href="#Entity-creation" accesskey="p" rel="prev">Entity creation</a>, Up: <a href="#Entity" accesskey="u" rel="up">Entity</a> &nbsp; [<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<a name="Features-about-message-tree"></a>
+<h3 class="section">3.2 Features about message tree</h3>
+<a name="index-node_002did"></a>
+<a name="index-entity_002dnumber"></a>
+<a name="index-message"></a>
+<a name="index-root_002dentity"></a>
+
+<p>Structure of a MIME message is tree.
+</p>
+<p>In the tree, root node is the entity indicates all of the message.  In
+this document, it is called <strong>root-entity</strong> or <strong>message</strong>.
+In FLIM, it is indicated by buffer local variable
+<code>mime-message-structure</code>.
+</p>
+<p>Each entity except root-entity has a parent.  An entity may have
+children.  We can indicate an entity by relative position from a base
+entity, based on the parent-child relationship.
+</p>
+<p>In addition, we can indicate an entity by absolute position of the
+message.
+</p>
+<p>Each entity, which is a node of the tree, can be numbered by
+depth and left-to-right order of the depth.
+</p><div class="example">
+<pre class="example">
+                              +-------+
+                              |  nil  |
+                              +---+---+
+              +-------------------+-------------------+
+            +-+-+               +-+-+               +-+-+
+            | 0 |               | 1 |               | 2 |
+            +-+-+               +-+-+               +-+-+
+              |         +---------+---------+         |
+           +--+--+   +--+--+   +--+--+   +--+--+   +--+--+
+           | 0.0 |   | 1.0 |   | 1.1 |   | 1.2 |   | 2.0 |
+           +-----+   +-----+   +-----+   +-----+   +-----+
+</pre></div>
+
+<p>Namely, if depth of a node is n, the node has a node-number, which is
+consists of n integers.  In this document, it is called
+<strong>entity-number</strong>.  An entity-number is represented by list of
+integer, like <code>(1 2 3)</code>.
+</p>
+<p>mime-entity has also <strong>node-id</strong>.  A node-id is represented by
+reversed list of entity-number.  For example, node-id corresponding with
+1.2.3 is <code>(3 2 1)</code>.
+</p>
+<p>Each entity can be indicated by entity-number or node-id in
+<code>mime-message-structure</code>.
+</p>
+<dl>
+<dt><a name="index-mime_002dmessage_002dstructure"></a>Variable: <strong>mime-message-structure</strong></dt>
+<dd>
+<p>Buffer local variable to store mime-entity structure of message.
+</p></dd></dl>
+
+
+<dl>
+<dt><a name="index-mime_002dentity_002dchildren"></a>Function: <strong>mime-entity-children</strong> <em>entity</em></dt>
+<dd>
+<p>Return list of entities included in the <var>entity</var>.
+</p></dd></dl>
+
+
+<dl>
+<dt><a name="index-mime_002dentity_002dparent"></a>Function: <strong>mime-entity-parent</strong> <em>entity  &amp;optional  message</em></dt>
+<dd>
+<p>Return parent entity of the <var>entity</var>.
+</p>
+<p>If <var>message</var> is specified, it is regarded as root instead of
+<code>mime-message-structure</code>.
+</p></dd></dl>
+
+
+<dl>
+<dt><a name="index-mime_002droot_002dentity_002dp"></a>Function: <strong>mime-root-entity-p</strong> <em>entity</em></dt>
+<dd>
+<p>Return non-<code>nil</code> if <var>entity</var> is root entity (message).
+</p></dd></dl>
+
+
+<dl>
+<dt><a name="index-mime_002dentity_002dnode_002did"></a>Function: <strong>mime-entity-node-id</strong> <em>entity</em></dt>
+<dd>
+<p>Return node-id of <var>entity</var>.
+</p></dd></dl>
+
+
+<dl>
+<dt><a name="index-mime_002dentity_002dnumber"></a>Function: <strong>mime-entity-number</strong> <em>entity</em></dt>
+<dd>
+<p>Return entity-number of <var>entity</var>.
+</p></dd></dl>
+
+
+
+<hr>
+<a name="Entity-Search"></a>
+<div class="header">
+<p>
+Next: <a href="#Entity-Attributes" accesskey="n" rel="next">Entity Attributes</a>, Previous: <a href="#Entity-hierarchy" accesskey="p" rel="prev">Entity hierarchy</a>, Up: <a href="#Entity" accesskey="u" rel="up">Entity</a> &nbsp; [<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<a name="Find-Entity"></a>
+<h3 class="section">3.3 Find Entity</h3>
+
+<dl>
+<dt><a name="index-mime_002dfind_002dentity_002dfrom_002dnumber"></a>Function: <strong>mime-find-entity-from-number</strong> <em>entity-number  &amp;optional  message</em></dt>
+<dd>
+<p>Return entity from <var>entity-number</var> in <var>message</var>.
+</p>
+<p>If <var>message</var> is not specified, <code>mime-message-structure</code> is
+used.
+</p></dd></dl>
+
+
+<dl>
+<dt><a name="index-mime_002dfind_002dentity_002dfrom_002dnode_002did"></a>Function: <strong>mime-find-entity-from-node-id</strong> <em>entity-node-id  &amp;optional  message</em></dt>
+<dd>
+<p>Return entity from <var>entity-node-id</var> in <var>message</var>.
+</p>
+<p>If <var>message</var> is not specified, <code>mime-message-structure</code> is
+used.
+</p></dd></dl>
+
+
+<dl>
+<dt><a name="index-mime_002dfind_002dentity_002dfrom_002dcontent_002did"></a>Function: <strong>mime-find-entity-from-content-id</strong> <em>cid  &amp;optional  message</em></dt>
+<dd>
+<p>Return entity from <var>cid</var> in <var>message</var>.
+</p>
+<p>If <var>message</var> is not specified, <code>mime-message-structure</code> is
+used.
+</p></dd></dl>
+
+
+
+<hr>
+<a name="Entity-Attributes"></a>
+<div class="header">
+<p>
+Next: <a href="#Entity_002dheader" accesskey="n" rel="next">Entity-header</a>, Previous: <a href="#Entity-Search" accesskey="p" rel="prev">Entity Search</a>, Up: <a href="#Entity" accesskey="u" rel="up">Entity</a> &nbsp; [<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<a name="Functions-about-attributes-of-mime_002dentity"></a>
+<h3 class="section">3.4 Functions about attributes of mime-entity</h3>
+
+<dl>
+<dt><a name="index-mime_002dentity_002dcontent_002dtype"></a>Function: <strong>mime-entity-content-type</strong> <em>entity</em></dt>
+<dd>
+<p>Return content-type of <var>entity</var>.  (cf. <a href="#mime_002dcontent_002dtype">mime-content-type</a>)
+</p></dd></dl>
+
+
+<dl>
+<dt><a name="index-mime_002dentity_002dcontent_002ddisposition"></a>Function: <strong>mime-entity-content-disposition</strong> <em>entity</em></dt>
+<dd>
+<p>Return content-disposition of
+<var>entity</var>. (cf. <a href="#mime_002dcontent_002ddisposition">mime-content-disposition</a>)
+</p></dd></dl>
+
+
+<dl>
+<dt><a name="index-mime_002dentity_002dfilename"></a>Function: <strong>mime-entity-filename</strong> <em>entity</em></dt>
+<dd>
+<p>Return file name of <var>entity</var>.
+</p></dd></dl>
+
+
+<dl>
+<dt><a name="index-mime_002dentity_002dencoding"></a>Function: <strong>mime-entity-encoding</strong> <em>entity  &amp;optional  default-encoding</em></dt>
+<dd>
+<p>Return content-transfer-encoding of <var>entity</var>.
+(cf. <a href="#Content_002dTransfer_002dEncoding">Content-Transfer-Encoding</a>) 
+</p>
+<p>If the <var>entity</var> does not have Content-Transfer-Encoding field, this
+function returns <var>default-encoding</var>.  If it is nil, <code>&quot;7bit&quot;</code> is
+used as default value.
+</p></dd></dl>
+
+
+<dl>
+<dt><a name="index-mime_002dentity_002dcooked_002dp"></a>Function: <strong>mime-entity-cooked-p</strong> <em>entity</em></dt>
+<dd>
+<p>Return non-nil if contents of <var>entity</var> has been already
+code-converted.
+</p></dd></dl>
+
+
+
+<hr>
+<a name="Entity_002dheader"></a>
+<div class="header">
+<p>
+Next: <a href="#entity-formatting" accesskey="n" rel="next">entity formatting</a>, Previous: <a href="#Entity-Attributes" accesskey="p" rel="prev">Entity Attributes</a>, Up: <a href="#Entity" accesskey="u" rel="up">Entity</a> &nbsp; [<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<a name="Information-of-entity-header"></a>
+<h3 class="section">3.5 Information of entity header</h3>
+
+<dl>
+<dt><a name="index-mime_002dfetch_002dfield"></a>Function: <strong>mime-fetch-field</strong> <em>field-name  &amp;optional  entity</em></dt>
+<dd>
+<p>Return field-body of <var>field-name</var> field in header of
+<var>entity</var>.
+</p>
+<p>The results is network representation.
+</p>
+<p>If <var>entity</var> is omitted, <code>mime-message-structure</code> is used as
+default value.
+</p>
+<p>If <var>field-name</var> field is not found, this function returns
+<code>nil</code>.
+</p></dd></dl>
+
+
+<dl>
+<dt><a name="index-mime_002dread_002dfield"></a>Function: <strong>mime-read-field</strong> <em>field-name  &amp;optional  entity</em></dt>
+<dd>
+<p>Parse <var>field-name</var> field in header of <var>entity</var>, and return the
+result.
+</p>
+<p>Format of result is depended on kind of field.  For non-structured
+field, this function returns string.  For structured field, it returns
+list corresponding with structure of the field.
+</p>
+<p>Strings in the result will be converted to internal representation of
+Emacs.
+</p>
+<p>If <var>entity</var> is omitted, <code>mime-message-structure</code> is used as
+default value.
+</p>
+<p>If <var>field-name</var> field is not found, this function returns
+<code>nil</code>.
+</p></dd></dl>
+
+
+
+<hr>
+<a name="entity-formatting"></a>
+<div class="header">
+<p>
+Next: <a href="#Entity_002dcontent" accesskey="n" rel="next">Entity-content</a>, Previous: <a href="#Entity_002dheader" accesskey="p" rel="prev">Entity-header</a>, Up: <a href="#Entity" accesskey="u" rel="up">Entity</a> &nbsp; [<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<a name="Text-presentation-of-entity"></a>
+<h3 class="section">3.6 Text presentation of entity</h3>
+
+<dl>
+<dt><a name="index-mime_002dinsert_002dheader"></a>Function: <strong>mime-insert-header</strong> <em>entity  &amp;optional  invisible-fields visible-fields</em></dt>
+<dd>
+<p>Insert before point a decoded contents of header of <var>entity</var>.
+</p>
+<p><var>invisible-fields</var> is list of regexps to match field-name to hide.
+<var>visible-fields</var> is list of regexps to match field-name to
+hide.
+</p>
+<p>If a field-name is matched with some elements of <var>invisible-fields</var>
+and matched with none of <var>visible-fields</var>, this function don&rsquo;t
+insert the field.
+</p>
+<p>Each encoded-word (<a href="#encoded_002dword">encoded-word</a>) in the header is decoded.  &ldquo;Raw
+non us-ascii characters&rdquo; are also decoded as
+<code>default-mime-charset</code>.
+</p></dd></dl>
+
+
+<dl>
+<dt><a name="index-mime_002dinsert_002dtext_002dcontent"></a>Function: <strong>mime-insert-text-content</strong> <em>entity</em></dt>
+<dd>
+<p>Insert before point a contents of <var>entity</var> as text entity.
+</p>
+<p>Contents of the <var>entity</var> are decoded as MIME charset (<a href="#MIME-charset">MIME charset</a>).  If the <var>entity</var> does not have charset parameter of
+Content-Type field, <code>default-mime-charset</code> is used as default
+value.
+</p></dd></dl>
+
+
+<dl>
+<dt><a name="index-default_002dmime_002dcharset"></a>Variable: <strong>default-mime-charset</strong></dt>
+<dd>
+<p>Symbol to indicate default value of MIME charset (<a href="#MIME-charset">MIME charset</a>).
+</p>
+<p>It is used when MIME charset is not specified.
+</p>
+<p>It is originally variable of APEL.
+</p></dd></dl>
+
+
+
+<hr>
+<a name="Entity_002dcontent"></a>
+<div class="header">
+<p>
+Next: <a href="#Entity_002dnetwork_002drepresentation" accesskey="n" rel="next">Entity-network-representation</a>, Previous: <a href="#entity-formatting" accesskey="p" rel="prev">entity formatting</a>, Up: <a href="#Entity" accesskey="u" rel="up">Entity</a> &nbsp; [<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<a name="Contents-of-Entity"></a>
+<h3 class="section">3.7 Contents of Entity</h3>
+
+<dl>
+<dt><a name="index-mime_002dentity_002dcontent"></a>Function: <strong>mime-entity-content</strong> <em>entity</em></dt>
+<dd>
+<p>Return content of <var>entity</var> as byte sequence.
+</p></dd></dl>
+
+
+<dl>
+<dt><a name="index-mime_002dinsert_002dentity_002dcontent"></a>Function: <strong>mime-insert-entity-content</strong> <em>entity</em></dt>
+<dd>
+<p>Insert content of <var>entity</var> at point.
+</p></dd></dl>
+
+
+<dl>
+<dt><a name="index-mime_002dwrite_002dentity_002dcontent"></a>Function: <strong>mime-write-entity-content</strong> <em>entity filename</em></dt>
+<dd>
+<p>Write content of <var>entity</var> into <var>filename</var>.
+</p></dd></dl>
+
+
+
+<hr>
+<a name="Entity_002dnetwork_002drepresentation"></a>
+<div class="header">
+<p>
+Next: <a href="#Entity-buffer" accesskey="n" rel="next">Entity buffer</a>, Previous: <a href="#Entity_002dcontent" accesskey="p" rel="prev">Entity-content</a>, Up: <a href="#Entity" accesskey="u" rel="up">Entity</a> &nbsp; [<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<a name="Network-representation-of-Entity"></a>
+<h3 class="section">3.8 Network representation of Entity</h3>
+
+<dl>
+<dt><a name="index-mime_002dinsert_002dentity"></a>Function: <strong>mime-insert-entity</strong> <em>entity</em></dt>
+<dd>
+<p>Insert header and body of <var>entity</var> at point.
+</p></dd></dl>
+
+
+<dl>
+<dt><a name="index-mime_002dwrite_002dentity"></a>Function: <strong>mime-write-entity</strong> <em>entity filename</em></dt>
+<dd>
+<p>Write representation of <var>entity</var> into <var>filename</var>.
+</p></dd></dl>
+
+
+<dl>
+<dt><a name="index-mime_002dwrite_002dentity_002dbody"></a>Function: <strong>mime-write-entity-body</strong> <em>entity filename</em></dt>
+<dd>
+<p>Write body of <var>entity</var> into <var>filename</var>.
+</p></dd></dl>
+
+
+
+<hr>
+<a name="Entity-buffer"></a>
+<div class="header">
+<p>
+Next: <a href="#mm_002dbackend" accesskey="n" rel="next">mm-backend</a>, Previous: <a href="#Entity_002dnetwork_002drepresentation" accesskey="p" rel="prev">Entity-network-representation</a>, Up: <a href="#Entity" accesskey="u" rel="up">Entity</a> &nbsp; [<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<a name="Entity-as-buffer-representation"></a>
+<h3 class="section">3.9 Entity as buffer representation</h3>
+
+<dl>
+<dt><a name="index-mime_002dentity_002dbuffer"></a>Function: <strong>mime-entity-buffer</strong> <em>entity</em></dt>
+<dd>
+<p>Return buffer, which contains <var>entity</var>.
+</p></dd></dl>
+
+
+<dl>
+<dt><a name="index-mime_002dentity_002dpoint_002dmin"></a>Function: <strong>mime-entity-point-min</strong> <em>entity</em></dt>
+<dd>
+<p>Return the start point of <var>entity</var> in the buffer which contains
+<var>entity</var>.
+</p></dd></dl>
+
+
+<dl>
+<dt><a name="index-mime_002dentity_002dpoint_002dmax"></a>Function: <strong>mime-entity-point-max</strong> <em>entity</em></dt>
+<dd>
+<p>Return the end point of <var>entity</var> in the buffer which contains
+<var>entity</var>.
+</p></dd></dl>
+
+
+<dl>
+<dt><a name="index-mime_002dentity_002dheader_002dstart"></a>Function: <strong>mime-entity-header-start</strong> <em>entity</em></dt>
+<dd>
+<p>Return the start point of header of <var>entity</var> in the buffer which
+contains <var>entity</var>.
+</p></dd></dl>
+
+
+<dl>
+<dt><a name="index-mime_002dentity_002dheader_002dend"></a>Function: <strong>mime-entity-header-end</strong> <em>entity</em></dt>
+<dd>
+<p>Return the end point of header of <var>entity</var> in the buffer which
+contains <var>entity</var>.
+</p></dd></dl>
+
+
+<dl>
+<dt><a name="index-mime_002dentity_002dbody_002dstart"></a>Function: <strong>mime-entity-body-start</strong> <em>entity</em></dt>
+<dd>
+<p>Return the start point of body of <var>entity</var> in the buffer which
+contains <var>entity</var>.
+</p></dd></dl>
+
+
+<dl>
+<dt><a name="index-mime_002dentity_002dbody_002dend"></a>Function: <strong>mime-entity-body-end</strong> <em>entity</em></dt>
+<dd>
+<p>Return the end point of body of <var>entity</var> in the buffer which
+contains <var>entity</var>.
+</p></dd></dl>
+
+
+
+<hr>
+<a name="mm_002dbackend"></a>
+<div class="header">
+<p>
+Previous: <a href="#Entity-buffer" accesskey="p" rel="prev">Entity buffer</a>, Up: <a href="#Entity" accesskey="u" rel="up">Entity</a> &nbsp; [<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<a name="Entity-representations-and-implementations"></a>
+<h3 class="section">3.10 Entity representations and implementations</h3>
+<a name="index-mm_002dbackend"></a>
+<a name="index-entity-processing-method"></a>
+<a name="index-representation_002dtype"></a>
+
+<p>Entity is an abstraction.  It is designed to use various data
+representations for their purposes.
+</p>
+<p>Each entity has <strong>representation-type</strong>.  It must be specified when
+an entity is created. (cf. <a href="#Entity-creation">Entity creation</a>) 
+</p>
+<p>Functions about entity are implemented by request processing to the
+entity.  Each entity knows its representation-type.  Each entity calls
+processing function corresponding with the representation-type.  Such
+kind of function is called <strong>entity processing method</strong>.  A module,
+consists of them corresponding with a representation-type, is called
+<strong>mm-backend</strong>.
+</p>
+<p>Module name of each mm-backend consists of the prefix <code>mm</code>
+and its representation-type.  The module is required automatically
+when its entity is created at first.
+</p>
+
+<table class="menu" border="0" cellspacing="0">
+<tr><td align="left" valign="top">&bull; <a href="#Request-for-entity" accesskey="1">Request for entity</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Message-passing for entity
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="#mm_002dbackend-module" accesskey="2">mm-backend module</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Definition of mm-backend
+</td></tr>
+</table>
+
+<hr>
+<a name="Request-for-entity"></a>
+<div class="header">
+<p>
+Next: <a href="#mm_002dbackend-module" accesskey="n" rel="next">mm-backend module</a>, Previous: <a href="#mm_002dbackend" accesskey="p" rel="prev">mm-backend</a>, Up: <a href="#mm_002dbackend" accesskey="u" rel="up">mm-backend</a> &nbsp; [<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<a name="Message_002dpassing-for-entity"></a>
+<h4 class="subsection">3.10.1 Message-passing for entity</h4>
+
+<dl>
+<dt><a name="index-mime_002dentity_002dsend"></a>Function: <strong>mime-entity-send</strong> <em>entity message  &amp;rest  args</em></dt>
+<dd>
+<p>Send <var>message</var> to <var>entity</var> with <var>args</var>, and return the
+result.
+</p>
+<p><var>args</var> is arguments of the <var>message</var>.
+</p></dd></dl>
+
+
+
+<hr>
+<a name="mm_002dbackend-module"></a>
+<div class="header">
+<p>
+Previous: <a href="#Request-for-entity" accesskey="p" rel="prev">Request for entity</a>, Up: <a href="#mm_002dbackend" accesskey="u" rel="up">mm-backend</a> &nbsp; [<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<a name="Definition-of-mm_002dbackend"></a>
+<h4 class="subsection">3.10.2 Definition of mm-backend</h4>
+
+<dl>
+<dt><a name="index-mm_002ddefine_002dbackend"></a>Macro: <strong>mm-define-backend</strong> <em>type &amp;optional  parents</em></dt>
+<dd>
+<p>Define <var>type</var> as a mm-backend.
+</p>
+<p>If <var>PARENTS</var> is specified, <var>type</var> inherits parents.  Each parent
+must be representation-type.
+</p>
+<p>Example:
+</p>
+<div class="lisp">
+<pre class="lisp">(mm-define-backend chao (generic))
+</pre></div>
+</dd></dl>
+
+
+<dl>
+<dt><a name="index-mm_002ddefine_002dmethod"></a>Macro: <strong>mm-define-method</strong> <em>name args  &amp;rest  body</em></dt>
+<dd>
+<p>Define <var>name</var> as a method function of (nth 1 (car <var>args</var>))
+backend.
+</p>
+<p><var>args</var> is like an argument list of lambda, but (car <var>args</var>) must
+be specialized parameter.  (car (car <var>args</var>)) is name of variable
+and (nth 1 (car <var>args</var>)) is name of backend
+(representation-type).
+</p>
+<p>Example:
+</p>
+<div class="lisp">
+<pre class="lisp">(mm-define-method entity-cooked-p ((entity chao)) nil)
+</pre></div>
+</dd></dl>
+
+
+
+<hr>
+<a name="Content_002dType"></a>
+<div class="header">
+<p>
+Next: <a href="#Content_002dDisposition" accesskey="n" rel="next">Content-Disposition</a>, Previous: <a href="#Entity" accesskey="p" rel="prev">Entity</a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a> &nbsp; [<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<a name="Information-of-Content_002dType-field"></a>
+<h2 class="chapter">4 Information of Content-Type field</h2>
+<a name="index-mime_002dcontent_002dtype"></a>
+<a name="index-Content_002dType-field"></a>
+
+<p><strong>Content-Type field</strong> is a field to indicate kind of contents or
+data format, such as media-type (<a href="#media_002dtype">media-type</a>) and MIME charset.  It
+is defined in RFC 2045 (<a href="#RFC-2045">RFC 2045</a>).
+</p>
+<p><strong>[Memo]</strong>
+</p><blockquote>
+
+<p>Historically, Content-Type field was proposed in RFC 1049.  In it,
+Content-Type did not distinguish type and subtype, and there are no
+mechanism to represent kind of character code like MIME charset.
+</p></blockquote>
+
+
+<p>FLIM provides parser for Content-Type field and structure
+<strong>mime-content-type</strong> to store information of
+Content-Type field.
+</p>
+
+<table class="menu" border="0" cellspacing="0">
+<tr><td align="left" valign="top">&bull; <a href="#Content_002dType-field" accesskey="1">Content-Type field</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Format of Content-Type field
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="#mime_002dcontent_002dtype" accesskey="2">mime-content-type</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">mime-content-type structure
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="#Content_002dType-parser" accesskey="3">Content-Type parser</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Parser
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="#Content_002dType-utility" accesskey="4">Content-Type utility</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Utility functions
+</td></tr>
+</table>
+
+<hr>
+<a name="Content_002dType-field"></a>
+<div class="header">
+<p>
+Next: <a href="#mime_002dcontent_002dtype" accesskey="n" rel="next">mime-content-type</a>, Previous: <a href="#Content_002dType" accesskey="p" rel="prev">Content-Type</a>, Up: <a href="#Content_002dType" accesskey="u" rel="up">Content-Type</a> &nbsp; [<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<a name="Format-of-Content_002dType-field"></a>
+<h3 class="section">4.1 Format of Content-Type field</h3>
+<a name="index-parameter"></a>
+<a name="index-subtype"></a>
+<a name="index-type"></a>
+
+<p>Format of Content-Type field is defined as follows:
+</p>
+<blockquote>
+<p>&ldquo;Content-Type&rdquo; &ldquo;:&rdquo; <strong>type</strong> &ldquo;/&rdquo;
+<strong>subtype</strong> *( &ldquo;;&rdquo; <strong>parameter</strong> )
+</p></blockquote>
+
+<p>For example:
+</p>
+<blockquote>
+<div class="example">
+<pre class="example">Content-Type: image/jpeg
+</pre></div>
+</blockquote>
+
+
+<blockquote>
+<div class="example">
+<pre class="example">Content-Type: text/plain; charset=iso-2022-jp
+</pre></div>
+</blockquote>
+
+<p>&lsquo;type&rsquo; and &lsquo;subtype&rsquo; indicate format of an entity.  In this document,
+pair of them is called &lsquo;media-type&rsquo;.  &lsquo;image/jpeg&rsquo; or &lsquo;text/plain&rsquo; is
+a media-type.
+</p>
+<p><strong>[Memo]</strong>
+</p><blockquote>
+
+<p>If an entity does not have Content-Type field, it is regarded as
+following:
+</p>
+<blockquote>
+<div class="example">
+<pre class="example">Content-Type: text/plain; charset=us-ascii
+</pre></div>
+</blockquote>
+
+<p>(cf. <a href="#us_002dascii">us-ascii</a>)
+</p></blockquote>
+
+
+
+<hr>
+<a name="mime_002dcontent_002dtype"></a>
+<div class="header">
+<p>
+Next: <a href="#Content_002dType-parser" accesskey="n" rel="next">Content-Type parser</a>, Previous: <a href="#Content_002dType-field" accesskey="p" rel="prev">Content-Type field</a>, Up: <a href="#Content_002dType" accesskey="u" rel="up">Content-Type</a> &nbsp; [<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<a name="mime_002dcontent_002dtype-structure"></a>
+<h3 class="section">4.2 mime-content-type structure</h3>
+
+<dl>
+<dt><a name="index-mime_002dcontent_002dtype-1"></a>Structure: <strong>mime-content-type</strong></dt>
+<dd>
+<p>Structure to store information of a Content-Type field.
+</p>
+<p>Applications should use reference functions
+<code>mime-content-type-SLOT</code> to refer information of the
+structure.
+</p>
+<p>Slots of the structure are following:
+</p>
+<dl compact="compact">
+<dt><var>primary-type</var></dt>
+<dd><p>primary type of media-type (symbol).
+</p>
+</dd>
+<dt><var>subtype</var></dt>
+<dd><p>subtype of media-type (symbol).
+</p>
+</dd>
+<dt><var>parameters</var></dt>
+<dd><p>parameters of Content-Type field (association-list).
+</p>
+</dd>
+</dl>
+</dd></dl>
+
+
+<dl>
+<dt><a name="index-make_002dmime_002dcontent_002dtype"></a>Function: <strong>make-mime-content-type</strong> <em>type subtype</em></dt>
+<dd><p>&amp;optional  parameters
+</p>
+<p>Constructor of content-type.
+</p></dd></dl>
+
+
+<dl>
+<dt><a name="index-mime_002dcontent_002dtype_002dparameter"></a>Function: <strong>mime-content-type-parameter</strong> <em>content-type parameter</em></dt>
+<dd>
+<p>Return value of <var>parameter</var> of <var>content-type</var>.
+</p></dd></dl>
+
+
+
+<hr>
+<a name="Content_002dType-parser"></a>
+<div class="header">
+<p>
+Next: <a href="#Content_002dType-utility" accesskey="n" rel="next">Content-Type utility</a>, Previous: <a href="#mime_002dcontent_002dtype" accesskey="p" rel="prev">mime-content-type</a>, Up: <a href="#Content_002dType" accesskey="u" rel="up">Content-Type</a> &nbsp; [<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<a name="Parser"></a>
+<h3 class="section">4.3 Parser</h3>
+
+<dl>
+<dt><a name="index-mime_002dparse_002dContent_002dType"></a>Function: <strong>mime-parse-Content-Type</strong> <em>string</em></dt>
+<dd>
+<p>Parse <var>string</var> as a field-body of Content-Type field, and return the
+result as mime-content-type (<a href="#mime_002dcontent_002dtype">mime-content-type</a>) structure.
+</p></dd></dl>
+
+
+<dl>
+<dt><a name="index-mime_002dread_002dContent_002dType"></a>Function: <strong>mime-read-Content-Type</strong></dt>
+<dd>
+<p>Parse Content-Type field of the current buffer, and return the result as
+mime-content-type (<a href="#mime_002dcontent_002dtype">mime-content-type</a>) structure.
+</p>
+<p>Return <code>nil</code> if Content-Type field is not found.
+</p></dd></dl>
+
+
+
+<hr>
+<a name="Content_002dType-utility"></a>
+<div class="header">
+<p>
+Previous: <a href="#Content_002dType-parser" accesskey="p" rel="prev">Content-Type parser</a>, Up: <a href="#Content_002dType" accesskey="u" rel="up">Content-Type</a> &nbsp; [<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<a name="Utility-functions"></a>
+<h3 class="section">4.4 Utility functions</h3>
+
+<dl>
+<dt><a name="index-mime_002dtype_002fsubtype_002dstring"></a>Function: <strong>mime-type/subtype-string</strong> <em>type  &amp;optional  subtype</em></dt>
+<dd>
+<p>Return type/subtype string from <var>type</var> and <var>subtype</var>.
+</p></dd></dl>
+
+
+
+<hr>
+<a name="Content_002dDisposition"></a>
+<div class="header">
+<p>
+Next: <a href="#Content_002dTransfer_002dEncoding" accesskey="n" rel="next">Content-Transfer-Encoding</a>, Previous: <a href="#Content_002dType" accesskey="p" rel="prev">Content-Type</a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a> &nbsp; [<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<a name="Information-of-Content_002dDisposition-field"></a>
+<h2 class="chapter">5 Information of Content-Disposition field</h2>
+<a name="index-mime_002dcontent_002ddisposition"></a>
+<a name="index-RFC-2183"></a>
+<a name="index-Standards-Track"></a>
+<a name="index-Content_002dDisposition-field"></a>
+
+<p><strong>Content-Disposition field</strong> is an optional field to
+specify presentation of an entity or attributes of an entity, such as
+file name.
+</p>
+
+<p>[RFC 2183]
+</p><blockquote>
+<p>S. Dorner, K. Moore and R. Troost, &ldquo;Communicating Presentation
+Information in Internet Messages: The Content-Disposition Header&rdquo;,
+August 1997, Standards Track.
+</p></blockquote>
+
+<p>FLIM provides parser for Content-Disposition field and structure
+<strong>mime-content-disposition</strong> to store information of
+Content-Disposition field.
+</p>
+
+<table class="menu" border="0" cellspacing="0">
+<tr><td align="left" valign="top">&bull; <a href="#mime_002dcontent_002ddisposition" accesskey="1">mime-content-disposition</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">mime-content-disposition structure
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="#Content_002dDisposition-parser" accesskey="2">Content-Disposition parser</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Parser for Content-Disposition field
+</td></tr>
+</table>
+
+<hr>
+<a name="mime_002dcontent_002ddisposition"></a>
+<div class="header">
+<p>
+Next: <a href="#Content_002dDisposition-parser" accesskey="n" rel="next">Content-Disposition parser</a>, Previous: <a href="#Content_002dDisposition" accesskey="p" rel="prev">Content-Disposition</a>, Up: <a href="#Content_002dDisposition" accesskey="u" rel="up">Content-Disposition</a> &nbsp; [<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<a name="mime_002dcontent_002ddisposition-structure"></a>
+<h3 class="section">5.1 mime-content-disposition structure</h3>
+
+<dl>
+<dt><a name="index-mime_002dcontent_002ddisposition-1"></a>Structure: <strong>mime-content-disposition</strong></dt>
+<dd>
+<p>Structure to store information of a Content-Disposition field.
+</p>
+<p>Applications should use reference functions
+<code>mime-content-disposition-SLOT</code> to refer information of the
+structure.
+</p>
+<p>Slots of the structure are following:
+</p>
+<dl compact="compact">
+<dt><var>disposition-type</var></dt>
+<dd><p>disposition-type (symbol).
+</p>
+</dd>
+<dt><var>parameters</var></dt>
+<dd><p>parameters of Content-Disposition field
+(association-list).
+</p>
+</dd>
+</dl>
+</dd></dl>
+
+
+<dl>
+<dt><a name="index-mime_002dcontent_002ddisposition_002dparameter"></a>Function: <strong>mime-content-disposition-parameter</strong> <em>content-disposition parameter</em></dt>
+<dd>
+<p>Return value of <var>parameter</var> of <var>content-disposition</var>.
+</p></dd></dl>
+
+
+<dl>
+<dt><a name="index-mime_002dcontent_002ddisposition_002dfilename"></a>Function: <strong>mime-content-disposition-filename</strong> <em>content-disposition</em></dt>
+<dd>
+<p>Return filename of <var>content-disposition</var>.
+</p></dd></dl>
+
+
+
+<hr>
+<a name="Content_002dDisposition-parser"></a>
+<div class="header">
+<p>
+Previous: <a href="#mime_002dcontent_002ddisposition" accesskey="p" rel="prev">mime-content-disposition</a>, Up: <a href="#Content_002dDisposition" accesskey="u" rel="up">Content-Disposition</a> &nbsp; [<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<a name="Parser-for-Content_002dDisposition-field"></a>
+<h3 class="section">5.2 Parser for Content-Disposition field</h3>
+
+<dl>
+<dt><a name="index-mime_002dparse_002dContent_002dDisposition"></a>Function: <strong>mime-parse-Content-Disposition</strong> <em>string</em></dt>
+<dd>
+<p>Parse <var>string</var> as field-body of Content-Disposition field, and
+return the result as mime-content-disposition
+(<a href="#mime_002dcontent_002ddisposition">mime-content-disposition</a>) structure.
+</p></dd></dl>
+
+
+<dl>
+<dt><a name="index-mime_002dread_002dContent_002dDisposition"></a>Function: <strong>mime-read-Content-Disposition</strong></dt>
+<dd>
+<p>Parse Content-Disposition field of the current buffer, and return the
+result as mime-content-disposition (<a href="#mime_002dcontent_002ddisposition">mime-content-disposition</a>)
+structure.
+</p>
+<p>Return <code>nil</code> if Content-Disposition field is not found.
+</p></dd></dl>
+
+
+
+<hr>
+<a name="Content_002dTransfer_002dEncoding"></a>
+<div class="header">
+<p>
+Next: <a href="#encoded_002dword" accesskey="n" rel="next">encoded-word</a>, Previous: <a href="#Content_002dDisposition" accesskey="p" rel="prev">Content-Disposition</a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a> &nbsp; [<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<a name="Encoding-Method"></a>
+<h2 class="chapter">6 Encoding Method</h2>
+<a name="index-Content_002dTransfer_002dEncoding-field"></a>
+
+<p><strong>Content-Transfer-Encoding field</strong> is a header field to indicate
+body encoding of a entity.
+</p>
+<p>FLIM provides parser functions for Content-Transfer-Encoding field.
+They represent information of Content-Transfer-Encoding field as
+string.
+</p>
+<p>In addition, FLIM provides encoder/decoder functions by
+Content-Transfer-Encoding.
+</p>
+
+<table class="menu" border="0" cellspacing="0">
+<tr><td align="left" valign="top">&bull; <a href="#Content_002dTransfer_002dEncoding-parser" accesskey="1">Content-Transfer-Encoding parser</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Parser
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="#encoder_002fdecoder" accesskey="2">encoder/decoder</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Encoder/decoder
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="#Encoding-information" accesskey="3">Encoding information</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Other utilities
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="#mel_002dbackend" accesskey="4">mel-backend</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">How to write encoder/decoder module
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="#generic-function-for-mel_002dbackend" accesskey="5">generic function for mel-backend</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">How to add encoding/decoding service
+</td></tr>
+</table>
+
+<hr>
+<a name="Content_002dTransfer_002dEncoding-parser"></a>
+<div class="header">
+<p>
+Next: <a href="#encoder_002fdecoder" accesskey="n" rel="next">encoder/decoder</a>, Previous: <a href="#Content_002dTransfer_002dEncoding" accesskey="p" rel="prev">Content-Transfer-Encoding</a>, Up: <a href="#Content_002dTransfer_002dEncoding" accesskey="u" rel="up">Content-Transfer-Encoding</a> &nbsp; [<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<a name="Parser-1"></a>
+<h3 class="section">6.1 Parser</h3>
+
+<dl>
+<dt><a name="index-mime_002dparse_002dContent_002dTransfer_002dEncoding"></a>Function: <strong>mime-parse-Content-Transfer-Encoding</strong> <em>string</em></dt>
+<dd>
+<p>Parse <var>string</var> as a field-body of Content-Transfer-Encoding field,
+and return the result.
+</p></dd></dl>
+
+
+<dl>
+<dt><a name="index-mime_002dread_002dContent_002dTransfer_002dEncoding"></a>Function: <strong>mime-read-Content-Transfer-Encoding</strong> <em>&amp;optional default-encoding</em></dt>
+<dd>
+<p>Parse Content-Transfer-Encoding field of the current buffer, and return
+the result.
+</p>
+<p>Return <var>default-encoding</var> if Content-Transfer-Encoding field is not
+found.  If it is not specified, <code>nil</code> is used as the default value.
+</p></dd></dl>
+
+
+
+<hr>
+<a name="encoder_002fdecoder"></a>
+<div class="header">
+<p>
+Next: <a href="#Encoding-information" accesskey="n" rel="next">Encoding information</a>, Previous: <a href="#Content_002dTransfer_002dEncoding-parser" accesskey="p" rel="prev">Content-Transfer-Encoding parser</a>, Up: <a href="#Content_002dTransfer_002dEncoding" accesskey="u" rel="up">Content-Transfer-Encoding</a> &nbsp; [<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<a name="Encoder_002fdecoder"></a>
+<h3 class="section">6.2 Encoder/decoder</h3>
+
+<dl>
+<dt><a name="index-mime_002dencode_002dregion"></a>Function: <strong>mime-encode-region</strong> <em>start end encoding</em></dt>
+<dd>
+<p>Encode region <var>start</var> to <var>end</var> of current buffer using
+<var>encoding</var>.
+</p></dd></dl>
+
+
+<dl>
+<dt><a name="index-mime_002ddecode_002dregion"></a>Function: <strong>mime-decode-region</strong> <em>start end encoding</em></dt>
+<dd>
+<p>Decode region <var>start</var> to <var>end</var> of current buffer using
+<var>encoding</var>.
+</p></dd></dl>
+
+
+
+<dl>
+<dt><a name="index-mime_002ddecode_002dstring"></a>Function: <strong>mime-decode-string</strong> <em>string encoding</em></dt>
+<dd>
+<p>Decode <var>string</var> which is encoded in <var>encoding</var>, and return the
+result.
+</p></dd></dl>
+
+
+
+<dl>
+<dt><a name="index-mime_002dinsert_002dencoded_002dfile"></a>Function: <strong>mime-insert-encoded-file</strong> <em>filename encoding</em></dt>
+<dd>
+<p>Insert file <var>FILENAME</var> encoded by <var>ENCODING</var> format.
+</p></dd></dl>
+
+
+<dl>
+<dt><a name="index-mime_002dwrite_002ddecoded_002dregion"></a>Function: <strong>mime-write-decoded-region</strong> <em>start end filename encoding</em></dt>
+<dd>
+<p>Decode and write current region encoded by <var>encoding</var> into
+<var>filename</var>.
+</p>
+<p><var>start</var> and <var>end</var> are buffer positions.
+</p></dd></dl>
+
+
+
+<hr>
+<a name="Encoding-information"></a>
+<div class="header">
+<p>
+Next: <a href="#mel_002dbackend" accesskey="n" rel="next">mel-backend</a>, Previous: <a href="#encoder_002fdecoder" accesskey="p" rel="prev">encoder/decoder</a>, Up: <a href="#Content_002dTransfer_002dEncoding" accesskey="u" rel="up">Content-Transfer-Encoding</a> &nbsp; [<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<a name="Other-utilities"></a>
+<h3 class="section">6.3 Other utilities</h3>
+
+<dl>
+<dt><a name="index-mime_002dencoding_002dlist"></a>Function: <strong>mime-encoding-list</strong> <em>&amp;optional  SERVICE</em></dt>
+<dd>
+<p>Return list of Content-Transfer-Encoding.
+</p>
+<p>If <var>service</var> is specified, it returns available list of
+Content-Transfer-Encoding for it.
+</p></dd></dl>
+
+
+<dl>
+<dt><a name="index-mime_002dencoding_002dalist"></a>Function: <strong>mime-encoding-alist</strong> <em>&amp;optional  SERVICE</em></dt>
+<dd>
+<p>Return table of Content-Transfer-Encoding for completion.
+</p>
+<p>If <var>service</var> is specified, it returns available list of
+Content-Transfer-Encoding for it.
+</p></dd></dl>
+
+
+
+<hr>
+<a name="mel_002dbackend"></a>
+<div class="header">
+<p>
+Next: <a href="#generic-function-for-mel_002dbackend" accesskey="n" rel="next">generic function for mel-backend</a>, Previous: <a href="#Encoding-information" accesskey="p" rel="prev">Encoding information</a>, Up: <a href="#Content_002dTransfer_002dEncoding" accesskey="u" rel="up">Content-Transfer-Encoding</a> &nbsp; [<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<a name="How-to-write-encoder_002fdecoder-module"></a>
+<h3 class="section">6.4 How to write encoder/decoder module</h3>
+
+<dl>
+<dt><a name="index-mel_002ddefine_002dmethod"></a>Macro: <strong>mel-define-method</strong> <em>name args  &amp;rest  body</em></dt>
+<dd>
+<p>Define <var>name</var> as a method function of (nth 1 (car (last
+<var>args</var>))) backend.
+</p>
+<p><var>args</var> is like an argument list of lambda, but (car (last
+<var>args</var>)) must be specialized parameter.  (car (car (last
+<var>args</var>))) is name of variable and (nth 1 (car (last <var>args</var>))) is
+name of backend (encoding).
+</p>
+<p>Example:
+</p>
+<div class="lisp">
+<pre class="lisp">(mel-define-method mime-write-decoded-region (start end filename
+						    (nil &quot;base64&quot;))
+  &quot;Decode and write current region encoded by base64 into FILENAME.
+START and END are buffer positions.&quot;
+  (interactive
+   (list (region-beginning) (region-end)
+	 (read-file-name &quot;Write decoded region to file: &quot;)))
+  (let ((str (buffer-substring start end)))
+    (with-temp-buffer
+      (insert (decode-base64-string str))
+      (write-region-as-binary (point-min) (point-max) filename)
+      )))
+</pre></div>
+</dd></dl>
+
+
+<dl>
+<dt><a name="index-mel_002ddefine_002dmethod_002dfunction"></a>Macro: <strong>mel-define-method-function</strong> <em>spec function</em></dt>
+<dd>
+<p>Set <var>spec</var>&rsquo;s function definition to <var>function</var>.
+</p>
+<p>First element of <var>spec</var> is service.
+</p>
+<p>Rest of <var>args</var> is like an argument list of lambda, but (car (last
+<var>args</var>)) must be specialized parameter.  (car (car (last
+<var>args</var>))) is name of variable and (nth 1 (car (last <var>args</var>))) is
+name of backend (encoding).
+</p>
+<p>Example:
+</p>
+<div class="lisp">
+<pre class="lisp">(mel-define-method-function (mime-encode-string string (nil &quot;base64&quot;))
+			    'encode-base64-string)
+</pre></div>
+</dd></dl>
+
+
+
+<hr>
+<a name="generic-function-for-mel_002dbackend"></a>
+<div class="header">
+<p>
+Previous: <a href="#mel_002dbackend" accesskey="p" rel="prev">mel-backend</a>, Up: <a href="#Content_002dTransfer_002dEncoding" accesskey="u" rel="up">Content-Transfer-Encoding</a> &nbsp; [<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<a name="How-to-add-encoding_002fdecoding-service"></a>
+<h3 class="section">6.5 How to add encoding/decoding service</h3>
+
+<dl>
+<dt><a name="index-mel_002ddefine_002dservice"></a>Macro: <strong>mel-define-service</strong> <em>name &amp;optional  args doc-string</em></dt>
+<dd>
+<p>Define <var>name</var> as a service for Content-Transfer-Encodings.
+</p>
+<p>If <var>args</var> is specified, <var>name</var> is defined as a generic function
+for the service.
+</p>
+<p>Example:
+</p>
+<div class="lisp">
+<pre class="lisp">(mel-define-service encoded-text-encode-string (string encoding)
+  &quot;Encode STRING as encoded-text using ENCODING.
+ENCODING must be string.&quot;)
+</pre></div>
+</dd></dl>
+
+
+
+<hr>
+<a name="encoded_002dword"></a>
+<div class="header">
+<p>
+Next: <a href="#custom" accesskey="n" rel="next">custom</a>, Previous: <a href="#Content_002dTransfer_002dEncoding" accesskey="p" rel="prev">Content-Transfer-Encoding</a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a> &nbsp; [<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<a name="Network-representation-of-header"></a>
+<h2 class="chapter">7 Network representation of header</h2>
+<a name="index-RFC-2047"></a>
+<a name="index-Standards-Track-1"></a>
+<a name="index-encoded_002dword"></a>
+<a name="index-RFC-2047-1"></a>
+
+<p><strong>RFC 2047</strong> defines the <strong>encoded-word</strong> which is a format to
+represent non-ASCII (<a href="#ASCII">ASCII</a>) characters in a header.
+</p>
+
+<p>[RFC 2047]
+</p><blockquote>
+<p>K. Moore, &ldquo;MIME (Multipurpose Internet Mail Extensions) Part Three:
+Message Header Extensions for Non-ASCII Text&rdquo;, November 1996, Standards
+Track (obsolete RFC 1521,1522,1590).
+</p></blockquote>
+
+<p>The encoded-word is the only valid format to represent non-ASCII
+(<a href="#ASCII">ASCII</a>) characters in a header, but there are also invalid styles.
+Such kinds of evil messages represent non-ASCII (<a href="#ASCII">ASCII</a>) characters
+in headers without encoded-words (it is called &quot;raw&quot; non-ASCII
+(<a href="#ASCII">ASCII</a>) characters).
+</p>
+<p>FLIM provides encoding/decoding features of both encoded-word and
+invalid &quot;raw&quot; non-ASCII (<a href="#ASCII">ASCII</a>) characters.
+</p>
+
+<table class="menu" border="0" cellspacing="0">
+<tr><td align="left" valign="top">&bull; <a href="#Header-encoder_002fdecoder" accesskey="1">Header encoder/decoder</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Header encoding/decoding
+</td></tr>
+</table>
+
+<hr>
+<a name="Header-encoder_002fdecoder"></a>
+<div class="header">
+<p>
+Previous: <a href="#encoded_002dword" accesskey="p" rel="prev">encoded-word</a>, Up: <a href="#encoded_002dword" accesskey="u" rel="up">encoded-word</a> &nbsp; [<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<a name="Header-encoding_002fdecoding"></a>
+<h3 class="section">7.1 Header encoding/decoding</h3>
+
+<dl>
+<dt><a name="index-eword_002ddecode_002dheader"></a>Function: <strong>eword-decode-header</strong> <em>&amp;optional  code-conversion separator</em></dt>
+<dd>
+<p>Decode MIME encoded-words in header fields.
+</p>
+<p>If <var>code-conversion</var> is <code>nil</code>, only encoded-words are decoded.
+If <var>code-conversion</var> is a MIME charset (<a href="#MIME-charset">MIME charset</a>),
+non-ASCII bit patterns are decoded as the MIME charset.  Otherwise
+non-ASCII bit patterns are decoded as the
+<code>default-mime-charset</code>. (cf. <a href="#entity-formatting">entity formatting</a>) 
+</p>
+<p>If <var>separator</var> is not <code>nil</code>, it is used as header separator.
+</p></dd></dl>
+
+
+<dl>
+<dt><a name="index-eword_002dencode_002dheader"></a>Function: <strong>eword-encode-header</strong> <em>&amp;optional  code-conversion</em></dt>
+<dd>
+<p>Encode header fields to network representation, such as MIME
+encoded-word.
+</p>
+<p>Each field is encoded as corresponding method specified by variable
+<code>mime-field-encoding-method-alist</code>.
+</p></dd></dl>
+
+
+<dl>
+<dt><a name="index-mime_002dfield_002dencoding_002dmethod_002dalist"></a>Variable: <strong>mime-field-encoding-method-alist</strong></dt>
+<dd>
+<p>Association list to specify field encoding method.  Each element looks
+like (FIELD . METHOD).
+</p>
+<p>If METHOD is <code>mime</code>, the FIELD will be encoded into MIME format
+(encoded-word).
+</p>
+<p>If METHOD is <code>nil</code>, the FIELD will not be encoded.
+</p>
+<p>If METHOD is a MIME charset, the FIELD will be encoded as the charset
+when it must be convert into network-code.
+</p>
+<p>Otherwise the FIELD will be encoded as variable
+<code>default-mime-charset</code> when it must be convert into network-code.
+</p></dd></dl>
+
+
+
+<hr>
+<a name="custom"></a>
+<div class="header">
+<p>
+Next: <a href="#Appendix" accesskey="n" rel="next">Appendix</a>, Previous: <a href="#encoded_002dword" accesskey="p" rel="prev">encoded-word</a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a> &nbsp; [<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<a name="Various-Customization"></a>
+<h2 class="chapter">8 Various Customization</h2>
+
+<dl>
+<dt><a name="index-mime"></a>group: <strong>mime</strong></dt>
+<dd>
+<p>The group associated with functions related to MIME.
+</p>
+<p>It belongs to <code>mail</code> and <code>news</code>.
+</p></dd></dl>
+
+
+<hr>
+<a name="Appendix"></a>
+<div class="header">
+<p>
+Next: <a href="#Concept-Index" accesskey="n" rel="next">Concept Index</a>, Previous: <a href="#custom" accesskey="p" rel="prev">custom</a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a> &nbsp; [<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<a name="Appendix-1"></a>
+<h2 class="chapter">9 Appendix</h2>
+
+
+<table class="menu" border="0" cellspacing="0">
+<tr><td align="left" valign="top">&bull; <a href="#Glossary" accesskey="1">Glossary</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="#Bug-report" accesskey="2">Bug report</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">How to report bugs
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="#CVS" accesskey="3">CVS</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">CVS based development
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="#History" accesskey="4">History</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">History of FLIM
+</td></tr>
+</table>
+
+<hr>
+<a name="Glossary"></a>
+<div class="header">
+<p>
+Next: <a href="#Bug-report" accesskey="n" rel="next">Bug report</a>, Previous: <a href="#Appendix" accesskey="p" rel="prev">Appendix</a>, Up: <a href="#Appendix" accesskey="u" rel="up">Appendix</a> &nbsp; [<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<a name="Glossary-1"></a>
+<h3 class="section">9.1 Glossary</h3>
+
+
+<table class="menu" border="0" cellspacing="0">
+<tr><td align="left" valign="top">&bull; <a href="#g_t7bit" accesskey="1">7bit</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="#g_t8bit" accesskey="2">8bit</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="#ASCII" accesskey="3">ASCII</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="#Base64" accesskey="4">Base64</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="#binary" accesskey="5">binary</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="#coded-character-set" accesskey="6">coded character set</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Coded character set, Character code
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="#media_002dtype" accesskey="7">media-type</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="#message" accesskey="8">message</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="#MIME" accesskey="9">MIME</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="#MIME-charset">MIME charset</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="#MTA">MTA</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="#MUA">MUA</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="#Quoted_002dPrintable">Quoted-Printable</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="#RFC-822">RFC 822</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="#RFC-1036">RFC 1036</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="#RFC-2045">RFC 2045</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="#RFC-2046">RFC 2046</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="#RFC-2048">RFC 2048</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="#RFC-2049">RFC 2049</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="#plain-text">plain text</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="#us_002dascii">us-ascii</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+</table>
+
+<hr>
+<a name="g_t7bit"></a>
+<div class="header">
+<p>
+Next: <a href="#g_t8bit" accesskey="n" rel="next">8bit</a>, Previous: <a href="#Glossary" accesskey="p" rel="prev">Glossary</a>, Up: <a href="#Glossary" accesskey="u" rel="up">Glossary</a> &nbsp; [<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<a name="g_t7bit-1"></a>
+<h4 class="subsection">9.1.1 7bit</h4>
+<a name="index-7bit-_0028textual_0029-string"></a>
+<a name="index-7bit-data"></a>
+<a name="index-7bit"></a>
+
+<p><strong>7bit</strong> means any integer between 0 .. 127.
+</p>
+<p>Any data represented by 7bit integers is called <strong>7bit data</strong>.
+</p>
+<p>Textual string consisted of Control characters between 0 .. 31 and 127,
+and space represented by 32, and graphic characters between 33 .. 236
+are called <strong>7bit (textual) string</strong>.
+</p>
+<p>Conventional Internet MTA (<a href="#MTA">MTA</a>) can translate 7bit data, so it is
+no need to translate by Quoted-Printable (<a href="#Quoted_002dPrintable">Quoted-Printable</a>) or
+Base64 (<a href="#Base64">Base64</a>) for 7bit data.
+</p>
+<p>However if there are too long lines, it can not translate by 7bit MTA
+even if it is 7bit data.  RFC 822 (<a href="#RFC-822">RFC 822</a>) and RFC 2045 (<a href="#RFC-2045">RFC 2045</a>) require lines in 7bit data must be less than 998 bytes.  So if a
+&ldquo;7bit data&rdquo; has a line more than 999 bytes, it is regarded as binary
+(<a href="#binary">binary</a>).  For example, Postscript file should be encoded by
+Quoted-Printable.
+</p>
+
+<hr>
+<a name="g_t8bit"></a>
+<div class="header">
+<p>
+Next: <a href="#ASCII" accesskey="n" rel="next">ASCII</a>, Previous: <a href="#g_t7bit" accesskey="p" rel="prev">7bit</a>, Up: <a href="#Glossary" accesskey="u" rel="up">Glossary</a> &nbsp; [<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<a name="g_t8bit-1"></a>
+<h4 class="subsection">9.1.2 8bit</h4>
+<a name="index-8bit-_0028textual_0029-string"></a>
+<a name="index-8bit-data"></a>
+<a name="index-8bit"></a>
+
+<p><strong>8bit</strong> means any integer between 0 .. 255.
+</p>
+<p>Any data represented by 8bit integers is called <strong>8bit data</strong>.
+</p>
+<p>Textual string consisted of Control characters between 0 .. 31, 127, and
+128 .. 159, and space represented by 32, and graphic characters between
+33 .. 236 and 160 .. 255 are called <strong>8bit (textual) string</strong>.
+</p>
+<p>For example, iso-8859-1 or euc-kr are
+coded-character-set represented by 8bit textual string.
+</p>
+<p>Traditional Internet MTA (<a href="#MTA">MTA</a>) can translate only 7bit
+(<a href="#g_t7bit">7bit</a>) data, so if a 8bit data will be translated such MTA, it
+must be encoded by Quoted-Printable (<a href="#Quoted_002dPrintable">Quoted-Printable</a>) or Base64
+(<a href="#Base64">Base64</a>).
+</p>
+<p>However 8bit MTA are increasing today.
+</p>
+<p>However if there are too long lines, it can not translate by 8bit MTA
+even if it is 8bit data.  RFC 2045 (<a href="#RFC-2045">RFC 2045</a>) require lines in
+8bit data must be less than 998 bytes.  So if a &ldquo;8bit data&rdquo; has a line
+more than 999 bytes, it is regarded as binary (<a href="#binary">binary</a>), so it must
+be encoded by Base64 or Quoted-Printable.
+</p>
+
+<hr>
+<a name="ASCII"></a>
+<div class="header">
+<p>
+Next: <a href="#Base64" accesskey="n" rel="next">Base64</a>, Previous: <a href="#g_t8bit" accesskey="p" rel="prev">8bit</a>, Up: <a href="#Glossary" accesskey="u" rel="up">Glossary</a> &nbsp; [<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<a name="ASCII-1"></a>
+<h4 class="subsection">9.1.3 ASCII</h4>
+<a name="index-ANSI-X3_002e4_003a1986"></a>
+<a name="index-ASCII"></a>
+<a name="index-ASCII-1"></a>
+
+<p><strong>ASCII</strong> is a 94-character set contains primary latin characters
+(A-Z, a-z), numbers and some characters.  It is a standard of the United
+States of America.  It is a variant of ISO 646.
+</p>
+
+<p>[ASCII]
+</p><blockquote>
+<p>&ldquo;Coded Character Set &ndash; 7-Bit American Standard Code for Information
+Interchange&rdquo;, ANSI X3.4:1986.
+</p></blockquote>
+
+
+
+<hr>
+<a name="Base64"></a>
+<div class="header">
+<p>
+Next: <a href="#binary" accesskey="n" rel="next">binary</a>, Previous: <a href="#ASCII" accesskey="p" rel="prev">ASCII</a>, Up: <a href="#Glossary" accesskey="u" rel="up">Glossary</a> &nbsp; [<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<a name="Base64-1"></a>
+<h4 class="subsection">9.1.4 Base64</h4>
+<a name="index-pad"></a>
+<a name="index-Base64"></a>
+
+<p><strong>Base64</strong> is a transfer encoding method of MIME (<a href="#MIME">MIME</a>)
+defined in RFC 2045 (<a href="#RFC-2045">RFC 2045</a>).
+</p>
+<p>The encoding process represents 24-bit groups of input bits as output
+strings of 4 encoded characters.  Encoded characters represent integer 0
+.. 63 or <strong>pad</strong>.  Base64 data must be 4 * n bytes, so pad is used
+to adjust size.
+</p>
+<p>These 65 characters are subset of all versions of ISO 646, including
+US-ASCII, and all versions of EBCDIC.  So it is safe even if it is
+translated by non-Internet gateways.
+</p>
+
+<hr>
+<a name="binary"></a>
+<div class="header">
+<p>
+Next: <a href="#coded-character-set" accesskey="n" rel="next">coded character set</a>, Previous: <a href="#Base64" accesskey="p" rel="prev">Base64</a>, Up: <a href="#Glossary" accesskey="u" rel="up">Glossary</a> &nbsp; [<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<a name="binary-1"></a>
+<h4 class="subsection">9.1.5 binary</h4>
+<a name="index-binary"></a>
+
+<p>Any byte stream is called <strong>binary</strong>.
+</p>
+<p>It does not require structureof lines.  It differs from from 8bit
+(<a href="#g_t8bit">8bit</a>).
+</p>
+<p>In addition, if line structured data contain too long line (more than
+998 bytes), it is regarded as binary.
+</p>
+
+<hr>
+<a name="coded-character-set"></a>
+<div class="header">
+<p>
+Next: <a href="#media_002dtype" accesskey="n" rel="next">media-type</a>, Previous: <a href="#binary" accesskey="p" rel="prev">binary</a>, Up: <a href="#Glossary" accesskey="u" rel="up">Glossary</a> &nbsp; [<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<a name="Coded-character-set_002c-Character-code"></a>
+<h4 class="subsection">9.1.6 Coded character set, Character code</h4>
+
+<p>A set of unambiguous rules that establishes a character set and the
+one-to-one relationship between the characters of the set and their
+bit combinations.
+</p>
+
+<hr>
+<a name="media_002dtype"></a>
+<div class="header">
+<p>
+Next: <a href="#message" accesskey="n" rel="next">message</a>, Previous: <a href="#coded-character-set" accesskey="p" rel="prev">coded character set</a>, Up: <a href="#Glossary" accesskey="u" rel="up">Glossary</a> &nbsp; [<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<a name="media_002dtype-1"></a>
+<h4 class="subsection">9.1.7 media-type</h4>
+<a name="index-x_002dtoken"></a>
+<a name="index-message-1"></a>
+<a name="index-multipart"></a>
+<a name="index-application"></a>
+<a name="index-video"></a>
+<a name="index-audio"></a>
+<a name="index-image"></a>
+<a name="index-text"></a>
+<a name="index-subtype-1"></a>
+<a name="index-type-1"></a>
+<a name="index-media_002dtype"></a>
+
+<p><strong>media-type</strong> specifies the nature of the data in the body of MIME
+(<a href="#MIME">MIME</a>) entity (<a href="#Entity">Entity</a>).  It consists of <strong>type</strong> and
+<strong>subtype</strong>.  It is defined in RFC 2046 (<a href="#RFC-2046">RFC 2046</a>).
+</p>
+<p>Currently there are following standard primary-types:
+</p>
+<ul>
+<li> <strong>text</strong>
+</li><li> <strong>image</strong>
+</li><li> <strong>audio</strong>
+</li><li> <strong>video</strong>
+</li><li> <strong>application</strong>
+</li><li> <strong>multipart</strong>
+</li><li> <strong>message</strong>
+</li></ul>
+
+
+<p>And there are various subtypes, for example, application/octet-stream,
+audio/basic, image/jpeg, multipart/mixed,
+text/plain, video/mpeg...  
+</p>
+<p>You can refer registered media types at MEDIA TYPES
+(ftp://ftp.isi.edu/in-notes/iana/assignments/media-types).
+</p>
+<p>In addition, you can use private type or subtype using <strong>x-token</strong>,
+which as the prefix &lsquo;x-&rsquo;.  However you can not use them in
+public.
+</p>
+<p>(cf. <a href="#Content_002dType-field">Content-Type field</a>)
+</p>
+
+
+<hr>
+<a name="message"></a>
+<div class="header">
+<p>
+Next: <a href="#MIME" accesskey="n" rel="next">MIME</a>, Previous: <a href="#media_002dtype" accesskey="p" rel="prev">media-type</a>, Up: <a href="#Glossary" accesskey="u" rel="up">Glossary</a> &nbsp; [<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<a name="message-1"></a>
+<h4 class="subsection">9.1.8 message</h4>
+
+<p>In this document, it means mail defined in RFC 822 (<a href="#RFC-822">RFC 822</a>) and
+news message defined in RFC 1036 (<a href="#RFC-1036">RFC 1036</a>).
+</p>
+
+<hr>
+<a name="MIME"></a>
+<div class="header">
+<p>
+Next: <a href="#MIME-charset" accesskey="n" rel="next">MIME charset</a>, Previous: <a href="#message" accesskey="p" rel="prev">message</a>, Up: <a href="#Glossary" accesskey="u" rel="up">Glossary</a> &nbsp; [<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<a name="MIME-1"></a>
+<h4 class="subsection">9.1.9 MIME</h4>
+<a name="index-Multipurpose-Internet-Mail-Extensions"></a>
+
+<p>MIME stands for <strong>Multipurpose Internet Mail Extensions</strong>, it is an
+extension for RFC 822 (<a href="#RFC-822">RFC 822</a>).
+</p>
+<p>According to RFC 2045:
+</p>
+<p>STD 11, RFC 822, defines a message representation protocol specifying
+considerable detail about US-ASCII message headers, and leaves the
+message content, or message body, as flat US-ASCII text.  This set of
+documents, collectively called the Multipurpose Internet Mail
+Extensions, or MIME, redefines the format of messages to allow for
+</p>
+<ol>
+<li> textual message bodies in character sets other than US-ASCII,
+</li><li> an extensible set of different formats for non-textual message
+bodies,
+</li><li> multi-part message bodies, and
+</li><li> textual header information in character sets other than US-ASCII.
+</li></ol>
+
+
+<p>It is defined in RFC 2045 (<a href="#RFC-2045">RFC 2045</a>), RFC 2046 (<a href="#RFC-2046">RFC 2046</a>),
+RFC 2047 (<a href="#encoded_002dword">encoded-word</a>), RFC 2048 (<a href="#RFC-2048">RFC 2048</a>) and RFC 2049
+(<a href="#RFC-2049">RFC 2049</a>).
+</p>
+
+<hr>
+<a name="MIME-charset"></a>
+<div class="header">
+<p>
+Next: <a href="#MTA" accesskey="n" rel="next">MTA</a>, Previous: <a href="#MIME" accesskey="p" rel="prev">MIME</a>, Up: <a href="#Glossary" accesskey="u" rel="up">Glossary</a> &nbsp; [<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<a name="MIME-charset-1"></a>
+<h4 class="subsection">9.1.10 MIME charset</h4>
+
+<p>Coded character set (<a href="#coded-character-set">coded character set</a>) used in Content-Type
+field (<a href="#Content_002dType-field">Content-Type field</a>) or charset parameter of encoded-word
+(<a href="#encoded_002dword">encoded-word</a>).
+</p>
+<p>It is defined in RFC 2045 (<a href="#RFC-2045">RFC 2045</a>).
+</p>
+<p>iso-2022-jp or euc-kr are kinds of
+it.  (In this document, MIME charsets are written by small letters to
+distinguish graphic character set.  For
+example, ISO 8859-1 is a graphic character set, and iso-8859-1 is a MIME
+charset)
+</p>
+
+<hr>
+<a name="MTA"></a>
+<div class="header">
+<p>
+Next: <a href="#MUA" accesskey="n" rel="next">MUA</a>, Previous: <a href="#MIME-charset" accesskey="p" rel="prev">MIME charset</a>, Up: <a href="#Glossary" accesskey="u" rel="up">Glossary</a> &nbsp; [<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<a name="MTA-1"></a>
+<h4 class="subsection">9.1.11 MTA</h4>
+<a name="index-Message-Transfer-Agent"></a>
+
+<p><strong>Message Transfer Agent</strong>.  It means mail transfer programs
+(ex. sendmail) and news servers.
+</p>
+<p>(cf. <a href="#MUA">MUA</a>)
+</p>
+
+
+<hr>
+<a name="MUA"></a>
+<div class="header">
+<p>
+Next: <a href="#Quoted_002dPrintable" accesskey="n" rel="next">Quoted-Printable</a>, Previous: <a href="#MTA" accesskey="p" rel="prev">MTA</a>, Up: <a href="#Glossary" accesskey="u" rel="up">Glossary</a> &nbsp; [<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<a name="MUA-1"></a>
+<h4 class="subsection">9.1.12 MUA</h4>
+<a name="index-Message-User-Agent"></a>
+
+<p><strong>Message User Agent</strong>.  It means mail readers and news
+readers.
+</p>
+<p>(cf. <a href="#MTA">MTA</a>)
+</p>
+
+
+<hr>
+<a name="Quoted_002dPrintable"></a>
+<div class="header">
+<p>
+Next: <a href="#RFC-822" accesskey="n" rel="next">RFC 822</a>, Previous: <a href="#MUA" accesskey="p" rel="prev">MUA</a>, Up: <a href="#Glossary" accesskey="u" rel="up">Glossary</a> &nbsp; [<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<a name="Quoted_002dPrintable-1"></a>
+<h4 class="subsection">9.1.13 Quoted-Printable</h4>
+<a name="index-Quoted_002dPrintable"></a>
+
+<p><strong>Quoted-Printable</strong> is a transfer encoding method of MIME
+(<a href="#MIME">MIME</a>) defined in RFC 2045 (<a href="#RFC-2045">RFC 2045</a>).
+</p>
+<p>If the data being encoded are mostly US-ASCII text, the encoded form of
+the data remains largely recognizable by humans.
+</p>
+<p>(cf. <a href="#Base64">Base64</a>)
+</p>
+
+
+<hr>
+<a name="RFC-822"></a>
+<div class="header">
+<p>
+Next: <a href="#RFC-1036" accesskey="n" rel="next">RFC 1036</a>, Previous: <a href="#Quoted_002dPrintable" accesskey="p" rel="prev">Quoted-Printable</a>, Up: <a href="#Glossary" accesskey="u" rel="up">Glossary</a> &nbsp; [<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<a name="RFC-822-1"></a>
+<h4 class="subsection">9.1.14 RFC 822</h4>
+<a name="index-RFC-822"></a>
+<a name="index-STD-11"></a>
+<a name="index-Internet-mail"></a>
+<a name="index-Internet-message"></a>
+<a name="index-message-header"></a>
+
+<p>A RFC defines format of Internet mail message, mainly <strong>message header</strong>.
+</p>
+<p><strong>[Memo]</strong>
+</p><blockquote>
+
+<p>news message is based on RFC 822, so <strong>Internet message</strong> may be
+more suitable than <strong>Internet mail</strong> .
+</p></blockquote>
+
+
+
+<p>[RFC 822]
+</p><blockquote>
+<p>D. Crocker, &ldquo;Standard for the Format of ARPA Internet Text Messages&rdquo;,
+August 1982, STD 11.
+</p></blockquote>
+
+
+
+<hr>
+<a name="RFC-1036"></a>
+<div class="header">
+<p>
+Next: <a href="#RFC-2045" accesskey="n" rel="next">RFC 2045</a>, Previous: <a href="#RFC-822" accesskey="p" rel="prev">RFC 822</a>, Up: <a href="#Glossary" accesskey="u" rel="up">Glossary</a> &nbsp; [<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<a name="RFC-1036-1"></a>
+<h4 class="subsection">9.1.15 RFC 1036</h4>
+<a name="index-RFC-1036"></a>
+<a name="index-USENET"></a>
+
+<p>A RFC defines format of USENET message.  It is a subset of RFC 822
+(<a href="#RFC-822">RFC 822</a>).  It is not Internet standard, but a lot of netnews
+excepting Usenet uses it.
+</p>
+
+<p>[USENET: RFC 1036]
+</p><blockquote>
+<p>M. Horton and R. Adams, &ldquo;Standard for Interchange of USENET Messages&rdquo;,
+December 1987, (obsolete RFC 850).
+</p></blockquote>
+
+
+
+<hr>
+<a name="RFC-2045"></a>
+<div class="header">
+<p>
+Next: <a href="#RFC-2046" accesskey="n" rel="next">RFC 2046</a>, Previous: <a href="#RFC-1036" accesskey="p" rel="prev">RFC 1036</a>, Up: <a href="#Glossary" accesskey="u" rel="up">Glossary</a> &nbsp; [<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<a name="RFC-2045-1"></a>
+<h4 class="subsection">9.1.16 RFC 2045</h4>
+<a name="index-RFC-2045"></a>
+<a name="index-Standards-Track-2"></a>
+
+
+<p>[RFC 2045]
+</p><blockquote>
+<p>N. Freed and N. Borenstein, &ldquo;Multipurpose Internet Mail Extensions
+(MIME) Part One: Format of Internet Message Bodies&rdquo;, November 1996,
+Standards Track (obsolete RFC 1521, 1522, 1590).
+</p></blockquote>
+
+
+
+<hr>
+<a name="RFC-2046"></a>
+<div class="header">
+<p>
+Next: <a href="#RFC-2048" accesskey="n" rel="next">RFC 2048</a>, Previous: <a href="#RFC-2045" accesskey="p" rel="prev">RFC 2045</a>, Up: <a href="#Glossary" accesskey="u" rel="up">Glossary</a> &nbsp; [<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<a name="RFC-2046-1"></a>
+<h4 class="subsection">9.1.17 RFC 2046</h4>
+<a name="index-RFC-2046"></a>
+<a name="index-Standards-Track-3"></a>
+
+
+<p>[RFC 2046]
+</p><blockquote>
+<p>N. Freed and N. Borenstein, &ldquo;Multipurpose Internet Mail Extensions
+(MIME) Part Two: Media Types&rdquo;, November 1996, Standards Track (obsolete
+RFC 1521, 1522, 1590).
+</p></blockquote>
+
+
+
+<hr>
+<a name="RFC-2048"></a>
+<div class="header">
+<p>
+Next: <a href="#RFC-2049" accesskey="n" rel="next">RFC 2049</a>, Previous: <a href="#RFC-2046" accesskey="p" rel="prev">RFC 2046</a>, Up: <a href="#Glossary" accesskey="u" rel="up">Glossary</a> &nbsp; [<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<a name="RFC-2048-1"></a>
+<h4 class="subsection">9.1.18 RFC 2048</h4>
+<a name="index-RFC-2048"></a>
+<a name="index-Standards-Track-4"></a>
+
+
+<p>[RFC 2048]
+</p><blockquote>
+<p>N. Freed, J. Klensin and J. Postel, &ldquo;Multipurpose Internet Mail
+Extensions (MIME) Part Four: Registration Procedures&rdquo;, November 1996,
+Standards Track (obsolete RFC 1521, 1522, 1590).
+</p></blockquote>
+
+
+
+<hr>
+<a name="RFC-2049"></a>
+<div class="header">
+<p>
+Next: <a href="#plain-text" accesskey="n" rel="next">plain text</a>, Previous: <a href="#RFC-2048" accesskey="p" rel="prev">RFC 2048</a>, Up: <a href="#Glossary" accesskey="u" rel="up">Glossary</a> &nbsp; [<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<a name="RFC-2049-1"></a>
+<h4 class="subsection">9.1.19 RFC 2049</h4>
+<a name="index-RFC-2049"></a>
+<a name="index-Standards-Track-5"></a>
+
+
+<p>[RFC 2049]
+</p><blockquote>
+<p>N. Freed and N. Borenstein, &ldquo;Multipurpose Internet Mail Extensions
+(MIME) Part Five: Conformance Criteria and Examples&rdquo;, November 1996,
+Standards Track (obsolete RFC 1521, 1522, 1590).
+</p></blockquote>
+
+
+
+<hr>
+<a name="plain-text"></a>
+<div class="header">
+<p>
+Next: <a href="#us_002dascii" accesskey="n" rel="next">us-ascii</a>, Previous: <a href="#RFC-2049" accesskey="p" rel="prev">RFC 2049</a>, Up: <a href="#Glossary" accesskey="u" rel="up">Glossary</a> &nbsp; [<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<a name="plain-text-1"></a>
+<h4 class="subsection">9.1.20 plain text</h4>
+
+<p>A textual data represented by only coded character set (<a href="#coded-character-set">coded character set</a>).  It does not have information about font or
+typesetting.
+</p>
+
+
+<hr>
+<a name="us_002dascii"></a>
+<div class="header">
+<p>
+Previous: <a href="#plain-text" accesskey="p" rel="prev">plain text</a>, Up: <a href="#Glossary" accesskey="u" rel="up">Glossary</a> &nbsp; [<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<a name="us_002dascii-1"></a>
+<h4 class="subsection">9.1.21 us-ascii</h4>
+<a name="index-ASCII-2"></a>
+<a name="index-us_002dascii"></a>
+
+<p>A MIME charset (<a href="#MIME-charset">MIME charset</a>) for primary Latin script mainly
+written by English or other languages.
+</p>
+<p>It is a 7bit coded character set (<a href="#coded-character-set">coded character set</a>) based on
+ISO 2022, it contains only ASCII (<a href="#ASCII">ASCII</a>) and code
+extension is not allowed.
+</p>
+<p>It is standard coded character set of Internet mail.  If MIME charset is
+not specified, <strong>us-ascii</strong> is used as default.
+</p>
+<p>In addition, <strong>ASCII</strong> of RFC 822 (<a href="#RFC-822">RFC 822</a>) should be
+interpreted as us-ascii.
+</p>
+
+<hr>
+<a name="Bug-report"></a>
+<div class="header">
+<p>
+Next: <a href="#CVS" accesskey="n" rel="next">CVS</a>, Previous: <a href="#Glossary" accesskey="p" rel="prev">Glossary</a>, Up: <a href="#Appendix" accesskey="u" rel="up">Appendix</a> &nbsp; [<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<a name="How-to-report-bugs"></a>
+<h3 class="section">9.2 How to report bugs</h3>
+<a name="index-good-bug-report"></a>
+
+<p>If you write bug-reports and/or suggestions for improvement, please
+send them to the EMACS-MIME Mailing List:
+</p>
+<ul>
+<li> English &lt;emacs-mime-en@m17n.org&gt;
+</li><li> Japanese &lt;emacs-mime-ja@m17n.org&gt;
+</li></ul>
+
+
+<p>Notice that, we do not welcome bug reports about too old version.  Bugs
+in old version might be fixed.  So please try latest version at
+first.
+</p>
+<p>You should write <strong>good bug report</strong>.  If you write only &ldquo;FLIM
+does not work&rdquo;, we can not find such situations.  At least, you should
+write name, type, variants and version of OS, emacs, APEL, FLIM, SEMI
+and MUA, and setting.  In addition, if error occurs, to send backtrace
+is very important. (cf. <a href="http://www.gnu.org/software/emacs/manual/html_mono/emacs.html#Bugs">(emacs)Bugs</a>) 
+</p>
+<p>Bug may not appear only your environment, but also in a lot of
+environment (otherwise it might not bug).  Therefor if you send mail
+to author directly, we must write a lot of mails.  So please send mail
+to address for EMACS-MIME Mailing List instead of author.
+</p>
+<p>Via the EMACS-MIME ML, you can report FLIM bugs, obtain the latest
+release of FLIM, and discuss future enhancements to FLIM.  To join the
+EMACS-MIME ML, send an empty e-mail to:
+</p>
+<ul>
+<li> English  &lt;emacs-mime-en-ctl@m17n.org&gt;
+</li><li> Japanese &lt;emacs-mime-ja-ctl@m17n.org&gt;
+</li></ul>
+
+
+
+<hr>
+<a name="CVS"></a>
+<div class="header">
+<p>
+Next: <a href="#History" accesskey="n" rel="next">History</a>, Previous: <a href="#Bug-report" accesskey="p" rel="prev">Bug report</a>, Up: <a href="#Appendix" accesskey="u" rel="up">Appendix</a> &nbsp; [<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<a name="CVS-based-development"></a>
+<h3 class="section">9.3 CVS based development</h3>
+
+<p>Files in FLIM are managed under CVS. Therefore you can obtain the
+newest FLIM by the following method.
+</p>
+<div class="example">
+<pre class="example">(0) cvs login
+
+    % cvs -d :pserver:anonymous@cvs.m17n.org:/cvs/root login
+
+    CVS password: [CR] # NULL string
+
+(1) checkout
+
+    % cvs -d :pserver:anonymous@cvs.m17n.org:/cvs/root checkout
+	checkout [-r TAG] flim
+</pre></div>
+
+
+<p>If you would like to join CVS based development, please send mail to
+</p>
+<ul>
+<li> &lt;cvs@cvs.m17n.org&gt;
+</li></ul>
+
+<p>with your account name and your public key for ssh.
+cvsroot is :ext:cvs@cvs.m17n.org:/cvs/root.
+</p>
+
+<hr>
+<a name="History"></a>
+<div class="header">
+<p>
+Previous: <a href="#CVS" accesskey="p" rel="prev">CVS</a>, Up: <a href="#Appendix" accesskey="u" rel="up">Appendix</a> &nbsp; [<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<a name="History-of-FLIM"></a>
+<h3 class="section">9.4 History of FLIM</h3>
+
+<p>FLIM の code の最古の部分は 榎並 嗣智 氏が書いた <samp>mime.el</samp> に起源し
+ます。この小さな program は Nemacs で動作する iso-2022-jp の B-encoding 
+専用の encoded-word の復号化プログラムでした。
+</p>
+<p>その後、守岡 知彦 は <samp>mime.el</samp> を元に<samp>tiny-mime.el</samp> というプロ
+グラムを書きます。これは、Nemacs と Mule で動作する encoded-word の符号
+化・復号化プログラムでした。<samp>tiny-mime.el</samp> は B-encoding だけでなく 
+Q-encoding もsupport し、また、MULE で扱うことができるさまざまな MIME
+charset (<a href="#MIME-charset">MIME charset</a>) を同時に使うことができました。この時、
+Nemacs と Mule の双方を support するために用いられたテクニックは後に emu
+package にまとめられます。
+</p>
+<p>この頃、守岡 知彦 は <samp>tiny-mime.el</samp> をさまざまな MUA で使うための設
+定集も配布していましたが、それらは後に<samp>tiny-mime.el</samp> とともに１つの 
+package にまとめられ、tm という名前で配布されます。
+</p>
+<p>守岡 知彦 はやがて、MIME message を閲覧するためのプログラムである
+<samp>tm-body.el</samp> を書きます。これは、すぐに<samp>tm-view.el</samp> という名前
+に変わりましたが、やがて、これが<samp>tiny-mime.el</samp> に代わって、tm の中
+核となります。
+</p>
+<p><samp>tm-view.el</samp> は当然、Content-Transfer-Encoding を扱う必要があります。
+この目的のために、MEL が整備されはじめました。Base64 に関しては 
+<samp>tiny-mime.el</samp> の code が移され、また、新たにQuoted-Printable の 
+code が追加されました。これらが<samp>mel-b.el</samp> と <samp>mel-q.el</samp> になり
+ました。
+</p>
+<p>また、後に、守岡 知彦 によって uuencode 用の <samp>mel-u.el</samp> が追加され、
+その後に、小林 修平 氏によって x-gzip64 用の<samp>mel-g.el</samp> が追加されま
+した。
+</p>
+<p>tm では後に、守岡 知彦 によって <samp>tiny-mime.el</samp> の再実装が行われ、こ
+の過程で、STD 11 の parser が書かれました。これは、現在の 
+<samp>std11.el</samp> に当たります。また、この過程で <samp>tiny-mime.el</samp> は復
+号化を行う <samp>tm-ew-d.el</samp> と符号化を行う <samp>tm-ew-e.el</samp> に分けられ
+ました。この両者が現在の <samp>eword-decode.el</samp> と 
+<samp>eword-encode.el</samp> の先祖に当たります。
+</p>
+<p>後に、守岡 知彦 らによって tm の全面書き換え作業が行われ、この過程で、tm 
+は APEL, MEL, SEMI, EMH, RMAIL-MIME, Gnus-MIME などに分けられました。こ
+のうちの MEL が FLIM の直接の先祖に当たります。
+</p>
+<p>後に、APEL から <samp>std11.el</samp> が移され、また、<samp>mailcap.el</samp>,
+<samp>eword-decode.el</samp> および <samp>eword-encode.el</samp> が SEMI から移され、
+package の名前が FLIM となります。
+</p>
+<p>この直前から田中 哲 氏がより RFC に忠実な実装を書き始め、これは、現在、
+FLIM の枝である &ldquo;FLIM-FLAM&rdquo; となっています。
+</p>
+
+<hr>
+<a name="Concept-Index"></a>
+<div class="header">
+<p>
+Next: <a href="#Function-Index" accesskey="n" rel="next">Function Index</a>, Previous: <a href="#Appendix" accesskey="p" rel="prev">Appendix</a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a> &nbsp; [<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<a name="Concept-Index-1"></a>
+<h2 class="chapter">10 Concept Index</h2>
+
+<table><tr><th valign="top">Jump to: &nbsp; </th><td><a class="summary-letter" href="#Concept-Index_cp_symbol-1"><b>7</b></a>
+ &nbsp; 
+<a class="summary-letter" href="#Concept-Index_cp_symbol-2"><b>8</b></a>
+ &nbsp; 
+<br>
+<a class="summary-letter" href="#Concept-Index_cp_letter-A"><b>A</b></a>
+ &nbsp; 
+<a class="summary-letter" href="#Concept-Index_cp_letter-B"><b>B</b></a>
+ &nbsp; 
+<a class="summary-letter" href="#Concept-Index_cp_letter-C"><b>C</b></a>
+ &nbsp; 
+<a class="summary-letter" href="#Concept-Index_cp_letter-E"><b>E</b></a>
+ &nbsp; 
+<a class="summary-letter" href="#Concept-Index_cp_letter-G"><b>G</b></a>
+ &nbsp; 
+<a class="summary-letter" href="#Concept-Index_cp_letter-I"><b>I</b></a>
+ &nbsp; 
+<a class="summary-letter" href="#Concept-Index_cp_letter-M"><b>M</b></a>
+ &nbsp; 
+<a class="summary-letter" href="#Concept-Index_cp_letter-N"><b>N</b></a>
+ &nbsp; 
+<a class="summary-letter" href="#Concept-Index_cp_letter-P"><b>P</b></a>
+ &nbsp; 
+<a class="summary-letter" href="#Concept-Index_cp_letter-Q"><b>Q</b></a>
+ &nbsp; 
+<a class="summary-letter" href="#Concept-Index_cp_letter-R"><b>R</b></a>
+ &nbsp; 
+<a class="summary-letter" href="#Concept-Index_cp_letter-S"><b>S</b></a>
+ &nbsp; 
+<a class="summary-letter" href="#Concept-Index_cp_letter-T"><b>T</b></a>
+ &nbsp; 
+<a class="summary-letter" href="#Concept-Index_cp_letter-U"><b>U</b></a>
+ &nbsp; 
+<a class="summary-letter" href="#Concept-Index_cp_letter-V"><b>V</b></a>
+ &nbsp; 
+<a class="summary-letter" href="#Concept-Index_cp_letter-X"><b>X</b></a>
+ &nbsp; 
+</td></tr></table>
+<table class="index-cp" border="0">
+<tr><td></td><th align="left">Index Entry</th><td>&nbsp;</td><th align="left"> Section</th></tr>
+<tr><td colspan="4"> <hr></td></tr>
+<tr><th><a name="Concept-Index_cp_symbol-1">7</a></th><td></td><td></td></tr>
+<tr><td></td><td valign="top"><a href="#index-7bit">7bit</a>:</td><td>&nbsp;</td><td valign="top"><a href="#g_t7bit">7bit</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-7bit-_0028textual_0029-string">7bit (textual) string</a>:</td><td>&nbsp;</td><td valign="top"><a href="#g_t7bit">7bit</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-7bit-data">7bit data</a>:</td><td>&nbsp;</td><td valign="top"><a href="#g_t7bit">7bit</a></td></tr>
+<tr><td colspan="4"> <hr></td></tr>
+<tr><th><a name="Concept-Index_cp_symbol-2">8</a></th><td></td><td></td></tr>
+<tr><td></td><td valign="top"><a href="#index-8bit">8bit</a>:</td><td>&nbsp;</td><td valign="top"><a href="#g_t8bit">8bit</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-8bit-_0028textual_0029-string">8bit (textual) string</a>:</td><td>&nbsp;</td><td valign="top"><a href="#g_t8bit">8bit</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-8bit-data">8bit data</a>:</td><td>&nbsp;</td><td valign="top"><a href="#g_t8bit">8bit</a></td></tr>
+<tr><td colspan="4"> <hr></td></tr>
+<tr><th><a name="Concept-Index_cp_letter-A">A</a></th><td></td><td></td></tr>
+<tr><td></td><td valign="top"><a href="#index-ANSI-X3_002e4_003a1986">ANSI X3.4:1986</a>:</td><td>&nbsp;</td><td valign="top"><a href="#ASCII">ASCII</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-application">application</a>:</td><td>&nbsp;</td><td valign="top"><a href="#media_002dtype">media-type</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-ASCII">ASCII</a>:</td><td>&nbsp;</td><td valign="top"><a href="#ASCII">ASCII</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-ASCII-1">ASCII</a>:</td><td>&nbsp;</td><td valign="top"><a href="#ASCII">ASCII</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-ASCII-2">ASCII</a>:</td><td>&nbsp;</td><td valign="top"><a href="#us_002dascii">us-ascii</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-audio">audio</a>:</td><td>&nbsp;</td><td valign="top"><a href="#media_002dtype">media-type</a></td></tr>
+<tr><td colspan="4"> <hr></td></tr>
+<tr><th><a name="Concept-Index_cp_letter-B">B</a></th><td></td><td></td></tr>
+<tr><td></td><td valign="top"><a href="#index-Base64">Base64</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Base64">Base64</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-binary">binary</a>:</td><td>&nbsp;</td><td valign="top"><a href="#binary">binary</a></td></tr>
+<tr><td colspan="4"> <hr></td></tr>
+<tr><th><a name="Concept-Index_cp_letter-C">C</a></th><td></td><td></td></tr>
+<tr><td></td><td valign="top"><a href="#index-Content_002dDisposition-field">Content-Disposition field</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Content_002dDisposition">Content-Disposition</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-Content_002dTransfer_002dEncoding-field">Content-Transfer-Encoding field</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Content_002dTransfer_002dEncoding">Content-Transfer-Encoding</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-Content_002dType-field">Content-Type field</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Content_002dType">Content-Type</a></td></tr>
+<tr><td colspan="4"> <hr></td></tr>
+<tr><th><a name="Concept-Index_cp_letter-E">E</a></th><td></td><td></td></tr>
+<tr><td></td><td valign="top"><a href="#index-encoded_002dword">encoded-word</a>:</td><td>&nbsp;</td><td valign="top"><a href="#encoded_002dword">encoded-word</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-entity">entity</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Entity">Entity</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-entity-processing-method">entity processing method</a>:</td><td>&nbsp;</td><td valign="top"><a href="#mm_002dbackend">mm-backend</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-entity_002dnumber">entity-number</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Entity-hierarchy">Entity hierarchy</a></td></tr>
+<tr><td colspan="4"> <hr></td></tr>
+<tr><th><a name="Concept-Index_cp_letter-G">G</a></th><td></td><td></td></tr>
+<tr><td></td><td valign="top"><a href="#index-good-bug-report">good bug report</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Bug-report">Bug report</a></td></tr>
+<tr><td colspan="4"> <hr></td></tr>
+<tr><th><a name="Concept-Index_cp_letter-I">I</a></th><td></td><td></td></tr>
+<tr><td></td><td valign="top"><a href="#index-image">image</a>:</td><td>&nbsp;</td><td valign="top"><a href="#media_002dtype">media-type</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-Internet-mail">Internet mail</a>:</td><td>&nbsp;</td><td valign="top"><a href="#RFC-822">RFC 822</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-Internet-message">Internet message</a>:</td><td>&nbsp;</td><td valign="top"><a href="#RFC-822">RFC 822</a></td></tr>
+<tr><td colspan="4"> <hr></td></tr>
+<tr><th><a name="Concept-Index_cp_letter-M">M</a></th><td></td><td></td></tr>
+<tr><td></td><td valign="top"><a href="#index-media_002dtype">media-type</a>:</td><td>&nbsp;</td><td valign="top"><a href="#media_002dtype">media-type</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-message">message</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Entity-hierarchy">Entity hierarchy</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-message-1">message</a>:</td><td>&nbsp;</td><td valign="top"><a href="#media_002dtype">media-type</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-message-header">message header</a>:</td><td>&nbsp;</td><td valign="top"><a href="#RFC-822">RFC 822</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-Message-Transfer-Agent">Message Transfer Agent</a>:</td><td>&nbsp;</td><td valign="top"><a href="#MTA">MTA</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-Message-User-Agent">Message User Agent</a>:</td><td>&nbsp;</td><td valign="top"><a href="#MUA">MUA</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-mime_002dcontent_002ddisposition">mime-content-disposition</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Content_002dDisposition">Content-Disposition</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-mime_002dcontent_002dtype">mime-content-type</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Content_002dType">Content-Type</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-mime_002dentity">mime-entity</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Entity">Entity</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-mm_002dbackend">mm-backend</a>:</td><td>&nbsp;</td><td valign="top"><a href="#mm_002dbackend">mm-backend</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-multipart">multipart</a>:</td><td>&nbsp;</td><td valign="top"><a href="#media_002dtype">media-type</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-Multipurpose-Internet-Mail-Extensions">Multipurpose Internet Mail Extensions</a>:</td><td>&nbsp;</td><td valign="top"><a href="#MIME">MIME</a></td></tr>
+<tr><td colspan="4"> <hr></td></tr>
+<tr><th><a name="Concept-Index_cp_letter-N">N</a></th><td></td><td></td></tr>
+<tr><td></td><td valign="top"><a href="#index-node_002did">node-id</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Entity-hierarchy">Entity hierarchy</a></td></tr>
+<tr><td colspan="4"> <hr></td></tr>
+<tr><th><a name="Concept-Index_cp_letter-P">P</a></th><td></td><td></td></tr>
+<tr><td></td><td valign="top"><a href="#index-pad">pad</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Base64">Base64</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-parameter">parameter</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Content_002dType-field">Content-Type field</a></td></tr>
+<tr><td colspan="4"> <hr></td></tr>
+<tr><th><a name="Concept-Index_cp_letter-Q">Q</a></th><td></td><td></td></tr>
+<tr><td></td><td valign="top"><a href="#index-Quoted_002dPrintable">Quoted-Printable</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Quoted_002dPrintable">Quoted-Printable</a></td></tr>
+<tr><td colspan="4"> <hr></td></tr>
+<tr><th><a name="Concept-Index_cp_letter-R">R</a></th><td></td><td></td></tr>
+<tr><td></td><td valign="top"><a href="#index-representation_002dtype">representation-type</a>:</td><td>&nbsp;</td><td valign="top"><a href="#mm_002dbackend">mm-backend</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-RFC-1036">RFC 1036</a>:</td><td>&nbsp;</td><td valign="top"><a href="#RFC-1036">RFC 1036</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-RFC-2045">RFC 2045</a>:</td><td>&nbsp;</td><td valign="top"><a href="#RFC-2045">RFC 2045</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-RFC-2046">RFC 2046</a>:</td><td>&nbsp;</td><td valign="top"><a href="#RFC-2046">RFC 2046</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-RFC-2047">RFC 2047</a>:</td><td>&nbsp;</td><td valign="top"><a href="#encoded_002dword">encoded-word</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-RFC-2047-1">RFC 2047</a>:</td><td>&nbsp;</td><td valign="top"><a href="#encoded_002dword">encoded-word</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-RFC-2048">RFC 2048</a>:</td><td>&nbsp;</td><td valign="top"><a href="#RFC-2048">RFC 2048</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-RFC-2049">RFC 2049</a>:</td><td>&nbsp;</td><td valign="top"><a href="#RFC-2049">RFC 2049</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-RFC-2183">RFC 2183</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Content_002dDisposition">Content-Disposition</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-RFC-822">RFC 822</a>:</td><td>&nbsp;</td><td valign="top"><a href="#RFC-822">RFC 822</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-root_002dentity">root-entity</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Entity-hierarchy">Entity hierarchy</a></td></tr>
+<tr><td colspan="4"> <hr></td></tr>
+<tr><th><a name="Concept-Index_cp_letter-S">S</a></th><td></td><td></td></tr>
+<tr><td></td><td valign="top"><a href="#index-Standards-Track">Standards Track</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Content_002dDisposition">Content-Disposition</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-Standards-Track-1">Standards Track</a>:</td><td>&nbsp;</td><td valign="top"><a href="#encoded_002dword">encoded-word</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-Standards-Track-2">Standards Track</a>:</td><td>&nbsp;</td><td valign="top"><a href="#RFC-2045">RFC 2045</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-Standards-Track-3">Standards Track</a>:</td><td>&nbsp;</td><td valign="top"><a href="#RFC-2046">RFC 2046</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-Standards-Track-4">Standards Track</a>:</td><td>&nbsp;</td><td valign="top"><a href="#RFC-2048">RFC 2048</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-Standards-Track-5">Standards Track</a>:</td><td>&nbsp;</td><td valign="top"><a href="#RFC-2049">RFC 2049</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-STD-11">STD 11</a>:</td><td>&nbsp;</td><td valign="top"><a href="#RFC-822">RFC 822</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-subtype">subtype</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Content_002dType-field">Content-Type field</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-subtype-1">subtype</a>:</td><td>&nbsp;</td><td valign="top"><a href="#media_002dtype">media-type</a></td></tr>
+<tr><td colspan="4"> <hr></td></tr>
+<tr><th><a name="Concept-Index_cp_letter-T">T</a></th><td></td><td></td></tr>
+<tr><td></td><td valign="top"><a href="#index-text">text</a>:</td><td>&nbsp;</td><td valign="top"><a href="#media_002dtype">media-type</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-type">type</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Content_002dType-field">Content-Type field</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-type-1">type</a>:</td><td>&nbsp;</td><td valign="top"><a href="#media_002dtype">media-type</a></td></tr>
+<tr><td colspan="4"> <hr></td></tr>
+<tr><th><a name="Concept-Index_cp_letter-U">U</a></th><td></td><td></td></tr>
+<tr><td></td><td valign="top"><a href="#index-us_002dascii">us-ascii</a>:</td><td>&nbsp;</td><td valign="top"><a href="#us_002dascii">us-ascii</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-USENET">USENET</a>:</td><td>&nbsp;</td><td valign="top"><a href="#RFC-1036">RFC 1036</a></td></tr>
+<tr><td colspan="4"> <hr></td></tr>
+<tr><th><a name="Concept-Index_cp_letter-V">V</a></th><td></td><td></td></tr>
+<tr><td></td><td valign="top"><a href="#index-video">video</a>:</td><td>&nbsp;</td><td valign="top"><a href="#media_002dtype">media-type</a></td></tr>
+<tr><td colspan="4"> <hr></td></tr>
+<tr><th><a name="Concept-Index_cp_letter-X">X</a></th><td></td><td></td></tr>
+<tr><td></td><td valign="top"><a href="#index-x_002dtoken">x-token</a>:</td><td>&nbsp;</td><td valign="top"><a href="#media_002dtype">media-type</a></td></tr>
+<tr><td colspan="4"> <hr></td></tr>
+</table>
+<table><tr><th valign="top">Jump to: &nbsp; </th><td><a class="summary-letter" href="#Concept-Index_cp_symbol-1"><b>7</b></a>
+ &nbsp; 
+<a class="summary-letter" href="#Concept-Index_cp_symbol-2"><b>8</b></a>
+ &nbsp; 
+<br>
+<a class="summary-letter" href="#Concept-Index_cp_letter-A"><b>A</b></a>
+ &nbsp; 
+<a class="summary-letter" href="#Concept-Index_cp_letter-B"><b>B</b></a>
+ &nbsp; 
+<a class="summary-letter" href="#Concept-Index_cp_letter-C"><b>C</b></a>
+ &nbsp; 
+<a class="summary-letter" href="#Concept-Index_cp_letter-E"><b>E</b></a>
+ &nbsp; 
+<a class="summary-letter" href="#Concept-Index_cp_letter-G"><b>G</b></a>
+ &nbsp; 
+<a class="summary-letter" href="#Concept-Index_cp_letter-I"><b>I</b></a>
+ &nbsp; 
+<a class="summary-letter" href="#Concept-Index_cp_letter-M"><b>M</b></a>
+ &nbsp; 
+<a class="summary-letter" href="#Concept-Index_cp_letter-N"><b>N</b></a>
+ &nbsp; 
+<a class="summary-letter" href="#Concept-Index_cp_letter-P"><b>P</b></a>
+ &nbsp; 
+<a class="summary-letter" href="#Concept-Index_cp_letter-Q"><b>Q</b></a>
+ &nbsp; 
+<a class="summary-letter" href="#Concept-Index_cp_letter-R"><b>R</b></a>
+ &nbsp; 
+<a class="summary-letter" href="#Concept-Index_cp_letter-S"><b>S</b></a>
+ &nbsp; 
+<a class="summary-letter" href="#Concept-Index_cp_letter-T"><b>T</b></a>
+ &nbsp; 
+<a class="summary-letter" href="#Concept-Index_cp_letter-U"><b>U</b></a>
+ &nbsp; 
+<a class="summary-letter" href="#Concept-Index_cp_letter-V"><b>V</b></a>
+ &nbsp; 
+<a class="summary-letter" href="#Concept-Index_cp_letter-X"><b>X</b></a>
+ &nbsp; 
+</td></tr></table>
+
+<hr>
+<a name="Function-Index"></a>
+<div class="header">
+<p>
+Next: <a href="#Variable-Index" accesskey="n" rel="next">Variable Index</a>, Previous: <a href="#Concept-Index" accesskey="p" rel="prev">Concept Index</a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a> &nbsp; [<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<a name="Function-Index-1"></a>
+<h2 class="chapter">11 Function Index</h2>
+
+<table><tr><th valign="top">Jump to: &nbsp; </th><td><a class="summary-letter" href="#Function-Index_fn_letter-E"><b>E</b></a>
+ &nbsp; 
+<a class="summary-letter" href="#Function-Index_fn_letter-M"><b>M</b></a>
+ &nbsp; 
+</td></tr></table>
+<table class="index-fn" border="0">
+<tr><td></td><th align="left">Index Entry</th><td>&nbsp;</td><th align="left"> Section</th></tr>
+<tr><td colspan="4"> <hr></td></tr>
+<tr><th><a name="Function-Index_fn_letter-E">E</a></th><td></td><td></td></tr>
+<tr><td></td><td valign="top"><a href="#index-eword_002ddecode_002dheader"><code>eword-decode-header</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Header-encoder_002fdecoder">Header encoder/decoder</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-eword_002dencode_002dheader"><code>eword-encode-header</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Header-encoder_002fdecoder">Header encoder/decoder</a></td></tr>
+<tr><td colspan="4"> <hr></td></tr>
+<tr><th><a name="Function-Index_fn_letter-M">M</a></th><td></td><td></td></tr>
+<tr><td></td><td valign="top"><a href="#index-make_002dmime_002dcontent_002dtype"><code>make-mime-content-type</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#mime_002dcontent_002dtype">mime-content-type</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-mel_002ddefine_002dmethod"><code>mel-define-method</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#mel_002dbackend">mel-backend</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-mel_002ddefine_002dmethod_002dfunction"><code>mel-define-method-function</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#mel_002dbackend">mel-backend</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-mel_002ddefine_002dservice"><code>mel-define-service</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#generic-function-for-mel_002dbackend">generic function for mel-backend</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-mime"><code>mime</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#custom">custom</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-mime_002dcontent_002ddisposition-1"><code>mime-content-disposition</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#mime_002dcontent_002ddisposition">mime-content-disposition</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-mime_002dcontent_002ddisposition_002dfilename"><code>mime-content-disposition-filename</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#mime_002dcontent_002ddisposition">mime-content-disposition</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-mime_002dcontent_002ddisposition_002dparameter"><code>mime-content-disposition-parameter</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#mime_002dcontent_002ddisposition">mime-content-disposition</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-mime_002dcontent_002dtype-1"><code>mime-content-type</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#mime_002dcontent_002dtype">mime-content-type</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-mime_002dcontent_002dtype_002dparameter"><code>mime-content-type-parameter</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#mime_002dcontent_002dtype">mime-content-type</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-mime_002ddecode_002dregion"><code>mime-decode-region</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#encoder_002fdecoder">encoder/decoder</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-mime_002ddecode_002dstring"><code>mime-decode-string</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#encoder_002fdecoder">encoder/decoder</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-mime_002dencode_002dregion"><code>mime-encode-region</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#encoder_002fdecoder">encoder/decoder</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-mime_002dencoding_002dalist"><code>mime-encoding-alist</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Encoding-information">Encoding information</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-mime_002dencoding_002dlist"><code>mime-encoding-list</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Encoding-information">Encoding information</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-mime_002dentity_002dbody_002dend"><code>mime-entity-body-end</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Entity-buffer">Entity buffer</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-mime_002dentity_002dbody_002dstart"><code>mime-entity-body-start</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Entity-buffer">Entity buffer</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-mime_002dentity_002dbuffer"><code>mime-entity-buffer</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Entity-buffer">Entity buffer</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-mime_002dentity_002dchildren"><code>mime-entity-children</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Entity-hierarchy">Entity hierarchy</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-mime_002dentity_002dcontent"><code>mime-entity-content</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Entity_002dcontent">Entity-content</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-mime_002dentity_002dcontent_002ddisposition"><code>mime-entity-content-disposition</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Entity-Attributes">Entity Attributes</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-mime_002dentity_002dcontent_002dtype"><code>mime-entity-content-type</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Entity-Attributes">Entity Attributes</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-mime_002dentity_002dcooked_002dp"><code>mime-entity-cooked-p</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Entity-Attributes">Entity Attributes</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-mime_002dentity_002dencoding"><code>mime-entity-encoding</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Entity-Attributes">Entity Attributes</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-mime_002dentity_002dfilename"><code>mime-entity-filename</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Entity-Attributes">Entity Attributes</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-mime_002dentity_002dheader_002dend"><code>mime-entity-header-end</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Entity-buffer">Entity buffer</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-mime_002dentity_002dheader_002dstart"><code>mime-entity-header-start</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Entity-buffer">Entity buffer</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-mime_002dentity_002dnode_002did"><code>mime-entity-node-id</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Entity-hierarchy">Entity hierarchy</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-mime_002dentity_002dnumber"><code>mime-entity-number</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Entity-hierarchy">Entity hierarchy</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-mime_002dentity_002dparent"><code>mime-entity-parent</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Entity-hierarchy">Entity hierarchy</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-mime_002dentity_002dpoint_002dmax"><code>mime-entity-point-max</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Entity-buffer">Entity buffer</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-mime_002dentity_002dpoint_002dmin"><code>mime-entity-point-min</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Entity-buffer">Entity buffer</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-mime_002dentity_002dsend"><code>mime-entity-send</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Request-for-entity">Request for entity</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-mime_002dfetch_002dfield"><code>mime-fetch-field</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Entity_002dheader">Entity-header</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-mime_002dfind_002dentity_002dfrom_002dcontent_002did"><code>mime-find-entity-from-content-id</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Entity-Search">Entity Search</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-mime_002dfind_002dentity_002dfrom_002dnode_002did"><code>mime-find-entity-from-node-id</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Entity-Search">Entity Search</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-mime_002dfind_002dentity_002dfrom_002dnumber"><code>mime-find-entity-from-number</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Entity-Search">Entity Search</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-mime_002dinsert_002dencoded_002dfile"><code>mime-insert-encoded-file</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#encoder_002fdecoder">encoder/decoder</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-mime_002dinsert_002dentity"><code>mime-insert-entity</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Entity_002dnetwork_002drepresentation">Entity-network-representation</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-mime_002dinsert_002dentity_002dcontent"><code>mime-insert-entity-content</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Entity_002dcontent">Entity-content</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-mime_002dinsert_002dheader"><code>mime-insert-header</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#entity-formatting">entity formatting</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-mime_002dinsert_002dtext_002dcontent"><code>mime-insert-text-content</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#entity-formatting">entity formatting</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-mime_002dopen_002dentity"><code>mime-open-entity</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Entity-creation">Entity creation</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-mime_002dparse_002dbuffer"><code>mime-parse-buffer</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Entity-creation">Entity creation</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-mime_002dparse_002dContent_002dDisposition"><code>mime-parse-Content-Disposition</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Content_002dDisposition-parser">Content-Disposition parser</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-mime_002dparse_002dContent_002dTransfer_002dEncoding"><code>mime-parse-Content-Transfer-Encoding</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Content_002dTransfer_002dEncoding-parser">Content-Transfer-Encoding parser</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-mime_002dparse_002dContent_002dType"><code>mime-parse-Content-Type</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Content_002dType-parser">Content-Type parser</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-mime_002dread_002dContent_002dDisposition"><code>mime-read-Content-Disposition</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Content_002dDisposition-parser">Content-Disposition parser</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-mime_002dread_002dContent_002dTransfer_002dEncoding"><code>mime-read-Content-Transfer-Encoding</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Content_002dTransfer_002dEncoding-parser">Content-Transfer-Encoding parser</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-mime_002dread_002dContent_002dType"><code>mime-read-Content-Type</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Content_002dType-parser">Content-Type parser</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-mime_002dread_002dfield"><code>mime-read-field</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Entity_002dheader">Entity-header</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-mime_002droot_002dentity_002dp"><code>mime-root-entity-p</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Entity-hierarchy">Entity hierarchy</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-mime_002dtype_002fsubtype_002dstring"><code>mime-type/subtype-string</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Content_002dType-utility">Content-Type utility</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-mime_002dwrite_002ddecoded_002dregion"><code>mime-write-decoded-region</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#encoder_002fdecoder">encoder/decoder</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-mime_002dwrite_002dentity"><code>mime-write-entity</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Entity_002dnetwork_002drepresentation">Entity-network-representation</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-mime_002dwrite_002dentity_002dbody"><code>mime-write-entity-body</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Entity_002dnetwork_002drepresentation">Entity-network-representation</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-mime_002dwrite_002dentity_002dcontent"><code>mime-write-entity-content</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Entity_002dcontent">Entity-content</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-mm_002ddefine_002dbackend"><code>mm-define-backend</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#mm_002dbackend-module">mm-backend module</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-mm_002ddefine_002dmethod"><code>mm-define-method</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#mm_002dbackend-module">mm-backend module</a></td></tr>
+<tr><td colspan="4"> <hr></td></tr>
+</table>
+<table><tr><th valign="top">Jump to: &nbsp; </th><td><a class="summary-letter" href="#Function-Index_fn_letter-E"><b>E</b></a>
+ &nbsp; 
+<a class="summary-letter" href="#Function-Index_fn_letter-M"><b>M</b></a>
+ &nbsp; 
+</td></tr></table>
+
+<hr>
+<a name="Variable-Index"></a>
+<div class="header">
+<p>
+Previous: <a href="#Function-Index" accesskey="p" rel="prev">Function Index</a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a> &nbsp; [<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<a name="Variable-Index-1"></a>
+<h2 class="chapter">12 Variable Index</h2>
+
+<table><tr><th valign="top">Jump to: &nbsp; </th><td><a class="summary-letter" href="#Variable-Index_vr_letter-D"><b>D</b></a>
+ &nbsp; 
+<a class="summary-letter" href="#Variable-Index_vr_letter-M"><b>M</b></a>
+ &nbsp; 
+</td></tr></table>
+<table class="index-vr" border="0">
+<tr><td></td><th align="left">Index Entry</th><td>&nbsp;</td><th align="left"> Section</th></tr>
+<tr><td colspan="4"> <hr></td></tr>
+<tr><th><a name="Variable-Index_vr_letter-D">D</a></th><td></td><td></td></tr>
+<tr><td></td><td valign="top"><a href="#index-default_002dmime_002dcharset"><code>default-mime-charset</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#entity-formatting">entity formatting</a></td></tr>
+<tr><td colspan="4"> <hr></td></tr>
+<tr><th><a name="Variable-Index_vr_letter-M">M</a></th><td></td><td></td></tr>
+<tr><td></td><td valign="top"><a href="#index-mime_002dfield_002dencoding_002dmethod_002dalist"><code>mime-field-encoding-method-alist</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Header-encoder_002fdecoder">Header encoder/decoder</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-mime_002dmessage_002dstructure"><code>mime-message-structure</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Entity-hierarchy">Entity hierarchy</a></td></tr>
+<tr><td colspan="4"> <hr></td></tr>
+</table>
+<table><tr><th valign="top">Jump to: &nbsp; </th><td><a class="summary-letter" href="#Variable-Index_vr_letter-D"><b>D</b></a>
+ &nbsp; 
+<a class="summary-letter" href="#Variable-Index_vr_letter-M"><b>M</b></a>
+ &nbsp; 
+</td></tr></table>
+<hr>
+
+
+
+</body>
+</html>

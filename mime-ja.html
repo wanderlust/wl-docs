@@ -1,0 +1,2376 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<!-- Created by GNU Texinfo 5.2, http://www.gnu.org/software/texinfo/ -->
+<head>
+<title>FLIM 1.14 MIME 機能説明書</title>
+
+<meta name="description" content="FLIM 1.14 MIME 機能説明書">
+<meta name="keywords" content="FLIM 1.14 MIME 機能説明書">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="texi2any">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<link href="#Top" rel="start" title="Top">
+<link href="#Concept-Index" rel="index" title="Concept Index">
+<link href="dir.html#Top" rel="up" title="(dir)">
+<style type="text/css">
+<!--
+a.summary-letter {text-decoration: none}
+blockquote.smallquotation {font-size: smaller}
+div.display {margin-left: 3.2em}
+div.example {margin-left: 3.2em}
+div.indentedblock {margin-left: 3.2em}
+div.lisp {margin-left: 3.2em}
+div.smalldisplay {margin-left: 3.2em}
+div.smallexample {margin-left: 3.2em}
+div.smallindentedblock {margin-left: 3.2em; font-size: smaller}
+div.smalllisp {margin-left: 3.2em}
+kbd {font-style:oblique}
+pre.display {font-family: inherit}
+pre.format {font-family: inherit}
+pre.menu-comment {font-family: serif}
+pre.menu-preformatted {font-family: serif}
+pre.smalldisplay {font-family: inherit; font-size: smaller}
+pre.smallexample {font-size: smaller}
+pre.smallformat {font-family: inherit; font-size: smaller}
+pre.smalllisp {font-size: smaller}
+span.nocodebreak {white-space:nowrap}
+span.nolinebreak {white-space:nowrap}
+span.roman {font-family:serif; font-weight:normal}
+span.sansserif {font-family:sans-serif; font-weight:normal}
+ul.no-bullet {list-style: none}
+-->
+</style>
+<link rel="stylesheet" type="text/css" href="janix-texinfo.css">
+
+
+</head>
+
+<body lang="ja" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
+<h1 class="settitle" align="center">FLIM 1.14 MIME 機能説明書</h1>
+<a name="Top"></a>
+<div class="header">
+<p>
+Next: <a href="#Introduction" accesskey="n" rel="next">Introduction</a>, Previous: <a href="dir.html#Top" accesskey="p" rel="prev">(dir)</a>, Up: <a href="dir.html#Top" accesskey="u" rel="up">(dir)</a> &nbsp; [<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<a name="FLIM-1_002e14-MIME-Ji-Neng-Shuo-Ming-Shu-"></a>
+<h1 class="top">FLIM 1.14 MIME 機能説明書</h1>
+
+
+<p>This file documents MIME features of FLIM, a fundamental library to
+process Internet Messages for GNU Emacsen.
+</p>
+<p>GNU Emacsen 用の Internet Message 処理のための基礎 library である FLIM 
+の MIME 機能に関して説明します。
+</p>
+<table class="menu" border="0" cellspacing="0">
+<tr><td align="left" valign="top">&bull; <a href="#Introduction" accesskey="1">Introduction</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">FLIM って何？
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="#How-to-use" accesskey="2">How to use</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">FLIM の MIME 機能の使い方
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="#Entity" accesskey="3">Entity</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Message と Entity
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="#Content_002dType" accesskey="4">Content-Type</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Content-Type 欄の情報
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="#Content_002dDisposition" accesskey="5">Content-Disposition</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Content-Disposition 欄の情報
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="#Content_002dTransfer_002dEncoding" accesskey="6">Content-Transfer-Encoding</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">符号化法
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="#encoded_002dword" accesskey="7">encoded-word</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Header の network 表現
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="#custom" accesskey="8">custom</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">一般設定
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="#Appendix" accesskey="9">Appendix</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">付録
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="#Concept-Index">Concept Index</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">概念索引
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="#Function-Index">Function Index</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">関数索引
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="#Variable-Index">Variable Index</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">変数索引
+</td></tr>
+</table>
+
+<hr>
+<a name="Introduction"></a>
+<div class="header">
+<p>
+Next: <a href="#How-to-use" accesskey="n" rel="next">How to use</a>, Previous: <a href="#Top" accesskey="p" rel="prev">Top</a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a> &nbsp; [<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<a name="FLIM-tuteHe-_003f"></a>
+<h2 class="chapter">1 FLIM って何？</h2>
+
+<p>FLIM は Internet Message の表現や符号化に関する基礎的な機能を提供する
+ための library です。
+</p>
+
+<hr>
+<a name="How-to-use"></a>
+<div class="header">
+<p>
+Next: <a href="#Entity" accesskey="n" rel="next">Entity</a>, Previous: <a href="#Introduction" accesskey="p" rel="prev">Introduction</a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a> &nbsp; [<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<a name="FLIM-no-MIME-Ji-Neng-noShi-iFang-"></a>
+<h2 class="chapter">2 FLIM の MIME 機能の使い方</h2>
+
+<p>FLIM の提供する MIME 機能を使うためには
+</p>
+<div class="lisp">
+<pre class="lisp">(require 'mime)
+</pre></div>
+
+<p>を評価してください。
+</p>
+
+<hr>
+<a name="Entity"></a>
+<div class="header">
+<p>
+Next: <a href="#Content_002dType" accesskey="n" rel="next">Content-Type</a>, Previous: <a href="#How-to-use" accesskey="p" rel="prev">How to use</a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a> &nbsp; [<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<a name="Message-to-Entity"></a>
+<h2 class="chapter">3 Message と Entity</h2>
+<a name="index-mime_002dentity"></a>
+<a name="index-entity"></a>
+
+<p>RFC 2045 (<a href="#RFC-2045">RFC 2045</a>) によれば、「Entity という語は、message, もしく
+は、multipart entity の body 中の１つの部分の、MIME で定義された header
+field と内容を指す」となっています。ここでは、MIME で定義された header
+field 以外の全ての header と body を指す語として <strong>entity</strong>を用いる
+ことにします。
+</p>
+<p>RFC 2045 の定義は、MIME message が entity を節とする木構造であることを示
+しています。つまり、MIME は message を木構造に拡張した訳です。
+</p>
+<p>FLIM は entity の情報を表現するために<strong>mime-entity</strong> 構
+造体を用います。以下では単に mime-entity と呼ぶことにします。
+</p>
+
+<table class="menu" border="0" cellspacing="0">
+<tr><td align="left" valign="top">&bull; <a href="#Entity-creation" accesskey="1">Entity creation</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Entity の生成
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="#Entity-hierarchy" accesskey="2">Entity hierarchy</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Entity 階層
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="#Entity-Search" accesskey="3">Entity Search</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Entity の検索
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="#Entity-Attributes" accesskey="4">Entity Attributes</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Entity の属性
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="#Entity_002dheader" accesskey="5">Entity-header</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Entity header の情報
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="#entity-formatting" accesskey="6">entity formatting</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Entity の文字表現
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="#Entity_002dcontent" accesskey="7">Entity-content</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Entity の内容
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="#Entity_002dnetwork_002drepresentation" accesskey="8">Entity-network-representation</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Entity のネットワーク表現
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="#Entity-buffer" accesskey="9">Entity buffer</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Entity の buffer による表現
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="#mm_002dbackend">mm-backend</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Entity の表現と実現
+</td></tr>
+</table>
+
+<hr>
+<a name="Entity-creation"></a>
+<div class="header">
+<p>
+Next: <a href="#Entity-hierarchy" accesskey="n" rel="next">Entity hierarchy</a>, Previous: <a href="#Entity" accesskey="p" rel="prev">Entity</a>, Up: <a href="#Entity" accesskey="u" rel="up">Entity</a> &nbsp; [<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<a name="Entity-noSheng-Cheng-"></a>
+<h3 class="section">3.1 Entity の生成</h3>
+
+<dl>
+<dt><a name="index-mime_002dopen_002dentity"></a>Function: <strong>mime-open-entity</strong> <em>type location</em></dt>
+<dd>
+<p>Entity を開いて、それを返します。
+</p>
+<p><var>type</var> は representation-type です。(cf. <a href="#mm_002dbackend">mm-backend</a>) 
+</p>
+<p><var>location</var> は entity の位置です。指定方法は
+representation-type に依って変わります。
+</p></dd></dl>
+
+
+<dl>
+<dt><a name="index-mime_002dparse_002dbuffer"></a>Function: <strong>mime-parse-buffer</strong> <em>&amp;optional  buffer type</em></dt>
+<dd>
+<p><var>buffer</var> を message として構文解析し、その結果の mime-entity を 
+<var>buffer</var> の<code>mime-message-structure</code> に格納する。
+</p>
+<p><var>buffer</var> が省略された場合、現在の buffer を構文解析する。
+</p>
+<p><var>type</var> が指定された場合、その値を生成される mime-entity の表象型とし
+て用いる。省略された場合は <var>buffer</var> となる。(cf. <a href="#mm_002dbackend">mm-backend</a>)
+</p></dd></dl>
+
+
+
+<hr>
+<a name="Entity-hierarchy"></a>
+<div class="header">
+<p>
+Next: <a href="#Entity-Search" accesskey="n" rel="next">Entity Search</a>, Previous: <a href="#Entity-creation" accesskey="p" rel="prev">Entity creation</a>, Up: <a href="#Entity" accesskey="u" rel="up">Entity</a> &nbsp; [<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<a name="Entity-Jie-Ceng-"></a>
+<h3 class="section">3.2 Entity 階層</h3>
+<a name="index-node_002did"></a>
+<a name="index-entity_002dnumber"></a>
+<a name="index-message"></a>
+<a name="index-root_002dentity"></a>
+
+<p>MIME message は entity を単位とする木構造になっています。
+</p>
+<p>この木において根となる節は message 全体を表す entity です。ここでは、こ
+れを <strong>root-entity</strong> もしくは<strong>message</strong> と呼びます。
+</p>
+<p>root-entity 以外の entity は親を持ちます。また、entity は子供を持つかも
+知れません。この親子関係を考えることで entity の相対関係を扱うことができ
+ます。
+</p>
+<p>一方、entity の message における位置を考えることもできます。
+</p>
+<p>entity はこの木における節となりますが、この木には深さと同じ深さの中の
+順番に従って番号が付けることができます。即ち、
+</p><div class="example">
+<pre class="example">
+                              ┌───┐
+                              │  nil │
+                              └─┬─┘
+              ┌─────────┼─────────┐
+            ┌┴┐              ┌┴┐              ┌┴┐
+            │０│              │１│              │２│
+            └┬┘              └┬┘              └┬┘
+              │        ┌────┼────┐        │
+          ┌─┴─┐┌─┴─┐┌─┴─┐┌─┴─┐┌─┴─┐
+          │ ０.０││ １.０││ １.１││ １.２││ ２.０│
+          └───┘└───┘└───┘└───┘└───┘
+</pre></div>
+
+<p>のように深さ n の節には長さ n の整数列の節番号が振れます。これ
+を <strong>entity-number</strong> と呼びます。entity-number は S 式と
+しては <code>(1 2 3)</code> のような整数のリストとして表現されます。
+</p>
+<p>mime-entity では、これと同様の <strong>node-id</strong> を用います。node-id はちょ
+うど entity-number を逆にしたリストで、entity-number 1.2.3 に対応する 
+node-id は <code>(3 2 1)</code> です。
+</p>
+<p>前述のように、MIME message は entity を単位とした木構造になっているので、
+この根である message 全体も mime-entity で表現することができ、buffer
+local 変数 <code>mime-message-structure</code> に格納することにします。
+</p>
+<p><code>mime-message-structure</code> を起点に entity-number や node-id 
+で示される entity を取り出すことができます。
+</p>
+<dl>
+<dt><a name="index-mime_002dmessage_002dstructure"></a>Variable: <strong>mime-message-structure</strong></dt>
+<dd>
+<p>現在の buffer における message 全体の mime-entity 構造体を格納するbuffer
+local 変数。
+</p></dd></dl>
+
+
+<dl>
+<dt><a name="index-mime_002dentity_002dchildren"></a>Function: <strong>mime-entity-children</strong> <em>entity</em></dt>
+<dd>
+<p><var>entity</var> に含まれる entity の list を返す。
+</p></dd></dl>
+
+
+<dl>
+<dt><a name="index-mime_002dentity_002dparent"></a>Function: <strong>mime-entity-parent</strong> <em>entity  &amp;optional  message</em></dt>
+<dd>
+<p><var>entity</var> の親の entity を返す。
+</p>
+<p><var>message</var> が指定された場合、これを根と見倣す。
+</p></dd></dl>
+
+
+<dl>
+<dt><a name="index-mime_002droot_002dentity_002dp"></a>Function: <strong>mime-root-entity-p</strong> <em>entity</em></dt>
+<dd>
+<p><var>entity</var> が根（即ち、message 全体）である場合に、非-<code>nil</code> を返
+す。
+</p></dd></dl>
+
+
+<dl>
+<dt><a name="index-mime_002dentity_002dnode_002did"></a>Function: <strong>mime-entity-node-id</strong> <em>entity</em></dt>
+<dd>
+<p><var>entity</var> の node-id を返す。
+</p></dd></dl>
+
+
+<dl>
+<dt><a name="index-mime_002dentity_002dnumber"></a>Function: <strong>mime-entity-number</strong> <em>entity</em></dt>
+<dd>
+<p><var>entity</var> の entity-number を返す。
+</p></dd></dl>
+
+
+
+<hr>
+<a name="Entity-Search"></a>
+<div class="header">
+<p>
+Next: <a href="#Entity-Attributes" accesskey="n" rel="next">Entity Attributes</a>, Previous: <a href="#Entity-hierarchy" accesskey="p" rel="prev">Entity hierarchy</a>, Up: <a href="#Entity" accesskey="u" rel="up">Entity</a> &nbsp; [<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<a name="Entity-noJian-Suo-"></a>
+<h3 class="section">3.3 Entity の検索</h3>
+
+<dl>
+<dt><a name="index-mime_002dfind_002dentity_002dfrom_002dnumber"></a>Function: <strong>mime-find-entity-from-number</strong> <em>entity-number  &amp;optional  message</em></dt>
+<dd>
+<p><var>message</var> から、<var>enity-number</var> の entity を返します。
+</p>
+<p><var>message</var> が指定されていない場合は、
+<code>mime-message-structrue</code> が使われます。
+</p></dd></dl>
+
+
+<dl>
+<dt><a name="index-mime_002dfind_002dentity_002dfrom_002dnode_002did"></a>Function: <strong>mime-find-entity-from-node-id</strong> <em>entity-node-id  &amp;optional  message</em></dt>
+<dd>
+<p><var>message</var> から、<var>entity-node-id</var> の entity を返します。
+</p>
+<p><var>message</var> が指定されていない場合は、
+<code>mime-message-structure</code> が使われます。
+</p></dd></dl>
+
+
+<dl>
+<dt><a name="index-mime_002dfind_002dentity_002dfrom_002dcontent_002did"></a>Function: <strong>mime-find-entity-from-content-id</strong> <em>cid  &amp;optional  message</em></dt>
+<dd>
+<p><var>message</var> から、<var>cid</var> の entity を返します。
+</p>
+<p><var>message</var> が指定されていない場合は、
+<code>mime-message-structure</code> が使われます。
+</p></dd></dl>
+
+
+
+<hr>
+<a name="Entity-Attributes"></a>
+<div class="header">
+<p>
+Next: <a href="#Entity_002dheader" accesskey="n" rel="next">Entity-header</a>, Previous: <a href="#Entity-Search" accesskey="p" rel="prev">Entity Search</a>, Up: <a href="#Entity" accesskey="u" rel="up">Entity</a> &nbsp; [<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<a name="Entity-noShu-Xing-"></a>
+<h3 class="section">3.4 Entity の属性</h3>
+
+<dl>
+<dt><a name="index-mime_002dentity_002dcontent_002dtype"></a>Function: <strong>mime-entity-content-type</strong> <em>entity</em></dt>
+<dd>
+<p><var>entity</var> の content-type を返す。(cf. <a href="#mime_002dcontent_002dtype">mime-content-type</a>)
+</p></dd></dl>
+
+
+<dl>
+<dt><a name="index-mime_002dentity_002dcontent_002ddisposition"></a>Function: <strong>mime-entity-content-disposition</strong> <em>entity</em></dt>
+<dd>
+<p><var>entity</var> の content-disposition を返す。
+(cf. <a href="#mime_002dcontent_002ddisposition">mime-content-disposition</a>)
+</p></dd></dl>
+
+
+<dl>
+<dt><a name="index-mime_002dentity_002dfilename"></a>Function: <strong>mime-entity-filename</strong> <em>entity</em></dt>
+<dd>
+<p><var>entity</var> の file 名を返す。
+</p></dd></dl>
+
+
+<dl>
+<dt><a name="index-mime_002dentity_002dencoding"></a>Function: <strong>mime-entity-encoding</strong> <em>entity  &amp;optional  default-encoding</em></dt>
+<dd>
+<p><var>entity</var> の content-transfer-encoding を返す。
+(cf. <a href="#Content_002dTransfer_002dEncoding">Content-Transfer-Encoding</a>) 
+</p>
+<p>もし、<var>entity</var> に Content-Transfer-Encoding 欄が存在しない場合は、
+<var>default-encoding</var> を返す。これが指定されない場合は、<code>&quot;7bit&quot;</code> 
+を用いる。
+</p></dd></dl>
+
+
+<dl>
+<dt><a name="index-mime_002dentity_002dcooked_002dp"></a>Function: <strong>mime-entity-cooked-p</strong> <em>entity</em></dt>
+<dd>
+<p><var>entity</var> の内容が既にコード変換されている場合は nil で無い値
+を返す。
+</p></dd></dl>
+
+
+
+<hr>
+<a name="Entity_002dheader"></a>
+<div class="header">
+<p>
+Next: <a href="#entity-formatting" accesskey="n" rel="next">entity formatting</a>, Previous: <a href="#Entity-Attributes" accesskey="p" rel="prev">Entity Attributes</a>, Up: <a href="#Entity" accesskey="u" rel="up">Entity</a> &nbsp; [<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<a name="Entity-header-noQing-Bao-"></a>
+<h3 class="section">3.5 Entity header の情報</h3>
+
+<dl>
+<dt><a name="index-mime_002dfetch_002dfield"></a>Function: <strong>mime-fetch-field</strong> <em>field-name  &amp;optional  entity</em></dt>
+<dd>
+<p><var>entity</var> の header 中の <var>field-name</var> 欄の body を返す。
+</p>
+<p>結果の文字列は network 表現のままである。
+</p>
+<p><var>entity</var> が省略された場合は、<code>mime-message-structure</code> の値を用
+いる。
+</p>
+<p><var>field-name</var> 欄が存在しない場合は <code>nil</code> を返す。
+</p></dd></dl>
+
+
+<dl>
+<dt><a name="index-mime_002dread_002dfield"></a>Function: <strong>mime-read-field</strong> <em>field-name  &amp;optional  entity</em></dt>
+<dd>
+<p><var>entity</var> の header 中の <var>field-name</var> 欄を構文解析した結果を返す。
+
+</p>
+<p>結果の形式は欄毎に異なる。非構造化欄の場合は文字列を返し、構造化欄の場合
+はその形式に従った list を返す。
+</p>
+<p>結果中の文字列は Emacs の内部表現に変換される。
+</p>
+<p><var>entity</var> が省略された場合は、<code>mime-message-structure</code> の値を用
+いる。
+</p>
+<p><var>field-name</var> 欄が存在しない場合は nil を返す。
+</p></dd></dl>
+
+
+
+<hr>
+<a name="entity-formatting"></a>
+<div class="header">
+<p>
+Next: <a href="#Entity_002dcontent" accesskey="n" rel="next">Entity-content</a>, Previous: <a href="#Entity_002dheader" accesskey="p" rel="prev">Entity-header</a>, Up: <a href="#Entity" accesskey="u" rel="up">Entity</a> &nbsp; [<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<a name="Entity-noWenZi-Biao-Xian-"></a>
+<h3 class="section">3.6 Entity の文字表現</h3>
+
+<dl>
+<dt><a name="index-mime_002dinsert_002dheader"></a>Function: <strong>mime-insert-header</strong> <em>entity  &amp;optional  invisible-fields visible-fields</em></dt>
+<dd>
+<p>現在位置に <var>entity</var> の復号した header を挿入する。
+</p>
+<p><var>invisible-fields</var> と <var>visible-fields</var> は正規表現のlist で、それ
+ぞれ、表示したくない field 名と表示したい欄名を表現したものである。
+
+</p>
+<p><var>invisible-fields</var> の要素のどれかに match し、かつ、
+<var>visible-fields</var> の要素のどれにも match しない欄は表示されない。
+
+</p>
+<p>encoded-word (<a href="#encoded_002dword">encoded-word</a>) は復号される。『生の非 us-ascii 文字』
+は <code>default-mime-charset</code> として解釈される。
+</p></dd></dl>
+
+
+<dl>
+<dt><a name="index-mime_002dinsert_002dtext_002dcontent"></a>Function: <strong>mime-insert-text-content</strong> <em>entity</em></dt>
+<dd>
+<p>point の前に <var>entity</var> を text entity として挿入します。
+</p>
+<p><var>entity</var> の内容は <a href="#MIME-charset">MIME charset</a> として復号化され
+ます。<var>entity</var> の Content-Type field に charset paramter が無
+いと、<code>default-mime-charset</code> が初期値として使われます。
+</p></dd></dl>
+
+
+<dl>
+<dt><a name="index-default_002dmime_002dcharset"></a>Variable: <strong>default-mime-charset</strong></dt>
+<dd>
+<p>適切な MIME charset (<a href="#MIME-charset">MIME charset</a>) が見つからなかった場合に用いら
+れるMIME charset.
+</p>
+<p>本来は APEL の変数である。
+</p></dd></dl>
+
+
+
+<hr>
+<a name="Entity_002dcontent"></a>
+<div class="header">
+<p>
+Next: <a href="#Entity_002dnetwork_002drepresentation" accesskey="n" rel="next">Entity-network-representation</a>, Previous: <a href="#entity-formatting" accesskey="p" rel="prev">entity formatting</a>, Up: <a href="#Entity" accesskey="u" rel="up">Entity</a> &nbsp; [<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<a name="Entity-noNei-Rong-"></a>
+<h3 class="section">3.7 Entity の内容</h3>
+
+<dl>
+<dt><a name="index-mime_002dentity_002dcontent"></a>Function: <strong>mime-entity-content</strong> <em>entity</em></dt>
+<dd>
+<p><var>entity</var> の内容の byte 列を返す。
+</p></dd></dl>
+
+
+<dl>
+<dt><a name="index-mime_002dinsert_002dentity_002dcontent"></a>Function: <strong>mime-insert-entity-content</strong> <em>entity</em></dt>
+<dd>
+<p>point の位置に <var>entity</var> の内容を挿入します。
+</p></dd></dl>
+
+
+<dl>
+<dt><a name="index-mime_002dwrite_002dentity_002dcontent"></a>Function: <strong>mime-write-entity-content</strong> <em>entity filename</em></dt>
+<dd>
+<p><var>entity</var> の内容を <var>filename</var> に書き込みます。
+</p></dd></dl>
+
+
+
+<hr>
+<a name="Entity_002dnetwork_002drepresentation"></a>
+<div class="header">
+<p>
+Next: <a href="#Entity-buffer" accesskey="n" rel="next">Entity buffer</a>, Previous: <a href="#Entity_002dcontent" accesskey="p" rel="prev">Entity-content</a>, Up: <a href="#Entity" accesskey="u" rel="up">Entity</a> &nbsp; [<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<a name="Entity-nonetutowakuBiao-Xian-"></a>
+<h3 class="section">3.8 Entity のネットワーク表現</h3>
+
+<dl>
+<dt><a name="index-mime_002dinsert_002dentity"></a>Function: <strong>mime-insert-entity</strong> <em>entity</em></dt>
+<dd>
+<p><var>entity</var> の header と body を point のところに挿入します。
+</p></dd></dl>
+
+
+<dl>
+<dt><a name="index-mime_002dwrite_002dentity"></a>Function: <strong>mime-write-entity</strong> <em>entity filename</em></dt>
+<dd>
+<p><var>entity</var> の表現を <var>filename</var> に書き込みます。
+</p></dd></dl>
+
+
+<dl>
+<dt><a name="index-mime_002dwrite_002dentity_002dbody"></a>Function: <strong>mime-write-entity-body</strong> <em>entity filename</em></dt>
+<dd>
+<p><var>entity</var> の body を <var>filename</var> に書き込みます。
+</p></dd></dl>
+
+
+
+<hr>
+<a name="Entity-buffer"></a>
+<div class="header">
+<p>
+Next: <a href="#mm_002dbackend" accesskey="n" rel="next">mm-backend</a>, Previous: <a href="#Entity_002dnetwork_002drepresentation" accesskey="p" rel="prev">Entity-network-representation</a>, Up: <a href="#Entity" accesskey="u" rel="up">Entity</a> &nbsp; [<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<a name="Entity-no-buffer-niyoruBiao-Xian-"></a>
+<h3 class="section">3.9 Entity の buffer による表現</h3>
+
+<dl>
+<dt><a name="index-mime_002dentity_002dbuffer"></a>Function: <strong>mime-entity-buffer</strong> <em>entity</em></dt>
+<dd>
+<p><var>entity</var> が存在する buffer を返す。
+</p></dd></dl>
+
+
+<dl>
+<dt><a name="index-mime_002dentity_002dpoint_002dmin"></a>Function: <strong>mime-entity-point-min</strong> <em>entity</em></dt>
+<dd>
+<p><var>entity</var> が存在する buffer における、<var>entity</var> が占める領域の先頭
+位置を返す。
+</p></dd></dl>
+
+
+<dl>
+<dt><a name="index-mime_002dentity_002dpoint_002dmax"></a>Function: <strong>mime-entity-point-max</strong> <em>entity</em></dt>
+<dd>
+<p><var>entity</var> が存在する buffer における、<var>entity</var> が占める領域の末尾
+位置を返す。
+</p></dd></dl>
+
+
+<dl>
+<dt><a name="index-mime_002dentity_002dheader_002dstart"></a>Function: <strong>mime-entity-header-start</strong> <em>entity</em></dt>
+<dd>
+<p><var>entity</var> が存在する buffer における、header が占める領域の先頭位置を
+返す。
+</p></dd></dl>
+
+
+<dl>
+<dt><a name="index-mime_002dentity_002dheader_002dend"></a>Function: <strong>mime-entity-header-end</strong> <em>entity</em></dt>
+<dd>
+<p><var>entity</var> が存在する buffer における、header が占める領域の末尾位置を
+返す。
+</p></dd></dl>
+
+
+<dl>
+<dt><a name="index-mime_002dentity_002dbody_002dstart"></a>Function: <strong>mime-entity-body-start</strong> <em>entity</em></dt>
+<dd>
+<p><var>entity</var> が存在する buffer における、body が占める領域の先頭位置を返
+す。
+</p></dd></dl>
+
+
+<dl>
+<dt><a name="index-mime_002dentity_002dbody_002dend"></a>Function: <strong>mime-entity-body-end</strong> <em>entity</em></dt>
+<dd>
+<p><var>entity</var> が存在する buffer における、body が占める領域の末尾位置を返
+す。
+</p></dd></dl>
+
+
+
+<hr>
+<a name="mm_002dbackend"></a>
+<div class="header">
+<p>
+Previous: <a href="#Entity-buffer" accesskey="p" rel="prev">Entity buffer</a>, Up: <a href="#Entity" accesskey="u" rel="up">Entity</a> &nbsp; [<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<a name="Entity-noBiao-Xian-toShi-Xian-"></a>
+<h3 class="section">3.10 Entity の表現と実現</h3>
+<a name="index-mm_002dbackend"></a>
+<a name="index-entity-Chu-Li--method"></a>
+<a name="index-representation_002dtype"></a>
+
+<p>Entity は抽象化されたデータ表現で、実際のデータ表現としては用途に応じて
+さまざまなものが利用できるように設計されています。
+</p>
+<p>ここで、entity がどういう種類の表現を行っているかを示すのが
+<strong>representation-type</strong> で、entity を生成する時にはこれを指定します。
+(cf. <a href="#Entity-creation">Entity creation</a>) 
+</p>
+<p>前節までに述べて来た entity に対する処理は、entity に対してその処理を依
+頼することによって実現されています。Entity は自分の representation-type 
+を知っており、その representation-type に応じて実際の処理を行う関数を呼
+び出します。このような関数を <strong>entity 処理method</strong> と呼びます。また、
+representation-type 毎にこのような関数をまとめたものを 
+<strong>mm-backend</strong> と呼びます。
+</p>
+<p>mm-backend は representation-type の名前の先頭に <code>mm</code> という
+接頭辞を付けた関数名からなる module で、その module 名は同様に
+representation-type の名前の先頭に <code>mm</code> を付けたものになって
+います。この module は representation-type の entity が最初に生成される
+時に自動的に require されます。
+</p>
+
+<table class="menu" border="0" cellspacing="0">
+<tr><td align="left" valign="top">&bull; <a href="#Request-for-entity" accesskey="1">Request for entity</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Entity への便り
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="#mm_002dbackend-module" accesskey="2">mm-backend module</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">mm-backend の作り方
+</td></tr>
+</table>
+
+<hr>
+<a name="Request-for-entity"></a>
+<div class="header">
+<p>
+Next: <a href="#mm_002dbackend-module" accesskey="n" rel="next">mm-backend module</a>, Previous: <a href="#mm_002dbackend" accesskey="p" rel="prev">mm-backend</a>, Up: <a href="#mm_002dbackend" accesskey="u" rel="up">mm-backend</a> &nbsp; [<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<a name="Entity-henoBian-ri"></a>
+<h4 class="subsection">3.10.1 Entity への便り</h4>
+
+<dl>
+<dt><a name="index-mime_002dentity_002dsend"></a>Function: <strong>mime-entity-send</strong> <em>entity message  &amp;rest  args</em></dt>
+<dd>
+<p><var>entity</var> に <var>message</var> を送る。
+</p>
+<p><var>args</var> は <var>message</var> の引数である。
+</p></dd></dl>
+
+
+
+<hr>
+<a name="mm_002dbackend-module"></a>
+<div class="header">
+<p>
+Previous: <a href="#Request-for-entity" accesskey="p" rel="prev">Request for entity</a>, Up: <a href="#mm_002dbackend" accesskey="u" rel="up">mm-backend</a> &nbsp; [<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<a name="mm_002dbackend-noZuo-riFang-"></a>
+<h4 class="subsection">3.10.2 mm-backend の作り方</h4>
+
+<dl>
+<dt><a name="index-mm_002ddefine_002dbackend"></a>Macro: <strong>mm-define-backend</strong> <em>type &amp;optional  parents</em></dt>
+<dd>
+<p><var>type</var> を mm-backend として定義します。
+</p>
+<p><var>PARENTS</var> が指定されている場合は、<var>type</var> は prents
+を継承します。それぞれの parent は representation-type である必要があ
+ります。
+</p>
+<p>例:
+</p>
+<div class="lisp">
+<pre class="lisp">(mm-define-backend chao (generic))
+</pre></div>
+</dd></dl>
+
+
+<dl>
+<dt><a name="index-mm_002ddefine_002dmethod"></a>Macro: <strong>mm-define-method</strong> <em>name args  &amp;rest  body</em></dt>
+<dd>
+<p><var>name</var> を (nth 1 (car <var>args</var>)) backend の method 関
+数として定義します。
+</p>
+<p><var>args</var> は lambda の引数リストのようなものですが、(car
+<var>args</var>) は指定された parameter である必要があります。(car
+(car <var>args</var>)) は変数の名前で、(nth 1 (car <var>args</var>))
+は backend の名前 (representation-type) です。
+</p>
+<p>例:
+</p>
+<div class="lisp">
+<pre class="lisp">(mm-define-method entity-cooked-p ((entity chao)) nil)
+</pre></div>
+</dd></dl>
+
+
+
+<hr>
+<a name="Content_002dType"></a>
+<div class="header">
+<p>
+Next: <a href="#Content_002dDisposition" accesskey="n" rel="next">Content-Disposition</a>, Previous: <a href="#Entity" accesskey="p" rel="prev">Entity</a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a> &nbsp; [<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<a name="Content_002dType-Lan-noQing-Bao-"></a>
+<h2 class="chapter">4 Content-Type 欄の情報</h2>
+<a name="index-mime_002dcontent_002dtype"></a>
+<a name="index-Content_002dType-Lan-"></a>
+
+<p><strong>Content-Type 欄</strong> は media-type (<a href="#media_002dtype">media-type</a>) や MIME
+charset といった entity (<a href="#Entity">Entity</a>) の内容の種類や表現形式などを記述
+するためのもので、RFC 2045 (<a href="#RFC-2045">RFC 2045</a>) で定義されています。
+</p>
+<p><strong>[Memo]</strong>
+</p><blockquote>
+
+<p>歴史的には RFC 1049 で Content-Type 欄が提案されている。但し、MIME の
+media-type のような type と subtype の区別はなく、MIME charset のような
+文字符号の種類を表現することもできない。
+</p></blockquote>
+
+
+<p>FLIM は Content-Type 欄を構文解析する関数と Content-Type 欄の解析結果を
+格納する構造体 <strong>mime-content-type</strong> を提供します。
+</p>
+
+<table class="menu" border="0" cellspacing="0">
+<tr><td align="left" valign="top">&bull; <a href="#Content_002dType-field" accesskey="1">Content-Type field</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Content-Type 欄の形式
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="#mime_002dcontent_002dtype" accesskey="2">mime-content-type</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">mime-content-type 構造体
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="#Content_002dType-parser" accesskey="3">Content-Type parser</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Content-Type 欄の解析器
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="#Content_002dType-utility" accesskey="4">Content-Type utility</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Content-Type に関する有用な関数
+</td></tr>
+</table>
+
+<hr>
+<a name="Content_002dType-field"></a>
+<div class="header">
+<p>
+Next: <a href="#mime_002dcontent_002dtype" accesskey="n" rel="next">mime-content-type</a>, Previous: <a href="#Content_002dType" accesskey="p" rel="prev">Content-Type</a>, Up: <a href="#Content_002dType" accesskey="u" rel="up">Content-Type</a> &nbsp; [<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<a name="Content_002dType-Lan-noXing-Shi-"></a>
+<h3 class="section">4.1 Content-Type 欄の形式</h3>
+<a name="index-parameter"></a>
+<a name="index-subtype"></a>
+<a name="index-type"></a>
+
+<p>Content-Type 欄の形式は以下のように定義されています：
+</p>
+<blockquote>
+<p>&ldquo;Content-Type&rdquo; &ldquo;:&rdquo; <strong>type</strong> &ldquo;/&rdquo;
+<strong>subtype</strong> *( &ldquo;;&rdquo; <strong>parameter</strong> )
+</p></blockquote>
+
+<p>例えば、
+</p>
+<blockquote>
+<div class="example">
+<pre class="example">Content-Type: image/jpeg
+</pre></div>
+</blockquote>
+
+<p>や
+</p>
+<blockquote>
+<div class="example">
+<pre class="example">Content-Type: text/plain; charset=iso-2022-jp
+</pre></div>
+</blockquote>
+
+<p>などのように用いられます。
+</p>
+<p>ここで、&lsquo;type&rsquo; と &lsquo;subtype&rsquo; は entity の形式を示すもので、両者を総称し
+て、&lsquo;media-type&rsquo; と呼ぶことにします。上記の例における &lsquo;image/jpeg&rsquo; や
+&lsquo;text/plain&rsquo; は media-type の１つです。
+</p>
+<p><strong>[Memo]</strong>
+</p><blockquote>
+
+<p>Content-Type 欄のない entity は
+</p>
+<blockquote>
+<div class="example">
+<pre class="example">Content-Type: text/plain; charset=us-ascii
+</pre></div>
+</blockquote>
+
+<p>として解釈される。(cf. <a href="#us_002dascii">us-ascii</a>)
+</p></blockquote>
+
+
+
+<hr>
+<a name="mime_002dcontent_002dtype"></a>
+<div class="header">
+<p>
+Next: <a href="#Content_002dType-parser" accesskey="n" rel="next">Content-Type parser</a>, Previous: <a href="#Content_002dType-field" accesskey="p" rel="prev">Content-Type field</a>, Up: <a href="#Content_002dType" accesskey="u" rel="up">Content-Type</a> &nbsp; [<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<a name="mime_002dcontent_002dtype-Gou-Zao-Ti-"></a>
+<h3 class="section">4.2 mime-content-type 構造体</h3>
+
+<dl>
+<dt><a name="index-mime_002dcontent_002dtype-1"></a>Structure: <strong>mime-content-type</strong></dt>
+<dd>
+<p>Content-Type 欄の情報を格納するための構造体。
+</p>
+<p>この構造体を参照するには <code>mime-content-type-要素名</code> という名前の参
+照関数を用いる。
+</p>
+<p>この構造体の要素は以下の通りである：
+</p>
+<dl compact="compact">
+<dt><var>primary-type</var></dt>
+<dd><p>media-type の主型 (symbol).
+</p>
+</dd>
+<dt><var>subtype</var></dt>
+<dd><p>media-type の副型 (symbol).
+</p>
+</dd>
+<dt><var>parameters</var></dt>
+<dd><p>Content-Type 欄の parameter (連想 list).
+</p>
+</dd>
+</dl>
+</dd></dl>
+
+
+<dl>
+<dt><a name="index-make_002dmime_002dcontent_002dtype"></a>Function: <strong>make-mime-content-type</strong> <em>type subtype</em></dt>
+<dd><p>&amp;optional  parameters
+</p>
+<p>content-type の生成子。
+</p></dd></dl>
+
+
+<dl>
+<dt><a name="index-mime_002dcontent_002dtype_002dparameter"></a>Function: <strong>mime-content-type-parameter</strong> <em>content-type parameter</em></dt>
+<dd>
+<p><var>content-type</var> の <var>parameter</var> の値を返す。
+</p></dd></dl>
+
+
+
+<hr>
+<a name="Content_002dType-parser"></a>
+<div class="header">
+<p>
+Next: <a href="#Content_002dType-utility" accesskey="n" rel="next">Content-Type utility</a>, Previous: <a href="#mime_002dcontent_002dtype" accesskey="p" rel="prev">mime-content-type</a>, Up: <a href="#Content_002dType" accesskey="u" rel="up">Content-Type</a> &nbsp; [<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<a name="Content_002dType-Lan-noJie-Xi-Qi-"></a>
+<h3 class="section">4.3 Content-Type 欄の解析器</h3>
+
+<dl>
+<dt><a name="index-mime_002dparse_002dContent_002dType"></a>Function: <strong>mime-parse-Content-Type</strong> <em>string</em></dt>
+<dd>
+<p><var>string</var> を content-type として解析した結果を返す。
+</p></dd></dl>
+
+
+<dl>
+<dt><a name="index-mime_002dread_002dContent_002dType"></a>Function: <strong>mime-read-Content-Type</strong></dt>
+<dd>
+<p>現在の buffer の Content-Type 欄を読み取り、解析した結果を返す。
+</p>
+<p>Content-Type 欄が存在しない場合は nil を返す。
+</p></dd></dl>
+
+
+
+<hr>
+<a name="Content_002dType-utility"></a>
+<div class="header">
+<p>
+Previous: <a href="#Content_002dType-parser" accesskey="p" rel="prev">Content-Type parser</a>, Up: <a href="#Content_002dType" accesskey="u" rel="up">Content-Type</a> &nbsp; [<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<a name="Content_002dType-niGuan-suruYou-Yong-naGuan-Shu-"></a>
+<h3 class="section">4.4 Content-Type に関する有用な関数</h3>
+
+<dl>
+<dt><a name="index-mime_002dtype_002fsubtype_002dstring"></a>Function: <strong>mime-type/subtype-string</strong> <em>type  &amp;optional  subtype</em></dt>
+<dd>
+<p><var>type</var> と <var>subtype</var> から type/subtype 形式の文字列を返す。
+</p></dd></dl>
+
+
+
+<hr>
+<a name="Content_002dDisposition"></a>
+<div class="header">
+<p>
+Next: <a href="#Content_002dTransfer_002dEncoding" accesskey="n" rel="next">Content-Transfer-Encoding</a>, Previous: <a href="#Content_002dType" accesskey="p" rel="prev">Content-Type</a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a> &nbsp; [<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<a name="Content_002dDisposition-Lan-noQing-Bao-"></a>
+<h2 class="chapter">5 Content-Disposition 欄の情報</h2>
+<a name="index-mime_002dcontent_002ddisposition"></a>
+<a name="index-RFC-2183"></a>
+<a name="index-Standards-Track"></a>
+<a name="index-Content_002dDisposition-Lan-"></a>
+
+<p><strong>Content-Disposition 欄</strong> は entity の表示や file 名など
+の属性になどに関する情報を記述するためのものです。
+</p>
+
+<p>[RFC 2183]
+</p><blockquote>
+<p>S. Dorner, K. Moore and R. Troost, &ldquo;Communicating Presentation
+Information in Internet Messages: The Content-Disposition Header&rdquo;,
+August 1997, Standards Track.
+</p></blockquote>
+
+<p>FLIM は Content-Disposition 欄を構文解析する関数と Content-Disposition 
+欄の解析結果を格納する構造体 
+<strong>mime-content-disposition</strong> を提供します。
+</p>
+
+<table class="menu" border="0" cellspacing="0">
+<tr><td align="left" valign="top">&bull; <a href="#mime_002dcontent_002ddisposition" accesskey="1">mime-content-disposition</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">mime-content-disposition 構造体
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="#Content_002dDisposition-parser" accesskey="2">Content-Disposition parser</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Content-Disposition 欄の解析器
+</td></tr>
+</table>
+
+<hr>
+<a name="mime_002dcontent_002ddisposition"></a>
+<div class="header">
+<p>
+Next: <a href="#Content_002dDisposition-parser" accesskey="n" rel="next">Content-Disposition parser</a>, Previous: <a href="#Content_002dDisposition" accesskey="p" rel="prev">Content-Disposition</a>, Up: <a href="#Content_002dDisposition" accesskey="u" rel="up">Content-Disposition</a> &nbsp; [<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<a name="mime_002dcontent_002ddisposition-Gou-Zao-Ti-"></a>
+<h3 class="section">5.1 mime-content-disposition 構造体</h3>
+
+<dl>
+<dt><a name="index-mime_002dcontent_002ddisposition-1"></a>Structure: <strong>mime-content-disposition</strong></dt>
+<dd>
+<p>Content-Disposition 欄の解析結果を収めるための構造体。
+</p>
+<p>この構造体を参照するには <code>mime-content-disposition-要素名</code> という名
+前の参照関数を用いる。
+</p>
+<p>この構造体の要素は以下の通りである：
+</p>
+<dl compact="compact">
+<dt><var>disposition-type</var></dt>
+<dd><p>disposition-type (symbol).
+</p>
+</dd>
+<dt><var>parameters</var></dt>
+<dd><p>Content-Disposition 欄の parameter (連想 list).
+</p>
+</dd>
+</dl>
+</dd></dl>
+
+
+<dl>
+<dt><a name="index-mime_002dcontent_002ddisposition_002dparameter"></a>Function: <strong>mime-content-disposition-parameter</strong> <em>content-disposition parameter</em></dt>
+<dd>
+<p><var>content-disposition</var> の <var>parameter</var> の値を返す。
+</p></dd></dl>
+
+
+<dl>
+<dt><a name="index-mime_002dcontent_002ddisposition_002dfilename"></a>Function: <strong>mime-content-disposition-filename</strong> <em>content-disposition</em></dt>
+<dd>
+<p><var>content-disposition</var> の filename の値を返す。
+</p></dd></dl>
+
+
+
+<hr>
+<a name="Content_002dDisposition-parser"></a>
+<div class="header">
+<p>
+Previous: <a href="#mime_002dcontent_002ddisposition" accesskey="p" rel="prev">mime-content-disposition</a>, Up: <a href="#Content_002dDisposition" accesskey="u" rel="up">Content-Disposition</a> &nbsp; [<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<a name="Content_002dDisposition-Lan-noJie-Xi-Qi-"></a>
+<h3 class="section">5.2 Content-Disposition 欄の解析器</h3>
+
+<dl>
+<dt><a name="index-mime_002dparse_002dContent_002dDisposition"></a>Function: <strong>mime-parse-Content-Disposition</strong> <em>string</em></dt>
+<dd>
+<p><var>string</var> を content-disposition として解析した結果を返す。
+</p></dd></dl>
+
+
+<dl>
+<dt><a name="index-mime_002dread_002dContent_002dDisposition"></a>Function: <strong>mime-read-Content-Disposition</strong></dt>
+<dd>
+<p>現在の buffer の Content-Disposition 欄を読み取り、解析した結果を返す。
+
+</p>
+<p>Content-Disposition 欄が存在しない場合は nil を返す。
+</p></dd></dl>
+
+
+
+<hr>
+<a name="Content_002dTransfer_002dEncoding"></a>
+<div class="header">
+<p>
+Next: <a href="#encoded_002dword" accesskey="n" rel="next">encoded-word</a>, Previous: <a href="#Content_002dDisposition" accesskey="p" rel="prev">Content-Disposition</a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a> &nbsp; [<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<a name="Fu-Hao-Hua-Fa-"></a>
+<h2 class="chapter">6 符号化法</h2>
+<a name="index-Content_002dTransfer_002dEncoding-Lan-"></a>
+
+<p><strong>Content-Transfer-Encoding 欄</strong> は entity の符号化法を記述するため
+のものです。
+</p>
+<p>FLIM では Content-Transfer-Encoding 欄を構文解析する関数を提供します。こ
+れらの関数は Content-Transfer-Encoding 欄の情報は文字列で表現します。
+
+</p>
+<p>また、Content-Transfer-Encoding に基づいて符号化・復号化を行う関数も提
+供されます。
+</p>
+
+<table class="menu" border="0" cellspacing="0">
+<tr><td align="left" valign="top">&bull; <a href="#Content_002dTransfer_002dEncoding-parser" accesskey="1">Content-Transfer-Encoding parser</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Content-Transfer-Encoding 欄の解析器
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="#encoder_002fdecoder" accesskey="2">encoder/decoder</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">符号化・復号化
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="#Encoding-information" accesskey="3">Encoding information</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Other utilities
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="#mel_002dbackend" accesskey="4">mel-backend</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">How to write encoder/decoder module
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="#generic-function-for-mel_002dbackend" accesskey="5">generic function for mel-backend</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">How to add encoding/decoding service
+</td></tr>
+</table>
+
+<hr>
+<a name="Content_002dTransfer_002dEncoding-parser"></a>
+<div class="header">
+<p>
+Next: <a href="#encoder_002fdecoder" accesskey="n" rel="next">encoder/decoder</a>, Previous: <a href="#Content_002dTransfer_002dEncoding" accesskey="p" rel="prev">Content-Transfer-Encoding</a>, Up: <a href="#Content_002dTransfer_002dEncoding" accesskey="u" rel="up">Content-Transfer-Encoding</a> &nbsp; [<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<a name="Content_002dTransfer_002dEncoding-Lan-noJie-Xi-Qi-"></a>
+<h3 class="section">6.1 Content-Transfer-Encoding 欄の解析器</h3>
+
+<dl>
+<dt><a name="index-mime_002dparse_002dContent_002dTransfer_002dEncoding"></a>Function: <strong>mime-parse-Content-Transfer-Encoding</strong> <em>string</em></dt>
+<dd>
+<p><var>string</var> を content-transfer-encoding として解析した結果を返す。
+</p></dd></dl>
+
+
+<dl>
+<dt><a name="index-mime_002dread_002dContent_002dTransfer_002dEncoding"></a>Function: <strong>mime-read-Content-Transfer-Encoding</strong> <em>&amp;optional default-encoding</em></dt>
+<dd>
+<p>現在の buffer の Content-Transfer-Encoding 欄を読み取り、解析した結果を
+返す。
+</p>
+<p>Content-Transfer-Encoding 欄が存在しない場合は<var>default-encoding</var> を
+返す。
+</p></dd></dl>
+
+
+
+<hr>
+<a name="encoder_002fdecoder"></a>
+<div class="header">
+<p>
+Next: <a href="#Encoding-information" accesskey="n" rel="next">Encoding information</a>, Previous: <a href="#Content_002dTransfer_002dEncoding-parser" accesskey="p" rel="prev">Content-Transfer-Encoding parser</a>, Up: <a href="#Content_002dTransfer_002dEncoding" accesskey="u" rel="up">Content-Transfer-Encoding</a> &nbsp; [<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<a name="Fu-Hao-Hua-Fu-Hao-Hua-"></a>
+<h3 class="section">6.2 符号化・復号化</h3>
+
+<dl>
+<dt><a name="index-mime_002dencode_002dregion"></a>Function: <strong>mime-encode-region</strong> <em>start end encoding</em></dt>
+<dd>
+<p>現在の buffer の <var>start</var> から <var>end</var> までの region を
+<var>encoding</var> を使って符号化します。
+</p></dd></dl>
+
+
+<dl>
+<dt><a name="index-mime_002ddecode_002dregion"></a>Function: <strong>mime-decode-region</strong> <em>start end encoding</em></dt>
+<dd>
+<p>現在の buffer の <var>start</var> から <var>end</var> までの region を
+<var>encoding</var> を使って復号化します。
+</p></dd></dl>
+
+
+
+<dl>
+<dt><a name="index-mime_002ddecode_002dstring"></a>Function: <strong>mime-decode-string</strong> <em>string encoding</em></dt>
+<dd>
+<p><var>string</var> を <var>encoding</var> として復号した結果を返す。
+</p></dd></dl>
+
+
+
+<dl>
+<dt><a name="index-mime_002dinsert_002dencoded_002dfile"></a>Function: <strong>mime-insert-encoded-file</strong> <em>filename encoding</em></dt>
+<dd>
+<p><var>ENCODING</var> format で符号化された file <var>FILENAME</var> を
+挿入する。
+</p></dd></dl>
+
+
+<dl>
+<dt><a name="index-mime_002dwrite_002ddecoded_002dregion"></a>Function: <strong>mime-write-decoded-region</strong> <em>start end filename encoding</em></dt>
+<dd>
+<p><var>encoding</var> で符号化された現在の region を復号化して
+<var>filename</var>に書き込みます。
+</p>
+<p>&lt;var&gt;start&lt;var&gt; と <var>end</var> は buffer の位置です。
+</p></dd></dl>
+
+
+
+<hr>
+<a name="Encoding-information"></a>
+<div class="header">
+<p>
+Next: <a href="#mel_002dbackend" accesskey="n" rel="next">mel-backend</a>, Previous: <a href="#encoder_002fdecoder" accesskey="p" rel="prev">encoder/decoder</a>, Up: <a href="#Content_002dTransfer_002dEncoding" accesskey="u" rel="up">Content-Transfer-Encoding</a> &nbsp; [<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<a name="Other-utilities"></a>
+<h3 class="section">6.3 Other utilities</h3>
+
+<dl>
+<dt><a name="index-mime_002dencoding_002dlist"></a>Function: <strong>mime-encoding-list</strong> <em>&amp;optional  SERVICE</em></dt>
+<dd>
+<p>Content-Transfer-Encoding の list を返します。
+</p>
+<p><var>service</var> が指定されていると、それに対する
+Content-Transfer-Encoding を返します。
+</p></dd></dl>
+
+
+<dl>
+<dt><a name="index-mime_002dencoding_002dalist"></a>Function: <strong>mime-encoding-alist</strong> <em>&amp;optional  SERVICE</em></dt>
+<dd>
+<p>補完のための Content-Transfer-Encoding の表を返します。
+</p>
+<p><var>service</var> が指定されている場合はそれに対する
+Content-Transfer-Encoding の list を返します。
+</p></dd></dl>
+
+
+
+<hr>
+<a name="mel_002dbackend"></a>
+<div class="header">
+<p>
+Next: <a href="#generic-function-for-mel_002dbackend" accesskey="n" rel="next">generic function for mel-backend</a>, Previous: <a href="#Encoding-information" accesskey="p" rel="prev">Encoding information</a>, Up: <a href="#Content_002dTransfer_002dEncoding" accesskey="u" rel="up">Content-Transfer-Encoding</a> &nbsp; [<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<a name="How-to-write-encoder_002fdecoder-module"></a>
+<h3 class="section">6.4 How to write encoder/decoder module</h3>
+
+<dl>
+<dt><a name="index-mel_002ddefine_002dmethod"></a>Macro: <strong>mel-define-method</strong> <em>name args  &amp;rest  body</em></dt>
+<dd>
+<p><var>name</var> を (nth 1 (car (last <var>args</var>))) backend の
+method 関数として定義します。
+</p>
+<p><var>args</var> は lambda の引数 list と似ていますが、(car (last
+<var>args</var>)) は指定された parameter である必要があります。(car
+(car (last <var>args</var>))) は変数の名前で、(nth 1 (car (last
+<var>args</var>))) は backend の名前 (encoding) です。
+</p>
+<p>例:
+</p>
+<div class="lisp">
+<pre class="lisp">(mel-define-method mime-write-decoded-region (start end filename
+						    (nil &quot;base64&quot;))
+  &quot;Decode and write current region encoded by base64 into FILENAME.
+START and END are buffer positions.&quot;
+  (interactive
+   (list (region-beginning) (region-end)
+	 (read-file-name &quot;Write decoded region to file: &quot;)))
+  (let ((str (buffer-substring start end)))
+    (with-temp-buffer
+      (insert (decode-base64-string str))
+      (write-region-as-binary (point-min) (point-max) filename)
+      )))
+</pre></div>
+</dd></dl>
+
+
+<dl>
+<dt><a name="index-mel_002ddefine_002dmethod_002dfunction"></a>Macro: <strong>mel-define-method-function</strong> <em>spec function</em></dt>
+<dd>
+<p><var>spec</var> の関数定義を <var>function</var> に設定します。
+</p>
+<p><var>spec</var> の最初の要素は service です。
+</p>
+<p><var>args</var> の残りは lambda の引数 list 似ていますが、(car (last
+<var>args</var>)) は指定された parameter である必要があります。(car
+(car (last <var>args</var>))) は変数の名前で、(nth 1 (car (last
+<var>args</var>))) は backend の名前 (encoding) です。
+</p>
+<p>例:
+</p>
+<div class="lisp">
+<pre class="lisp">(mel-define-method-function (mime-encode-string string (nil &quot;base64&quot;))
+			    'encode-base64-string)
+</pre></div>
+</dd></dl>
+
+
+
+<hr>
+<a name="generic-function-for-mel_002dbackend"></a>
+<div class="header">
+<p>
+Previous: <a href="#mel_002dbackend" accesskey="p" rel="prev">mel-backend</a>, Up: <a href="#Content_002dTransfer_002dEncoding" accesskey="u" rel="up">Content-Transfer-Encoding</a> &nbsp; [<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<a name="Fu-Hao-Hua-_002fFu-Hao-Hua--service-woZhui-Jia-suruFang-Fa-"></a>
+<h3 class="section">6.5 符号化/復号化 service を追加する方法</h3>
+
+<dl>
+<dt><a name="index-mel_002ddefine_002dservice"></a>Macro: <strong>mel-define-service</strong> <em>name &amp;optional  args doc-string</em></dt>
+<dd>
+<p><var>name</var> を Content-Transfer-Encoding の service として定義しま
+す。
+</p>
+<p><var>args</var> が指定されていると、<var>name</var> は service の
+generic function として定義されます。
+</p>
+<p>例:
+</p>
+<div class="lisp">
+<pre class="lisp">(mel-define-service encoded-text-encode-string (string encoding)
+  &quot;Encode STRING as encoded-text using ENCODING.
+ENCODING must be string.&quot;)
+</pre></div>
+</dd></dl>
+
+
+
+<hr>
+<a name="encoded_002dword"></a>
+<div class="header">
+<p>
+Next: <a href="#custom" accesskey="n" rel="next">custom</a>, Previous: <a href="#Content_002dTransfer_002dEncoding" accesskey="p" rel="prev">Content-Transfer-Encoding</a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a> &nbsp; [<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<a name="Header-no-network-Biao-Xian-"></a>
+<h2 class="chapter">7 Header の network 表現</h2>
+<a name="index-RFC-2047"></a>
+<a name="index-Standards-Track-1"></a>
+<a name="index-RFC-2047-1"></a>
+
+<p>encoded-word は header で非 ASCII (<a href="#ASCII">ASCII</a>) 文字を表現するための形式
+で、<strong>RFC 2047</strong> で定義されています。
+</p>
+
+<p>[RFC 2047]
+</p><blockquote>
+<p>K. Moore, &ldquo;MIME (Multipurpose Internet Mail Extensions) Part Three:
+Message Header Extensions for Non-ASCII Text&rdquo;, November 1996, Standards
+Track (obsolete RFC 1521,1522,1590).
+</p></blockquote>
+
+<p>また、行儀の悪いことだと言えますが、encoded-word を用いずに非 ASCII
+(<a href="#ASCII">ASCII</a>) 文字を header に入れた記事も存在します。
+</p>
+<p>FLIM はこれらを符号化・復号化する機能を提供します。
+</p>
+
+<table class="menu" border="0" cellspacing="0">
+<tr><td align="left" valign="top">&bull; <a href="#Header-encoder_002fdecoder" accesskey="1">Header encoder/decoder</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Header の符号化・復号化
+</td></tr>
+</table>
+
+<hr>
+<a name="Header-encoder_002fdecoder"></a>
+<div class="header">
+<p>
+Previous: <a href="#encoded_002dword" accesskey="p" rel="prev">encoded-word</a>, Up: <a href="#encoded_002dword" accesskey="u" rel="up">encoded-word</a> &nbsp; [<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<a name="Header-noFu-Hao-Hua-Fu-Hao-Hua-"></a>
+<h3 class="section">7.1 Header の符号化・復号化</h3>
+
+<dl>
+<dt><a name="index-eword_002ddecode_002dheader"></a>Function: <strong>eword-decode-header</strong> <em>&amp;optional  code-conversion separator</em></dt>
+<dd>
+<p>Header 中の encoded-word を復号する。
+</p>
+<p>もし <var>code-conversion</var> が <code>nil</code> なら、encoded-word だけが復号さ
+れる。もし、<var>code-conversion</var> が MIME charset (<a href="#MIME-charset">MIME charset</a>) 
+なら、非 ASCII bit patterns はその MIME charset として復号される。これ以
+外の場合、非 ASCII bit patterns は<code>default-mime-charset</code>. として復
+号される。(cf. <a href="#entity-formatting">entity formatting</a>) 
+</p>
+<p>もし <var>separator</var> が <code>nil</code> でなければ、その値がheader separator 
+として用いられる。
+</p></dd></dl>
+
+
+<dl>
+<dt><a name="index-eword_002dencode_002dheader"></a>Function: <strong>eword-encode-header</strong> <em>&amp;optional  code-conversion</em></dt>
+<dd>
+<p>Header を network 表現に符号化する。
+</p>
+<p>各 field は <code>mime-field-encoding-method-alist</code> で指定された方式で
+符号化される。
+</p></dd></dl>
+
+
+<dl>
+<dt><a name="index-mime_002dfield_002dencoding_002dmethod_002dalist"></a>Variable: <strong>mime-field-encoding-method-alist</strong></dt>
+<dd>
+<p>Field を符号化する方法を指定する連想 list。各 element は (FIELD
+. METHOD) の様になっている。
+</p>
+<p>METHOD が <code>mime</code> であれば、FIELD は MIME format に符号化さ
+れる (encoded-word)。
+</p>
+<p>METHOD が <code>nil</code> であれば、FIELD は符号化されない。
+</p>
+<p>METHOD が MIME charset であれば、FIELD はネットワークコードに変換しな
+ければならないときに charset に符号化される。
+</p>
+<p>そうでなければ、FIELD はネットワークコードに変換しなければならないとき
+に 変数 <code>default-mime-charset</code> で符号化される
+</p></dd></dl>
+
+
+
+<hr>
+<a name="custom"></a>
+<div class="header">
+<p>
+Next: <a href="#Appendix" accesskey="n" rel="next">Appendix</a>, Previous: <a href="#encoded_002dword" accesskey="p" rel="prev">encoded-word</a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a> &nbsp; [<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<a name="YiBan-She-Ding-"></a>
+<h2 class="chapter">8 一般設定</h2>
+
+<dl>
+<dt><a name="index-mime"></a>group: <strong>mime</strong></dt>
+<dd>
+<p>MIME 関連機能に関する group.
+</p>
+<p><code>mail</code> と <code>news</code> に属する。
+</p></dd></dl>
+
+
+<hr>
+<a name="Appendix"></a>
+<div class="header">
+<p>
+Next: <a href="#Concept-Index" accesskey="n" rel="next">Concept Index</a>, Previous: <a href="#custom" accesskey="p" rel="prev">custom</a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a> &nbsp; [<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<a name="Fu-Lu-"></a>
+<h2 class="chapter">9 付録</h2>
+
+
+<table class="menu" border="0" cellspacing="0">
+<tr><td align="left" valign="top">&bull; <a href="#Glossary" accesskey="1">Glossary</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">用語
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="#Bug-report" accesskey="2">Bug report</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">bug 報告の仕方
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="#CVS" accesskey="3">CVS</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">CVS による開発
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="#History" accesskey="4">History</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">歴史
+</td></tr>
+</table>
+
+<hr>
+<a name="Glossary"></a>
+<div class="header">
+<p>
+Next: <a href="#Bug-report" accesskey="n" rel="next">Bug report</a>, Previous: <a href="#Appendix" accesskey="p" rel="prev">Appendix</a>, Up: <a href="#Appendix" accesskey="u" rel="up">Appendix</a> &nbsp; [<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<a name="Yong-Yu-"></a>
+<h3 class="section">9.1 用語</h3>
+
+
+<table class="menu" border="0" cellspacing="0">
+<tr><td align="left" valign="top">&bull; <a href="#g_t7bit" accesskey="1">7bit</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="#g_t8bit" accesskey="2">8bit</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="#ASCII" accesskey="3">ASCII</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="#Base64" accesskey="4">Base64</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="#binary" accesskey="5">binary</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="#Coded-character-set" accesskey="6">Coded character set</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Coded character set（符号化文字集合）, Character code（文字符号）
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="#media_002dtype" accesskey="7">media-type</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="#message" accesskey="8">message</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="#MIME" accesskey="9">MIME</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="#MIME-charset">MIME charset</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="#MTA">MTA</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="#MUA">MUA</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="#Quoted_002dPrintable">Quoted-Printable</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="#RFC-822">RFC 822</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="#RFC-1036">RFC 1036</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="#RFC-2045">RFC 2045</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="#RFC-2046">RFC 2046</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="#RFC-2048">RFC 2048</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="#RFC-2049">RFC 2049</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="#plain-text">plain text</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="#us_002dascii">us-ascii</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+</table>
+
+<hr>
+<a name="g_t7bit"></a>
+<div class="header">
+<p>
+Next: <a href="#g_t8bit" accesskey="n" rel="next">8bit</a>, Previous: <a href="#Glossary" accesskey="p" rel="prev">Glossary</a>, Up: <a href="#Glossary" accesskey="u" rel="up">Glossary</a> &nbsp; [<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<a name="g_t7bit-1"></a>
+<h4 class="subsection">9.1.1 7bit</h4>
+
+<p>ここでは 0 から 127 の整数を指す。
+</p>
+<p>0 から 127 の整数の列で表現できるような data を &ldquo;7bit の data&rdquo; と呼ぶ。
+
+</p>
+<p>また、0 から 31 および 127 で表現される制御文字と 32 で表現される空白と 
+33 から 126 で表現される図形文字からなる文字列のことを &ldquo;7bit の文字列&rdquo; 
+と呼ぶ（これは ISO 2022 の「7 単位系」と同様）。
+</p>
+<p>伝統的な Internet の MTA (<a href="#MTA">MTA</a>) は 7bit の data を転送できるので、
+7bit の data は Quoted-Printable (<a href="#Quoted_002dPrintable">Quoted-Printable</a>) や Base64
+(<a href="#Base64">Base64</a>) といった変換を行わなくてもそのまま転送できる。
+</p>
+<p>しかし、7bit であればどんな data でも良いとはいえない。なぜなら、１行の
+長さがあまりに長いと、MTA はその message を転送することができないからで
+ある。ちなみに、RFC 822 (<a href="#RFC-822">RFC 822</a>) は１行は改行文字を除いて 998
+byte 以内であることを求めている。よって、これ以上の行が含まれる可能性の
+ある data, 例えば、Postscript の data などは Quoted-Printable 等で 
+encodeする必用がある。
+</p>
+
+<hr>
+<a name="g_t8bit"></a>
+<div class="header">
+<p>
+Next: <a href="#ASCII" accesskey="n" rel="next">ASCII</a>, Previous: <a href="#g_t7bit" accesskey="p" rel="prev">7bit</a>, Up: <a href="#Glossary" accesskey="u" rel="up">Glossary</a> &nbsp; [<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<a name="g_t8bit-1"></a>
+<h4 class="subsection">9.1.2 8bit</h4>
+<a name="index-binary"></a>
+
+<p>ここでは 0 から 255 の整数を指す。
+</p>
+<p>0 から 255 の整数の列で表現できるような data を &ldquo;8bit の data&rdquo; と呼ぶ。
+
+</p>
+<p>また、0 から 31, 127 および 128 から 159 で表現される制御文字と 32 で表
+現される空白と 33 から 126 と 160 から 255 で表現される図形文字からなる
+文字列のことを &ldquo;8bit の文字列&rdquo; と呼ぶ（これは ISO 2022 の「8 単位系」と同様）。
+</p>
+<p>iso-8859-1 や euc-kr といった符号化文
+字集合は 8bit の文字列である。
+</p>
+<p>伝統的な Internet の MTA (<a href="#MTA">MTA</a>) は 7bit (<a href="#g_t7bit">7bit</a>) の data しか転
+送できないので、そうした MTA を経由する場合、Quoted-Printable
+(<a href="#Quoted_002dPrintable">Quoted-Printable</a>) や Base64 (<a href="#Base64">Base64</a>) といった変換を行わなく
+てはならない。
+</p>
+<p>しかし、最近では 8bit の文字列をそのまま通すことができる MTA も登場して
+きたので、そのまま送ることができる場合も増えてきた。
+</p>
+<p>しかし、8bit であればどんな data でも良いとはいえない。なぜなら、１行の
+長さがあまりに長いと、MTA はその message を転送することができないからで
+ある。ちなみに、RFC 822 (<a href="#RFC-822">RFC 822</a>) は１行は改行文字を除いて 998
+byte 以内であることを求めている。よって、これ以上の行が含まれる可能性の
+ある data, 例えば、Postscript の data などは Quoted-Printable 等で 
+encodeする必用がある。
+</p>
+<p>また、こうした理由から、１行が 999 byte 以上の行が存在する可能性のある
+data は <strong>binary</strong> (<a href="#binary">binary</a>) と呼ぶことにする。
+</p>
+<p>ちなみに、7bit で表現できる data は 8bit でも表現できる。よって、
+&ldquo;8bit&rdquo; と言った場合、１行が 998 byte 以下の任意の data を指すことが
+ある。
+</p>
+
+<hr>
+<a name="ASCII"></a>
+<div class="header">
+<p>
+Next: <a href="#Base64" accesskey="n" rel="next">Base64</a>, Previous: <a href="#g_t8bit" accesskey="p" rel="prev">8bit</a>, Up: <a href="#Glossary" accesskey="u" rel="up">Glossary</a> &nbsp; [<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<a name="ASCII-1"></a>
+<h4 class="subsection">9.1.3 ASCII</h4>
+<a name="index-ANSI-X3_002e4_003a1986"></a>
+<a name="index-ASCII"></a>
+
+<p>アメリカ連邦で使われる文字を符号化した符号化文字集合 (<a href="#Coded-character-set">Coded character set</a>)。A-Z, a-z の Latin 文字と数字、幾つかの記号からなる。ISO 646 の一つ
+で、現在は国際基準版 (IRV) になっている。
+</p>
+
+<p>[ASCII]
+</p><blockquote>
+<p>&ldquo;Coded Character Set &ndash; 7-Bit American Standard Code for Information
+Interchange&rdquo;, ANSI X3.4:1986.
+</p></blockquote>
+
+
+
+<hr>
+<a name="Base64"></a>
+<div class="header">
+<p>
+Next: <a href="#binary" accesskey="n" rel="next">binary</a>, Previous: <a href="#ASCII" accesskey="p" rel="prev">ASCII</a>, Up: <a href="#Glossary" accesskey="u" rel="up">Glossary</a> &nbsp; [<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<a name="Base64-1"></a>
+<h4 class="subsection">9.1.4 Base64</h4>
+<a name="index-pad"></a>
+
+<p>RFC 2045 (<a href="#RFC-2045">RFC 2045</a>) で定義されている MIME (<a href="#MIME">MIME</a>) における 
+binary data (<a href="#binary">binary</a>) の network での変換法の１つ。
+</p>
+<p>『64 進数』という意味で、3 byte の data を 0 から 63 の数を表す ASCII
+(<a href="#ASCII">ASCII</a>) 4 文字に変換する方法。（もし、4 文字にならなければ 
+<strong>pad</strong> と呼ばれる詰め物をして長さを調整する）
+</p>
+<p>この 65 種類の文字は ASCII と EBCDIC の共通部分から選ばれており、
+Internet 以外の network を経由する場合でも安全に転送できるように設計さ
+れている。
+</p>
+
+<hr>
+<a name="binary"></a>
+<div class="header">
+<p>
+Next: <a href="#Coded-character-set" accesskey="n" rel="next">Coded character set</a>, Previous: <a href="#Base64" accesskey="p" rel="prev">Base64</a>, Up: <a href="#Glossary" accesskey="u" rel="up">Glossary</a> &nbsp; [<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<a name="binary-1"></a>
+<h4 class="subsection">9.1.5 binary</h4>
+<a name="index-binary-data"></a>
+<a name="index-binary-1"></a>
+
+<p>任意の byte 列を <strong>binary</strong> と呼ぶ。
+</p>
+<p>8bit (<a href="#g_t8bit">8bit</a>) と異なるのは data に行の構造を仮定しないことである。
+</p>
+<p>また、行の構造があっても、999 byte 以上からなる行がある場合も binary と
+呼ぶことにする。
+</p>
+<p>ちなみに、7bit (<a href="#g_t7bit">7bit</a>) や 8bit で表現できる data は binary でも表現
+できる。よって、<strong>binary data</strong> と言った場合、任意の data を指すこ
+とがある。
+</p>
+
+<hr>
+<a name="Coded-character-set"></a>
+<div class="header">
+<p>
+Next: <a href="#media_002dtype" accesskey="n" rel="next">media-type</a>, Previous: <a href="#binary" accesskey="p" rel="prev">binary</a>, Up: <a href="#Glossary" accesskey="u" rel="up">Glossary</a> &nbsp; [<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<a name="Coded-character-set_0028Fu-Hao-Hua-WenZi-Ji-He-_0029_002c-Character-code_0028WenZi-Fu-Hao-_0029"></a>
+<h4 class="subsection">9.1.6 Coded character set（符号化文字集合）, Character code（文字符号）</h4>
+
+<p>文字と byte 列と１対１に対応付ける曖昧でない規則の集合。
+</p>
+
+<hr>
+<a name="media_002dtype"></a>
+<div class="header">
+<p>
+Next: <a href="#message" accesskey="n" rel="next">message</a>, Previous: <a href="#Coded-character-set" accesskey="p" rel="prev">Coded character set</a>, Up: <a href="#Glossary" accesskey="u" rel="up">Glossary</a> &nbsp; [<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<a name="media_002dtype-1"></a>
+<h4 class="subsection">9.1.7 media-type</h4>
+<a name="index-x_002dtoken"></a>
+<a name="index-primary_002dtype_002fsubtype"></a>
+<a name="index-message-1"></a>
+<a name="index-multipart"></a>
+<a name="index-application"></a>
+<a name="index-video"></a>
+<a name="index-audio"></a>
+<a name="index-image"></a>
+<a name="index-text"></a>
+<a name="index-subtype-1"></a>
+<a name="index-primary_002dtype"></a>
+
+<p>MIME (<a href="#MIME">MIME</a>) における entity (<a href="#Entity">Entity</a>) の種類。
+<strong>primary-type</strong> と <strong>subtype</strong> からなる。RFC 2046 (<a href="#RFC-2046">RFC 2046</a>) で定義されている。
+</p>
+<p>primary-type は標準では
+</p>
+<ul>
+<li> <strong>text</strong>
+</li><li> <strong>image</strong>
+</li><li> <strong>audio</strong>
+</li><li> <strong>video</strong>
+</li><li> <strong>application</strong>
+</li><li> <strong>multipart</strong>
+</li><li> <strong>message</strong>
+</li></ul>
+
+<p>が定義され、それぞれには application/octet-stream, audio/basic,
+image/jpeg, multipart/mixed, text/plain, video/mpeg などの
+さまざまな subtype が定義されている。
+</p>
+<p><strong>[注意]</strong>
+</p><blockquote>
+
+<p>ここでは、text/plain などの type/subtype の組をしばしば 
+<strong>primary-type/subtype</strong> と書く。
+</p></blockquote>
+
+
+<p>media-type は、RFC 2046 で定義されているものに加えて、登録することもでき
+る。現在、登録されているものは MEDIA TYPES
+(ftp://ftp.isi.edu/in-notes/iana/assignments/media-types) で参照できる。
+</p>
+<p>また、type もしくは subtype に、前に &lsquo;x-&rsquo; を付けた <strong>x-token</strong> を用
+いることにより、登録されていないものを私的に用いることもできる。しかし、
+当然のことながら、こうした私的な media-type は諒解を得た者の間でしか解釈
+できないので利用には注意すること。
+</p>
+<p>(cf. <a href="#Content_002dType">Content-Type</a>)
+</p>
+
+
+<hr>
+<a name="message"></a>
+<div class="header">
+<p>
+Next: <a href="#MIME" accesskey="n" rel="next">MIME</a>, Previous: <a href="#media_002dtype" accesskey="p" rel="prev">media-type</a>, Up: <a href="#Glossary" accesskey="u" rel="up">Glossary</a> &nbsp; [<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<a name="message-1"></a>
+<h4 class="subsection">9.1.8 message</h4>
+
+<p>ここでは mail と news 記事の総称として用いる。
+</p>
+
+<hr>
+<a name="MIME"></a>
+<div class="header">
+<p>
+Next: <a href="#MIME-charset" accesskey="n" rel="next">MIME charset</a>, Previous: <a href="#message" accesskey="p" rel="prev">message</a>, Up: <a href="#Glossary" accesskey="u" rel="up">Glossary</a> &nbsp; [<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<a name="MIME-1"></a>
+<h4 class="subsection">9.1.9 MIME</h4>
+<a name="index-Multipurpose-Internet-Mail-Extensions"></a>
+
+<p><strong>Multipurpose Internet Mail Extensions</strong> の略で、Internet の mail 
+や news で us-ascii plain text (<a href="#us_002dascii">us-ascii</a>) 以外の文字を使うための 
+RFC 822 (<a href="#RFC-822">RFC 822</a>) に対する拡張。
+</p>
+<p>RFC 2045 は冒頭で次のように述べている：
+</p>
+<p>STD 11, RFC 822 は、US-ASCII message header に関して非常に詳細に規定し
+た message 表現 protocol を定義している。しかし、それは単に flat な 
+US-ASCII text のみに留まり、message の内容や message body に関する規定
+はなされていない。Multipurpose Internet Mail Extensions, あるいは MIME 
+と総称される、この一連の文書は、以下の事を可能とするために message の
+形式を再定義した：
+</p>
+<ol>
+<li> 文書 message body における US-ASCII 以外の文字集合
+</li><li> 非文書 message body
+</li><li> 複数の部分からなる message body
+</li><li> US-ASCII 以外の文字集合からなる文書 header 情報
+</li></ol>
+
+
+<p>RFC 2045 (<a href="#RFC-2045">RFC 2045</a>), RFC 2046 (<a href="#RFC-2046">RFC 2046</a>), RFC 2047
+(<a href="#encoded_002dword">encoded-word</a>), RFC 2048 (<a href="#RFC-2048">RFC 2048</a>), RFC 2049 (<a href="#RFC-2049">RFC 2049</a>) で定義されている。
+</p>
+
+<hr>
+<a name="MIME-charset"></a>
+<div class="header">
+<p>
+Next: <a href="#MTA" accesskey="n" rel="next">MTA</a>, Previous: <a href="#MIME" accesskey="p" rel="prev">MIME</a>, Up: <a href="#Glossary" accesskey="u" rel="up">Glossary</a> &nbsp; [<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<a name="MIME-charset-1"></a>
+<h4 class="subsection">9.1.10 MIME charset</h4>
+
+<p>Content-Type (<a href="#Content_002dType">Content-Type</a>) 欄や encoded-word (<a href="#encoded_002dword">encoded-word</a>) 
+の charset parameter で用いられる登録された符号化文字集合(<a href="#Coded-character-set">Coded character set</a>)。
+</p>
+<p>RFC 2045 (<a href="#RFC-2045">RFC 2045</a>) で定義されている。
+</p>
+<p>iso-2022-jp や euc-kr はその１つ。
+</p>
+
+<hr>
+<a name="MTA"></a>
+<div class="header">
+<p>
+Next: <a href="#MUA" accesskey="n" rel="next">MUA</a>, Previous: <a href="#MIME-charset" accesskey="p" rel="prev">MIME charset</a>, Up: <a href="#Glossary" accesskey="u" rel="up">Glossary</a> &nbsp; [<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<a name="MTA-1"></a>
+<h4 class="subsection">9.1.11 MTA</h4>
+<a name="index-Message-Transfer-Agent"></a>
+
+<p><strong>Message Transfer Agent</strong> の略で、qmail や sendmail などの mail 配
+送 program と inn などの news server の総称。
+</p>
+<p>(cf. <a href="#MUA">MUA</a>)
+</p>
+
+
+<hr>
+<a name="MUA"></a>
+<div class="header">
+<p>
+Next: <a href="#Quoted_002dPrintable" accesskey="n" rel="next">Quoted-Printable</a>, Previous: <a href="#MTA" accesskey="p" rel="prev">MTA</a>, Up: <a href="#Glossary" accesskey="u" rel="up">Glossary</a> &nbsp; [<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<a name="MUA-1"></a>
+<h4 class="subsection">9.1.12 MUA</h4>
+<a name="index-Message-User-Agent"></a>
+
+<p><strong>Message User Agent</strong> の略で、mail reader と news reader の総称。
+
+</p>
+<p>(cf. <a href="#MTA">MTA</a>)
+</p>
+
+
+<hr>
+<a name="Quoted_002dPrintable"></a>
+<div class="header">
+<p>
+Next: <a href="#RFC-822" accesskey="n" rel="next">RFC 822</a>, Previous: <a href="#MUA" accesskey="p" rel="prev">MUA</a>, Up: <a href="#Glossary" accesskey="u" rel="up">Glossary</a> &nbsp; [<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<a name="Quoted_002dPrintable-1"></a>
+<h4 class="subsection">9.1.13 Quoted-Printable</h4>
+
+<p>RFC 2045 (<a href="#RFC-2045">RFC 2045</a>) で定義されている MIME (<a href="#MIME">MIME</a>) における 
+binary data の network での変換法の１つ。
+</p>
+<p>&lsquo;=&rsquo; や制御文字や 128 以上の文字などは &lsquo;=AF&rsquo; のように &lsquo;=&rsquo; の後に続く 16 
+進数で表現する。このため、ASCII (<a href="#ASCII">ASCII</a>) 文字中心の data では 
+Base64 (<a href="#Base64">Base64</a>) に比べると可読性が高くなる可能性がある。
+</p>
+<p>しかしながら、EBCDIC には存在しない文字を利用する場合、EBCDIC を利用し
+ている network では安全に転送することができず、Base64 に比べて安全性は
+低い。
+</p>
+
+<hr>
+<a name="RFC-822"></a>
+<div class="header">
+<p>
+Next: <a href="#RFC-1036" accesskey="n" rel="next">RFC 1036</a>, Previous: <a href="#Quoted_002dPrintable" accesskey="p" rel="prev">Quoted-Printable</a>, Up: <a href="#Glossary" accesskey="u" rel="up">Glossary</a> &nbsp; [<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<a name="RFC-822-1"></a>
+<h4 class="subsection">9.1.14 RFC 822</h4>
+<a name="index-RFC-822"></a>
+<a name="index-STD-11"></a>
+<a name="index-Internet-message"></a>
+<a name="index-Internet-mail"></a>
+<a name="index-message-header"></a>
+
+<p>Internet mail の主に <strong>message header</strong> に関する形式に
+関する標準を定めている RFC.
+</p>
+<p><strong>[Memo]</strong>
+</p><blockquote>
+
+<p>news message もこれに準じているので、<strong>Internet mail</strong> と書くよりも、
+<strong>Internet message</strong> と書いた方が良いかもしれない。
+</p></blockquote>
+
+
+
+<p>[RFC 822]
+</p><blockquote>
+<p>D. Crocker, &ldquo;Standard for the Format of ARPA Internet Text Messages&rdquo;,
+August 1982, STD 11.
+</p></blockquote>
+
+
+
+<hr>
+<a name="RFC-1036"></a>
+<div class="header">
+<p>
+Next: <a href="#RFC-2045" accesskey="n" rel="next">RFC 2045</a>, Previous: <a href="#RFC-822" accesskey="p" rel="prev">RFC 822</a>, Up: <a href="#Glossary" accesskey="u" rel="up">Glossary</a> &nbsp; [<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<a name="RFC-1036-1"></a>
+<h4 class="subsection">9.1.15 RFC 1036</h4>
+<a name="index-RFC-1036"></a>
+<a name="index-USENET"></a>
+
+<p>USENET での message の形式を定めた RFC.  RFC 822 (<a href="#RFC-822">RFC 822</a>) の 
+subset になっている。Internet の標準ではないが、USENET 以外の netnews で
+もこれに準じているものが多い。
+</p>
+
+<p>[USENET: RFC 1036]
+</p><blockquote>
+<p>M. Horton and R. Adams, &ldquo;Standard for Interchange of USENET Messages&rdquo;,
+December 1987, (obsolete RFC 850).
+</p></blockquote>
+
+
+
+<hr>
+<a name="RFC-2045"></a>
+<div class="header">
+<p>
+Next: <a href="#RFC-2046" accesskey="n" rel="next">RFC 2046</a>, Previous: <a href="#RFC-1036" accesskey="p" rel="prev">RFC 1036</a>, Up: <a href="#Glossary" accesskey="u" rel="up">Glossary</a> &nbsp; [<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<a name="RFC-2045-1"></a>
+<h4 class="subsection">9.1.16 RFC 2045</h4>
+<a name="index-RFC-2045"></a>
+<a name="index-Standards-Track-2"></a>
+
+
+<p>[RFC 2045]
+</p><blockquote>
+<p>N. Freed and N. Borenstein, &ldquo;Multipurpose Internet Mail Extensions
+(MIME) Part One: Format of Internet Message Bodies&rdquo;, November 1996,
+Standards Track (obsolete RFC 1521, 1522, 1590).
+</p></blockquote>
+
+
+
+<hr>
+<a name="RFC-2046"></a>
+<div class="header">
+<p>
+Next: <a href="#RFC-2048" accesskey="n" rel="next">RFC 2048</a>, Previous: <a href="#RFC-2045" accesskey="p" rel="prev">RFC 2045</a>, Up: <a href="#Glossary" accesskey="u" rel="up">Glossary</a> &nbsp; [<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<a name="RFC-2046-1"></a>
+<h4 class="subsection">9.1.17 RFC 2046</h4>
+<a name="index-RFC-2046"></a>
+<a name="index-Standards-Track-3"></a>
+
+
+<p>[RFC 2046]
+</p><blockquote>
+<p>N. Freed and N. Borenstein, &ldquo;Multipurpose Internet Mail Extensions
+(MIME) Part Two: Media Types&rdquo;, November 1996, Standards Track (obsolete
+RFC 1521, 1522, 1590).
+</p></blockquote>
+
+
+
+<hr>
+<a name="RFC-2048"></a>
+<div class="header">
+<p>
+Next: <a href="#RFC-2049" accesskey="n" rel="next">RFC 2049</a>, Previous: <a href="#RFC-2046" accesskey="p" rel="prev">RFC 2046</a>, Up: <a href="#Glossary" accesskey="u" rel="up">Glossary</a> &nbsp; [<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<a name="RFC-2048-1"></a>
+<h4 class="subsection">9.1.18 RFC 2048</h4>
+<a name="index-RFC-2048"></a>
+<a name="index-Standards-Track-4"></a>
+
+
+<p>[RFC 2048]
+</p><blockquote>
+<p>N. Freed, J. Klensin and J. Postel, &ldquo;Multipurpose Internet Mail
+Extensions (MIME) Part Four: Registration Procedures&rdquo;, November 1996,
+Standards Track (obsolete RFC 1521, 1522, 1590).
+</p></blockquote>
+
+
+
+<hr>
+<a name="RFC-2049"></a>
+<div class="header">
+<p>
+Next: <a href="#plain-text" accesskey="n" rel="next">plain text</a>, Previous: <a href="#RFC-2048" accesskey="p" rel="prev">RFC 2048</a>, Up: <a href="#Glossary" accesskey="u" rel="up">Glossary</a> &nbsp; [<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<a name="RFC-2049-1"></a>
+<h4 class="subsection">9.1.19 RFC 2049</h4>
+<a name="index-RFC-2049"></a>
+<a name="index-Standards-Track-5"></a>
+
+
+<p>[RFC 2049]
+</p><blockquote>
+<p>N. Freed and N. Borenstein, &ldquo;Multipurpose Internet Mail Extensions
+(MIME) Part Five: Conformance Criteria and Examples&rdquo;, November 1996,
+Standards Track (obsolete RFC 1521, 1522, 1590).
+</p></blockquote>
+
+
+
+<hr>
+<a name="plain-text"></a>
+<div class="header">
+<p>
+Next: <a href="#us_002dascii" accesskey="n" rel="next">us-ascii</a>, Previous: <a href="#RFC-2049" accesskey="p" rel="prev">RFC 2049</a>, Up: <a href="#Glossary" accesskey="u" rel="up">Glossary</a> &nbsp; [<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<a name="plain-text-1"></a>
+<h4 class="subsection">9.1.20 plain text</h4>
+
+<p>書体や組版に関する情報を持たない文字符号 (<a href="#Coded-character-set">Coded character set</a>) のみ
+で表現される text 情報。
+</p>
+
+
+<hr>
+<a name="us_002dascii"></a>
+<div class="header">
+<p>
+Previous: <a href="#plain-text" accesskey="p" rel="prev">plain text</a>, Up: <a href="#Glossary" accesskey="u" rel="up">Glossary</a> &nbsp; [<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<a name="us_002dascii-1"></a>
+<h4 class="subsection">9.1.21 us-ascii</h4>
+<a name="index-ASCII-1"></a>
+<a name="index-us_002dascii"></a>
+
+<p>アメリカ連邦などで使われる英語などを表現するための MIME charset
+(<a href="#MIME-charset">MIME charset</a>) の１つ。
+</p>
+<p>ASCII (<a href="#ASCII">ASCII</a>) のみからなり ISO 2022 による符号拡張は許されない。
+</p>
+<p>Internet message における標準の符号化文字集合 (<a href="#Coded-character-set">Coded character set</a>)
+であり、明示的に MIME charset が示されない場合は原則として 
+<strong>us-ascii</strong> が使われる。
+</p>
+<p>また、RFC 822 (<a href="#RFC-822">RFC 822</a>) における <strong>ASCII</strong> は us-ascii である。
+</p>
+
+<hr>
+<a name="Bug-report"></a>
+<div class="header">
+<p>
+Next: <a href="#CVS" accesskey="n" rel="next">CVS</a>, Previous: <a href="#Glossary" accesskey="p" rel="prev">Glossary</a>, Up: <a href="#Appendix" accesskey="u" rel="up">Appendix</a> &nbsp; [<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<a name="bug-Bao-Gao-noShi-Fang-"></a>
+<h3 class="section">9.2 bug 報告の仕方</h3>
+
+<p>FLIM のバグを見つけたら、以下の address に mail を送ってください：
+</p>
+<ul>
+<li> 英語 &lt;emacs-mime-en@m17n.org&gt;
+</li><li> 日本語 &lt;emacs-mime-ja@m17n.org&gt;
+</li></ul>
+
+
+<p>但し、あまりにも古い版に関する報告は歓迎されません。古い版の bug は、新
+しい版では治っているかもしれません。まず、最新版で確認してみましょう。
+
+</p>
+<p>それから、適切な報告をしましょう。単に「うまく動かない」と言われてもどう
+いう状況なのかはさっぱり判りません。最低限、OS, emacs, APEL, FLIM, SEMI, 
+使っている MUA の種類および版、設定を書く必要があります。また、error が
+起っている場合は backtrace を送ることも重要です。(cf. <a href="http://www.gnu.org/software/emacs/manual/html_mono/emacs.html#Bugs">(emacs)Bugs</a>)
+</p>
+<p>また、bug は大抵複数の人が遭遇するものです（そうでなければ、bug ではな
+い可能性があります）。だから、作者に直接 mail を送ると作者は同じ mail
+を何通も書く羽目になります。だから、必ず bug 報告は上記の address に送っ
+てください。
+</p>
+<p>EMACS-MIME ML では FLIM のバグ情報の交換や最新版の配布、FLIM の改良に
+関する議論を行なっています。EMACS-MIME ML に参加したい方は
+</p>
+<ul>
+<li> 英語 &lt;emacs-mime-en-ctl@m17n.org&gt;
+</li><li> 日本語 &lt;emacs-mime-ja-ctl@m17n.org&gt;
+</li></ul>
+
+<p>に空の mail を送って下さい。
+</p>
+
+<hr>
+<a name="CVS"></a>
+<div class="header">
+<p>
+Next: <a href="#History" accesskey="n" rel="next">History</a>, Previous: <a href="#Bug-report" accesskey="p" rel="prev">Bug report</a>, Up: <a href="#Appendix" accesskey="u" rel="up">Appendix</a> &nbsp; [<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<a name="CVS-niyoruKai-Fa-"></a>
+<h3 class="section">9.3 CVS による開発</h3>
+
+<p>FLIM の file は CVS を使って管理されています。このため、以下の方法で最
+新の FLIM を入手することができます：
+</p>
+<div class="example">
+<pre class="example">(0) cvs login
+
+    % cvs -d :pserver:anonymous@cvs.m17n.org:/cvs/root login
+
+    CVS password: [CR] # NULL string
+
+(1) checkout
+
+    % cvs -d :pserver:anonymous@cvs.m17n.org:/cvs/root checkout
+	checkout [-r TAG] flim
+</pre></div>
+
+
+<p>CVS を用いた開発に参加したい方は
+</p>
+<ul>
+<li> &lt;cvs@cvs.m17n.org&gt;
+</li></ul>
+
+<p>まで、アカウント名と ssh の公開鍵を送ってください。ssh 経由では、
+cvsroot は :ext:cvs@cvs.m17n.org:/cvs/root となります。
+</p>
+
+<hr>
+<a name="History"></a>
+<div class="header">
+<p>
+Previous: <a href="#CVS" accesskey="p" rel="prev">CVS</a>, Up: <a href="#Appendix" accesskey="u" rel="up">Appendix</a> &nbsp; [<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<a name="Li-Shi-"></a>
+<h3 class="section">9.4 歴史</h3>
+
+<p>FLIM の code の最古の部分は 榎並 嗣智 氏が書いた <samp>mime.el</samp> に起源し
+ます。この小さな program は Nemacs で動作する iso-2022-jp の B-encoding 
+専用の encoded-word の復号化プログラムでした。
+</p>
+<p>その後、守岡 知彦 は <samp>mime.el</samp> を元に<samp>tiny-mime.el</samp> というプロ
+グラムを書きます。これは、Nemacs と Mule で動作する encoded-word の符号
+化・復号化プログラムでした。<samp>tiny-mime.el</samp> は B-encoding だけでなく 
+Q-encoding もsupport し、また、MULE で扱うことができるさまざまな MIME
+charset (<a href="#MIME-charset">MIME charset</a>) を同時に使うことができました。この時、
+Nemacs と Mule の双方を support するために用いられたテクニックは後に emu
+package にまとめられます。
+</p>
+<p>この頃、守岡 知彦 は <samp>tiny-mime.el</samp> をさまざまな MUA で使うための設
+定集も配布していましたが、それらは後に<samp>tiny-mime.el</samp> とともに１つの 
+package にまとめられ、tm という名前で配布されます。
+</p>
+<p>守岡 知彦 はやがて、MIME message を閲覧するためのプログラムである
+<samp>tm-body.el</samp> を書きます。これは、すぐに<samp>tm-view.el</samp> という名前
+に変わりましたが、やがて、これが<samp>tiny-mime.el</samp> に代わって、tm の中
+核となります。
+</p>
+<p><samp>tm-view.el</samp> は当然、Content-Transfer-Encoding を扱う必要があります。
+この目的のために、MEL が整備されはじめました。Base64 に関しては 
+<samp>tiny-mime.el</samp> の code が移され、また、新たにQuoted-Printable の 
+code が追加されました。これらが<samp>mel-b.el</samp> と <samp>mel-q.el</samp> になり
+ました。
+</p>
+<p>また、後に、守岡 知彦 によって uuencode 用の <samp>mel-u.el</samp> が追加され、
+その後に、小林 修平 氏によって x-gzip64 用の<samp>mel-g.el</samp> が追加されま
+した。
+</p>
+<p>tm では後に、守岡 知彦 によって <samp>tiny-mime.el</samp> の再実装が行われ、こ
+の過程で、STD 11 の parser が書かれました。これは、現在の 
+<samp>std11.el</samp> に当たります。また、この過程で <samp>tiny-mime.el</samp> は復
+号化を行う <samp>tm-ew-d.el</samp> と符号化を行う <samp>tm-ew-e.el</samp> に分けられ
+ました。この両者が現在の <samp>eword-decode.el</samp> と 
+<samp>eword-encode.el</samp> の先祖に当たります。
+</p>
+<p>後に、守岡 知彦 らによって tm の全面書き換え作業が行われ、この過程で、tm 
+は APEL, MEL, SEMI, EMH, RMAIL-MIME, Gnus-MIME などに分けられました。こ
+のうちの MEL が FLIM の直接の先祖に当たります。
+</p>
+<p>後に、APEL から <samp>std11.el</samp> が移され、また、<samp>mailcap.el</samp>,
+<samp>eword-decode.el</samp> および <samp>eword-encode.el</samp> が SEMI から移され、
+package の名前が FLIM となります。
+</p>
+<p>この直前から田中 哲 氏がより RFC に忠実な実装を書き始め、これは、現在、
+FLIM の枝である &ldquo;FLIM-FLAM&rdquo; となっています。
+</p>
+
+<hr>
+<a name="Concept-Index"></a>
+<div class="header">
+<p>
+Next: <a href="#Function-Index" accesskey="n" rel="next">Function Index</a>, Previous: <a href="#Appendix" accesskey="p" rel="prev">Appendix</a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a> &nbsp; [<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<a name="Gai-Nian-Suo-Yin-"></a>
+<h2 class="chapter">10 概念索引</h2>
+
+<table><tr><th valign="top">Jump to: &nbsp; </th><td><a class="summary-letter" href="#Concept-Index_cp_letter-A"><b>A</b></a>
+ &nbsp; 
+<a class="summary-letter" href="#Concept-Index_cp_letter-B"><b>B</b></a>
+ &nbsp; 
+<a class="summary-letter" href="#Concept-Index_cp_letter-C"><b>C</b></a>
+ &nbsp; 
+<a class="summary-letter" href="#Concept-Index_cp_letter-E"><b>E</b></a>
+ &nbsp; 
+<a class="summary-letter" href="#Concept-Index_cp_letter-I"><b>I</b></a>
+ &nbsp; 
+<a class="summary-letter" href="#Concept-Index_cp_letter-M"><b>M</b></a>
+ &nbsp; 
+<a class="summary-letter" href="#Concept-Index_cp_letter-N"><b>N</b></a>
+ &nbsp; 
+<a class="summary-letter" href="#Concept-Index_cp_letter-P"><b>P</b></a>
+ &nbsp; 
+<a class="summary-letter" href="#Concept-Index_cp_letter-R"><b>R</b></a>
+ &nbsp; 
+<a class="summary-letter" href="#Concept-Index_cp_letter-S"><b>S</b></a>
+ &nbsp; 
+<a class="summary-letter" href="#Concept-Index_cp_letter-T"><b>T</b></a>
+ &nbsp; 
+<a class="summary-letter" href="#Concept-Index_cp_letter-U"><b>U</b></a>
+ &nbsp; 
+<a class="summary-letter" href="#Concept-Index_cp_letter-V"><b>V</b></a>
+ &nbsp; 
+<a class="summary-letter" href="#Concept-Index_cp_letter-X"><b>X</b></a>
+ &nbsp; 
+</td></tr></table>
+<table class="index-cp" border="0">
+<tr><td></td><th align="left">Index Entry</th><td>&nbsp;</td><th align="left"> Section</th></tr>
+<tr><td colspan="4"> <hr></td></tr>
+<tr><th><a name="Concept-Index_cp_letter-A">A</a></th><td></td><td></td></tr>
+<tr><td></td><td valign="top"><a href="#index-ANSI-X3_002e4_003a1986">ANSI X3.4:1986</a>:</td><td>&nbsp;</td><td valign="top"><a href="#ASCII">ASCII</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-application">application</a>:</td><td>&nbsp;</td><td valign="top"><a href="#media_002dtype">media-type</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-ASCII">ASCII</a>:</td><td>&nbsp;</td><td valign="top"><a href="#ASCII">ASCII</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-ASCII-1">ASCII</a>:</td><td>&nbsp;</td><td valign="top"><a href="#us_002dascii">us-ascii</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-audio">audio</a>:</td><td>&nbsp;</td><td valign="top"><a href="#media_002dtype">media-type</a></td></tr>
+<tr><td colspan="4"> <hr></td></tr>
+<tr><th><a name="Concept-Index_cp_letter-B">B</a></th><td></td><td></td></tr>
+<tr><td></td><td valign="top"><a href="#index-binary">binary</a>:</td><td>&nbsp;</td><td valign="top"><a href="#g_t8bit">8bit</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-binary-1">binary</a>:</td><td>&nbsp;</td><td valign="top"><a href="#binary">binary</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-binary-data">binary data</a>:</td><td>&nbsp;</td><td valign="top"><a href="#binary">binary</a></td></tr>
+<tr><td colspan="4"> <hr></td></tr>
+<tr><th><a name="Concept-Index_cp_letter-C">C</a></th><td></td><td></td></tr>
+<tr><td></td><td valign="top"><a href="#index-Content_002dDisposition-Lan-">Content-Disposition 欄</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Content_002dDisposition">Content-Disposition</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-Content_002dTransfer_002dEncoding-Lan-">Content-Transfer-Encoding 欄</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Content_002dTransfer_002dEncoding">Content-Transfer-Encoding</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-Content_002dType-Lan-">Content-Type 欄</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Content_002dType">Content-Type</a></td></tr>
+<tr><td colspan="4"> <hr></td></tr>
+<tr><th><a name="Concept-Index_cp_letter-E">E</a></th><td></td><td></td></tr>
+<tr><td></td><td valign="top"><a href="#index-entity">entity</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Entity">Entity</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-entity-Chu-Li--method">entity 処理 method</a>:</td><td>&nbsp;</td><td valign="top"><a href="#mm_002dbackend">mm-backend</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-entity_002dnumber">entity-number</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Entity-hierarchy">Entity hierarchy</a></td></tr>
+<tr><td colspan="4"> <hr></td></tr>
+<tr><th><a name="Concept-Index_cp_letter-I">I</a></th><td></td><td></td></tr>
+<tr><td></td><td valign="top"><a href="#index-image">image</a>:</td><td>&nbsp;</td><td valign="top"><a href="#media_002dtype">media-type</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-Internet-mail">Internet mail</a>:</td><td>&nbsp;</td><td valign="top"><a href="#RFC-822">RFC 822</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-Internet-message">Internet message</a>:</td><td>&nbsp;</td><td valign="top"><a href="#RFC-822">RFC 822</a></td></tr>
+<tr><td colspan="4"> <hr></td></tr>
+<tr><th><a name="Concept-Index_cp_letter-M">M</a></th><td></td><td></td></tr>
+<tr><td></td><td valign="top"><a href="#index-message">message</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Entity-hierarchy">Entity hierarchy</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-message-1">message</a>:</td><td>&nbsp;</td><td valign="top"><a href="#media_002dtype">media-type</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-message-header">message header</a>:</td><td>&nbsp;</td><td valign="top"><a href="#RFC-822">RFC 822</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-Message-Transfer-Agent">Message Transfer Agent</a>:</td><td>&nbsp;</td><td valign="top"><a href="#MTA">MTA</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-Message-User-Agent">Message User Agent</a>:</td><td>&nbsp;</td><td valign="top"><a href="#MUA">MUA</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-mime_002dcontent_002ddisposition">mime-content-disposition</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Content_002dDisposition">Content-Disposition</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-mime_002dcontent_002dtype">mime-content-type</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Content_002dType">Content-Type</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-mime_002dentity">mime-entity</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Entity">Entity</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-mm_002dbackend">mm-backend</a>:</td><td>&nbsp;</td><td valign="top"><a href="#mm_002dbackend">mm-backend</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-multipart">multipart</a>:</td><td>&nbsp;</td><td valign="top"><a href="#media_002dtype">media-type</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-Multipurpose-Internet-Mail-Extensions">Multipurpose Internet Mail Extensions</a>:</td><td>&nbsp;</td><td valign="top"><a href="#MIME">MIME</a></td></tr>
+<tr><td colspan="4"> <hr></td></tr>
+<tr><th><a name="Concept-Index_cp_letter-N">N</a></th><td></td><td></td></tr>
+<tr><td></td><td valign="top"><a href="#index-node_002did">node-id</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Entity-hierarchy">Entity hierarchy</a></td></tr>
+<tr><td colspan="4"> <hr></td></tr>
+<tr><th><a name="Concept-Index_cp_letter-P">P</a></th><td></td><td></td></tr>
+<tr><td></td><td valign="top"><a href="#index-pad">pad</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Base64">Base64</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-parameter">parameter</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Content_002dType-field">Content-Type field</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-primary_002dtype">primary-type</a>:</td><td>&nbsp;</td><td valign="top"><a href="#media_002dtype">media-type</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-primary_002dtype_002fsubtype">primary-type/subtype</a>:</td><td>&nbsp;</td><td valign="top"><a href="#media_002dtype">media-type</a></td></tr>
+<tr><td colspan="4"> <hr></td></tr>
+<tr><th><a name="Concept-Index_cp_letter-R">R</a></th><td></td><td></td></tr>
+<tr><td></td><td valign="top"><a href="#index-representation_002dtype">representation-type</a>:</td><td>&nbsp;</td><td valign="top"><a href="#mm_002dbackend">mm-backend</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-RFC-1036">RFC 1036</a>:</td><td>&nbsp;</td><td valign="top"><a href="#RFC-1036">RFC 1036</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-RFC-2045">RFC 2045</a>:</td><td>&nbsp;</td><td valign="top"><a href="#RFC-2045">RFC 2045</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-RFC-2046">RFC 2046</a>:</td><td>&nbsp;</td><td valign="top"><a href="#RFC-2046">RFC 2046</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-RFC-2047">RFC 2047</a>:</td><td>&nbsp;</td><td valign="top"><a href="#encoded_002dword">encoded-word</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-RFC-2047-1">RFC 2047</a>:</td><td>&nbsp;</td><td valign="top"><a href="#encoded_002dword">encoded-word</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-RFC-2048">RFC 2048</a>:</td><td>&nbsp;</td><td valign="top"><a href="#RFC-2048">RFC 2048</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-RFC-2049">RFC 2049</a>:</td><td>&nbsp;</td><td valign="top"><a href="#RFC-2049">RFC 2049</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-RFC-2183">RFC 2183</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Content_002dDisposition">Content-Disposition</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-RFC-822">RFC 822</a>:</td><td>&nbsp;</td><td valign="top"><a href="#RFC-822">RFC 822</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-root_002dentity">root-entity</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Entity-hierarchy">Entity hierarchy</a></td></tr>
+<tr><td colspan="4"> <hr></td></tr>
+<tr><th><a name="Concept-Index_cp_letter-S">S</a></th><td></td><td></td></tr>
+<tr><td></td><td valign="top"><a href="#index-Standards-Track">Standards Track</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Content_002dDisposition">Content-Disposition</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-Standards-Track-1">Standards Track</a>:</td><td>&nbsp;</td><td valign="top"><a href="#encoded_002dword">encoded-word</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-Standards-Track-2">Standards Track</a>:</td><td>&nbsp;</td><td valign="top"><a href="#RFC-2045">RFC 2045</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-Standards-Track-3">Standards Track</a>:</td><td>&nbsp;</td><td valign="top"><a href="#RFC-2046">RFC 2046</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-Standards-Track-4">Standards Track</a>:</td><td>&nbsp;</td><td valign="top"><a href="#RFC-2048">RFC 2048</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-Standards-Track-5">Standards Track</a>:</td><td>&nbsp;</td><td valign="top"><a href="#RFC-2049">RFC 2049</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-STD-11">STD 11</a>:</td><td>&nbsp;</td><td valign="top"><a href="#RFC-822">RFC 822</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-subtype">subtype</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Content_002dType-field">Content-Type field</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-subtype-1">subtype</a>:</td><td>&nbsp;</td><td valign="top"><a href="#media_002dtype">media-type</a></td></tr>
+<tr><td colspan="4"> <hr></td></tr>
+<tr><th><a name="Concept-Index_cp_letter-T">T</a></th><td></td><td></td></tr>
+<tr><td></td><td valign="top"><a href="#index-text">text</a>:</td><td>&nbsp;</td><td valign="top"><a href="#media_002dtype">media-type</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-type">type</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Content_002dType-field">Content-Type field</a></td></tr>
+<tr><td colspan="4"> <hr></td></tr>
+<tr><th><a name="Concept-Index_cp_letter-U">U</a></th><td></td><td></td></tr>
+<tr><td></td><td valign="top"><a href="#index-us_002dascii">us-ascii</a>:</td><td>&nbsp;</td><td valign="top"><a href="#us_002dascii">us-ascii</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-USENET">USENET</a>:</td><td>&nbsp;</td><td valign="top"><a href="#RFC-1036">RFC 1036</a></td></tr>
+<tr><td colspan="4"> <hr></td></tr>
+<tr><th><a name="Concept-Index_cp_letter-V">V</a></th><td></td><td></td></tr>
+<tr><td></td><td valign="top"><a href="#index-video">video</a>:</td><td>&nbsp;</td><td valign="top"><a href="#media_002dtype">media-type</a></td></tr>
+<tr><td colspan="4"> <hr></td></tr>
+<tr><th><a name="Concept-Index_cp_letter-X">X</a></th><td></td><td></td></tr>
+<tr><td></td><td valign="top"><a href="#index-x_002dtoken">x-token</a>:</td><td>&nbsp;</td><td valign="top"><a href="#media_002dtype">media-type</a></td></tr>
+<tr><td colspan="4"> <hr></td></tr>
+</table>
+<table><tr><th valign="top">Jump to: &nbsp; </th><td><a class="summary-letter" href="#Concept-Index_cp_letter-A"><b>A</b></a>
+ &nbsp; 
+<a class="summary-letter" href="#Concept-Index_cp_letter-B"><b>B</b></a>
+ &nbsp; 
+<a class="summary-letter" href="#Concept-Index_cp_letter-C"><b>C</b></a>
+ &nbsp; 
+<a class="summary-letter" href="#Concept-Index_cp_letter-E"><b>E</b></a>
+ &nbsp; 
+<a class="summary-letter" href="#Concept-Index_cp_letter-I"><b>I</b></a>
+ &nbsp; 
+<a class="summary-letter" href="#Concept-Index_cp_letter-M"><b>M</b></a>
+ &nbsp; 
+<a class="summary-letter" href="#Concept-Index_cp_letter-N"><b>N</b></a>
+ &nbsp; 
+<a class="summary-letter" href="#Concept-Index_cp_letter-P"><b>P</b></a>
+ &nbsp; 
+<a class="summary-letter" href="#Concept-Index_cp_letter-R"><b>R</b></a>
+ &nbsp; 
+<a class="summary-letter" href="#Concept-Index_cp_letter-S"><b>S</b></a>
+ &nbsp; 
+<a class="summary-letter" href="#Concept-Index_cp_letter-T"><b>T</b></a>
+ &nbsp; 
+<a class="summary-letter" href="#Concept-Index_cp_letter-U"><b>U</b></a>
+ &nbsp; 
+<a class="summary-letter" href="#Concept-Index_cp_letter-V"><b>V</b></a>
+ &nbsp; 
+<a class="summary-letter" href="#Concept-Index_cp_letter-X"><b>X</b></a>
+ &nbsp; 
+</td></tr></table>
+
+<hr>
+<a name="Function-Index"></a>
+<div class="header">
+<p>
+Next: <a href="#Variable-Index" accesskey="n" rel="next">Variable Index</a>, Previous: <a href="#Concept-Index" accesskey="p" rel="prev">Concept Index</a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a> &nbsp; [<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<a name="Guan-Shu-Suo-Yin-"></a>
+<h2 class="chapter">11 関数索引</h2>
+
+<table><tr><th valign="top">Jump to: &nbsp; </th><td><a class="summary-letter" href="#Function-Index_fn_letter-E"><b>E</b></a>
+ &nbsp; 
+<a class="summary-letter" href="#Function-Index_fn_letter-M"><b>M</b></a>
+ &nbsp; 
+</td></tr></table>
+<table class="index-fn" border="0">
+<tr><td></td><th align="left">Index Entry</th><td>&nbsp;</td><th align="left"> Section</th></tr>
+<tr><td colspan="4"> <hr></td></tr>
+<tr><th><a name="Function-Index_fn_letter-E">E</a></th><td></td><td></td></tr>
+<tr><td></td><td valign="top"><a href="#index-eword_002ddecode_002dheader"><code>eword-decode-header</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Header-encoder_002fdecoder">Header encoder/decoder</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-eword_002dencode_002dheader"><code>eword-encode-header</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Header-encoder_002fdecoder">Header encoder/decoder</a></td></tr>
+<tr><td colspan="4"> <hr></td></tr>
+<tr><th><a name="Function-Index_fn_letter-M">M</a></th><td></td><td></td></tr>
+<tr><td></td><td valign="top"><a href="#index-make_002dmime_002dcontent_002dtype"><code>make-mime-content-type</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#mime_002dcontent_002dtype">mime-content-type</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-mel_002ddefine_002dmethod"><code>mel-define-method</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#mel_002dbackend">mel-backend</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-mel_002ddefine_002dmethod_002dfunction"><code>mel-define-method-function</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#mel_002dbackend">mel-backend</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-mel_002ddefine_002dservice"><code>mel-define-service</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#generic-function-for-mel_002dbackend">generic function for mel-backend</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-mime"><code>mime</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#custom">custom</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-mime_002dcontent_002ddisposition-1"><code>mime-content-disposition</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#mime_002dcontent_002ddisposition">mime-content-disposition</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-mime_002dcontent_002ddisposition_002dfilename"><code>mime-content-disposition-filename</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#mime_002dcontent_002ddisposition">mime-content-disposition</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-mime_002dcontent_002ddisposition_002dparameter"><code>mime-content-disposition-parameter</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#mime_002dcontent_002ddisposition">mime-content-disposition</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-mime_002dcontent_002dtype-1"><code>mime-content-type</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#mime_002dcontent_002dtype">mime-content-type</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-mime_002dcontent_002dtype_002dparameter"><code>mime-content-type-parameter</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#mime_002dcontent_002dtype">mime-content-type</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-mime_002ddecode_002dregion"><code>mime-decode-region</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#encoder_002fdecoder">encoder/decoder</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-mime_002ddecode_002dstring"><code>mime-decode-string</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#encoder_002fdecoder">encoder/decoder</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-mime_002dencode_002dregion"><code>mime-encode-region</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#encoder_002fdecoder">encoder/decoder</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-mime_002dencoding_002dalist"><code>mime-encoding-alist</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Encoding-information">Encoding information</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-mime_002dencoding_002dlist"><code>mime-encoding-list</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Encoding-information">Encoding information</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-mime_002dentity_002dbody_002dend"><code>mime-entity-body-end</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Entity-buffer">Entity buffer</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-mime_002dentity_002dbody_002dstart"><code>mime-entity-body-start</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Entity-buffer">Entity buffer</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-mime_002dentity_002dbuffer"><code>mime-entity-buffer</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Entity-buffer">Entity buffer</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-mime_002dentity_002dchildren"><code>mime-entity-children</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Entity-hierarchy">Entity hierarchy</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-mime_002dentity_002dcontent"><code>mime-entity-content</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Entity_002dcontent">Entity-content</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-mime_002dentity_002dcontent_002ddisposition"><code>mime-entity-content-disposition</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Entity-Attributes">Entity Attributes</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-mime_002dentity_002dcontent_002dtype"><code>mime-entity-content-type</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Entity-Attributes">Entity Attributes</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-mime_002dentity_002dcooked_002dp"><code>mime-entity-cooked-p</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Entity-Attributes">Entity Attributes</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-mime_002dentity_002dencoding"><code>mime-entity-encoding</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Entity-Attributes">Entity Attributes</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-mime_002dentity_002dfilename"><code>mime-entity-filename</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Entity-Attributes">Entity Attributes</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-mime_002dentity_002dheader_002dend"><code>mime-entity-header-end</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Entity-buffer">Entity buffer</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-mime_002dentity_002dheader_002dstart"><code>mime-entity-header-start</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Entity-buffer">Entity buffer</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-mime_002dentity_002dnode_002did"><code>mime-entity-node-id</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Entity-hierarchy">Entity hierarchy</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-mime_002dentity_002dnumber"><code>mime-entity-number</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Entity-hierarchy">Entity hierarchy</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-mime_002dentity_002dparent"><code>mime-entity-parent</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Entity-hierarchy">Entity hierarchy</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-mime_002dentity_002dpoint_002dmax"><code>mime-entity-point-max</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Entity-buffer">Entity buffer</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-mime_002dentity_002dpoint_002dmin"><code>mime-entity-point-min</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Entity-buffer">Entity buffer</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-mime_002dentity_002dsend"><code>mime-entity-send</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Request-for-entity">Request for entity</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-mime_002dfetch_002dfield"><code>mime-fetch-field</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Entity_002dheader">Entity-header</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-mime_002dfind_002dentity_002dfrom_002dcontent_002did"><code>mime-find-entity-from-content-id</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Entity-Search">Entity Search</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-mime_002dfind_002dentity_002dfrom_002dnode_002did"><code>mime-find-entity-from-node-id</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Entity-Search">Entity Search</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-mime_002dfind_002dentity_002dfrom_002dnumber"><code>mime-find-entity-from-number</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Entity-Search">Entity Search</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-mime_002dinsert_002dencoded_002dfile"><code>mime-insert-encoded-file</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#encoder_002fdecoder">encoder/decoder</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-mime_002dinsert_002dentity"><code>mime-insert-entity</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Entity_002dnetwork_002drepresentation">Entity-network-representation</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-mime_002dinsert_002dentity_002dcontent"><code>mime-insert-entity-content</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Entity_002dcontent">Entity-content</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-mime_002dinsert_002dheader"><code>mime-insert-header</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#entity-formatting">entity formatting</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-mime_002dinsert_002dtext_002dcontent"><code>mime-insert-text-content</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#entity-formatting">entity formatting</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-mime_002dopen_002dentity"><code>mime-open-entity</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Entity-creation">Entity creation</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-mime_002dparse_002dbuffer"><code>mime-parse-buffer</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Entity-creation">Entity creation</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-mime_002dparse_002dContent_002dDisposition"><code>mime-parse-Content-Disposition</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Content_002dDisposition-parser">Content-Disposition parser</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-mime_002dparse_002dContent_002dTransfer_002dEncoding"><code>mime-parse-Content-Transfer-Encoding</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Content_002dTransfer_002dEncoding-parser">Content-Transfer-Encoding parser</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-mime_002dparse_002dContent_002dType"><code>mime-parse-Content-Type</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Content_002dType-parser">Content-Type parser</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-mime_002dread_002dContent_002dDisposition"><code>mime-read-Content-Disposition</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Content_002dDisposition-parser">Content-Disposition parser</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-mime_002dread_002dContent_002dTransfer_002dEncoding"><code>mime-read-Content-Transfer-Encoding</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Content_002dTransfer_002dEncoding-parser">Content-Transfer-Encoding parser</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-mime_002dread_002dContent_002dType"><code>mime-read-Content-Type</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Content_002dType-parser">Content-Type parser</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-mime_002dread_002dfield"><code>mime-read-field</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Entity_002dheader">Entity-header</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-mime_002droot_002dentity_002dp"><code>mime-root-entity-p</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Entity-hierarchy">Entity hierarchy</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-mime_002dtype_002fsubtype_002dstring"><code>mime-type/subtype-string</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Content_002dType-utility">Content-Type utility</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-mime_002dwrite_002ddecoded_002dregion"><code>mime-write-decoded-region</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#encoder_002fdecoder">encoder/decoder</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-mime_002dwrite_002dentity"><code>mime-write-entity</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Entity_002dnetwork_002drepresentation">Entity-network-representation</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-mime_002dwrite_002dentity_002dbody"><code>mime-write-entity-body</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Entity_002dnetwork_002drepresentation">Entity-network-representation</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-mime_002dwrite_002dentity_002dcontent"><code>mime-write-entity-content</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Entity_002dcontent">Entity-content</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-mm_002ddefine_002dbackend"><code>mm-define-backend</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#mm_002dbackend-module">mm-backend module</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-mm_002ddefine_002dmethod"><code>mm-define-method</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#mm_002dbackend-module">mm-backend module</a></td></tr>
+<tr><td colspan="4"> <hr></td></tr>
+</table>
+<table><tr><th valign="top">Jump to: &nbsp; </th><td><a class="summary-letter" href="#Function-Index_fn_letter-E"><b>E</b></a>
+ &nbsp; 
+<a class="summary-letter" href="#Function-Index_fn_letter-M"><b>M</b></a>
+ &nbsp; 
+</td></tr></table>
+
+<hr>
+<a name="Variable-Index"></a>
+<div class="header">
+<p>
+Previous: <a href="#Function-Index" accesskey="p" rel="prev">Function Index</a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a> &nbsp; [<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<a name="Bian-Shu-Suo-Yin-"></a>
+<h2 class="chapter">12 変数索引</h2>
+
+<table><tr><th valign="top">Jump to: &nbsp; </th><td><a class="summary-letter" href="#Variable-Index_vr_letter-D"><b>D</b></a>
+ &nbsp; 
+<a class="summary-letter" href="#Variable-Index_vr_letter-M"><b>M</b></a>
+ &nbsp; 
+</td></tr></table>
+<table class="index-vr" border="0">
+<tr><td></td><th align="left">Index Entry</th><td>&nbsp;</td><th align="left"> Section</th></tr>
+<tr><td colspan="4"> <hr></td></tr>
+<tr><th><a name="Variable-Index_vr_letter-D">D</a></th><td></td><td></td></tr>
+<tr><td></td><td valign="top"><a href="#index-default_002dmime_002dcharset"><code>default-mime-charset</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#entity-formatting">entity formatting</a></td></tr>
+<tr><td colspan="4"> <hr></td></tr>
+<tr><th><a name="Variable-Index_vr_letter-M">M</a></th><td></td><td></td></tr>
+<tr><td></td><td valign="top"><a href="#index-mime_002dfield_002dencoding_002dmethod_002dalist"><code>mime-field-encoding-method-alist</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Header-encoder_002fdecoder">Header encoder/decoder</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-mime_002dmessage_002dstructure"><code>mime-message-structure</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Entity-hierarchy">Entity hierarchy</a></td></tr>
+<tr><td colspan="4"> <hr></td></tr>
+</table>
+<table><tr><th valign="top">Jump to: &nbsp; </th><td><a class="summary-letter" href="#Variable-Index_vr_letter-D"><b>D</b></a>
+ &nbsp; 
+<a class="summary-letter" href="#Variable-Index_vr_letter-M"><b>M</b></a>
+ &nbsp; 
+</td></tr></table>
+<hr>
+
+
+
+</body>
+</html>
