@@ -776,6 +776,8 @@ Filter, Pipe, File, Access, Internal の 15 種類です。
 </td></tr>
 <tr><td align="left" valign="top">&bull; <a href="#Access-Folder">Access Folder</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">&ndash; アクセスフォルダ
 </td></tr>
+<tr><td align="left" valign="top">&bull; <a href="#RSS-Folder">RSS Folder</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">&ndash; RSS フォルダ
+</td></tr>
 </table>
 
 
@@ -2030,7 +2032,7 @@ file:/etc       -&gt; <samp>/etc</samp>
 <a name="Access-Folder"></a>
 <div class="header">
 <p>
-Previous: <a href="#File-Folder" accesskey="p" rel="prev">File Folder</a>, Up: <a href="#Folders" accesskey="u" rel="up">Folders</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
+Next: <a href="#RSS-Folder" accesskey="n" rel="next">RSS Folder</a>, Previous: <a href="#File-Folder" accesskey="p" rel="prev">File Folder</a>, Up: <a href="#Folders" accesskey="u" rel="up">Folders</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
 </div>
 <a name="akusesuhuoruda"></a>
 <h3 class="section">3.15 アクセスフォルダ</h3>
@@ -2052,6 +2054,38 @@ Previous: <a href="#File-Folder" accesskey="p" rel="prev">File Folder</a>, Up: <
 access:'cache -&gt; 全ての 'cache フォルダ
 </pre></div>
 
+<hr>
+<a name="RSS-Folder"></a>
+<div class="header">
+<p>
+Previous: <a href="#Access-Folder" accesskey="p" rel="prev">Access Folder</a>, Up: <a href="#Folders" accesskey="u" rel="up">Folders</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<a name="RSS-Folder-1"></a>
+<h3 class="section">3.16 RSS Folder</h3>
+<a name="index-RSS-Folder"></a>
+<a name="index-Atom-Folder"></a>
+
+<p>An RSS folder presents the messages contained in an RSS or Atom feed:
+</p>
+<div class="example">
+<pre class="example">rss:https://github.com/wanderlust/wanderlust/commits/master.atom
+</pre></div>
+
+<p>This folder type attempts to automatically handle all known versions of
+RSS and Atom.  Should you need more configurability, please use
+a Shimbun folder (see <a href="#Shimbun-Folder">Shimbun Folder</a>) instead.
+</p>
+<p>Since this folder doesn&rsquo;t do any persistent caching, messages will
+disappear as soon as they expire from the feed.  Should you want
+persistent messages, combine this with a pipe folder:
+</p>
+<div class="example">
+<pre class="example">|rss:http://lwn.net/http://lwn.net/headlines/newrss|+lwn
+</pre></div>
+
+<p>You may also use an RSS, Atom or OPML feed as an access group, in which
+case related feeds will appear as subfolders.
+</p>
 
 <hr>
 <a name="Folder"></a>
@@ -10443,6 +10477,7 @@ Next: <a href="#Key-Index" accesskey="n" rel="next">Key Index</a>, Previous: <a 
 <tr><td></td><td valign="top"><a href="#index-Archive-Tips">Archive Tips</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Archive-Tips">Archive Tips</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-Archive-variables">Archive variables</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Archive-Vars">Archive Vars</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-Archiver">Archiver</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Archiver">Archiver</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-Atom-Folder">Atom Folder</a>:</td><td>&nbsp;</td><td valign="top"><a href="#RSS-Folder">RSS Folder</a></td></tr>
 <tr><td colspan="4"> <hr></td></tr>
 <tr><th><a name="Concept-Index_cp_letter-B">B</a></th><td></td><td></td></tr>
 <tr><td></td><td valign="top"><a href="#index-Backtrace">Backtrace</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Mailing-List">Mailing List</a></td></tr>
@@ -10587,6 +10622,7 @@ Next: <a href="#Key-Index" accesskey="n" rel="next">Key Index</a>, Previous: <a 
 <tr><td></td><td valign="top"><a href="#index-RFC-1939">RFC 1939</a>:</td><td>&nbsp;</td><td valign="top"><a href="#POP-Folder">POP Folder</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-RFC-2060">RFC 2060</a>:</td><td>&nbsp;</td><td valign="top"><a href="#IMAP-Folder">IMAP Folder</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-RFC-977">RFC 977</a>:</td><td>&nbsp;</td><td valign="top"><a href="#NNTP-Folder">NNTP Folder</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-RSS-Folder">RSS Folder</a>:</td><td>&nbsp;</td><td valign="top"><a href="#RSS-Folder">RSS Folder</a></td></tr>
 <tr><td colspan="4"> <hr></td></tr>
 <tr><th><a name="Concept-Index_cp_letter-S">S</a></th><td></td><td></td></tr>
 <tr><td></td><td valign="top"><a href="#index-sc">sc</a>:</td><td>&nbsp;</td><td valign="top"><a href="#supercite">supercite</a></td></tr>
@@ -11911,6 +11947,7 @@ Previous: <a href="#Variable-Index" accesskey="p" rel="prev">Variable Index</a>,
     <li><a name="toc-Nei-Bu-huoruda" href="#Internal-Folder">3.13 内部フォルダ</a></li>
     <li><a name="toc-huairuhuoruda" href="#File-Folder">3.14 ファイルフォルダ</a></li>
     <li><a name="toc-akusesuhuoruda" href="#Access-Folder">3.15 アクセスフォルダ</a></li>
+    <li><a name="toc-RSS-Folder-1" href="#RSS-Folder">3.16 RSS Folder</a></li>
   </ul></li>
   <li><a name="toc-huorudamodo" href="#Folder">4 フォルダモード</a>
   <ul class="no-bullet">
