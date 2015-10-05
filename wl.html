@@ -121,6 +121,8 @@ Yoichi Nakayama
 </td></tr>
 <tr><td align="left" valign="top">&bull; <a href="#Address-Book">Address Book</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Management of Address Book
 </td></tr>
+<tr><td align="left" valign="top">&bull; <a href="#Quick-Search">Quick Search</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Quickly search your mail archive
+</td></tr>
 <tr><td align="left" valign="top">&bull; <a href="#Spam-Filter">Spam Filter</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Spam filtering
 </td></tr>
 <tr><td align="left" valign="top">&bull; <a href="#Advanced-Issues">Advanced Issues</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Advanced Issues
@@ -257,23 +259,28 @@ Next: <a href="#Download" accesskey="n" rel="next">Download</a>, Previous: <a hr
 <a name="index-FLIM"></a>
 <a name="index-SEMI"></a>
 
-<p>You must install SEMI beforehand to use Wanderlust.
+<p>You must install packages named APEL, FLIM and SEMI beforehand to use
+Wanderlust.
 </p>
-<p>SEMI can be downloaded from following site:
-</p>
-<div class="example">
-<pre class="example">SEMI:   ftp://ftp.m17n.org/pub/mule/semi/
-</pre></div>
-
-<p>You need packages named APEL and FLIM to use SEMI.
-You can download APEL and FLIM from following URLs:
+<p>For Emacs 23 or later, downloading from below URLs is highly
+recommended.
+SEMI-EPG is corresponding package to SEMI.
 </p>
 <div class="example">
-<pre class="example">APEL:   ftp://ftp.m17n.org/pub/mule/apel/
-FLIM:   ftp://ftp.m17n.org/pub/mule/flim/
+<pre class="example">APEL:     <a href="https://github.com/wanderlust/apel">https://github.com/wanderlust/apel</a>
+FLIM:     <a href="https://github.com/wanderlust/flim">https://github.com/wanderlust/flim</a>
+SEMI-EPG: <a href="https://github.com/wanderlust/semi">https://github.com/wanderlust/semi</a>
 </pre></div>
 
-<p>You have to install APEL, FLIM and SEMI in this order.  Generally,
+<p>You can download original APEL, FLIM and SEMI from following URLs:
+</p>
+<div class="example">
+<pre class="example">APEL:   <a href="http://git.chise.org/elisp/dist/semi/">http://git.chise.org/elisp/dist/semi/</a>
+FLIM:   <a href="http://git.chise.org/elisp/dist/apel/">http://git.chise.org/elisp/dist/apel/</a>
+SEMI:   <a href="http://git.chise.org/elisp/dist/semi/">http://git.chise.org/elisp/dist/semi/</a>
+</pre></div>
+
+<p>You have to install APEL, FLIM and SEMI[-EPG] in this order.  Generally,
 &lsquo;<samp>make install</samp>&rsquo; will do the job.  (In XEmacs 21, &lsquo;<samp>make
 install-package</samp>&rsquo;.)
 </p>
@@ -284,7 +291,7 @@ procedure <a name="DOCF1" href="#FOOT1"><sup>1</sup></a>.
 <p>Recommended combination of APEL, FLIM and SEMI are following:
 </p>
 <ul class="no-bullet">
-<li>- APEL 10.6, FLIM 1.14.6 and SEMI 1.14.6
+<li>- APEL 10.8, FLIM 1.14.9, SEMI-EPG 1.14.7
 </li></ul>
 
 <p>You can also use many other FLIM/SEMI variants. Combination of the
@@ -313,15 +320,13 @@ Next: <a href="#Install" accesskey="n" rel="next">Install</a>, Previous: <a href
 </p>
 <p>Original site:
 </p><div class="example">
-<pre class="example">ftp://ftp.gohome.org/wl/
+<pre class="example"><a href="https://github.com/wanderlust/wanderlust">https://github.com/wanderlust/wanderlust</a>
 </pre></div>
 
 <p>Mirrored ftp/http sites:
 </p>
 <div class="example">
-<pre class="example">http://www.jpl.org/elips/wl/
-http://www.ring.gr.jp/archives/text/elisp/wl/
-ftp://ftp.ring.gr.jp/pub/text/elisp/wl/
+<pre class="example"><a href="http://www.jpl.org/ftp/pub/github-snapshots/">http://www.jpl.org/ftp/pub/github-snapshots/</a>
 </pre></div>
 
 <p>Extract the obtained package to your working directory:
@@ -345,15 +350,21 @@ SMTP, IMAP, NNTP and POP connections in Wanderlust.
 after the connection establishment (generic way). The other one is to
 start SSL negotiation by invoking STARTTLS command in the each session.
 </p>
-<p>To use the formal SSL (generic SSL), you must set <code>PATH</code> to the
-directory that OpenSSL commands are installed.
+<p>For the formal SSL (generic SSL), Emacs 24 or later uses built-in GnuTLS
+if available. if not available, Emacs try to use <samp>tls.el</samp>. In this
+case, GnuTLS&rsquo;s <code>gnutls-cli</code> is needed. if neither avialable,
+<samp>ssl.el</samp> of <samp>utils</samp> directory and OpenSSL&rsquo;s <code>openssl</code>.
 </p>
-<p>To use the latter SSL(STARTTLS), you must install starttls package in
-addition to above.
-You can download starttls package from the following site.
+<p>For the latter SSL (STARTTLS), you need <samp>starttls.el</samp>. Moreover,
+GnuTLS or starttls package is needed according to
+<code>starttls-use-gnutls</code> variable&rsquo;s value.  If your Emacs doesn&rsquo;t have
+<samp>starttls.el</samp> neither <samp>starttls.el</samp> doesn&rsquo;t have the
+defninition of <code>starttls-use-gnutls</code>, you need starttls package.
+</p>
+<p>You can download starttls package from the following site.
 </p>
 <div class="example">
-<pre class="example">ftp://opaopa.org/pub/elisp/
+<pre class="example"><a href="ftp://opaopa.org/pub/elisp/">ftp://opaopa.org/pub/elisp/</a>
 </pre></div>
 
 <hr>
@@ -491,7 +502,7 @@ configured by <code>INFODIR</code> in <samp>Makefile</samp>.
 <p>You can read manual at the following URL:
 </p>
 <div class="example">
-<pre class="example">http://www.gohome.org/wl/doc/wl_toc.html
+<pre class="example"><a href="http://wanderlust.github.io/wl-docs/wl.html">http://wanderlust.github.io/wl-docs/wl.html</a>
 </pre></div>
 
 <hr>
@@ -877,9 +888,11 @@ authentication will fall back to <code>clear</code> without confirmation
 <p>You can use international mailbox names in <var>mailbox</var> part, if you
 are using Emacs with UTF-7 support and
 <code>elmo-imap4-use-modified-utf7</code> is set to non-nil value (default
-value is <code>nil</code>).
+value is <code>t</code> on Emacs 23 or later and <code>nil</code> on other
+Emacsen).
 </p>
-<p>Currently, Mule-UCS package is required to use UTF-7.
+<p>Emacs 23 or later doesn&rsquo;t need additional package.
+Other Emacsen needs Mule-UCS package to use UTF-7.
 Mule-UCS works on following Emacsen.
 </p>
 <ul>
@@ -887,10 +900,10 @@ Mule-UCS works on following Emacsen.
 </li><li> XEmacs 21.2.37 or later
 </li></ul>
 
-<p>You can obtain Mule-UCS package from following URL.
+<p>You can obtain Mule-UCS package (snapshot of 2004) from following URL.
 </p>
 <div class="example">
-<pre class="example">ftp://ftp.m17n.org/pub/mule/Mule-UCS/
+<pre class="example"><a href="http://www.jpl.org/ftp/pub/tmp/">http://www.jpl.org/ftp/pub/tmp/</a>
 </pre></div>
 
 <hr>
@@ -5586,7 +5599,7 @@ required.
 <p>Refer to the following URL about POP-before-SMTP.
 </p>
 <div class="example">
-<pre class="example">http://www.iecc.com/pop-before-smtp.html
+<pre class="example"><a href="http://www.iecc.com/pop-before-smtp.html">http://www.iecc.com/pop-before-smtp.html</a>
 </pre></div>
 
 
@@ -7758,7 +7771,7 @@ pop3                      N     E     E     E
 <a name="Address-Book"></a>
 <div class="header">
 <p>
-Next: <a href="#Spam-Filter" accesskey="n" rel="next">Spam Filter</a>, Previous: <a href="#Scoring" accesskey="p" rel="prev">Scoring</a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
+Next: <a href="#Quick-Search" accesskey="n" rel="next">Quick Search</a>, Previous: <a href="#Scoring" accesskey="p" rel="prev">Scoring</a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
 </div>
 <a name="Address-Book-1"></a>
 <h2 class="chapter">11 Address Book</h2>
@@ -7911,15 +7924,98 @@ with insert marked addresses.
 </p></dd>
 </dl>
 
+<hr>
+<a name="Quick-Search"></a>
+<div class="header">
+<p>
+Next: <a href="#Spam-Filter" accesskey="n" rel="next">Spam Filter</a>, Previous: <a href="#Address-Book" accesskey="p" rel="prev">Address Book</a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<a name="Quick-Search-1"></a>
+<h2 class="chapter">12 Quick Search</h2>
+<a name="index-Quick-Search"></a>
 
+<p><code>wl-qs</code> provides an interface to quickly search your mail archive.
+It can use an external search engine (<a href="#Search-Folder">Search Folder</a>), Gmail
+search, or a filter folder (<a href="#Filter-Folder">Filter Folder</a>).
+</p>
+<p><code>wl-qs</code> provides the command
+<code>wl-quicksearch-goto-search-folder</code>. Using it will first prompt for
+a search, and then jump to the search results.
+</p>
+<table class="menu" border="0" cellspacing="0">
+<tr><td align="left" valign="top">&bull; <a href="#Setup" accesskey="1">Setup</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Setup
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="#Searching" accesskey="2">Searching</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Searching
+</td></tr>
+</table>
+
+<hr>
+<a name="Setup"></a>
+<div class="header">
+<p>
+Next: <a href="#Searching" accesskey="n" rel="next">Searching</a>, Up: <a href="#Quick-Search" accesskey="u" rel="up">Quick Search</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<a name="Setup-of-wl_002dqs"></a>
+<h3 class="section">12.1 Setup of <code>wl-qs</code></h3>
+
+<p>To setup, configure the value of <code>wl-quicksearch-folder</code>.
+This should be the name of the folder you would like to search. For
+example, &lsquo;<samp>%[Gmail]/All Mail:username@imap.gmail.com</samp>&rsquo;,
+&lsquo;<samp>.archive</samp>&rsquo; or &lsquo;<samp>[]</samp>&rsquo;. The latter is advised if you use a mail
+index, such as mu, notmuch or namazu, as it is quite fast.
+</p>
+<hr>
+<a name="Searching"></a>
+<div class="header">
+<p>
+Previous: <a href="#Setup" accesskey="p" rel="prev">Setup</a>, Up: <a href="#Quick-Search" accesskey="u" rel="up">Quick Search</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<a name="Searching-1"></a>
+<h3 class="section">12.2 Searching</h3>
+
+<p>To search your mail archive, use the command
+<code>wl-quicksearch-goto-search-folder</code>, which can be called using
+<kbd>'</kbd> in a Summary buffer or the Folder buffer. You will be prompted
+for a search, and then will immediately jump to the search results.
+</p>
+<a name="Search-folder"></a>
+<h4 class="subsection">12.2.1 Search folder</h4>
+
+<p>If you use specified &lsquo;<samp>[</samp>&rsquo; as the value of
+<code>wl-quicksearch-folder</code>, you will be accessing a search folder
+(<a href="#Search-Folder">Search Folder</a>). You will be prompted for a search string. The
+syntax of the search will depend on the value of
+<code>elmo-search-default-engine</code>. Quotes will be escaped for you
+automatically and passed on to the search program.
+</p>
+<p>(If you are using the grep search engine, you must specify a target
+folder. Your <code>wl-quicksearch-folder</code> should look like
+&lsquo;<samp>[]~/Mail/semi!grep</samp>&rsquo;.)
+</p>
+<a name="Gmail"></a>
+<h4 class="subsection">12.2.2 Gmail</h4>
+
+<p>If you use a gmail folder as your <code>wl-quicksearch-folder</code>, you will be prompted for a
+Gmail search query
+(<a href="https://support.google.com/mail/answer/7190">https://support.google.com/mail/answer/7190</a>). You may use
+any Gmail search operator; the search is handled by Gmail&rsquo;s server.
+</p>
+<a name="Filter-folder"></a>
+<h4 class="subsection">12.2.3 Filter folder</h4>
+
+<p>If you are using any other type of folder, you will be prompted for a
+query using the interactive query builder. When you have finished your
+query, you will be directed to a filter folder for your
+<code>wl-quicksearch-folder</code>.
+</p>
 <hr>
 <a name="Spam-Filter"></a>
 <div class="header">
 <p>
-Next: <a href="#Advanced-Issues" accesskey="n" rel="next">Advanced Issues</a>, Previous: <a href="#Address-Book" accesskey="p" rel="prev">Address Book</a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
+Next: <a href="#Advanced-Issues" accesskey="n" rel="next">Advanced Issues</a>, Previous: <a href="#Quick-Search" accesskey="p" rel="prev">Quick Search</a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
 </div>
 <a name="Spam-Filter-1"></a>
-<h2 class="chapter">12 Spam Filter</h2>
+<h2 class="chapter">13 Spam Filter</h2>
 <a name="index-Spam-Filter"></a>
 
 <p><code>wl-spam</code> provides an frontend to external spam filtering programs.
@@ -7940,10 +8036,10 @@ with messages operations on Wanderlust.
 Next: <a href="#Spam-Filter-Processors" accesskey="n" rel="next">Spam Filter Processors</a>, Previous: <a href="#Spam-Filter" accesskey="p" rel="prev">Spam Filter</a>, Up: <a href="#Spam-Filter" accesskey="u" rel="up">Spam Filter</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
 </div>
 <a name="Usage-of-Spam-Filter-1"></a>
-<h3 class="section">12.1 Usage of Spam Filter</h3>
+<h3 class="section">13.1 Usage of Spam Filter</h3>
 
 <a name="Initial-Setting"></a>
-<h4 class="subsection">12.1.1 Initial Setting</h4>
+<h4 class="subsection">13.1.1 Initial Setting</h4>
 
 <p>To use <code>wl-spam</code>, write in <samp>~/.wl</samp> as follows:
 </p>
@@ -7956,7 +8052,7 @@ Next: <a href="#Spam-Filter-Processors" accesskey="n" rel="next">Spam Filter Pro
 </pre></div>
 
 <a name="spam-mark"></a>
-<h4 class="subsection">12.1.2 spam mark</h4>
+<h4 class="subsection">13.1.2 spam mark</h4>
 
 <p>The spam mark (&lsquo;<samp>s</samp>&rsquo;) will be provided as new temporary mark.
 Messages marked by this will be refiled into <code>wl-spam-folder</code> when
@@ -7967,7 +8063,7 @@ summary walking in ordinary way.
 invoking <kbd>k m</kbd> at any time.
 </p>
 <a name="spam-judgment"></a>
-<h4 class="subsection">12.1.3 spam judgment</h4>
+<h4 class="subsection">13.1.3 spam judgment</h4>
 
 <p>You can judge spam messages by following ways:
 </p>
@@ -8021,7 +8117,7 @@ better turn on this feature after learning to some extent)
 </li></ol>
 
 <a name="spam-learning"></a>
-<h4 class="subsection">12.1.4 spam learning</h4>
+<h4 class="subsection">13.1.4 spam learning</h4>
 
 <p><code>wl-spam</code> automatically learn spam with refiling messages.
 </p>
@@ -8072,7 +8168,7 @@ it belongs before and after.
 <p>It do not learn anything in other cases.
 </p>
 <a name="Key-Bindings-4"></a>
-<h4 class="subsection">12.1.5 Key Bindings</h4>
+<h4 class="subsection">13.1.5 Key Bindings</h4>
 <a name="index-Keybind_002c-spam-filter"></a>
 
 <dl compact="compact">
@@ -8197,7 +8293,7 @@ With prefix argument, it affects on the all messages in the thread tree.
 </dl>
 
 <a name="Customizable-Variables-7"></a>
-<h4 class="subsection">12.1.6 Customizable Variables</h4>
+<h4 class="subsection">13.1.6 Customizable Variables</h4>
 
 <dl compact="compact">
 <dt><code>wl-spam-folder</code></dt>
@@ -8267,7 +8363,7 @@ specify follwing symbol:
 Previous: <a href="#Usage-of-Spam-Filter" accesskey="p" rel="prev">Usage of Spam Filter</a>, Up: <a href="#Spam-Filter" accesskey="u" rel="up">Spam Filter</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
 </div>
 <a name="Supported-Spam-Filters"></a>
-<h3 class="section">12.2 Supported Spam Filters</h3>
+<h3 class="section">13.2 Supported Spam Filters</h3>
 <a name="index-Spam-Filter_002c-Bogofilter"></a>
 <a name="index-Spam-Filter_002c-Spamfilter"></a>
 
@@ -8296,7 +8392,7 @@ Previous: <a href="#Usage-of-Spam-Filter" accesskey="p" rel="prev">Usage of Spam
 Next: <a href="#spamfilter" accesskey="n" rel="next">spamfilter</a>, Previous: <a href="#Spam-Filter-Processors" accesskey="p" rel="prev">Spam Filter Processors</a>, Up: <a href="#Spam-Filter-Processors" accesskey="u" rel="up">Spam Filter Processors</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
 </div>
 <a name="bogofilter-1"></a>
-<h4 class="subsection">12.2.1 bogofilter</h4>
+<h4 class="subsection">13.2.1 bogofilter</h4>
 <a name="index-bogofilter"></a>
 
 <p>bogofilter (<a href="http://bogofilter.sourceforge.net/">http://bogofilter.sourceforge.net/</a>) is a spam filter
@@ -8310,7 +8406,7 @@ implemented by C language.
 </pre></div>
 
 <a name="Customizable-Variables-8"></a>
-<h4 class="subsubsection">12.2.1.1 Customizable Variables</h4>
+<h4 class="subsubsection">13.2.1.1 Customizable Variables</h4>
 
 <dl compact="compact">
 <dt><code>elmo-spam-bogofilter-program</code></dt>
@@ -8356,7 +8452,7 @@ stored in the buffer named <code>&quot;*Debug ELMO SPAM Bogofilter*&quot;</code>
 Next: <a href="#bsfilter" accesskey="n" rel="next">bsfilter</a>, Previous: <a href="#bogofilter" accesskey="p" rel="prev">bogofilter</a>, Up: <a href="#Spam-Filter-Processors" accesskey="u" rel="up">Spam Filter Processors</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
 </div>
 <a name="spamfilter_002eel"></a>
-<h4 class="subsection">12.2.2 spamfilter.el</h4>
+<h4 class="subsection">13.2.2 spamfilter.el</h4>
 <a name="index-spamfilter"></a>
 
 <p><samp>spamfilter.el</samp>
@@ -8376,7 +8472,7 @@ somewhere else.
 </pre></div>
 
 <a name="Customizable-Variables-9"></a>
-<h4 class="subsubsection">12.2.2.1 Customizable Variables</h4>
+<h4 class="subsubsection">13.2.2.1 Customizable Variables</h4>
 
 <dl compact="compact">
 <dt><code>elmo-spam-spamfilter-corpus-filename</code></dt>
@@ -8393,7 +8489,7 @@ It specifies the name of corpus file.
 Next: <a href="#SpamAssassin" accesskey="n" rel="next">SpamAssassin</a>, Previous: <a href="#spamfilter" accesskey="p" rel="prev">spamfilter</a>, Up: <a href="#Spam-Filter-Processors" accesskey="u" rel="up">Spam Filter Processors</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
 </div>
 <a name="bsfilter-1"></a>
-<h4 class="subsection">12.2.3 bsfilter</h4>
+<h4 class="subsection">13.2.3 bsfilter</h4>
 <a name="index-bsfilter"></a>
 
 <p>bsfilter (<a href="http://bsfilter.org/index-e.html">http://bsfilter.org/index-e.html</a>) is a spam filter
@@ -8407,7 +8503,7 @@ implemented by Ruby language.
 </pre></div>
 
 <a name="Customizable-Variables-10"></a>
-<h4 class="subsubsection">12.2.3.1 Customizable Variables</h4>
+<h4 class="subsubsection">13.2.3.1 Customizable Variables</h4>
 
 <dl compact="compact">
 <dt><code>elmo-spam-bsfilter-program</code></dt>
@@ -8466,7 +8562,7 @@ Specify options to give to <code>bsfilter</code> for learning messages.
 Next: <a href="#SpamOracle" accesskey="n" rel="next">SpamOracle</a>, Previous: <a href="#bsfilter" accesskey="p" rel="prev">bsfilter</a>, Up: <a href="#Spam-Filter-Processors" accesskey="u" rel="up">Spam Filter Processors</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
 </div>
 <a name="SpamAssassin-1"></a>
-<h4 class="subsection">12.2.4 SpamAssassin</h4>
+<h4 class="subsection">13.2.4 SpamAssassin</h4>
 <a name="index-SpamAssassin"></a>
 
 <p>SpamAssassin (<a href="http://spamassassin.org/">http://spamassassin.org/</a>) is one of the most
@@ -8484,7 +8580,7 @@ in <samp>~/.wl</samp> or somewhere else.
 </pre></div>
 
 <a name="Customize-Variables"></a>
-<h4 class="subsubsection">12.2.4.1 Customize Variables</h4>
+<h4 class="subsubsection">13.2.4.1 Customize Variables</h4>
 
 <dl compact="compact">
 <dt><code>elmo-spam-spamassassin-program</code></dt>
@@ -8534,10 +8630,10 @@ stored in the buffer named <code>&quot;*Debug ELMO SpamAssassin*&quot;</code>.
 Next: <a href="#Regular-Expressions-Header-Matching" accesskey="n" rel="next">Regular Expressions Header Matching</a>, Previous: <a href="#SpamAssassin" accesskey="p" rel="prev">SpamAssassin</a>, Up: <a href="#Spam-Filter-Processors" accesskey="u" rel="up">Spam Filter Processors</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
 </div>
 <a name="SpamOracle-1"></a>
-<h4 class="subsection">12.2.5 SpamOracle</h4>
+<h4 class="subsection">13.2.5 SpamOracle</h4>
 <a name="index-SpamOracle"></a>
 
-<p>SpamOracle (&lsquo;http://pauillac.inria.fr/~xleroy/software.html#spamoracle&rsquo;)
+<p>SpamOracle (<a href="http://pauillac.inria.fr/~xleroy/software.html#spamoracle">http://pauillac.inria.fr/~xleroy/software.html#spamoracle</a>)
 is a spam filter implemented by Objective Caml language.
 </p>
 <p>To use spam filter with <samp>spamoracle</samp>, write following setting in
@@ -8549,7 +8645,7 @@ is a spam filter implemented by Objective Caml language.
 </pre></div>
 
 <a name="Customizable-Variables-11"></a>
-<h4 class="subsubsection">12.2.5.1 Customizable Variables</h4>
+<h4 class="subsubsection">13.2.5.1 Customizable Variables</h4>
 
 <dl compact="compact">
 <dt><code>elmo-spam-spamoracle-program</code></dt>
@@ -8587,7 +8683,7 @@ when you change the <code>spam_header</code> parameter in the config file.
 Previous: <a href="#SpamOracle" accesskey="p" rel="prev">SpamOracle</a>, Up: <a href="#Spam-Filter-Processors" accesskey="u" rel="up">Spam Filter Processors</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
 </div>
 <a name="Regular-Expressions-Header-Matching-1"></a>
-<h4 class="subsection">12.2.6 Regular Expressions Header Matching</h4>
+<h4 class="subsection">13.2.6 Regular Expressions Header Matching</h4>
 <a name="index-Regular-Expressions-Header-Matching"></a>
 
 <p>Examine if regular expression matches corresponding field in message heaeder,
@@ -8603,7 +8699,7 @@ do examination by the overview information and avoid loading whole
 message body as far as possible.
 </p>
 <a name="Customize-Variables-1"></a>
-<h4 class="subsubsection">12.2.6.1 Customize Variables</h4>
+<h4 class="subsubsection">13.2.6.1 Customize Variables</h4>
 
 <dl compact="compact">
 <dt><code>elmo-spam-header-good-alist</code></dt>
@@ -8640,7 +8736,7 @@ for making spam decision.
 Next: <a href="#Migration" accesskey="n" rel="next">Migration</a>, Previous: <a href="#Spam-Filter" accesskey="p" rel="prev">Spam Filter</a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
 </div>
 <a name="Advanced-Issues-1"></a>
-<h2 class="chapter">13 Advanced Issues</h2>
+<h2 class="chapter">14 Advanced Issues</h2>
 <a name="index-Advanced-Issues"></a>
 
 <table class="menu" border="0" cellspacing="0">
@@ -8672,7 +8768,7 @@ Next: <a href="#Migration" accesskey="n" rel="next">Migration</a>, Previous: <a 
 Next: <a href="#Highlights" accesskey="n" rel="next">Highlights</a>, Previous: <a href="#Advanced-Issues" accesskey="p" rel="prev">Advanced Issues</a>, Up: <a href="#Advanced-Issues" accesskey="u" rel="up">Advanced Issues</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
 </div>
 <a name="Living-with-other-packages-1"></a>
-<h3 class="section">13.1 Living with other packages</h3>
+<h3 class="section">14.1 Living with other packages</h3>
 
 <p>Examples with other packages.
 </p>
@@ -8707,7 +8803,7 @@ Next: <a href="#Highlights" accesskey="n" rel="next">Highlights</a>, Previous: <
 Next: <a href="#BBDB" accesskey="n" rel="next">BBDB</a>, Previous: <a href="#Living-with-other-packages" accesskey="p" rel="prev">Living with other packages</a>, Up: <a href="#Living-with-other-packages" accesskey="u" rel="up">Living with other packages</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
 </div>
 <a name="imput-1"></a>
-<h4 class="subsection">13.1.1 imput</h4>
+<h4 class="subsection">14.1.1 imput</h4>
 <a name="index-imput"></a>
 <a name="index-im_002dwl"></a>
 
@@ -8727,12 +8823,16 @@ settings.
 Next: <a href="#LSDB" accesskey="n" rel="next">LSDB</a>, Previous: <a href="#imput" accesskey="p" rel="prev">imput</a>, Up: <a href="#Living-with-other-packages" accesskey="u" rel="up">Living with other packages</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
 </div>
 <a name="bbdb_002eel"></a>
-<h4 class="subsection">13.1.2 bbdb.el</h4>
+<h4 class="subsection">14.1.2 bbdb.el</h4>
 <a name="index-BBDB"></a>
 
 <p>To use The Insidious Big Brother Database (<a href="http://bbdb.sourceforge.net/">http://bbdb.sourceforge.net/</a>)
 with Wanderlust, place <samp>util/bbdb-wl.el</samp> on the <code>load-path</code>
 and do the following settings.
+</p>
+<p>But, <samp>util/bbdb-wl.el</samp> is not compatible with BBDB 3.x
+(<a href="http://savannah.nongnu.org/projects/bbdb/">http://savannah.nongnu.org/projects/bbdb/</a>).
+For BBDB 3.x, BBDBV3-Wl (<a href="https://gna.org/projects/bbdbv3-wl/">https://gna.org/projects/bbdbv3-wl/</a>) may be useful.
 </p>
 <p>If BBDB is on the <code>load-path</code> at the installation, <samp>bbdb-wl.el</samp> is
 byte-compiled and installed.
@@ -8768,7 +8868,7 @@ in draft buffer.
 Next: <a href="#supercite" accesskey="n" rel="next">supercite</a>, Previous: <a href="#BBDB" accesskey="p" rel="prev">BBDB</a>, Up: <a href="#Living-with-other-packages" accesskey="u" rel="up">Living with other packages</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
 </div>
 <a name="lsdb_002eel"></a>
-<h4 class="subsection">13.1.3 lsdb.el</h4>
+<h4 class="subsection">14.1.3 lsdb.el</h4>
 <a name="index-LSDB"></a>
 
 <p>The following is an example setting to use
@@ -8794,7 +8894,7 @@ with Wanderlust.
 Next: <a href="#mu_002dcite" accesskey="n" rel="next">mu-cite</a>, Previous: <a href="#LSDB" accesskey="p" rel="prev">LSDB</a>, Up: <a href="#Living-with-other-packages" accesskey="u" rel="up">Living with other packages</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
 </div>
 <a name="sc_002eel_0028supercite_0029_002c-sc_002dregister_002eel"></a>
-<h4 class="subsection">13.1.4 sc.el(supercite), sc-register.el</h4>
+<h4 class="subsection">14.1.4 sc.el(supercite), sc-register.el</h4>
 <a name="index-sc"></a>
 <a name="index-supercite"></a>
 
@@ -8814,7 +8914,7 @@ example of settings:
 Next: <a href="#X_002dFace" accesskey="n" rel="next">X-Face</a>, Previous: <a href="#supercite" accesskey="p" rel="prev">supercite</a>, Up: <a href="#Living-with-other-packages" accesskey="u" rel="up">Living with other packages</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
 </div>
 <a name="mu_002dcite_002eel"></a>
-<h4 class="subsection">13.1.5 mu-cite.el</h4>
+<h4 class="subsection">14.1.5 mu-cite.el</h4>
 <a name="index-mu_002dcite"></a>
 
 <p>The same setting as usual mailers should be OK.  The following is an
@@ -8841,7 +8941,7 @@ example of settings.
 Next: <a href="#dired_002ddd" accesskey="n" rel="next">dired-dd</a>, Previous: <a href="#mu_002dcite" accesskey="p" rel="prev">mu-cite</a>, Up: <a href="#Living-with-other-packages" accesskey="u" rel="up">Living with other packages</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
 </div>
 <a name="x_002dface"></a>
-<h4 class="subsection">13.1.6 x-face</h4>
+<h4 class="subsection">14.1.6 x-face</h4>
 <a name="index-x_002dface"></a>
 
 <p>If you have installed one of the following, you can decode
@@ -8866,7 +8966,7 @@ value of the variable <code>wl-x-face-file</code>), it is inserted as a
 Next: <a href="#x_002dface_002dmule" accesskey="n" rel="next">x-face-mule</a>, Previous: <a href="#X_002dFace" accesskey="p" rel="prev">X-Face</a>, Up: <a href="#X_002dFace" accesskey="u" rel="up">X-Face</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
 </div>
 <a name="x_002dface_002dxmas-_0028for-XEmacs_0029"></a>
-<h4 class="subsubsection">13.1.6.1 x-face-xmas (for XEmacs)</h4>
+<h4 class="subsubsection">14.1.6.1 x-face-xmas (for XEmacs)</h4>
 <a name="index-x_002dface_002dxmas"></a>
 
 <p>If you use <samp>x-face-xmas.el</samp> in x-face (<a href="ftp://jpl.org/pub/elisp/">ftp://jpl.org/pub/elisp/</a>)
@@ -8884,7 +8984,7 @@ Next: <a href="#x_002dface_002dmule" accesskey="n" rel="next">x-face-mule</a>, P
 Previous: <a href="#x_002dface_002dxmas" accesskey="p" rel="prev">x-face-xmas</a>, Up: <a href="#X_002dFace" accesskey="u" rel="up">X-Face</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
 </div>
 <a name="x_002dface_002dmule-_0028for-Emacs_0029"></a>
-<h4 class="subsubsection">13.1.6.2 x-face-mule (for Emacs)</h4>
+<h4 class="subsubsection">14.1.6.2 x-face-mule (for Emacs)</h4>
 <a name="index-x_002dface_002dmule"></a>
 <a name="index-bitmap_002dmule"></a>
 
@@ -8897,7 +8997,7 @@ Previous: <a href="#x_002dface_002dxmas" accesskey="p" rel="prev">x-face-xmas</a
 </pre></div>
 
 <a name="x_002dface_002de21-_0028for-Emacs-21_002ex_0029"></a>
-<h4 class="subsubsection">13.1.6.3 x-face-e21 (for Emacs 21.x)</h4>
+<h4 class="subsubsection">14.1.6.3 x-face-e21 (for Emacs 21.x)</h4>
 <a name="index-x_002dface_002de21"></a>
 
 <p>With Emacs 21.x, you can use <samp>x-face-e21.el</samp>
@@ -8918,7 +9018,7 @@ Do as follows:
 Next: <a href="#MHC" accesskey="n" rel="next">MHC</a>, Previous: <a href="#X_002dFace" accesskey="p" rel="prev">X-Face</a>, Up: <a href="#Living-with-other-packages" accesskey="u" rel="up">Living with other packages</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
 </div>
 <a name="dired_002ddd_0028Dired_002dDragDrop_0029"></a>
-<h4 class="subsection">13.1.7 dired-dd(Dired-DragDrop)</h4>
+<h4 class="subsection">14.1.7 dired-dd(Dired-DragDrop)</h4>
 <a name="index-Dired_002dDragDrop"></a>
 <a name="index-Dired_002dDD"></a>
 <a name="index-Drag-and-Drop"></a>
@@ -8949,7 +9049,7 @@ specific, but general-purpose for SEMI).
 Next: <a href="#Addrbook" accesskey="n" rel="next">Addrbook</a>, Previous: <a href="#dired_002ddd" accesskey="p" rel="prev">dired-dd</a>, Up: <a href="#Living-with-other-packages" accesskey="u" rel="up">Living with other packages</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
 </div>
 <a name="mhc_002eel"></a>
-<h4 class="subsection">13.1.8 mhc.el</h4>
+<h4 class="subsection">14.1.8 mhc.el</h4>
 <a name="index-MHC"></a>
 
 <p>Message Harmonized Calendaring system
@@ -8980,7 +9080,7 @@ Next: <a href="#Addrbook" accesskey="n" rel="next">Addrbook</a>, Previous: <a hr
 Next: <a href="#mime_002dw3m" accesskey="n" rel="next">mime-w3m</a>, Previous: <a href="#MHC" accesskey="p" rel="prev">MHC</a>, Up: <a href="#Living-with-other-packages" accesskey="u" rel="up">Living with other packages</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
 </div>
 <a name="wl_002daddrbook_002eel"></a>
-<h4 class="subsection">13.1.9 wl-addrbook.el</h4>
+<h4 class="subsection">14.1.9 wl-addrbook.el</h4>
 <a name="index-Addrbook"></a>
 
 <p>Addrbook of Mew
@@ -9001,12 +9101,13 @@ Next: <a href="#mime_002dw3m" accesskey="n" rel="next">mime-w3m</a>, Previous: <
 Previous: <a href="#Addrbook" accesskey="p" rel="prev">Addrbook</a>, Up: <a href="#Living-with-other-packages" accesskey="u" rel="up">Living with other packages</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
 </div>
 <a name="mime_002dw3m_002eel"></a>
-<h4 class="subsection">13.1.10 mime-w3m.el</h4>
+<h4 class="subsection">14.1.10 mime-w3m.el</h4>
 <a name="index-mime_002dw3m"></a>
 
 <p>You can display html part by using <samp>mime-w3m.el</samp>
 distributed with emacs-w3m (<a href="http://emacs-w3m.namazu.org/">http://emacs-w3m.namazu.org/</a>).
 You can find the usage in comment region at the head of <samp>mime-w3m.el</samp>.
+If you use SEMI-EPG, no additional setting is needed.
 </p>
 
 <hr>
@@ -9016,10 +9117,10 @@ You can find the usage in comment region at the head of <samp>mime-w3m.el</samp>
 Next: <a href="#Biff" accesskey="n" rel="next">Biff</a>, Previous: <a href="#Living-with-other-packages" accesskey="p" rel="prev">Living with other packages</a>, Up: <a href="#Advanced-Issues" accesskey="u" rel="up">Advanced Issues</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
 </div>
 <a name="Highlights-1"></a>
-<h3 class="section">13.2 Highlights</h3>
+<h3 class="section">14.2 Highlights</h3>
 
 <a name="Customizable-Variables-12"></a>
-<h4 class="subsection">13.2.1 Customizable Variables</h4>
+<h4 class="subsection">14.2.1 Customizable Variables</h4>
 
 <dl compact="compact">
 <dt><code>wl-summary-highlight</code></dt>
@@ -9131,7 +9232,7 @@ mode, summary mode, and the like.
 </dl>
 
 <a name="Setting-Colors-and-Fonts-of-the-Characters"></a>
-<h4 class="subsection">13.2.2 Setting Colors and Fonts of the Characters</h4>
+<h4 class="subsection">14.2.2 Setting Colors and Fonts of the Characters</h4>
 
 <p>If you want to change colors or fonts of the characters, you need to
 modify faces defined in Wanderlust.  Use <code>set-face-font</code> if you
@@ -9315,7 +9416,7 @@ mode.
 Next: <a href="#Password-Management" accesskey="n" rel="next">Password Management</a>, Previous: <a href="#Highlights" accesskey="p" rel="prev">Highlights</a>, Up: <a href="#Advanced-Issues" accesskey="u" rel="up">Advanced Issues</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
 </div>
 <a name="Notify-Mail-arrival"></a>
-<h3 class="section">13.3 Notify Mail arrival</h3>
+<h3 class="section">14.3 Notify Mail arrival</h3>
 <a name="index-Biff"></a>
 
 <p>Following setting is to notify mail arrival of &lsquo;<samp>%inbox</samp>&rsquo;
@@ -9326,7 +9427,7 @@ by the indicator on the modeline
 </pre></div>
 
 <a name="Customizable-Variables-13"></a>
-<h4 class="subsection">13.3.1 Customizable Variables</h4>
+<h4 class="subsection">14.3.1 Customizable Variables</h4>
 <dl compact="compact">
 <dt><code>wl-biff-check-folder-list</code></dt>
 <dd><a name="index-wl_002dbiff_002dcheck_002dfolder_002dlist"></a>
@@ -9368,7 +9469,7 @@ To beep with mail arrival(initial setting), set as follows.
 Next: <a href="#Split-messages" accesskey="n" rel="next">Split messages</a>, Previous: <a href="#Biff" accesskey="p" rel="prev">Biff</a>, Up: <a href="#Advanced-Issues" accesskey="u" rel="up">Advanced Issues</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
 </div>
 <a name="Manage-Passwords"></a>
-<h3 class="section">13.4 Manage Passwords</h3>
+<h3 class="section">14.4 Manage Passwords</h3>
 
 <p>If you input passwords to connect servers, they are stored in the
 variable <code>elmo-passwd-alist</code> per connection. You should be careful
@@ -9408,7 +9509,7 @@ If the value is some number, timer is set to remove password entry after
 Next: <a href="#Batch-Processing" accesskey="n" rel="next">Batch Processing</a>, Previous: <a href="#Password-Management" accesskey="p" rel="prev">Password Management</a>, Up: <a href="#Advanced-Issues" accesskey="u" rel="up">Advanced Issues</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
 </div>
 <a name="Message-splitting"></a>
-<h3 class="section">13.5 Message splitting</h3>
+<h3 class="section">14.5 Message splitting</h3>
 <a name="index-Split-messages"></a>
 
 <p>You can use <code>elmo-split</code> to split message in folder specified by
@@ -9561,7 +9662,7 @@ specified by <code>elmo-split-default-action</code>.
 Next: <a href="#Advanced-Settings" accesskey="n" rel="next">Advanced Settings</a>, Previous: <a href="#Split-messages" accesskey="p" rel="prev">Split messages</a>, Up: <a href="#Advanced-Issues" accesskey="u" rel="up">Advanced Issues</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
 </div>
 <a name="Batch-Processing-1"></a>
-<h3 class="section">13.6 Batch Processing</h3>
+<h3 class="section">14.6 Batch Processing</h3>
 <a name="index-Batch-Processing"></a>
 
 <p>You can request wanderlust to do some job on the command line.
@@ -9575,7 +9676,7 @@ invoke as follows to execute prefetching:
 </pre></div>
 
 <a name="Customize-Variables-2"></a>
-<h4 class="subsection">13.6.1 Customize Variables</h4>
+<h4 class="subsection">14.6.1 Customize Variables</h4>
 
 <dl compact="compact">
 <dt><code>wl-batch-prefetch-folder-list</code></dt>
@@ -9593,7 +9694,7 @@ a list of folder names.
 Next: <a href="#Customizable-Variables" accesskey="n" rel="next">Customizable Variables</a>, Previous: <a href="#Batch-Processing" accesskey="p" rel="prev">Batch Processing</a>, Up: <a href="#Advanced-Issues" accesskey="u" rel="up">Advanced Issues</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
 </div>
 <a name="Advanced-Settings-1"></a>
-<h3 class="section">13.7 Advanced Settings</h3>
+<h3 class="section">14.7 Advanced Settings</h3>
 
 <table class="menu" border="0" cellspacing="0">
 <tr><td align="left" valign="top">&bull; <a href="#Draft-for-Reply" accesskey="1">Draft for Reply</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Draft for Reply
@@ -9612,7 +9713,7 @@ Next: <a href="#Customizable-Variables" accesskey="n" rel="next">Customizable Va
 Next: <a href="#Thread-Format" accesskey="n" rel="next">Thread Format</a>, Previous: <a href="#Advanced-Settings" accesskey="p" rel="prev">Advanced Settings</a>, Up: <a href="#Advanced-Settings" accesskey="u" rel="up">Advanced Settings</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
 </div>
 <a name="Draft-for-Replay"></a>
-<h4 class="subsection">13.7.1 Draft for Replay</h4>
+<h4 class="subsection">14.7.1 Draft for Replay</h4>
 <a name="index-wl_002ddraft_002dreply_002dwith_002dargument_002dlist"></a>
 <a name="index-wl_002ddraft_002dreply_002dwithout_002dargument_002dlist"></a>
 
@@ -9713,7 +9814,7 @@ set as follows:
 Next: <a href="#User_002dAgent-Field" accesskey="n" rel="next">User-Agent Field</a>, Previous: <a href="#Draft-for-Reply" accesskey="p" rel="prev">Draft for Reply</a>, Up: <a href="#Advanced-Settings" accesskey="u" rel="up">Advanced Settings</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
 </div>
 <a name="Appearance-of-Threads"></a>
-<h4 class="subsection">13.7.2 Appearance of Threads</h4>
+<h4 class="subsection">14.7.2 Appearance of Threads</h4>
 
 <div class="example">
 <pre class="example">  389  09/18(Fri)01:07 [ Teranishi         ] wl-0.6.3
@@ -9761,7 +9862,7 @@ Next: <a href="#User_002dAgent-Field" accesskey="n" rel="next">User-Agent Field<
 Previous: <a href="#Thread-Format" accesskey="p" rel="prev">Thread Format</a>, Up: <a href="#Advanced-Settings" accesskey="u" rel="up">Advanced Settings</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
 </div>
 <a name="User_002dAgent-Field-1"></a>
-<h4 class="subsection">13.7.3 User-Agent Field</h4>
+<h4 class="subsection">14.7.3 User-Agent Field</h4>
 <a name="index-X_002dMailer"></a>
 <a name="index-User_002dAgent"></a>
 
@@ -9794,7 +9895,7 @@ strings as you like, and set it to variable
 Next: <a href="#Hooks" accesskey="n" rel="next">Hooks</a>, Previous: <a href="#Advanced-Settings" accesskey="p" rel="prev">Advanced Settings</a>, Up: <a href="#Advanced-Issues" accesskey="u" rel="up">Advanced Issues</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
 </div>
 <a name="Customizable-Variables-14"></a>
-<h3 class="section">13.8 Customizable Variables</h3>
+<h3 class="section">14.8 Customizable Variables</h3>
 
 <p>Customizable variables that have not been described yet:
 </p>
@@ -10086,7 +10187,7 @@ cached session is not reused. If nil, network cache is reused.
 Previous: <a href="#Customizable-Variables" accesskey="p" rel="prev">Customizable Variables</a>, Up: <a href="#Advanced-Issues" accesskey="u" rel="up">Advanced Issues</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
 </div>
 <a name="Hooks-1"></a>
-<h3 class="section">13.9 Hooks</h3>
+<h3 class="section">14.9 Hooks</h3>
 
 <p>(Not yet written)
 </p>
@@ -10098,7 +10199,7 @@ Previous: <a href="#Customizable-Variables" accesskey="p" rel="prev">Customizabl
 Next: <a href="#Terminology" accesskey="n" rel="next">Terminology</a>, Previous: <a href="#Advanced-Issues" accesskey="p" rel="prev">Advanced Issues</a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
 </div>
 <a name="Switch-from-older-version-of-Wanderlust"></a>
-<h2 class="chapter">14 Switch from older version of Wanderlust</h2>
+<h2 class="chapter">15 Switch from older version of Wanderlust</h2>
 <a name="index-Migration"></a>
 
 <p>This chapter explains the important thing for the upgrade,
@@ -10117,10 +10218,10 @@ It includes the changes of the setup, limitations etc.
 Previous: <a href="#Migration" accesskey="p" rel="prev">Migration</a>, Up: <a href="#Migration" accesskey="u" rel="up">Migration</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
 </div>
 <a name="Migration-from-prior-to-the-version-2_002e12_002e0"></a>
-<h3 class="section">14.1 Migration from prior to the version 2.12.0</h3>
+<h3 class="section">15.1 Migration from prior to the version 2.12.0</h3>
 
 <a name="The-conversion-of-msgdb"></a>
-<h4 class="subsection">14.1.1 The conversion of msgdb</h4>
+<h4 class="subsection">15.1.1 The conversion of msgdb</h4>
 
 <p>From version 2.12.0 on, the structure of msgdb is changed.
 The msgdb for newly created folder will use this new format when created and saved.
@@ -10157,7 +10258,7 @@ be available.
 </li></ol>
 
 <a name="Changes-from-_0027mark-folder-to-_0027flag_002e"></a>
-<h4 class="subsection">14.1.2 Changes from &lsquo;<samp>'mark</samp>&rsquo; folder to  &lsquo;<samp>'flag</samp>&rsquo;.</h4>
+<h4 class="subsection">15.1.2 Changes from &lsquo;<samp>'mark</samp>&rsquo; folder to  &lsquo;<samp>'flag</samp>&rsquo;.</h4>
 
 <p>The folder &lsquo;<samp>'mark</samp>&rsquo; will be automatically converted to &lsquo;<samp>'flag</samp>&rsquo;
 folder when you first start the new version of Wanderlust.
@@ -10190,7 +10291,7 @@ you may issue that command repeatedly.
 Next: <a href="#Mailing-List" accesskey="n" rel="next">Mailing List</a>, Previous: <a href="#Migration" accesskey="p" rel="prev">Migration</a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
 </div>
 <a name="Terminology-around-Wanderlust"></a>
-<h2 class="chapter">15 Terminology around Wanderlust</h2>
+<h2 class="chapter">16 Terminology around Wanderlust</h2>
 <a name="index-Terminology"></a>
 
 <p>Here we explain terminologies used in this manual.
@@ -10244,7 +10345,7 @@ disconnected from the server.
 Next: <a href="#Addition" accesskey="n" rel="next">Addition</a>, Previous: <a href="#Terminology" accesskey="p" rel="prev">Terminology</a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
 </div>
 <a name="Wanderlust-Mailing-List"></a>
-<h2 class="chapter">16 Wanderlust Mailing List</h2>
+<h2 class="chapter">17 Wanderlust Mailing List</h2>
 <a name="index-Bug-report"></a>
 <a name="index-Backtrace"></a>
 
@@ -10281,7 +10382,7 @@ the mailing list even though you are not a member of it.
 valuable advice and many pieces of code they contributed.
 </p>
 <a name="Archive-1"></a>
-<h3 class="section">16.1 Archive</h3>
+<h3 class="section">17.1 Archive</h3>
 
 <p>You can read messages posted to the mailing list on the web or in
 NetNews.
@@ -10308,10 +10409,10 @@ NetNews.
 Next: <a href="#Index" accesskey="n" rel="next">Index</a>, Previous: <a href="#Mailing-List" accesskey="p" rel="prev">Mailing List</a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
 </div>
 <a name="Additional-Information"></a>
-<h2 class="chapter">17 Additional Information</h2>
+<h2 class="chapter">18 Additional Information</h2>
 
 <a name="Brief-History"></a>
-<h3 class="section">17.1 Brief History</h3>
+<h3 class="section">18.1 Brief History</h3>
 
 <div class="example">
 <pre class="example">1998  3/05    Tried to make a prototype that displays MH messages in threads.
@@ -10367,7 +10468,7 @@ Next: <a href="#Index" accesskey="n" rel="next">Index</a>, Previous: <a href="#M
 <p>See <samp>ChangeLog</samp> for details.
 </p>
 <a name="The-Name"></a>
-<h3 class="section">17.2 The Name</h3>
+<h3 class="section">18.2 The Name</h3>
 
 <p>According to a dictionary, Wanderlust has the meaning:
 </p>
@@ -10386,7 +10487,7 @@ but you may associate it with Wandering &rArr; Drifting &rArr;
 Guidepost &rArr; St. Elmo&rsquo;s fire &rArr; elmo.
 </p>
 <a name="Code-Names"></a>
-<h3 class="section">17.3 Code Names</h3>
+<h3 class="section">18.3 Code Names</h3>
 
 <p>Each versions has code names (they are almost jokes).
 Currently they are picked up alphabetically from the top 40 hits of
@@ -10690,6 +10791,7 @@ Next: <a href="#Key-Index" accesskey="n" rel="next">Key Index</a>, Previous: <a 
 <tr><td colspan="4"> <hr></td></tr>
 <tr><th><a name="Concept-Index_cp_letter-Q">Q</a></th><td></td><td></td></tr>
 <tr><td></td><td valign="top"><a href="#index-qmail">qmail</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Maildir-Folder">Maildir Folder</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-Quick-Search">Quick Search</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Quick-Search">Quick Search</a></td></tr>
 <tr><td colspan="4"> <hr></td></tr>
 <tr><th><a name="Concept-Index_cp_letter-R">R</a></th><td></td><td></td></tr>
 <tr><td></td><td valign="top"><a href="#index-RAR">RAR</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Archiver">Archiver</a></td></tr>
@@ -11926,12 +12028,13 @@ Previous: <a href="#Variable-Index" accesskey="p" rel="prev">Variable Index</a>,
 <li><a name="stoc-Automatic-Expiration-and-Archiving-of-Messages" href="#toc-Automatic-Expiration-and-Archiving-of-Messages">9 Automatic Expiration and Archiving of Messages</a></li>
 <li><a name="stoc-Score-of-the-Messages" href="#toc-Score-of-the-Messages">10 Score of the Messages</a></li>
 <li><a name="stoc-Address-Book-1" href="#toc-Address-Book-1">11 Address Book</a></li>
-<li><a name="stoc-Spam-Filter-1" href="#toc-Spam-Filter-1">12 Spam Filter</a></li>
-<li><a name="stoc-Advanced-Issues-1" href="#toc-Advanced-Issues-1">13 Advanced Issues</a></li>
-<li><a name="stoc-Switch-from-older-version-of-Wanderlust" href="#toc-Switch-from-older-version-of-Wanderlust">14 Switch from older version of Wanderlust</a></li>
-<li><a name="stoc-Terminology-around-Wanderlust" href="#toc-Terminology-around-Wanderlust">15 Terminology around Wanderlust</a></li>
-<li><a name="stoc-Wanderlust-Mailing-List" href="#toc-Wanderlust-Mailing-List">16 Wanderlust Mailing List</a></li>
-<li><a name="stoc-Additional-Information" href="#toc-Additional-Information">17 Additional Information</a></li>
+<li><a name="stoc-Quick-Search-1" href="#toc-Quick-Search-1">12 Quick Search</a></li>
+<li><a name="stoc-Spam-Filter-1" href="#toc-Spam-Filter-1">13 Spam Filter</a></li>
+<li><a name="stoc-Advanced-Issues-1" href="#toc-Advanced-Issues-1">14 Advanced Issues</a></li>
+<li><a name="stoc-Switch-from-older-version-of-Wanderlust" href="#toc-Switch-from-older-version-of-Wanderlust">15 Switch from older version of Wanderlust</a></li>
+<li><a name="stoc-Terminology-around-Wanderlust" href="#toc-Terminology-around-Wanderlust">16 Terminology around Wanderlust</a></li>
+<li><a name="stoc-Wanderlust-Mailing-List" href="#toc-Wanderlust-Mailing-List">17 Wanderlust Mailing List</a></li>
+<li><a name="stoc-Additional-Information" href="#toc-Additional-Information">18 Additional Information</a></li>
 <li><a name="stoc-Index-1" href="#toc-Index-1">Index</a></li>
 </ul>
 </div>
@@ -12160,107 +12263,117 @@ Previous: <a href="#Variable-Index" accesskey="p" rel="prev">Variable Index</a>,
       <li><a name="toc-Key-Bindings-3" href="#Key-Bindings-3">11.2.1 Key Bindings</a></li>
     </ul></li>
   </ul></li>
-  <li><a name="toc-Spam-Filter-1" href="#Spam-Filter">12 Spam Filter</a>
+  <li><a name="toc-Quick-Search-1" href="#Quick-Search">12 Quick Search</a>
   <ul class="no-bullet">
-    <li><a name="toc-Usage-of-Spam-Filter-1" href="#Usage-of-Spam-Filter">12.1 Usage of Spam Filter</a>
+    <li><a name="toc-Setup-of-wl_002dqs" href="#Setup">12.1 Setup of <code>wl-qs</code></a></li>
+    <li><a name="toc-Searching-1" href="#Searching">12.2 Searching</a>
     <ul class="no-bullet">
-      <li><a name="toc-Initial-Setting" href="#Initial-Setting">12.1.1 Initial Setting</a></li>
-      <li><a name="toc-spam-mark" href="#spam-mark">12.1.2 spam mark</a></li>
-      <li><a name="toc-spam-judgment" href="#spam-judgment">12.1.3 spam judgment</a></li>
-      <li><a name="toc-spam-learning" href="#spam-learning">12.1.4 spam learning</a></li>
-      <li><a name="toc-Key-Bindings-4" href="#Key-Bindings-4">12.1.5 Key Bindings</a></li>
-      <li><a name="toc-Customizable-Variables-7" href="#Customizable-Variables-7">12.1.6 Customizable Variables</a></li>
+      <li><a name="toc-Search-folder" href="#Search-folder">12.2.1 Search folder</a></li>
+      <li><a name="toc-Gmail" href="#Gmail">12.2.2 Gmail</a></li>
+      <li><a name="toc-Filter-folder" href="#Filter-folder">12.2.3 Filter folder</a></li>
     </ul></li>
-    <li><a name="toc-Supported-Spam-Filters" href="#Spam-Filter-Processors">12.2 Supported Spam Filters</a>
+  </ul></li>
+  <li><a name="toc-Spam-Filter-1" href="#Spam-Filter">13 Spam Filter</a>
+  <ul class="no-bullet">
+    <li><a name="toc-Usage-of-Spam-Filter-1" href="#Usage-of-Spam-Filter">13.1 Usage of Spam Filter</a>
     <ul class="no-bullet">
-      <li><a name="toc-bogofilter-1" href="#bogofilter">12.2.1 bogofilter</a>
+      <li><a name="toc-Initial-Setting" href="#Initial-Setting">13.1.1 Initial Setting</a></li>
+      <li><a name="toc-spam-mark" href="#spam-mark">13.1.2 spam mark</a></li>
+      <li><a name="toc-spam-judgment" href="#spam-judgment">13.1.3 spam judgment</a></li>
+      <li><a name="toc-spam-learning" href="#spam-learning">13.1.4 spam learning</a></li>
+      <li><a name="toc-Key-Bindings-4" href="#Key-Bindings-4">13.1.5 Key Bindings</a></li>
+      <li><a name="toc-Customizable-Variables-7" href="#Customizable-Variables-7">13.1.6 Customizable Variables</a></li>
+    </ul></li>
+    <li><a name="toc-Supported-Spam-Filters" href="#Spam-Filter-Processors">13.2 Supported Spam Filters</a>
+    <ul class="no-bullet">
+      <li><a name="toc-bogofilter-1" href="#bogofilter">13.2.1 bogofilter</a>
       <ul class="no-bullet">
-        <li><a name="toc-Customizable-Variables-8" href="#Customizable-Variables-8">12.2.1.1 Customizable Variables</a></li>
+        <li><a name="toc-Customizable-Variables-8" href="#Customizable-Variables-8">13.2.1.1 Customizable Variables</a></li>
       </ul></li>
-      <li><a name="toc-spamfilter_002eel" href="#spamfilter">12.2.2 spamfilter.el</a>
+      <li><a name="toc-spamfilter_002eel" href="#spamfilter">13.2.2 spamfilter.el</a>
       <ul class="no-bullet">
-        <li><a name="toc-Customizable-Variables-9" href="#Customizable-Variables-9">12.2.2.1 Customizable Variables</a></li>
+        <li><a name="toc-Customizable-Variables-9" href="#Customizable-Variables-9">13.2.2.1 Customizable Variables</a></li>
       </ul></li>
-      <li><a name="toc-bsfilter-1" href="#bsfilter">12.2.3 bsfilter</a>
+      <li><a name="toc-bsfilter-1" href="#bsfilter">13.2.3 bsfilter</a>
       <ul class="no-bullet">
-        <li><a name="toc-Customizable-Variables-10" href="#Customizable-Variables-10">12.2.3.1 Customizable Variables</a></li>
+        <li><a name="toc-Customizable-Variables-10" href="#Customizable-Variables-10">13.2.3.1 Customizable Variables</a></li>
       </ul></li>
-      <li><a name="toc-SpamAssassin-1" href="#SpamAssassin">12.2.4 SpamAssassin</a>
+      <li><a name="toc-SpamAssassin-1" href="#SpamAssassin">13.2.4 SpamAssassin</a>
       <ul class="no-bullet">
-        <li><a name="toc-Customize-Variables" href="#Customize-Variables">12.2.4.1 Customize Variables</a></li>
+        <li><a name="toc-Customize-Variables" href="#Customize-Variables">13.2.4.1 Customize Variables</a></li>
       </ul></li>
-      <li><a name="toc-SpamOracle-1" href="#SpamOracle">12.2.5 SpamOracle</a>
+      <li><a name="toc-SpamOracle-1" href="#SpamOracle">13.2.5 SpamOracle</a>
       <ul class="no-bullet">
-        <li><a name="toc-Customizable-Variables-11" href="#Customizable-Variables-11">12.2.5.1 Customizable Variables</a></li>
+        <li><a name="toc-Customizable-Variables-11" href="#Customizable-Variables-11">13.2.5.1 Customizable Variables</a></li>
       </ul></li>
-      <li><a name="toc-Regular-Expressions-Header-Matching-1" href="#Regular-Expressions-Header-Matching">12.2.6 Regular Expressions Header Matching</a>
+      <li><a name="toc-Regular-Expressions-Header-Matching-1" href="#Regular-Expressions-Header-Matching">13.2.6 Regular Expressions Header Matching</a>
       <ul class="no-bullet">
-        <li><a name="toc-Customize-Variables-1" href="#Customize-Variables-1">12.2.6.1 Customize Variables</a></li>
+        <li><a name="toc-Customize-Variables-1" href="#Customize-Variables-1">13.2.6.1 Customize Variables</a></li>
       </ul></li>
     </ul></li>
   </ul></li>
-  <li><a name="toc-Advanced-Issues-1" href="#Advanced-Issues">13 Advanced Issues</a>
+  <li><a name="toc-Advanced-Issues-1" href="#Advanced-Issues">14 Advanced Issues</a>
   <ul class="no-bullet">
-    <li><a name="toc-Living-with-other-packages-1" href="#Living-with-other-packages">13.1 Living with other packages</a>
+    <li><a name="toc-Living-with-other-packages-1" href="#Living-with-other-packages">14.1 Living with other packages</a>
     <ul class="no-bullet">
-      <li><a name="toc-imput-1" href="#imput">13.1.1 imput</a></li>
-      <li><a name="toc-bbdb_002eel" href="#BBDB">13.1.2 bbdb.el</a></li>
-      <li><a name="toc-lsdb_002eel" href="#LSDB">13.1.3 lsdb.el</a></li>
-      <li><a name="toc-sc_002eel_0028supercite_0029_002c-sc_002dregister_002eel" href="#supercite">13.1.4 sc.el(supercite), sc-register.el</a></li>
-      <li><a name="toc-mu_002dcite_002eel" href="#mu_002dcite">13.1.5 mu-cite.el</a></li>
-      <li><a name="toc-x_002dface" href="#X_002dFace">13.1.6 x-face</a>
+      <li><a name="toc-imput-1" href="#imput">14.1.1 imput</a></li>
+      <li><a name="toc-bbdb_002eel" href="#BBDB">14.1.2 bbdb.el</a></li>
+      <li><a name="toc-lsdb_002eel" href="#LSDB">14.1.3 lsdb.el</a></li>
+      <li><a name="toc-sc_002eel_0028supercite_0029_002c-sc_002dregister_002eel" href="#supercite">14.1.4 sc.el(supercite), sc-register.el</a></li>
+      <li><a name="toc-mu_002dcite_002eel" href="#mu_002dcite">14.1.5 mu-cite.el</a></li>
+      <li><a name="toc-x_002dface" href="#X_002dFace">14.1.6 x-face</a>
       <ul class="no-bullet">
-        <li><a name="toc-x_002dface_002dxmas-_0028for-XEmacs_0029" href="#x_002dface_002dxmas">13.1.6.1 x-face-xmas (for XEmacs)</a></li>
-        <li><a name="toc-x_002dface_002dmule-_0028for-Emacs_0029" href="#x_002dface_002dmule">13.1.6.2 x-face-mule (for Emacs)</a></li>
-        <li><a name="toc-x_002dface_002de21-_0028for-Emacs-21_002ex_0029" href="#x_002dface_002de21-_0028for-Emacs-21_002ex_0029">13.1.6.3 x-face-e21 (for Emacs 21.x)</a></li>
+        <li><a name="toc-x_002dface_002dxmas-_0028for-XEmacs_0029" href="#x_002dface_002dxmas">14.1.6.1 x-face-xmas (for XEmacs)</a></li>
+        <li><a name="toc-x_002dface_002dmule-_0028for-Emacs_0029" href="#x_002dface_002dmule">14.1.6.2 x-face-mule (for Emacs)</a></li>
+        <li><a name="toc-x_002dface_002de21-_0028for-Emacs-21_002ex_0029" href="#x_002dface_002de21-_0028for-Emacs-21_002ex_0029">14.1.6.3 x-face-e21 (for Emacs 21.x)</a></li>
       </ul></li>
-      <li><a name="toc-dired_002ddd_0028Dired_002dDragDrop_0029" href="#dired_002ddd">13.1.7 dired-dd(Dired-DragDrop)</a></li>
-      <li><a name="toc-mhc_002eel" href="#MHC">13.1.8 mhc.el</a></li>
-      <li><a name="toc-wl_002daddrbook_002eel" href="#Addrbook">13.1.9 wl-addrbook.el</a></li>
-      <li><a name="toc-mime_002dw3m_002eel" href="#mime_002dw3m">13.1.10 mime-w3m.el</a></li>
+      <li><a name="toc-dired_002ddd_0028Dired_002dDragDrop_0029" href="#dired_002ddd">14.1.7 dired-dd(Dired-DragDrop)</a></li>
+      <li><a name="toc-mhc_002eel" href="#MHC">14.1.8 mhc.el</a></li>
+      <li><a name="toc-wl_002daddrbook_002eel" href="#Addrbook">14.1.9 wl-addrbook.el</a></li>
+      <li><a name="toc-mime_002dw3m_002eel" href="#mime_002dw3m">14.1.10 mime-w3m.el</a></li>
     </ul></li>
-    <li><a name="toc-Highlights-1" href="#Highlights">13.2 Highlights</a>
+    <li><a name="toc-Highlights-1" href="#Highlights">14.2 Highlights</a>
     <ul class="no-bullet">
-      <li><a name="toc-Customizable-Variables-12" href="#Customizable-Variables-12">13.2.1 Customizable Variables</a></li>
-      <li><a name="toc-Setting-Colors-and-Fonts-of-the-Characters" href="#Setting-Colors-and-Fonts-of-the-Characters">13.2.2 Setting Colors and Fonts of the Characters</a></li>
+      <li><a name="toc-Customizable-Variables-12" href="#Customizable-Variables-12">14.2.1 Customizable Variables</a></li>
+      <li><a name="toc-Setting-Colors-and-Fonts-of-the-Characters" href="#Setting-Colors-and-Fonts-of-the-Characters">14.2.2 Setting Colors and Fonts of the Characters</a></li>
     </ul></li>
-    <li><a name="toc-Notify-Mail-arrival" href="#Biff">13.3 Notify Mail arrival</a>
+    <li><a name="toc-Notify-Mail-arrival" href="#Biff">14.3 Notify Mail arrival</a>
     <ul class="no-bullet">
-      <li><a name="toc-Customizable-Variables-13" href="#Customizable-Variables-13">13.3.1 Customizable Variables</a></li>
+      <li><a name="toc-Customizable-Variables-13" href="#Customizable-Variables-13">14.3.1 Customizable Variables</a></li>
     </ul></li>
-    <li><a name="toc-Manage-Passwords" href="#Password-Management">13.4 Manage Passwords</a></li>
-    <li><a name="toc-Message-splitting" href="#Split-messages">13.5 Message splitting</a></li>
-    <li><a name="toc-Batch-Processing-1" href="#Batch-Processing">13.6 Batch Processing</a>
+    <li><a name="toc-Manage-Passwords" href="#Password-Management">14.4 Manage Passwords</a></li>
+    <li><a name="toc-Message-splitting" href="#Split-messages">14.5 Message splitting</a></li>
+    <li><a name="toc-Batch-Processing-1" href="#Batch-Processing">14.6 Batch Processing</a>
     <ul class="no-bullet">
-      <li><a name="toc-Customize-Variables-2" href="#Customize-Variables-2">13.6.1 Customize Variables</a></li>
+      <li><a name="toc-Customize-Variables-2" href="#Customize-Variables-2">14.6.1 Customize Variables</a></li>
     </ul></li>
-    <li><a name="toc-Advanced-Settings-1" href="#Advanced-Settings">13.7 Advanced Settings</a>
+    <li><a name="toc-Advanced-Settings-1" href="#Advanced-Settings">14.7 Advanced Settings</a>
     <ul class="no-bullet">
-      <li><a name="toc-Draft-for-Replay" href="#Draft-for-Reply">13.7.1 Draft for Replay</a></li>
-      <li><a name="toc-Appearance-of-Threads" href="#Thread-Format">13.7.2 Appearance of Threads</a></li>
-      <li><a name="toc-User_002dAgent-Field-1" href="#User_002dAgent-Field">13.7.3 User-Agent Field</a></li>
+      <li><a name="toc-Draft-for-Replay" href="#Draft-for-Reply">14.7.1 Draft for Replay</a></li>
+      <li><a name="toc-Appearance-of-Threads" href="#Thread-Format">14.7.2 Appearance of Threads</a></li>
+      <li><a name="toc-User_002dAgent-Field-1" href="#User_002dAgent-Field">14.7.3 User-Agent Field</a></li>
     </ul></li>
-    <li><a name="toc-Customizable-Variables-14" href="#Customizable-Variables">13.8 Customizable Variables</a></li>
-    <li><a name="toc-Hooks-1" href="#Hooks">13.9 Hooks</a></li>
+    <li><a name="toc-Customizable-Variables-14" href="#Customizable-Variables">14.8 Customizable Variables</a></li>
+    <li><a name="toc-Hooks-1" href="#Hooks">14.9 Hooks</a></li>
   </ul></li>
-  <li><a name="toc-Switch-from-older-version-of-Wanderlust" href="#Migration">14 Switch from older version of Wanderlust</a>
+  <li><a name="toc-Switch-from-older-version-of-Wanderlust" href="#Migration">15 Switch from older version of Wanderlust</a>
   <ul class="no-bullet">
-    <li><a name="toc-Migration-from-prior-to-the-version-2_002e12_002e0" href="#Before-2_002e12_002e0">14.1 Migration from prior to the version 2.12.0</a>
+    <li><a name="toc-Migration-from-prior-to-the-version-2_002e12_002e0" href="#Before-2_002e12_002e0">15.1 Migration from prior to the version 2.12.0</a>
     <ul class="no-bullet">
-      <li><a name="toc-The-conversion-of-msgdb" href="#The-conversion-of-msgdb">14.1.1 The conversion of msgdb</a></li>
-      <li><a name="toc-Changes-from-_0027mark-folder-to-_0027flag_002e" href="#Changes-from-_0027mark-folder-to-_0027flag_002e">14.1.2 Changes from &lsquo;<samp>'mark</samp>&rsquo; folder to  &lsquo;<samp>'flag</samp>&rsquo;.</a></li>
+      <li><a name="toc-The-conversion-of-msgdb" href="#The-conversion-of-msgdb">15.1.1 The conversion of msgdb</a></li>
+      <li><a name="toc-Changes-from-_0027mark-folder-to-_0027flag_002e" href="#Changes-from-_0027mark-folder-to-_0027flag_002e">15.1.2 Changes from &lsquo;<samp>'mark</samp>&rsquo; folder to  &lsquo;<samp>'flag</samp>&rsquo;.</a></li>
     </ul></li>
   </ul></li>
-  <li><a name="toc-Terminology-around-Wanderlust" href="#Terminology">15 Terminology around Wanderlust</a></li>
-  <li><a name="toc-Wanderlust-Mailing-List" href="#Mailing-List">16 Wanderlust Mailing List</a>
+  <li><a name="toc-Terminology-around-Wanderlust" href="#Terminology">16 Terminology around Wanderlust</a></li>
+  <li><a name="toc-Wanderlust-Mailing-List" href="#Mailing-List">17 Wanderlust Mailing List</a>
   <ul class="no-bullet">
-    <li><a name="toc-Archive-1" href="#Archive-1">16.1 Archive</a></li>
+    <li><a name="toc-Archive-1" href="#Archive-1">17.1 Archive</a></li>
   </ul></li>
-  <li><a name="toc-Additional-Information" href="#Addition">17 Additional Information</a>
+  <li><a name="toc-Additional-Information" href="#Addition">18 Additional Information</a>
   <ul class="no-bullet">
-    <li><a name="toc-Brief-History" href="#Brief-History">17.1 Brief History</a></li>
-    <li><a name="toc-The-Name" href="#The-Name">17.2 The Name</a></li>
-    <li><a name="toc-Code-Names" href="#Code-Names">17.3 Code Names</a></li>
+    <li><a name="toc-Brief-History" href="#Brief-History">18.1 Brief History</a></li>
+    <li><a name="toc-The-Name" href="#The-Name">18.2 The Name</a></li>
+    <li><a name="toc-Code-Names" href="#Code-Names">18.3 Code Names</a></li>
   </ul></li>
   <li><a name="toc-Index-1" href="#Index">Index</a>
   <ul class="no-bullet">
@@ -12278,7 +12391,7 @@ Previous: <a href="#Variable-Index" accesskey="p" rel="prev">Variable Index</a>,
 
 <h3><a name="FOOT1" href="#DOCF1">(1)</a></h3>
 <p>If you want to use SEMI on Emacs 19.34. <br>
-<a href="http://www.jpl.org/elips/INSTALL-SEMI-ja.html">http://www.jpl.org/elips/INSTALL-SEMI-ja.html</a> (In Japanese)
+<a href="http://www.jpl.org/ftp/attic/INSTALL-SEMI-ja.html">http://www.jpl.org/ftp/attic/INSTALL-SEMI-ja.html</a> (In Japanese)
 may help you.</p>
 <h3><a name="FOOT2" href="#DOCF2">(2)</a></h3>
 <p>In the current implementation,

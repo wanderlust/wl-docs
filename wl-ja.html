@@ -133,6 +133,8 @@ Next: <a href="#Introduction" accesskey="n" rel="next">Introduction</a>, Previou
 </td></tr>
 <tr><td align="left" valign="top">&bull; <a href="#Address-Book">Address Book</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">アドレス帳
 </td></tr>
+<tr><td align="left" valign="top">&bull; <a href="#Quick-Search">Quick Search</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Quickly search your mail archive
+</td></tr>
 <tr><td align="left" valign="top">&bull; <a href="#Spam-Filter">Spam Filter</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Spam フィルタ
 </td></tr>
 <tr><td align="left" valign="top">&bull; <a href="#Advanced-Issues">Advanced Issues</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">より進んだ使い方
@@ -267,24 +269,27 @@ Next: <a href="#Download" accesskey="n" rel="next">Download</a>, Previous: <a hr
 <a name="index-FLIM"></a>
 <a name="index-SEMI"></a>
 
-<p>Wanderlust を使うためには、まず先に SEMI をインストールしておく
-必要があります。
+<p>Wanderlust を使うためには、APEL, FLIM, SEMI と呼ばれる
+パッケージが必要です。
 </p>
-<p>SEMI は以下の場所からダウンロードできます。
-</p>
-<div class="example">
-<pre class="example">SEMI:   ftp://ftp.m17n.org/pub/mule/semi/
-</pre></div>
-
-<p>SEMI には APEL, FLIM と呼ばれるパッケージも必要です。
-APEL, FLIM は以下の場所からダウンロードできます。
+<p>Emacs 23 以降については、以下の場所にあるものを使用してください。
+SEMI は SEMI-EPG というパッケージ名になります。
 </p>
 <div class="example">
-<pre class="example">APEL:   ftp://ftp.m17n.org/pub/mule/apel/
-FLIM:   ftp://ftp.m17n.org/pub/mule/flim/
+<pre class="example">APEL:     <a href="https://github.com/wanderlust/apel">https://github.com/wanderlust/apel</a>
+FLIM:     <a href="https://github.com/wanderlust/flim">https://github.com/wanderlust/flim</a>
+SEMI-EPG: <a href="https://github.com/wanderlust/semi">https://github.com/wanderlust/semi</a>
 </pre></div>
 
-<p>APEL, FLIM, SEMI の順にインストールしてください。
+<p>オリジナルの APEL, FLIM, SEMI は以下の場所からダウンロードできます。
+</p>
+<div class="example">
+<pre class="example">APEL:   <a href="http://git.chise.org/elisp/dist/semi/">http://git.chise.org/elisp/dist/semi/</a>
+FLIM:   <a href="http://git.chise.org/elisp/dist/apel/">http://git.chise.org/elisp/dist/apel/</a>
+SEMI:   <a href="http://git.chise.org/elisp/dist/semi/">http://git.chise.org/elisp/dist/semi/</a>
+</pre></div>
+
+<p>APEL, FLIM, SEMI[-EPG] の順にインストールしてください。
 基本的にすべて &lsquo;<samp>make install</samp>&rsquo; の実行で済むはずです
 (XEmacs 21 では &lsquo;<samp>make install-package</samp>&rsquo;)。
 </p>
@@ -295,7 +300,7 @@ FLIM:   ftp://ftp.m17n.org/pub/mule/flim/
 <p>推奨される APEL, FLIM, SEMI のバージョンの組合せは、以下の通りです。
 </p>
 <ul class="no-bullet">
-<li>- APEL 10.6, FLIM 1.14.6, SEMI 1.14.6
+<li>- APEL 10.8, FLIM 1.14.9, SEMI-EPG 1.14.7
 </li></ul>
 
 <p>その他、FLIM, SEMI にはいろいろな変形バージョンが存在しますが、
@@ -327,15 +332,13 @@ Next: <a href="#Install" accesskey="n" rel="next">Install</a>, Previous: <a href
 <p>一次配布元:
 </p>
 <div class="example">
-<pre class="example">ftp://ftp.gohome.org/wl/
+<pre class="example"><a href="https://github.com/wanderlust/wanderlust">https://github.com/wanderlust/wanderlust</a>
 </pre></div>
 
 <p>ミラーしていただいている ftp, http サイト:
 </p>
 <div class="example">
-<pre class="example">http://www.jpl.org/elips/wl/
-http://www.ring.gr.jp/archives/text/elisp/wl/
-ftp://ftp.ring.gr.jp/pub/text/elisp/wl/
+<pre class="example"><a href="http://www.jpl.org/ftp/pub/github-snapshots/">http://www.jpl.org/ftp/pub/github-snapshots/</a>
 </pre></div>
 
 <p>入手したパッケージは適当な作業ディレクトリに展開しましょう。
@@ -359,17 +362,25 @@ ftp://ftp.ring.gr.jp/pub/text/elisp/wl/
 <code>STARTTLS</code> command の後に SSL negotiation を始めるものの二種類
 があります。
 </p>
-<p>通常の SSL を利用するには 本パッケージの <samp>utils</samp> ディレクトリにある
+<p>前者については、Emacs 24 以降でサポートされた、組み込み GnuTLS が
+利用可能な場合はそれを使います。
+次に、 <samp>tls.el</samp> が存在すればそれを使います。この時に GnuTLS に
+含まれる <code>gnutls-cli</code> にパスが通っている必要があります。
+どちらもない場合は、本パッケージの <samp>utils</samp> ディレクトリにある
 <samp>ssl.el</samp> をインストールする必要があります。なおかつ、OpenSSL に含ま
 れる <code>openssl</code> にパスが通っている必要があります。
 </p>
-<p>STARTTLS を利用するには、さらに、starttls パッケージをインストール
-する必要があります。
+<p>後者については <samp>starttls.el</samp> が必要になります。
+変数 <code>starttls-use-gnutls</code> の値によって、GnuTLS もしくは starttls
+パッケージが必要です。
+<samp>starttls.el</samp> が無い、もしくは <samp>starttls.el</samp> 内に
+<code>starttls-use-gnutls</code> の定義が無い場合は starttls パッケージを
+インストールする必要があります。
 </p>
 <p>starttls パッケージは以下の場所から入手できます。
 </p>
 <div class="example">
-<pre class="example">ftp://opaopa.org/pub/elisp/
+<pre class="example"><a href="ftp://opaopa.org/pub/elisp/">ftp://opaopa.org/pub/elisp/</a>
 </pre></div>
 
 
@@ -512,7 +523,7 @@ ELMO モジュールはファイル <samp>elmo*.el</samp> <samp>elmo*.elc</samp>
 <p>また、下記にもマニュアルがあります。
 </p>
 <div class="example">
-<pre class="example">http://www.gohome.org/wl/doc/wl-euc_toc.html
+<pre class="example"><a href="http://wanderlust.github.io/wl-docs/wl-ja.html">http://wanderlust.github.io/wl-docs/wl-ja.html</a>
 </pre></div>
 
 
@@ -848,10 +859,6 @@ Next: <a href="#NNTP-Folder" accesskey="n" rel="next">NNTP Folder</a>, Previous:
 (setq elmo-imap4-default-stream-type 'ssl) 
 </pre></div>
 
-<p>(OpenSSL に含まれる <code>openssl</code> にパスが通っている必要があります。
-STARTTLS を利用するには、さらに、starttls パッケージをインストールする必
-要があります。)
-</p>
 <p>認証法として、<code>login</code>、<code>cram-md5</code> もしくは <code>digest-md5</code> 
 を指定した場合、パスワードをエンコードして送信します。ただし、サーバ側が
 パスワードをエンコードして受け取る能力が無い場合は、確認の後、
@@ -886,29 +893,24 @@ STARTTLS を利用するには、さらに、starttls パッケージをイン�
 <a name="index-Mule_002dUCS"></a>
 <a name="index-ucs_002dconv"></a>
 
-<p>Emacs が UTF-7 に対応していれば，変数 
-<code>elmo-imap4-use-modified-utf7</code> にnon-nil の値を設定すれば(デフォル
-トは <code>nil</code>)、日本語(やその他の英語以外の言語)でメールボックス名を指
-定することができます。
+<p>Emacs が UTF-7 に対応していれば，変数
+<code>elmo-imap4-use-modified-utf7</code> に non-nil の値を設定すれば (デフォル
+トは Emacs 23 以降では <code>t</code>、それ以外では <code>nil</code>)、日本語 (や、
+その他の英語以外の言語) でメールボックス名を指定することができます。
 </p>
-<p>現在、Emacs を UTF-7 に対応させるには、Mule-UCS を別にインストールする
-必要があります。Mule-UCS は以下の Emacsen で動作します。
+<p>Emacs 23 以降では追加のパッケージは不要です。
+それ以外の Emacsen では、Mule-UCS を別にインストールする必要があります。
+Mule-UCS は以下の Emacsen で動作します。
 </p>
 <ul>
 <li> Emacs 20.3 以降
 </li><li> XEmacs 21.2.37 以降
 </li></ul>
 
-<p>Mule-UCS は以下から入手可能です。
+<p>Mule-UCS は以下から2004年のスナップショットが入手可能です。
 </p>
 <div class="example">
-<pre class="example">ftp://ftp.m17n.org/pub/mule/Mule-UCS/
-</pre></div>
-
-<div class="example">
-<pre class="example">cvs -d :pserver:anonymous@cvs.m17n.org:/cvs/root login
-Password: <var>NULL</var> (Just enter return key)
-cvs -d :pserver:anonymous@cvs.m17n.org:/cvs/root checkout ucs-conv
+<pre class="example"><a href="http://www.jpl.org/ftp/pub/tmp/">http://www.jpl.org/ftp/pub/tmp/</a>
 </pre></div>
 
 
@@ -1394,12 +1396,6 @@ archive から入手可能です(GPL2)。
 <p>変数 <code>elmo-pop3-default-stream-type</code> の値が <code>ssl</code> なら、&lsquo;<samp>!</samp>&rsquo; を付け
 なくても SSL を使います。<code>starttls</code> なら &lsquo;<samp>!!</samp>&rsquo; を意味します。
 これらの場合、通常の接続をするにはフォルダ名の最後に&lsquo;<samp>!direct</samp>&rsquo; を付けます。
-</p>
-<p>(SSL を利用するには 本パッケージの <samp>utils/ssl.el</samp> をインストールする
-必要があります。なおかつ、OpenSSL に含まれる <samp>openssl</samp> にパスが通っている
-必要があります。
-STARTTLS を利用するには、さらに、starttls パッケージをインストール
-する必要があります。)
 </p>
 
 <hr>
@@ -5577,7 +5573,7 @@ Previous: <a href="#Template" accesskey="p" rel="prev">Template</a>, Up: <a href
 <p>なお、POP-before-SMTP については以下を参照してください。
 </p>
 <div class="example">
-<pre class="example">http://www.iecc.com/pop-before-smtp.html
+<pre class="example"><a href="http://www.iecc.com/pop-before-smtp.html">http://www.iecc.com/pop-before-smtp.html</a>
 </pre></div>
 
 
@@ -7698,7 +7694,7 @@ pop3                    ×    △    △    △
 <a name="Address-Book"></a>
 <div class="header">
 <p>
-Next: <a href="#Spam-Filter" accesskey="n" rel="next">Spam Filter</a>, Previous: <a href="#Scoring" accesskey="p" rel="prev">Scoring</a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
+Next: <a href="#Quick-Search" accesskey="n" rel="next">Quick Search</a>, Previous: <a href="#Scoring" accesskey="p" rel="prev">Scoring</a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
 </div>
 <a name="adoresuZhang-"></a>
 <h2 class="chapter">11 アドレス帳</h2>
@@ -7846,13 +7842,97 @@ Previous: <a href="#Mail-Addresses" accesskey="p" rel="prev">Mail Addresses</a>,
 
 
 <hr>
+<a name="Quick-Search"></a>
+<div class="header">
+<p>
+Next: <a href="#Spam-Filter" accesskey="n" rel="next">Spam Filter</a>, Previous: <a href="#Address-Book" accesskey="p" rel="prev">Address Book</a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<a name="Quick-Search-1"></a>
+<h2 class="chapter">12 Quick Search</h2>
+<a name="index-Quick-Search"></a>
+
+<p><code>wl-qs</code> provides an interface to quickly search your mail archive.
+It can use an external search engine (<a href="#Search-Folder">Search Folder</a>), Gmail
+search, or a filter folder (<a href="#Filter-Folder">Filter Folder</a>).
+</p>
+<p><code>wl-qs</code> provides the command
+<code>wl-quicksearch-goto-search-folder</code>. Using it will first prompt for
+a search, and then jump to the search results.
+</p>
+<table class="menu" border="0" cellspacing="0">
+<tr><td align="left" valign="top">&bull; <a href="#Setup" accesskey="1">Setup</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Setup
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="#Searching" accesskey="2">Searching</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Searching
+</td></tr>
+</table>
+
+<hr>
+<a name="Setup"></a>
+<div class="header">
+<p>
+Next: <a href="#Searching" accesskey="n" rel="next">Searching</a>, Up: <a href="#Quick-Search" accesskey="u" rel="up">Quick Search</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<a name="Setup-of-wl_002dqs"></a>
+<h3 class="section">12.1 Setup of <code>wl-qs</code></h3>
+
+<p>To setup, configure the value of <code>wl-quicksearch-folder</code>.
+This should be the name of the folder you would like to search. For
+example, &lsquo;<samp>%[Gmail]/All Mail:username@imap.gmail.com</samp>&rsquo;,
+&lsquo;<samp>.archive</samp>&rsquo; or &lsquo;<samp>[]</samp>&rsquo;. The latter is advised if you use a mail
+index, such as mu, notmuch or namazu, as it is quite fast.
+</p>
+<hr>
+<a name="Searching"></a>
+<div class="header">
+<p>
+Previous: <a href="#Setup" accesskey="p" rel="prev">Setup</a>, Up: <a href="#Quick-Search" accesskey="u" rel="up">Quick Search</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<a name="Searching-1"></a>
+<h3 class="section">12.2 Searching</h3>
+
+<p>To search your mail archive, use the command
+<code>wl-quicksearch-goto-search-folder</code>, which can be called using
+<kbd>'</kbd> in a Summary buffer or the Folder buffer. You will be prompted
+for a search, and then will immediately jump to the search results.
+</p>
+<a name="Search-folder"></a>
+<h4 class="subsection">12.2.1 Search folder</h4>
+
+<p>If you use specified &lsquo;<samp>[</samp>&rsquo; as the value of
+<code>wl-quicksearch-folder</code>, you will be accessing a search folder
+(<a href="#Search-Folder">Search Folder</a>). You will be prompted for a search string. The
+syntax of the search will depend on the value of
+<code>elmo-search-default-engine</code>. Quotes will be escaped for you
+automatically and passed on to the search program.
+</p>
+<p>(If you are using the grep search engine, you must specify a target
+folder. Your <code>wl-quicksearch-folder</code> should look like
+&lsquo;<samp>[]~/Mail/semi!grep</samp>&rsquo;.)
+</p>
+<a name="Gmail"></a>
+<h4 class="subsection">12.2.2 Gmail</h4>
+
+<p>If you use a gmail folder as your <code>wl-quicksearch-folder</code>, you will be prompted for a
+Gmail search query
+(<a href="https://support.google.com/mail/answer/7190">https://support.google.com/mail/answer/7190</a>). You may use
+any Gmail search operator; the search is handled by Gmail&rsquo;s server.
+</p>
+<a name="Filter-folder"></a>
+<h4 class="subsection">12.2.3 Filter folder</h4>
+
+<p>If you are using any other type of folder, you will be prompted for a
+query using the interactive query builder. When you have finished your
+query, you will be directed to a filter folder for your
+<code>wl-quicksearch-folder</code>.
+</p>
+<hr>
 <a name="Spam-Filter"></a>
 <div class="header">
 <p>
-Next: <a href="#Advanced-Issues" accesskey="n" rel="next">Advanced Issues</a>, Previous: <a href="#Address-Book" accesskey="p" rel="prev">Address Book</a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
+Next: <a href="#Advanced-Issues" accesskey="n" rel="next">Advanced Issues</a>, Previous: <a href="#Quick-Search" accesskey="p" rel="prev">Quick Search</a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
 </div>
 <a name="Spam-huiruta"></a>
-<h2 class="chapter">12 Spam フィルタ</h2>
+<h2 class="chapter">13 Spam フィルタ</h2>
 <a name="index-Spam-Filter"></a>
 
 <p><code>wl-spam</code> は、外部 spam フィルタプログラムへのフロントエンドを提供
@@ -7873,10 +7953,10 @@ Next: <a href="#Advanced-Issues" accesskey="n" rel="next">Advanced Issues</a>, P
 Next: <a href="#Spam-Filter-Processors" accesskey="n" rel="next">Spam Filter Processors</a>, Previous: <a href="#Spam-Filter" accesskey="p" rel="prev">Spam Filter</a>, Up: <a href="#Spam-Filter" accesskey="u" rel="up">Spam Filter</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
 </div>
 <a name="Shi-iFang--1"></a>
-<h3 class="section">12.1 使い方</h3>
+<h3 class="section">13.1 使い方</h3>
 
 <a name="Chu-Qi-She-Ding-"></a>
-<h4 class="subsection">12.1.1 初期設定</h4>
+<h4 class="subsection">13.1.1 初期設定</h4>
 
 <p><code>wl-spam</code> を使うには、まず <samp>~/.wl</samp> に以下のように設定して下さ
 い。
@@ -7890,7 +7970,7 @@ Next: <a href="#Spam-Filter-Processors" accesskey="n" rel="next">Spam Filter Pro
 </pre></div>
 
 <a name="spam-maku"></a>
-<h4 class="subsection">12.1.2 spam マーク</h4>
+<h4 class="subsection">13.1.2 spam マーク</h4>
 
 <p>一時的マークに spam マーク (&lsquo;<samp>s</samp>&rsquo;) が追加されます。このマークの付いた
 メッセージは、アクションの実行時に <code>wl-spam-folder</code> にリファイルさ
@@ -7901,7 +7981,7 @@ Next: <a href="#Spam-Filter-Processors" accesskey="n" rel="next">Spam Filter Pro
 して任意に付けることも出来ます。
 </p>
 <a name="spam-noPan-Ding-"></a>
-<h4 class="subsection">12.1.3 spam の判定</h4>
+<h4 class="subsection">13.1.3 spam の判定</h4>
 
 <p>以下の方法で spam の判定を行うことが出来ます。
 </p>
@@ -7954,7 +8034,7 @@ See <a href="#Split-messages">Split messages</a>.
 </li></ol>
 
 <a name="spam-noXueXi"></a>
-<h4 class="subsection">12.1.4 spam の学習</h4>
+<h4 class="subsection">13.1.4 spam の学習</h4>
 
 <p><code>wl-spam</code> は、メッセージをリファイルすることで、自動的に spam を学
 習します。
@@ -8004,7 +8084,7 @@ See <a href="#Split-messages">Split messages</a>.
 <p>上記以外のリファイルでは、学習は行われません。
 </p>
 <a name="kibaindo-7"></a>
-<h4 class="subsection">12.1.5 キーバインド</h4>
+<h4 class="subsection">13.1.5 キーバインド</h4>
 <a name="index-Keybind_002c-spam-filter"></a>
 
 <dl compact="compact">
@@ -8137,7 +8217,7 @@ prefix argument つきならばカーソル行があるメッセージを含む�
 </dl>
 
 <a name="kasutamaizuBian-Shu--9"></a>
-<h4 class="subsection">12.1.6 カスタマイズ変数</h4>
+<h4 class="subsection">13.1.6 カスタマイズ変数</h4>
 
 <dl compact="compact">
 <dt><code>wl-spam-folder</code></dt>
@@ -8206,7 +8286,7 @@ prefix argument つきならばカーソル行があるメッセージを含む�
 Previous: <a href="#Usage-of-Spam-Filter" accesskey="p" rel="prev">Usage of Spam Filter</a>, Up: <a href="#Spam-Filter" accesskey="u" rel="up">Spam Filter</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
 </div>
 <a name="Dui-Ying-siteiru-Spam-Filter"></a>
-<h3 class="section">12.2 対応している Spam Filter</h3>
+<h3 class="section">13.2 対応している Spam Filter</h3>
 <a name="index-Spam-Filter_002c-Bogofilter"></a>
 <a name="index-Spam-Filter_002c-Spamfilter"></a>
 
@@ -8235,7 +8315,7 @@ Previous: <a href="#Usage-of-Spam-Filter" accesskey="p" rel="prev">Usage of Spam
 Next: <a href="#spamfilter" accesskey="n" rel="next">spamfilter</a>, Previous: <a href="#Spam-Filter-Processors" accesskey="p" rel="prev">Spam Filter Processors</a>, Up: <a href="#Spam-Filter-Processors" accesskey="u" rel="up">Spam Filter Processors</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
 </div>
 <a name="bogofilter-1"></a>
-<h4 class="subsection">12.2.1 bogofilter</h4>
+<h4 class="subsection">13.2.1 bogofilter</h4>
 <a name="index-bogofilter"></a>
 
 <p>bogofilter (<a href="http://bogofilter.sourceforge.net/">http://bogofilter.sourceforge.net/</a>) は、C言語で実装さ
@@ -8249,7 +8329,7 @@ Next: <a href="#spamfilter" accesskey="n" rel="next">spamfilter</a>, Previous: <
 </pre></div>
 
 <a name="kasutamaizuBian-Shu--10"></a>
-<h4 class="subsubsection">12.2.1.1 カスタマイズ変数</h4>
+<h4 class="subsubsection">13.2.1.1 カスタマイズ変数</h4>
 
 <dl compact="compact">
 <dt><code>elmo-spam-bogofilter-program</code></dt>
@@ -8294,7 +8374,7 @@ non-nil に指定すると、<code>bogofilter</code> からの出力が
 Next: <a href="#bsfilter" accesskey="n" rel="next">bsfilter</a>, Previous: <a href="#bogofilter" accesskey="p" rel="prev">bogofilter</a>, Up: <a href="#Spam-Filter-Processors" accesskey="u" rel="up">Spam Filter Processors</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
 </div>
 <a name="spamfilter_002eel"></a>
-<h4 class="subsection">12.2.2 spamfilter.el</h4>
+<h4 class="subsection">13.2.2 spamfilter.el</h4>
 <a name="index-spamfilter"></a>
 
 <p><samp>spamfilter.el</samp>
@@ -8312,7 +8392,7 @@ Emacs Lisp で実装された spam フィルタリングライブラリです。
 </pre></div>
 
 <a name="kasutamaizuBian-Shu--11"></a>
-<h4 class="subsubsection">12.2.2.1 カスタマイズ変数</h4>
+<h4 class="subsubsection">13.2.2.1 カスタマイズ変数</h4>
 
 <dl compact="compact">
 <dt><code>elmo-spam-spamfilter-corpus-filename</code></dt>
@@ -8329,7 +8409,7 @@ Emacs Lisp で実装された spam フィルタリングライブラリです。
 Next: <a href="#SpamAssassin" accesskey="n" rel="next">SpamAssassin</a>, Previous: <a href="#spamfilter" accesskey="p" rel="prev">spamfilter</a>, Up: <a href="#Spam-Filter-Processors" accesskey="u" rel="up">Spam Filter Processors</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
 </div>
 <a name="bsfilter-1"></a>
-<h4 class="subsection">12.2.3 bsfilter</h4>
+<h4 class="subsection">13.2.3 bsfilter</h4>
 <a name="index-bsfilter"></a>
 
 <p>bsfilter (<a href="http://bsfilter.org/">http://bsfilter.org/</a>) は、Ruby で実装された spam フィルタです。
@@ -8342,7 +8422,7 @@ Next: <a href="#SpamAssassin" accesskey="n" rel="next">SpamAssassin</a>, Previou
 </pre></div>
 
 <a name="kasutamaizuBian-Shu--12"></a>
-<h4 class="subsubsection">12.2.3.1 カスタマイズ変数</h4>
+<h4 class="subsubsection">13.2.3.1 カスタマイズ変数</h4>
 
 <dl compact="compact">
 <dt><code>elmo-spam-bsfilter-program</code></dt>
@@ -8400,7 +8480,7 @@ bsfilter を起動するシェルに与える引数を指定します。
 Next: <a href="#SpamOracle" accesskey="n" rel="next">SpamOracle</a>, Previous: <a href="#bsfilter" accesskey="p" rel="prev">bsfilter</a>, Up: <a href="#Spam-Filter-Processors" accesskey="u" rel="up">Spam Filter Processors</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
 </div>
 <a name="SpamAssassin-1"></a>
-<h4 class="subsection">12.2.4 SpamAssassin</h4>
+<h4 class="subsection">13.2.4 SpamAssassin</h4>
 <a name="index-SpamAssassin"></a>
 
 <p>SpamAssassin (<a href="http://spamassassin.org/">http://spamassassin.org/</a>) は、Perl 言語
@@ -8418,7 +8498,7 @@ Next: <a href="#SpamOracle" accesskey="n" rel="next">SpamOracle</a>, Previous: <
 </pre></div>
 
 <a name="kasutamaizuBian-Shu--13"></a>
-<h4 class="subsubsection">12.2.4.1 カスタマイズ変数</h4>
+<h4 class="subsubsection">13.2.4.1 カスタマイズ変数</h4>
 
 <dl compact="compact">
 <dt><code>elmo-spam-spamassassin-program</code></dt>
@@ -8467,10 +8547,10 @@ SpamAssassin の学習用プログラム <code>sa-learn</code> 実行時に与�
 Next: <a href="#Regular-Expressions-Header-Matching" accesskey="n" rel="next">Regular Expressions Header Matching</a>, Previous: <a href="#SpamAssassin" accesskey="p" rel="prev">SpamAssassin</a>, Up: <a href="#Spam-Filter-Processors" accesskey="u" rel="up">Spam Filter Processors</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
 </div>
 <a name="SpamOracle-1"></a>
-<h4 class="subsection">12.2.5 SpamOracle</h4>
+<h4 class="subsection">13.2.5 SpamOracle</h4>
 <a name="index-SpamOracle"></a>
 
-<p>SpamOracle (&lsquo;http://pauillac.inria.fr/~xleroy/software.html#spamoracle&rsquo;)
+<p>SpamOracle (<a href="http://pauillac.inria.fr/~xleroy/software.html#spamoracle">http://pauillac.inria.fr/~xleroy/software.html#spamoracle</a>)
 は、Objective Caml で実装された spam フィルタです.
 </p>
 <p><samp>SpamOracle</samp> を使用するには、<samp>~/.wl</samp>などに以下の設定を記述します。
@@ -8482,7 +8562,7 @@ Next: <a href="#Regular-Expressions-Header-Matching" accesskey="n" rel="next">Re
 </pre></div>
 
 <a name="kasutamaizuBian-Shu--14"></a>
-<h4 class="subsubsection">12.2.5.1 カスタマイズ変数</h4>
+<h4 class="subsubsection">13.2.5.1 カスタマイズ変数</h4>
 
 <dl compact="compact">
 <dt><code>elmo-spam-spamoracle-program</code></dt>
@@ -8523,7 +8603,7 @@ spam メールであることを示すヘッダの正規表現を指定します
 Previous: <a href="#SpamOracle" accesskey="p" rel="prev">SpamOracle</a>, Up: <a href="#Spam-Filter-Processors" accesskey="u" rel="up">Spam Filter Processors</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
 </div>
 <a name="Regular-Expressions-Header-Matching-1"></a>
-<h4 class="subsection">12.2.6 Regular Expressions Header Matching</h4>
+<h4 class="subsection">13.2.6 Regular Expressions Header Matching</h4>
 <a name="index-Regular-Expressions-Header-Matching"></a>
 
 <p>メッセージヘッダの各フィールドが正規表現と合致するかどうかを検査し、spam 
@@ -8539,7 +8619,7 @@ Previous: <a href="#SpamOracle" accesskey="p" rel="prev">SpamOracle</a>, Up: <a 
 体を読み込まずに overview 情報を元に検査します。
 </p>
 <a name="kasutamaizuBian-Shu--15"></a>
-<h4 class="subsubsection">12.2.6.1 カスタマイズ変数</h4>
+<h4 class="subsubsection">13.2.6.1 カスタマイズ変数</h4>
 
 <dl compact="compact">
 <dt><code>elmo-spam-header-good-alist</code></dt>
@@ -8575,7 +8655,7 @@ Previous: <a href="#SpamOracle" accesskey="p" rel="prev">SpamOracle</a>, Up: <a 
 Next: <a href="#Migration" accesskey="n" rel="next">Migration</a>, Previous: <a href="#Spam-Filter" accesskey="p" rel="prev">Spam Filter</a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
 </div>
 <a name="yoriJin-ndaShi-iFang-"></a>
-<h2 class="chapter">13 より進んだ使い方</h2>
+<h2 class="chapter">14 より進んだ使い方</h2>
 <a name="index-Advanced-Issues"></a>
 
 <table class="menu" border="0" cellspacing="0">
@@ -8607,7 +8687,7 @@ Next: <a href="#Migration" accesskey="n" rel="next">Migration</a>, Previous: <a 
 Next: <a href="#Highlights" accesskey="n" rel="next">Highlights</a>, Previous: <a href="#Advanced-Issues" accesskey="p" rel="prev">Advanced Issues</a>, Up: <a href="#Advanced-Issues" accesskey="u" rel="up">Advanced Issues</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
 </div>
 <a name="patukezinoaruSheng-Huo-"></a>
-<h3 class="section">13.1 パッケージのある生活</h3>
+<h3 class="section">14.1 パッケージのある生活</h3>
 
 <p>他のパッケージを使うための設定例です。
 </p>
@@ -8642,7 +8722,7 @@ Next: <a href="#Highlights" accesskey="n" rel="next">Highlights</a>, Previous: <
 Next: <a href="#BBDB" accesskey="n" rel="next">BBDB</a>, Previous: <a href="#Living-with-other-packages" accesskey="p" rel="prev">Living with other packages</a>, Up: <a href="#Living-with-other-packages" accesskey="u" rel="up">Living with other packages</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
 </div>
 <a name="imput-1"></a>
-<h4 class="subsection">13.1.1 imput</h4>
+<h4 class="subsection">14.1.1 imput</h4>
 <a name="index-imput"></a>
 <a name="index-im_002dwl"></a>
 
@@ -8662,12 +8742,17 @@ OK です。
 Next: <a href="#LSDB" accesskey="n" rel="next">LSDB</a>, Previous: <a href="#imput" accesskey="p" rel="prev">imput</a>, Up: <a href="#Living-with-other-packages" accesskey="u" rel="up">Living with other packages</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
 </div>
 <a name="bbdb_002eel"></a>
-<h4 class="subsection">13.1.2 bbdb.el</h4>
+<h4 class="subsection">14.1.2 bbdb.el</h4>
 <a name="index-BBDB"></a>
 
 <p>The Insidious Big Brother Database (<a href="http://bbdb.sourceforge.net/">http://bbdb.sourceforge.net/</a>)
 を Wanderlust と共に使うには、 <samp>util/bbdb-wl.el</samp> を <code>load-path</code>
 に置いて以下のように設定すれば OK です。
+</p>
+<p>ただし、<samp>util/bbdb-wl.el</samp> は <a href="http://savannah.nongnu.org/projects/bbdb/">http://savannah.nongnu.org/projects/bbdb/</a> で
+開発されている、BBDB 3.x とは互換性がありません。
+この場合は、BBDBV3-Wl (<a href="https://gna.org/projects/bbdbv3-wl/">https://gna.org/projects/bbdbv3-wl/</a>) が、
+有用かもしれません。
 </p>
 <p>インストール時に <code>load-path</code> 上に BBDB があれば、
 <samp>bbdb-wl.el</samp> はバイトコンパイル/インストールされます。
@@ -8703,7 +8788,7 @@ See <a href="#Install">Install</a>.
 Next: <a href="#supercite" accesskey="n" rel="next">supercite</a>, Previous: <a href="#BBDB" accesskey="p" rel="prev">BBDB</a>, Up: <a href="#Living-with-other-packages" accesskey="u" rel="up">Living with other packages</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
 </div>
 <a name="lsdb_002eel"></a>
-<h4 class="subsection">13.1.3 lsdb.el</h4>
+<h4 class="subsection">14.1.3 lsdb.el</h4>
 <a name="index-LSDB"></a>
 
 <p>The Lovely Sister Database (<a href="http://sourceforge.jp/projects/lsdb/">http://sourceforge.jp/projects/lsdb/</a>)
@@ -8728,7 +8813,7 @@ Next: <a href="#supercite" accesskey="n" rel="next">supercite</a>, Previous: <a 
 Next: <a href="#mu_002dcite" accesskey="n" rel="next">mu-cite</a>, Previous: <a href="#LSDB" accesskey="p" rel="prev">LSDB</a>, Up: <a href="#Living-with-other-packages" accesskey="u" rel="up">Living with other packages</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
 </div>
 <a name="sc_002eel_0028supercite_0029_002c-sc_002dregister_002eel"></a>
-<h4 class="subsection">13.1.4 sc.el(supercite), sc-register.el</h4>
+<h4 class="subsection">14.1.4 sc.el(supercite), sc-register.el</h4>
 <a name="index-sc"></a>
 <a name="index-supercite"></a>
 
@@ -8747,7 +8832,7 @@ Next: <a href="#mu_002dcite" accesskey="n" rel="next">mu-cite</a>, Previous: <a 
 Next: <a href="#X_002dFace" accesskey="n" rel="next">X-Face</a>, Previous: <a href="#supercite" accesskey="p" rel="prev">supercite</a>, Up: <a href="#Living-with-other-packages" accesskey="u" rel="up">Living with other packages</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
 </div>
 <a name="mu_002dcite_002eel"></a>
-<h4 class="subsection">13.1.5 mu-cite.el</h4>
+<h4 class="subsection">14.1.5 mu-cite.el</h4>
 <a name="index-mu_002dcite"></a>
 
 <p>普通のメーラと同じ設定で OK です。以下は設定の一例です。
@@ -8776,7 +8861,7 @@ Next: <a href="#X_002dFace" accesskey="n" rel="next">X-Face</a>, Previous: <a hr
 Next: <a href="#dired_002ddd" accesskey="n" rel="next">dired-dd</a>, Previous: <a href="#mu_002dcite" accesskey="p" rel="prev">mu-cite</a>, Up: <a href="#Living-with-other-packages" accesskey="u" rel="up">Living with other packages</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
 </div>
 <a name="x_002dface"></a>
-<h4 class="subsection">13.1.6 x-face</h4>
+<h4 class="subsection">14.1.6 x-face</h4>
 <a name="index-x_002dface"></a>
 
 <p>以下のいずれかをインストールすることで、 メッセージバッファの
@@ -8802,7 +8887,7 @@ Next: <a href="#dired_002ddd" accesskey="n" rel="next">dired-dd</a>, Previous: <
 Next: <a href="#x_002dface_002dmule" accesskey="n" rel="next">x-face-mule</a>, Previous: <a href="#X_002dFace" accesskey="p" rel="prev">X-Face</a>, Up: <a href="#X_002dFace" accesskey="u" rel="up">X-Face</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
 </div>
 <a name="x_002dface_002dxmas-_0028XEmacs-noChang-He-_0029"></a>
-<h4 class="subsubsection">13.1.6.1 x-face-xmas (XEmacs の場合)</h4>
+<h4 class="subsubsection">14.1.6.1 x-face-xmas (XEmacs の場合)</h4>
 <a name="index-x_002dface_002dxmas"></a>
 
 <p>x-face (<a href="ftp://jpl.org/pub/elisp/">ftp://jpl.org/pub/elisp/</a>) 1.3.6.13 以降に付属の
@@ -8821,7 +8906,7 @@ Next: <a href="#x_002dface_002dmule" accesskey="n" rel="next">x-face-mule</a>, P
 Previous: <a href="#x_002dface_002dxmas" accesskey="p" rel="prev">x-face-xmas</a>, Up: <a href="#X_002dFace" accesskey="u" rel="up">X-Face</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
 </div>
 <a name="x_002dface_002dmule-_0028Emacs-noChang-He-_0029"></a>
-<h4 class="subsubsection">13.1.6.2 x-face-mule (Emacs の場合)</h4>
+<h4 class="subsubsection">14.1.6.2 x-face-mule (Emacs の場合)</h4>
 <a name="index-x_002dface_002dmule"></a>
 <a name="index-bitmap_002dmule"></a>
 
@@ -8834,7 +8919,7 @@ Previous: <a href="#x_002dface_002dxmas" accesskey="p" rel="prev">x-face-xmas</a
 </pre></div>
 
 <a name="x_002dface_002de21-_0028Emacs-21_002ex-noChang-He-_0029"></a>
-<h4 class="subsubsection">13.1.6.3 x-face-e21 (Emacs 21.x の場合)</h4>
+<h4 class="subsubsection">14.1.6.3 x-face-e21 (Emacs 21.x の場合)</h4>
 <a name="index-x_002dface_002de21"></a>
 
 <p>Emacs 21.x の場合には、<samp>x-face-mule.el</samp> の代わりに <samp>x-face-e21.el</samp>
@@ -8854,7 +8939,7 @@ Previous: <a href="#x_002dface_002dxmas" accesskey="p" rel="prev">x-face-xmas</a
 Next: <a href="#MHC" accesskey="n" rel="next">MHC</a>, Previous: <a href="#X_002dFace" accesskey="p" rel="prev">X-Face</a>, Up: <a href="#Living-with-other-packages" accesskey="u" rel="up">Living with other packages</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
 </div>
 <a name="dired_002ddd_0028Dired_002dDragDrop_0029"></a>
-<h4 class="subsection">13.1.7 dired-dd(Dired-DragDrop)</h4>
+<h4 class="subsection">14.1.7 dired-dd(Dired-DragDrop)</h4>
 <a name="index-Dired_002dDragDrop"></a>
 <a name="index-Dired_002dDD"></a>
 <a name="index-Drag-and-Drop"></a>
@@ -8885,7 +8970,7 @@ Emacs で編集中の草稿バッファへ dired からドラッグ&amp;ドロ�
 Next: <a href="#Addrbook" accesskey="n" rel="next">Addrbook</a>, Previous: <a href="#dired_002ddd" accesskey="p" rel="prev">dired-dd</a>, Up: <a href="#Living-with-other-packages" accesskey="u" rel="up">Living with other packages</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
 </div>
 <a name="mhc_002eel"></a>
-<h4 class="subsection">13.1.8 mhc.el</h4>
+<h4 class="subsection">14.1.8 mhc.el</h4>
 <a name="index-MHC"></a>
 
 <p>Message Harmonized Calendaring system
@@ -8917,7 +9002,7 @@ Next: <a href="#Addrbook" accesskey="n" rel="next">Addrbook</a>, Previous: <a hr
 Next: <a href="#mime_002dw3m" accesskey="n" rel="next">mime-w3m</a>, Previous: <a href="#MHC" accesskey="p" rel="prev">MHC</a>, Up: <a href="#Living-with-other-packages" accesskey="u" rel="up">Living with other packages</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
 </div>
 <a name="wl_002daddrbook_002eel"></a>
-<h4 class="subsection">13.1.9 wl-addrbook.el</h4>
+<h4 class="subsection">14.1.9 wl-addrbook.el</h4>
 <a name="index-Addrbook"></a>
 
 <p>Addrbook of Mew
@@ -8940,13 +9025,14 @@ Next: <a href="#mime_002dw3m" accesskey="n" rel="next">mime-w3m</a>, Previous: <
 Previous: <a href="#Addrbook" accesskey="p" rel="prev">Addrbook</a>, Up: <a href="#Living-with-other-packages" accesskey="u" rel="up">Living with other packages</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
 </div>
 <a name="mime_002dw3m_002eel"></a>
-<h4 class="subsection">13.1.10 mime-w3m.el</h4>
+<h4 class="subsection">14.1.10 mime-w3m.el</h4>
 <a name="index-mime_002dw3m"></a>
 
 <p>emacs-w3m (<a href="http://emacs-w3m.namazu.org/">http://emacs-w3m.namazu.org/</a>) に付属の
 <samp>mime-w3m.el</samp> を使って、メッセージの html パートを
 表示させることが出来ます。設定方法は <samp>mime-w3m.el</samp> の
 先頭のコメントを参照してください。
+SEMI が SEMI-EPG である場合は、特別な設定は不要です。
 </p>
 
 <hr>
@@ -8956,10 +9042,10 @@ Previous: <a href="#Addrbook" accesskey="p" rel="prev">Addrbook</a>, Up: <a href
 Next: <a href="#Biff" accesskey="n" rel="next">Biff</a>, Previous: <a href="#Living-with-other-packages" accesskey="p" rel="prev">Living with other packages</a>, Up: <a href="#Advanced-Issues" accesskey="u" rel="up">Advanced Issues</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
 </div>
 <a name="hairaitonoShe-Ding-"></a>
-<h3 class="section">13.2 ハイライトの設定</h3>
+<h3 class="section">14.2 ハイライトの設定</h3>
 
 <a name="kasutamaizuBian-Shu--16"></a>
-<h4 class="subsection">13.2.1 カスタマイズ変数</h4>
+<h4 class="subsection">14.2.1 カスタマイズ変数</h4>
 
 <dl compact="compact">
 <dt><code>wl-summary-highlight</code></dt>
@@ -9068,7 +9154,7 @@ Non-nil ならフォルダモード、サマリモードなどで
 </dl>
 
 <a name="WenZi-noSe-_002c-huontonoShe-Ding-"></a>
-<h4 class="subsection">13.2.2 文字の色、フォントの設定</h4>
+<h4 class="subsection">14.2.2 文字の色、フォントの設定</h4>
 
 <p>文字の色や、フォントを変えるには、Wanderlust で定義されている face を変
 更する必要があります。フォントを変えたいときは <code>set-face-font</code>、
@@ -9245,7 +9331,7 @@ face の設定は <samp>.emacs</samp> に書くことはできないので <samp
 Next: <a href="#Password-Management" accesskey="n" rel="next">Password Management</a>, Previous: <a href="#Highlights" accesskey="p" rel="prev">Highlights</a>, Up: <a href="#Advanced-Issues" accesskey="u" rel="up">Advanced Issues</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
 </div>
 <a name="merunoZhao-Xin-woZhi-raseru"></a>
-<h3 class="section">13.3 メールの着信を知らせる</h3>
+<h3 class="section">14.3 メールの着信を知らせる</h3>
 <a name="index-Biff"></a>
 
 <p>以下のように設定しておくと &lsquo;<samp>%inbox</samp>&rsquo; にメールが届いたときに、
@@ -9256,7 +9342,7 @@ Next: <a href="#Password-Management" accesskey="n" rel="next">Password Managemen
 </pre></div>
 
 <a name="kasutamaizuBian-Shu--17"></a>
-<h4 class="subsection">13.3.1 カスタマイズ変数</h4>
+<h4 class="subsection">14.3.1 カスタマイズ変数</h4>
 
 <dl compact="compact">
 <dt><code>wl-biff-check-folder-list</code></dt>
@@ -9299,7 +9385,7 @@ Next: <a href="#Password-Management" accesskey="n" rel="next">Password Managemen
 Next: <a href="#Split-messages" accesskey="n" rel="next">Split messages</a>, Previous: <a href="#Biff" accesskey="p" rel="prev">Biff</a>, Up: <a href="#Advanced-Issues" accesskey="u" rel="up">Advanced Issues</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
 </div>
 <a name="pasuwadonoGuan-Li-"></a>
-<h3 class="section">13.4 パスワードの管理</h3>
+<h3 class="section">14.4 パスワードの管理</h3>
 
 <p>サーバに接続する為に入力したパスワードは変数 <code>elmo-passwd-alist</code> に
 接続毎に保持されます。この変数にはエンコードされた生のパスワードが保持さ
@@ -9339,7 +9425,7 @@ Non-nil な値が設定された場合は、新規にパスワードが入力さ
 Next: <a href="#Batch-Processing" accesskey="n" rel="next">Batch Processing</a>, Previous: <a href="#Password-Management" accesskey="p" rel="prev">Password Management</a>, Up: <a href="#Advanced-Issues" accesskey="u" rel="up">Advanced Issues</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
 </div>
 <a name="metusezinoZhen-riFen-ke"></a>
-<h3 class="section">13.5 メッセージの振り分け</h3>
+<h3 class="section">14.5 メッセージの振り分け</h3>
 <a name="index-Split-messages"></a>
 
 <p><code>elmo-split</code> を使うと、変数 <code>elmo-split-folder</code> で指定したフ
@@ -9492,7 +9578,7 @@ Next: <a href="#Batch-Processing" accesskey="n" rel="next">Batch Processing</a>,
 Next: <a href="#Advanced-Settings" accesskey="n" rel="next">Advanced Settings</a>, Previous: <a href="#Split-messages" accesskey="p" rel="prev">Split messages</a>, Up: <a href="#Advanced-Issues" accesskey="u" rel="up">Advanced Issues</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
 </div>
 <a name="batutiChu-Li-"></a>
-<h3 class="section">13.6 バッチ処理</h3>
+<h3 class="section">14.6 バッチ処理</h3>
 <a name="index-Batch-Processing"></a>
 
 <p>コマンドラインから wanderlust に仕事をさせることができます。
@@ -9506,7 +9592,7 @@ Next: <a href="#Advanced-Settings" accesskey="n" rel="next">Advanced Settings</a
 </pre></div>
 
 <a name="kasutamaizuBian-Shu--18"></a>
-<h4 class="subsection">13.6.1 カスタマイズ変数</h4>
+<h4 class="subsection">14.6.1 カスタマイズ変数</h4>
 
 <dl compact="compact">
 <dt><code>wl-batch-prefetch-folder-list</code></dt>
@@ -9524,7 +9610,7 @@ Next: <a href="#Advanced-Settings" accesskey="n" rel="next">Advanced Settings</a
 Next: <a href="#Customizable-Valiables" accesskey="n" rel="next">Customizable Valiables</a>, Previous: <a href="#Batch-Processing" accesskey="p" rel="prev">Batch Processing</a>, Up: <a href="#Advanced-Issues" accesskey="u" rel="up">Advanced Issues</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
 </div>
 <a name="kasutamaizu_007e-Ying-Yong-Bian-_007e-"></a>
-<h3 class="section">13.7 カスタマイズ〜応用編〜</h3>
+<h3 class="section">14.7 カスタマイズ〜応用編〜</h3>
 
 <table class="menu" border="0" cellspacing="0">
 <tr><td align="left" valign="top">&bull; <a href="#Draft-for-Reply" accesskey="1">Draft for Reply</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">返事用ドラフト
@@ -9543,7 +9629,7 @@ Next: <a href="#Customizable-Valiables" accesskey="n" rel="next">Customizable Va
 Next: <a href="#Thread-Format" accesskey="n" rel="next">Thread Format</a>, Previous: <a href="#Advanced-Settings" accesskey="p" rel="prev">Advanced Settings</a>, Up: <a href="#Advanced-Settings" accesskey="u" rel="up">Advanced Settings</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
 </div>
 <a name="Fan-Shi-Yong-dorahuto"></a>
-<h4 class="subsection">13.7.1 返事用ドラフト</h4>
+<h4 class="subsection">14.7.1 返事用ドラフト</h4>
 <a name="index-wl_002ddraft_002dreply_002dwith_002dargument_002dlist"></a>
 <a name="index-wl_002ddraft_002dreply_002dwithout_002dargument_002dlist"></a>
 
@@ -9643,7 +9729,7 @@ Next: <a href="#Thread-Format" accesskey="n" rel="next">Thread Format</a>, Previ
 Next: <a href="#User_002dAgent-Field" accesskey="n" rel="next">User-Agent Field</a>, Previous: <a href="#Draft-for-Reply" accesskey="p" rel="prev">Draft for Reply</a>, Up: <a href="#Advanced-Settings" accesskey="u" rel="up">Advanced Settings</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
 </div>
 <a name="suretudonoJian-tame"></a>
-<h4 class="subsection">13.7.2 スレッドの見ため</h4>
+<h4 class="subsection">14.7.2 スレッドの見ため</h4>
 
 <div class="example">
 <pre class="example">  389  09/18(金)01:07 [ てらにし          ] wl-0.6.3
@@ -9691,7 +9777,7 @@ Next: <a href="#User_002dAgent-Field" accesskey="n" rel="next">User-Agent Field<
 Previous: <a href="#Thread-Format" accesskey="p" rel="prev">Thread Format</a>, Up: <a href="#Advanced-Settings" accesskey="u" rel="up">Advanced Settings</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
 </div>
 <a name="User_002dAgent-huirudo"></a>
-<h4 class="subsection">13.7.3 User-Agent フィールド</h4>
+<h4 class="subsection">14.7.3 User-Agent フィールド</h4>
 <a name="index-X_002dMailer"></a>
 <a name="index-User_002dAgent"></a>
 
@@ -9725,7 +9811,7 @@ Previous: <a href="#Thread-Format" accesskey="p" rel="prev">Thread Format</a>, U
 Next: <a href="#Hooks" accesskey="n" rel="next">Hooks</a>, Previous: <a href="#Advanced-Settings" accesskey="p" rel="prev">Advanced Settings</a>, Up: <a href="#Advanced-Issues" accesskey="u" rel="up">Advanced Issues</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
 </div>
 <a name="sonoTa-nokasutamaizuBian-Shu-YiLan-"></a>
-<h3 class="section">13.8 その他のカスタマイズ変数一覧</h3>
+<h3 class="section">14.8 その他のカスタマイズ変数一覧</h3>
 
 <p>その他のカスタマイズ変数一覧。
 </p>
@@ -10006,7 +10092,7 @@ Non-nil ならばオフライン処理で溜った処理を実行するかどう
 Previous: <a href="#Customizable-Valiables" accesskey="p" rel="prev">Customizable Valiables</a>, Up: <a href="#Advanced-Issues" accesskey="u" rel="up">Advanced Issues</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
 </div>
 <a name="hutuku"></a>
-<h3 class="section">13.9 フック</h3>
+<h3 class="section">14.9 フック</h3>
 
 <p>(Not yet written)
 </p>
@@ -10018,7 +10104,7 @@ Previous: <a href="#Customizable-Valiables" accesskey="p" rel="prev">Customizabl
 Next: <a href="#Terminology" accesskey="n" rel="next">Terminology</a>, Previous: <a href="#Advanced-Issues" accesskey="p" rel="prev">Advanced Issues</a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
 </div>
 <a name="Jiu-baziyonkaranoYi-Xing-"></a>
-<h2 class="chapter">14 旧バージョンからの移行</h2>
+<h2 class="chapter">15 旧バージョンからの移行</h2>
 <a name="index-Migration"></a>
 
 <p>この章では、以前のバージョンから移行する場合に必要な設定の変更や、制限等
@@ -10037,10 +10123,10 @@ Next: <a href="#Terminology" accesskey="n" rel="next">Terminology</a>, Previous:
 Previous: <a href="#Migration" accesskey="p" rel="prev">Migration</a>, Up: <a href="#Migration" accesskey="u" rel="up">Migration</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
 </div>
 <a name="g_t2_002e12_002e0-yoriQian-nobaziyonkaranoYi-Xing-"></a>
-<h3 class="section">14.1 2.12.0 より前のバージョンからの移行</h3>
+<h3 class="section">15.1 2.12.0 より前のバージョンからの移行</h3>
 
 <a name="msgdb-noBian-Huan-nituite"></a>
-<h4 class="subsection">14.1.1 msgdb の変換について</h4>
+<h4 class="subsection">15.1.1 msgdb の変換について</h4>
 
 <p>2.12.0 より前のバージョンから、msgdb の構造が変更されています。以後、新
 しく作成したフォルダの msgdb は、この新しい形式で作成/保存されます。以前
@@ -10078,7 +10164,7 @@ Previous: <a href="#Migration" accesskey="p" rel="prev">Migration</a>, Up: <a hr
 </li></ol>
 
 <a name="g_t_0027mark-huorudakara-_0027flag-huorudahenoBian-Geng-"></a>
-<h4 class="subsection">14.1.2 &lsquo;<samp>'mark</samp>&rsquo; フォルダから &lsquo;<samp>'flag</samp>&rsquo; フォルダへの変更</h4>
+<h4 class="subsection">15.1.2 &lsquo;<samp>'mark</samp>&rsquo; フォルダから &lsquo;<samp>'flag</samp>&rsquo; フォルダへの変更</h4>
 
 <p>新しいバージョンの Wanderlust を起動した時に &lsquo;<samp>'mark</samp>&rsquo; フォルダにあっ
 たメッセージは、&lsquo;<samp>'flag</samp>&rsquo; フォルダに自動的に引き継がれます。但し、こ
@@ -10108,7 +10194,7 @@ elmo-global-mark-upgrade</kbd> を実行する事で、再度 &lsquo;<samp>'mark
 Next: <a href="#Mailing-List" accesskey="n" rel="next">Mailing List</a>, Previous: <a href="#Migration" accesskey="p" rel="prev">Migration</a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
 </div>
 <a name="Yong-Yu-noJie-Shuo-"></a>
-<h2 class="chapter">15 用語の解説</h2>
+<h2 class="chapter">16 用語の解説</h2>
 <a name="index-Terminology"></a>
 
 <p>このマニュアルで使われている用語についての説明をします。
@@ -10162,7 +10248,7 @@ See <a href="#Expire">Expire</a>.
 Next: <a href="#Addition" accesskey="n" rel="next">Addition</a>, Previous: <a href="#Terminology" accesskey="p" rel="prev">Terminology</a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
 </div>
 <a name="meringurisuto"></a>
-<h2 class="chapter">16 メーリングリスト</h2>
+<h2 class="chapter">17 メーリングリスト</h2>
 <a name="index-Bug-report"></a>
 <a name="index-Backtrace"></a>
 
@@ -10200,7 +10286,7 @@ Next: <a href="#Addition" accesskey="n" rel="next">Addition</a>, Previous: <a hr
 おります。この場を借りてお礼申し上げます。
 </p>
 <a name="akaibu"></a>
-<h3 class="section">16.1 アーカイブ</h3>
+<h3 class="section">17.1 アーカイブ</h3>
 
 <p>メーリングリストに投稿されたメッセージは、ウェブや NetNews でも読むこと
 ができます。
@@ -10227,10 +10313,10 @@ Next: <a href="#Addition" accesskey="n" rel="next">Addition</a>, Previous: <a hr
 Next: <a href="#Index" accesskey="n" rel="next">Index</a>, Previous: <a href="#Mailing-List" accesskey="p" rel="prev">Mailing List</a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
 </div>
 <a name="omake"></a>
-<h2 class="chapter">17 おまけ</h2>
+<h2 class="chapter">18 おまけ</h2>
 
 <a name="Lue-Li-"></a>
-<h3 class="section">17.1 略歴</h3>
+<h3 class="section">18.1 略歴</h3>
 
 <div class="example">
 <pre class="example">1998  3/05    MH メッセージをスレッド表示するプロトタイプを作ってみる。
@@ -10286,7 +10372,7 @@ Next: <a href="#Index" accesskey="n" rel="next">Index</a>, Previous: <a href="#M
 <p>詳しい変遷は <samp>ChangeLog</samp> を御覧ください。
 </p>
 <a name="Ming-Qian-"></a>
-<h3 class="section">17.2 名前</h3>
+<h3 class="section">18.2 名前</h3>
 
 <p>Wanderlust には、研究社英和辞典によれば、
 </p>
@@ -10305,7 +10391,7 @@ Next: <a href="#Index" accesskey="n" rel="next">Index</a>, Previous: <a href="#M
 それっぽい連想も可能です。
 </p>
 <a name="kodonemu"></a>
-<h3 class="section">17.3 コードネーム</h3>
+<h3 class="section">18.3 コードネーム</h3>
 
 <p>各バージョンにはコードネームがついています(ほとんど冗談です)。
 いまのところ 1980 年代の米ビルボード誌トップ 40 ヒット
@@ -10615,6 +10701,7 @@ Next: <a href="#Key-Index" accesskey="n" rel="next">Key Index</a>, Previous: <a 
 <tr><td colspan="4"> <hr></td></tr>
 <tr><th><a name="Concept-Index_cp_letter-Q">Q</a></th><td></td><td></td></tr>
 <tr><td></td><td valign="top"><a href="#index-qmail">qmail</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Maildir-Folder">Maildir Folder</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-Quick-Search">Quick Search</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Quick-Search">Quick Search</a></td></tr>
 <tr><td colspan="4"> <hr></td></tr>
 <tr><th><a name="Concept-Index_cp_letter-R">R</a></th><td></td><td></td></tr>
 <tr><td></td><td valign="top"><a href="#index-RAR">RAR</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Archiver">Archiver</a></td></tr>
@@ -11863,12 +11950,13 @@ Previous: <a href="#Variable-Index" accesskey="p" rel="prev">Variable Index</a>,
 <li><a name="stoc-metusezinoZi-Dong-Xue-Chu-toakaibu" href="#toc-metusezinoZi-Dong-Xue-Chu-toakaibu">9 メッセージの自動削除とアーカイブ</a></li>
 <li><a name="stoc-sukoa" href="#toc-sukoa">10 スコア</a></li>
 <li><a name="stoc-adoresuZhang-" href="#toc-adoresuZhang-">11 アドレス帳</a></li>
-<li><a name="stoc-Spam-huiruta" href="#toc-Spam-huiruta">12 Spam フィルタ</a></li>
-<li><a name="stoc-yoriJin-ndaShi-iFang-" href="#toc-yoriJin-ndaShi-iFang-">13 より進んだ使い方</a></li>
-<li><a name="stoc-Jiu-baziyonkaranoYi-Xing-" href="#toc-Jiu-baziyonkaranoYi-Xing-">14 旧バージョンからの移行</a></li>
-<li><a name="stoc-Yong-Yu-noJie-Shuo-" href="#toc-Yong-Yu-noJie-Shuo-">15 用語の解説</a></li>
-<li><a name="stoc-meringurisuto" href="#toc-meringurisuto">16 メーリングリスト</a></li>
-<li><a name="stoc-omake" href="#toc-omake">17 おまけ</a></li>
+<li><a name="stoc-Quick-Search-1" href="#toc-Quick-Search-1">12 Quick Search</a></li>
+<li><a name="stoc-Spam-huiruta" href="#toc-Spam-huiruta">13 Spam フィルタ</a></li>
+<li><a name="stoc-yoriJin-ndaShi-iFang-" href="#toc-yoriJin-ndaShi-iFang-">14 より進んだ使い方</a></li>
+<li><a name="stoc-Jiu-baziyonkaranoYi-Xing-" href="#toc-Jiu-baziyonkaranoYi-Xing-">15 旧バージョンからの移行</a></li>
+<li><a name="stoc-Yong-Yu-noJie-Shuo-" href="#toc-Yong-Yu-noJie-Shuo-">16 用語の解説</a></li>
+<li><a name="stoc-meringurisuto" href="#toc-meringurisuto">17 メーリングリスト</a></li>
+<li><a name="stoc-omake" href="#toc-omake">18 おまけ</a></li>
 <li><a name="stoc-Suo-Yin-" href="#toc-Suo-Yin-">索引</a></li>
 </ul>
 </div>
@@ -12097,107 +12185,117 @@ Previous: <a href="#Variable-Index" accesskey="p" rel="prev">Variable Index</a>,
       <li><a name="toc-kibaindo-6" href="#kibaindo-6">11.2.1 キーバインド</a></li>
     </ul></li>
   </ul></li>
-  <li><a name="toc-Spam-huiruta" href="#Spam-Filter">12 Spam フィルタ</a>
+  <li><a name="toc-Quick-Search-1" href="#Quick-Search">12 Quick Search</a>
   <ul class="no-bullet">
-    <li><a name="toc-Shi-iFang--1" href="#Usage-of-Spam-Filter">12.1 使い方</a>
+    <li><a name="toc-Setup-of-wl_002dqs" href="#Setup">12.1 Setup of <code>wl-qs</code></a></li>
+    <li><a name="toc-Searching-1" href="#Searching">12.2 Searching</a>
     <ul class="no-bullet">
-      <li><a name="toc-Chu-Qi-She-Ding-" href="#Chu-Qi-She-Ding-">12.1.1 初期設定</a></li>
-      <li><a name="toc-spam-maku" href="#spam-maku">12.1.2 spam マーク</a></li>
-      <li><a name="toc-spam-noPan-Ding-" href="#spam-noPan-Ding-">12.1.3 spam の判定</a></li>
-      <li><a name="toc-spam-noXueXi" href="#spam-noXueXi">12.1.4 spam の学習</a></li>
-      <li><a name="toc-kibaindo-7" href="#kibaindo-7">12.1.5 キーバインド</a></li>
-      <li><a name="toc-kasutamaizuBian-Shu--9" href="#kasutamaizuBian-Shu--9">12.1.6 カスタマイズ変数</a></li>
+      <li><a name="toc-Search-folder" href="#Search-folder">12.2.1 Search folder</a></li>
+      <li><a name="toc-Gmail" href="#Gmail">12.2.2 Gmail</a></li>
+      <li><a name="toc-Filter-folder" href="#Filter-folder">12.2.3 Filter folder</a></li>
     </ul></li>
-    <li><a name="toc-Dui-Ying-siteiru-Spam-Filter" href="#Spam-Filter-Processors">12.2 対応している Spam Filter</a>
+  </ul></li>
+  <li><a name="toc-Spam-huiruta" href="#Spam-Filter">13 Spam フィルタ</a>
+  <ul class="no-bullet">
+    <li><a name="toc-Shi-iFang--1" href="#Usage-of-Spam-Filter">13.1 使い方</a>
     <ul class="no-bullet">
-      <li><a name="toc-bogofilter-1" href="#bogofilter">12.2.1 bogofilter</a>
+      <li><a name="toc-Chu-Qi-She-Ding-" href="#Chu-Qi-She-Ding-">13.1.1 初期設定</a></li>
+      <li><a name="toc-spam-maku" href="#spam-maku">13.1.2 spam マーク</a></li>
+      <li><a name="toc-spam-noPan-Ding-" href="#spam-noPan-Ding-">13.1.3 spam の判定</a></li>
+      <li><a name="toc-spam-noXueXi" href="#spam-noXueXi">13.1.4 spam の学習</a></li>
+      <li><a name="toc-kibaindo-7" href="#kibaindo-7">13.1.5 キーバインド</a></li>
+      <li><a name="toc-kasutamaizuBian-Shu--9" href="#kasutamaizuBian-Shu--9">13.1.6 カスタマイズ変数</a></li>
+    </ul></li>
+    <li><a name="toc-Dui-Ying-siteiru-Spam-Filter" href="#Spam-Filter-Processors">13.2 対応している Spam Filter</a>
+    <ul class="no-bullet">
+      <li><a name="toc-bogofilter-1" href="#bogofilter">13.2.1 bogofilter</a>
       <ul class="no-bullet">
-        <li><a name="toc-kasutamaizuBian-Shu--10" href="#kasutamaizuBian-Shu--10">12.2.1.1 カスタマイズ変数</a></li>
+        <li><a name="toc-kasutamaizuBian-Shu--10" href="#kasutamaizuBian-Shu--10">13.2.1.1 カスタマイズ変数</a></li>
       </ul></li>
-      <li><a name="toc-spamfilter_002eel" href="#spamfilter">12.2.2 spamfilter.el</a>
+      <li><a name="toc-spamfilter_002eel" href="#spamfilter">13.2.2 spamfilter.el</a>
       <ul class="no-bullet">
-        <li><a name="toc-kasutamaizuBian-Shu--11" href="#kasutamaizuBian-Shu--11">12.2.2.1 カスタマイズ変数</a></li>
+        <li><a name="toc-kasutamaizuBian-Shu--11" href="#kasutamaizuBian-Shu--11">13.2.2.1 カスタマイズ変数</a></li>
       </ul></li>
-      <li><a name="toc-bsfilter-1" href="#bsfilter">12.2.3 bsfilter</a>
+      <li><a name="toc-bsfilter-1" href="#bsfilter">13.2.3 bsfilter</a>
       <ul class="no-bullet">
-        <li><a name="toc-kasutamaizuBian-Shu--12" href="#kasutamaizuBian-Shu--12">12.2.3.1 カスタマイズ変数</a></li>
+        <li><a name="toc-kasutamaizuBian-Shu--12" href="#kasutamaizuBian-Shu--12">13.2.3.1 カスタマイズ変数</a></li>
       </ul></li>
-      <li><a name="toc-SpamAssassin-1" href="#SpamAssassin">12.2.4 SpamAssassin</a>
+      <li><a name="toc-SpamAssassin-1" href="#SpamAssassin">13.2.4 SpamAssassin</a>
       <ul class="no-bullet">
-        <li><a name="toc-kasutamaizuBian-Shu--13" href="#kasutamaizuBian-Shu--13">12.2.4.1 カスタマイズ変数</a></li>
+        <li><a name="toc-kasutamaizuBian-Shu--13" href="#kasutamaizuBian-Shu--13">13.2.4.1 カスタマイズ変数</a></li>
       </ul></li>
-      <li><a name="toc-SpamOracle-1" href="#SpamOracle">12.2.5 SpamOracle</a>
+      <li><a name="toc-SpamOracle-1" href="#SpamOracle">13.2.5 SpamOracle</a>
       <ul class="no-bullet">
-        <li><a name="toc-kasutamaizuBian-Shu--14" href="#kasutamaizuBian-Shu--14">12.2.5.1 カスタマイズ変数</a></li>
+        <li><a name="toc-kasutamaizuBian-Shu--14" href="#kasutamaizuBian-Shu--14">13.2.5.1 カスタマイズ変数</a></li>
       </ul></li>
-      <li><a name="toc-Regular-Expressions-Header-Matching-1" href="#Regular-Expressions-Header-Matching">12.2.6 Regular Expressions Header Matching</a>
+      <li><a name="toc-Regular-Expressions-Header-Matching-1" href="#Regular-Expressions-Header-Matching">13.2.6 Regular Expressions Header Matching</a>
       <ul class="no-bullet">
-        <li><a name="toc-kasutamaizuBian-Shu--15" href="#kasutamaizuBian-Shu--15">12.2.6.1 カスタマイズ変数</a></li>
+        <li><a name="toc-kasutamaizuBian-Shu--15" href="#kasutamaizuBian-Shu--15">13.2.6.1 カスタマイズ変数</a></li>
       </ul></li>
     </ul></li>
   </ul></li>
-  <li><a name="toc-yoriJin-ndaShi-iFang-" href="#Advanced-Issues">13 より進んだ使い方</a>
+  <li><a name="toc-yoriJin-ndaShi-iFang-" href="#Advanced-Issues">14 より進んだ使い方</a>
   <ul class="no-bullet">
-    <li><a name="toc-patukezinoaruSheng-Huo-" href="#Living-with-other-packages">13.1 パッケージのある生活</a>
+    <li><a name="toc-patukezinoaruSheng-Huo-" href="#Living-with-other-packages">14.1 パッケージのある生活</a>
     <ul class="no-bullet">
-      <li><a name="toc-imput-1" href="#imput">13.1.1 imput</a></li>
-      <li><a name="toc-bbdb_002eel" href="#BBDB">13.1.2 bbdb.el</a></li>
-      <li><a name="toc-lsdb_002eel" href="#LSDB">13.1.3 lsdb.el</a></li>
-      <li><a name="toc-sc_002eel_0028supercite_0029_002c-sc_002dregister_002eel" href="#supercite">13.1.4 sc.el(supercite), sc-register.el</a></li>
-      <li><a name="toc-mu_002dcite_002eel" href="#mu_002dcite">13.1.5 mu-cite.el</a></li>
-      <li><a name="toc-x_002dface" href="#X_002dFace">13.1.6 x-face</a>
+      <li><a name="toc-imput-1" href="#imput">14.1.1 imput</a></li>
+      <li><a name="toc-bbdb_002eel" href="#BBDB">14.1.2 bbdb.el</a></li>
+      <li><a name="toc-lsdb_002eel" href="#LSDB">14.1.3 lsdb.el</a></li>
+      <li><a name="toc-sc_002eel_0028supercite_0029_002c-sc_002dregister_002eel" href="#supercite">14.1.4 sc.el(supercite), sc-register.el</a></li>
+      <li><a name="toc-mu_002dcite_002eel" href="#mu_002dcite">14.1.5 mu-cite.el</a></li>
+      <li><a name="toc-x_002dface" href="#X_002dFace">14.1.6 x-face</a>
       <ul class="no-bullet">
-        <li><a name="toc-x_002dface_002dxmas-_0028XEmacs-noChang-He-_0029" href="#x_002dface_002dxmas">13.1.6.1 x-face-xmas (XEmacs の場合)</a></li>
-        <li><a name="toc-x_002dface_002dmule-_0028Emacs-noChang-He-_0029" href="#x_002dface_002dmule">13.1.6.2 x-face-mule (Emacs の場合)</a></li>
-        <li><a name="toc-x_002dface_002de21-_0028Emacs-21_002ex-noChang-He-_0029" href="#x_002dface_002de21-_0028Emacs-21_002ex-noChang-He-_0029">13.1.6.3 x-face-e21 (Emacs 21.x の場合)</a></li>
+        <li><a name="toc-x_002dface_002dxmas-_0028XEmacs-noChang-He-_0029" href="#x_002dface_002dxmas">14.1.6.1 x-face-xmas (XEmacs の場合)</a></li>
+        <li><a name="toc-x_002dface_002dmule-_0028Emacs-noChang-He-_0029" href="#x_002dface_002dmule">14.1.6.2 x-face-mule (Emacs の場合)</a></li>
+        <li><a name="toc-x_002dface_002de21-_0028Emacs-21_002ex-noChang-He-_0029" href="#x_002dface_002de21-_0028Emacs-21_002ex-noChang-He-_0029">14.1.6.3 x-face-e21 (Emacs 21.x の場合)</a></li>
       </ul></li>
-      <li><a name="toc-dired_002ddd_0028Dired_002dDragDrop_0029" href="#dired_002ddd">13.1.7 dired-dd(Dired-DragDrop)</a></li>
-      <li><a name="toc-mhc_002eel" href="#MHC">13.1.8 mhc.el</a></li>
-      <li><a name="toc-wl_002daddrbook_002eel" href="#Addrbook">13.1.9 wl-addrbook.el</a></li>
-      <li><a name="toc-mime_002dw3m_002eel" href="#mime_002dw3m">13.1.10 mime-w3m.el</a></li>
+      <li><a name="toc-dired_002ddd_0028Dired_002dDragDrop_0029" href="#dired_002ddd">14.1.7 dired-dd(Dired-DragDrop)</a></li>
+      <li><a name="toc-mhc_002eel" href="#MHC">14.1.8 mhc.el</a></li>
+      <li><a name="toc-wl_002daddrbook_002eel" href="#Addrbook">14.1.9 wl-addrbook.el</a></li>
+      <li><a name="toc-mime_002dw3m_002eel" href="#mime_002dw3m">14.1.10 mime-w3m.el</a></li>
     </ul></li>
-    <li><a name="toc-hairaitonoShe-Ding-" href="#Highlights">13.2 ハイライトの設定</a>
+    <li><a name="toc-hairaitonoShe-Ding-" href="#Highlights">14.2 ハイライトの設定</a>
     <ul class="no-bullet">
-      <li><a name="toc-kasutamaizuBian-Shu--16" href="#kasutamaizuBian-Shu--16">13.2.1 カスタマイズ変数</a></li>
-      <li><a name="toc-WenZi-noSe-_002c-huontonoShe-Ding-" href="#WenZi-noSe-_002c-huontonoShe-Ding-">13.2.2 文字の色、フォントの設定</a></li>
+      <li><a name="toc-kasutamaizuBian-Shu--16" href="#kasutamaizuBian-Shu--16">14.2.1 カスタマイズ変数</a></li>
+      <li><a name="toc-WenZi-noSe-_002c-huontonoShe-Ding-" href="#WenZi-noSe-_002c-huontonoShe-Ding-">14.2.2 文字の色、フォントの設定</a></li>
     </ul></li>
-    <li><a name="toc-merunoZhao-Xin-woZhi-raseru" href="#Biff">13.3 メールの着信を知らせる</a>
+    <li><a name="toc-merunoZhao-Xin-woZhi-raseru" href="#Biff">14.3 メールの着信を知らせる</a>
     <ul class="no-bullet">
-      <li><a name="toc-kasutamaizuBian-Shu--17" href="#kasutamaizuBian-Shu--17">13.3.1 カスタマイズ変数</a></li>
+      <li><a name="toc-kasutamaizuBian-Shu--17" href="#kasutamaizuBian-Shu--17">14.3.1 カスタマイズ変数</a></li>
     </ul></li>
-    <li><a name="toc-pasuwadonoGuan-Li-" href="#Password-Management">13.4 パスワードの管理</a></li>
-    <li><a name="toc-metusezinoZhen-riFen-ke" href="#Split-messages">13.5 メッセージの振り分け</a></li>
-    <li><a name="toc-batutiChu-Li-" href="#Batch-Processing">13.6 バッチ処理</a>
+    <li><a name="toc-pasuwadonoGuan-Li-" href="#Password-Management">14.4 パスワードの管理</a></li>
+    <li><a name="toc-metusezinoZhen-riFen-ke" href="#Split-messages">14.5 メッセージの振り分け</a></li>
+    <li><a name="toc-batutiChu-Li-" href="#Batch-Processing">14.6 バッチ処理</a>
     <ul class="no-bullet">
-      <li><a name="toc-kasutamaizuBian-Shu--18" href="#kasutamaizuBian-Shu--18">13.6.1 カスタマイズ変数</a></li>
+      <li><a name="toc-kasutamaizuBian-Shu--18" href="#kasutamaizuBian-Shu--18">14.6.1 カスタマイズ変数</a></li>
     </ul></li>
-    <li><a name="toc-kasutamaizu_007e-Ying-Yong-Bian-_007e-" href="#Advanced-Settings">13.7 カスタマイズ〜応用編〜</a>
+    <li><a name="toc-kasutamaizu_007e-Ying-Yong-Bian-_007e-" href="#Advanced-Settings">14.7 カスタマイズ〜応用編〜</a>
     <ul class="no-bullet">
-      <li><a name="toc-Fan-Shi-Yong-dorahuto" href="#Draft-for-Reply">13.7.1 返事用ドラフト</a></li>
-      <li><a name="toc-suretudonoJian-tame" href="#Thread-Format">13.7.2 スレッドの見ため</a></li>
-      <li><a name="toc-User_002dAgent-huirudo" href="#User_002dAgent-Field">13.7.3 User-Agent フィールド</a></li>
+      <li><a name="toc-Fan-Shi-Yong-dorahuto" href="#Draft-for-Reply">14.7.1 返事用ドラフト</a></li>
+      <li><a name="toc-suretudonoJian-tame" href="#Thread-Format">14.7.2 スレッドの見ため</a></li>
+      <li><a name="toc-User_002dAgent-huirudo" href="#User_002dAgent-Field">14.7.3 User-Agent フィールド</a></li>
     </ul></li>
-    <li><a name="toc-sonoTa-nokasutamaizuBian-Shu-YiLan-" href="#Customizable-Valiables">13.8 その他のカスタマイズ変数一覧</a></li>
-    <li><a name="toc-hutuku" href="#Hooks">13.9 フック</a></li>
+    <li><a name="toc-sonoTa-nokasutamaizuBian-Shu-YiLan-" href="#Customizable-Valiables">14.8 その他のカスタマイズ変数一覧</a></li>
+    <li><a name="toc-hutuku" href="#Hooks">14.9 フック</a></li>
   </ul></li>
-  <li><a name="toc-Jiu-baziyonkaranoYi-Xing-" href="#Migration">14 旧バージョンからの移行</a>
+  <li><a name="toc-Jiu-baziyonkaranoYi-Xing-" href="#Migration">15 旧バージョンからの移行</a>
   <ul class="no-bullet">
-    <li><a name="toc-2_002e12_002e0-yoriQian-nobaziyonkaranoYi-Xing-" href="#Before-2_002e12_002e0">14.1 2.12.0 より前のバージョンからの移行</a>
+    <li><a name="toc-2_002e12_002e0-yoriQian-nobaziyonkaranoYi-Xing-" href="#Before-2_002e12_002e0">15.1 2.12.0 より前のバージョンからの移行</a>
     <ul class="no-bullet">
-      <li><a name="toc-msgdb-noBian-Huan-nituite" href="#msgdb-noBian-Huan-nituite">14.1.1 msgdb の変換について</a></li>
-      <li><a name="toc-_0027mark-huorudakara-_0027flag-huorudahenoBian-Geng-" href="#g_t_0027mark-huorudakara-_0027flag-huorudahenoBian-Geng-">14.1.2 &lsquo;<samp>'mark</samp>&rsquo; フォルダから &lsquo;<samp>'flag</samp>&rsquo; フォルダへの変更</a></li>
+      <li><a name="toc-msgdb-noBian-Huan-nituite" href="#msgdb-noBian-Huan-nituite">15.1.1 msgdb の変換について</a></li>
+      <li><a name="toc-_0027mark-huorudakara-_0027flag-huorudahenoBian-Geng-" href="#g_t_0027mark-huorudakara-_0027flag-huorudahenoBian-Geng-">15.1.2 &lsquo;<samp>'mark</samp>&rsquo; フォルダから &lsquo;<samp>'flag</samp>&rsquo; フォルダへの変更</a></li>
     </ul></li>
   </ul></li>
-  <li><a name="toc-Yong-Yu-noJie-Shuo-" href="#Terminology">15 用語の解説</a></li>
-  <li><a name="toc-meringurisuto" href="#Mailing-List">16 メーリングリスト</a>
+  <li><a name="toc-Yong-Yu-noJie-Shuo-" href="#Terminology">16 用語の解説</a></li>
+  <li><a name="toc-meringurisuto" href="#Mailing-List">17 メーリングリスト</a>
   <ul class="no-bullet">
-    <li><a name="toc-akaibu" href="#akaibu">16.1 アーカイブ</a></li>
+    <li><a name="toc-akaibu" href="#akaibu">17.1 アーカイブ</a></li>
   </ul></li>
-  <li><a name="toc-omake" href="#Addition">17 おまけ</a>
+  <li><a name="toc-omake" href="#Addition">18 おまけ</a>
   <ul class="no-bullet">
-    <li><a name="toc-Lue-Li-" href="#Lue-Li-">17.1 略歴</a></li>
-    <li><a name="toc-Ming-Qian-" href="#Ming-Qian-">17.2 名前</a></li>
-    <li><a name="toc-kodonemu" href="#kodonemu">17.3 コードネーム</a></li>
+    <li><a name="toc-Lue-Li-" href="#Lue-Li-">18.1 略歴</a></li>
+    <li><a name="toc-Ming-Qian-" href="#Ming-Qian-">18.2 名前</a></li>
+    <li><a name="toc-kodonemu" href="#kodonemu">18.3 コードネーム</a></li>
   </ul></li>
   <li><a name="toc-Suo-Yin-" href="#Index">索引</a>
   <ul class="no-bullet">
@@ -12215,7 +12313,7 @@ Previous: <a href="#Variable-Index" accesskey="p" rel="prev">Variable Index</a>,
 
 <h3><a name="FOOT1" href="#DOCF1">(1)</a></h3>
 <p>Emacs 19.34 ベースの Mule を使っている
-場合、<br> <a href="http://www.jpl.org/elips/INSTALL-SEMI-ja.html">http://www.jpl.org/elips/INSTALL-SEMI-ja.html</a> が参考にな
+場合、<br> <a href="http://www.jpl.org/ftp/attic/INSTALL-SEMI-ja.html">http://www.jpl.org/ftp/attic/INSTALL-SEMI-ja.html</a> が参考にな
 るかもしれません。</p>
 <h3><a name="FOOT2" href="#DOCF2">(2)</a></h3>
 <p>現在は、指定範囲を表示しないフォルダにするとき、
