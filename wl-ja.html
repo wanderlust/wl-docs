@@ -1,6 +1,6 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-<!-- Created by GNU Texinfo 5.2, http://www.gnu.org/software/texinfo/ -->
+<!-- Created by GNU Texinfo 6.1, http://www.gnu.org/software/texinfo/ -->
 <head>
 <title>Wanderlust &ndash; Yet Another Message Interface On Emacsen &ndash;</title>
 
@@ -17,16 +17,16 @@
 <style type="text/css">
 <!--
 a.summary-letter {text-decoration: none}
+blockquote.indentedblock {margin-right: 0em}
+blockquote.smallindentedblock {margin-right: 0em; font-size: smaller}
 blockquote.smallquotation {font-size: smaller}
 div.display {margin-left: 3.2em}
 div.example {margin-left: 3.2em}
-div.indentedblock {margin-left: 3.2em}
 div.lisp {margin-left: 3.2em}
 div.smalldisplay {margin-left: 3.2em}
 div.smallexample {margin-left: 3.2em}
-div.smallindentedblock {margin-left: 3.2em; font-size: smaller}
 div.smalllisp {margin-left: 3.2em}
-kbd {font-style:oblique}
+kbd {font-style: oblique}
 pre.display {font-family: inherit}
 pre.format {font-family: inherit}
 pre.menu-comment {font-family: serif}
@@ -35,10 +35,9 @@ pre.smalldisplay {font-family: inherit; font-size: smaller}
 pre.smallexample {font-size: smaller}
 pre.smallformat {font-family: inherit; font-size: smaller}
 pre.smalllisp {font-size: smaller}
-span.nocodebreak {white-space:nowrap}
-span.nolinebreak {white-space:nowrap}
-span.roman {font-family:serif; font-weight:normal}
-span.sansserif {font-family:sans-serif; font-weight:normal}
+span.nolinebreak {white-space: nowrap}
+span.roman {font-family: initial; font-weight: normal}
+span.sansserif {font-family: sans-serif; font-weight: normal}
 ul.no-bullet {list-style: none}
 -->
 </style>
@@ -47,7 +46,7 @@ ul.no-bullet {list-style: none}
 
 </head>
 
-<body lang="ja" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
+<body lang="ja">
 <h1 class="settitle" align="center">Wanderlust &ndash; Yet Another Message Interface On Emacsen &ndash;</h1>
 
 
@@ -594,7 +593,7 @@ Wanderlust に固有の設定は <samp>~/.wl</samp> に記述しておくと整�
 ようになります。Wanderlust を Emacs 上の標準メーラとして使いたい場合は設
 定しておくと良いでしょう。ただし、これは <code>mail-user-agent</code> の定義が
 可能な Emacsen の場合のみ有効です。
-See <a href="emacs-ja.html#Mail-Methods">Mail Methods</a> in <cite>The Emacs Editor</cite>.
+See <a href="emacs-ja.html#Mail-Methods">Mail-Composition Methods</a> in <cite>GNU Emacs Manual</cite>.
 </p>
 <div class="lisp">
 <pre class="lisp">(autoload 'wl-user-agent-compose &quot;wl-draft&quot; nil t)
@@ -773,7 +772,9 @@ Filter, Pipe, File, Access, Internal の 15 種類です。
 </td></tr>
 <tr><td align="left" valign="top">&bull; <a href="#Shimbun-Folder" accesskey="8">Shimbun Folder</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">&lsquo;<samp>@</samp>&rsquo; &ndash; 新聞フォルダ
 </td></tr>
-<tr><td align="left" valign="top">&bull; <a href="#Search-Folder" accesskey="9">Search Folder</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">&lsquo;<samp>[</samp>&rsquo; &ndash; 検索フォルダ
+<tr><td align="left" valign="top">&bull; <a href="#RSS-Folder" accesskey="9">RSS Folder</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">&lsquo;<samp>rss</samp>&rsquo; &ndash; RSS フォルダ
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="#Search-Folder">Search Folder</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">&lsquo;<samp>[</samp>&rsquo; &ndash; 検索フォルダ
 </td></tr>
 <tr><td align="left" valign="top">&bull; <a href="#Multi-Folder">Multi Folder</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">&lsquo;<samp>*</samp>&rsquo; &ndash; マルチフォルダ
 </td></tr>
@@ -786,8 +787,6 @@ Filter, Pipe, File, Access, Internal の 15 種類です。
 <tr><td align="left" valign="top">&bull; <a href="#File-Folder">File Folder</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">&ndash; ファイルフォルダ
 </td></tr>
 <tr><td align="left" valign="top">&bull; <a href="#Access-Folder">Access Folder</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">&ndash; アクセスフォルダ
-</td></tr>
-<tr><td align="left" valign="top">&bull; <a href="#RSS-Folder">RSS Folder</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">&ndash; RSS フォルダ
 </td></tr>
 </table>
 
@@ -1402,7 +1401,7 @@ archive から入手可能です(GPL2)。
 <a name="Shimbun-Folder"></a>
 <div class="header">
 <p>
-Next: <a href="#Search-Folder" accesskey="n" rel="next">Search Folder</a>, Previous: <a href="#POP-Folder" accesskey="p" rel="prev">POP Folder</a>, Up: <a href="#Folders" accesskey="u" rel="up">Folders</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
+Next: <a href="#RSS-Folder" accesskey="n" rel="next">RSS Folder</a>, Previous: <a href="#POP-Folder" accesskey="p" rel="prev">POP Folder</a>, Up: <a href="#Folders" accesskey="u" rel="up">Folders</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
 </div>
 <a name="Xin-Wen-huoruda"></a>
 <h3 class="section">3.8 新聞フォルダ</h3>
@@ -1459,13 +1458,54 @@ emacs-w3m に付属の <samp>README.shimbun.ja</samp> を参照してくださ�
 
 
 <hr>
+<a name="RSS-Folder"></a>
+<div class="header">
+<p>
+Next: <a href="#Search-Folder" accesskey="n" rel="next">Search Folder</a>, Previous: <a href="#Shimbun-Folder" accesskey="p" rel="prev">Shimbun Folder</a>, Up: <a href="#Folders" accesskey="u" rel="up">Folders</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<a name="RSS-huoruda"></a>
+<h3 class="section">3.9 RSS フォルダ</h3>
+<a name="index-RSS-Folder"></a>
+<a name="index-Atom-Folder"></a>
+
+<p>RSS や Atom フィードに含まれるメッセージを閲覧する為のフォルダです。
+</p>
+<p>書式:
+</p>
+<div class="example">
+<pre class="example">&lsquo;<samp>rss:</samp>&rsquo; <var>RSS または Atom のURL</var>
+</pre></div>
+
+<p>例:
+</p>
+<div class="example">
+<pre class="example">rss:https://github.com/wanderlust/wanderlust/commits/master.atom
+</pre></div>
+
+<p>サポートする RSS や Atom は全て自動的に扱われます。
+より細かい設定が必要な場合は、新聞フォルダ (see <a href="#Shimbun-Folder">Shimbun Folder</a>) を
+使ってください。
+</p>
+<p>メッセージのキャッシュは持たないので、メッセージはフィードから無くなると
+フォルダからも直ちに消失します。
+保存する必要がある場合はパイプフォルダ (see <a href="#Pipe-Folder">Pipe Folder</a>) と
+組み合わせてください。
+</p>
+<div class="example">
+<pre class="example">|rss:http://lwn.net/headlines/newrss|+lwn
+</pre></div>
+
+<p>RSS や Atom 及び OPML をアクセスグループとして扱うことができ、
+その場合、関連するフィードはサブフォルダ内に現れます。
+</p>
+<hr>
 <a name="Search-Folder"></a>
 <div class="header">
 <p>
-Next: <a href="#Multi-Folder" accesskey="n" rel="next">Multi Folder</a>, Previous: <a href="#Shimbun-Folder" accesskey="p" rel="prev">Shimbun Folder</a>, Up: <a href="#Folders" accesskey="u" rel="up">Folders</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
+Next: <a href="#Multi-Folder" accesskey="n" rel="next">Multi Folder</a>, Previous: <a href="#RSS-Folder" accesskey="p" rel="prev">RSS Folder</a>, Up: <a href="#Folders" accesskey="u" rel="up">Folders</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
 </div>
 <a name="Jian-Suo-huoruda"></a>
-<h3 class="section">3.9 検索フォルダ</h3>
+<h3 class="section">3.10 検索フォルダ</h3>
 <a name="index-Search-Folder"></a>
 <a name="index-_005b"></a>
 <a name="index-Folder_002c-Search"></a>
@@ -1483,7 +1523,7 @@ Next: <a href="#Multi-Folder" accesskey="n" rel="next">Multi Folder</a>, Previou
 <p>検索式と検索対象の指定方法は、検索方式によって異なります。
 </p>
 <a name="Dui-Ying-siteiruJian-Suo-Fang-Shi-"></a>
-<h4 class="subsection">3.9.1 対応している検索方式</h4>
+<h4 class="subsection">3.10.1 対応している検索方式</h4>
 
 <p>デフォルトでは、以下の検索方式に対応しています。検索方式を省略した場合は、
 <code>elmo-search-default-engine</code> で指定された検索方式が使用されます。
@@ -1507,7 +1547,7 @@ Next: <a href="#Multi-Folder" accesskey="n" rel="next">Multi Folder</a>, Previou
 Next: <a href="#grep" accesskey="n" rel="next">grep</a>, Previous: <a href="#Search-Folder" accesskey="p" rel="prev">Search Folder</a>, Up: <a href="#Search-Folder" accesskey="u" rel="up">Search Folder</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
 </div>
 <a name="namazu-1"></a>
-<h4 class="subsection">3.9.2 namazu</h4>
+<h4 class="subsection">3.10.2 namazu</h4>
 <a name="index-namazu"></a>
 
 <p>namazu (<a href="http://www.namazu.org/">http://www.namazu.org/</a>) を使って、インデックスに登録された
@@ -1532,12 +1572,12 @@ Next: <a href="#grep" accesskey="n" rel="next">grep</a>, Previous: <a href="#Sea
 
 
 <a name="Fu-Shu-kiwadonoRu-Li-"></a>
-<h4 class="subsubsection">3.9.2.1 複数キーワードの入力</h4>
+<h4 class="subsubsection">3.10.2.1 複数キーワードの入力</h4>
 
 <p>フォルダ名入力時に空白を入力したい場合、<kbd>C-q <span class="key">SPC</span></kbd> でできます。
 </p>
 <a name="indetukusunoeiriasuMing-"></a>
-<h4 class="subsubsection">3.9.2.2 インデックスのエイリアス名</h4>
+<h4 class="subsubsection">3.10.2.2 インデックスのエイリアス名</h4>
 
 <p>インデックスにはエイリアス名(別名)を定義できます。
 </p>
@@ -1558,7 +1598,7 @@ Next: <a href="#grep" accesskey="n" rel="next">grep</a>, Previous: <a href="#Sea
 キーワード &lsquo;<samp>wanderlust</samp>&rsquo; で検索を行います。
 </p>
 <a name="Fu-Shu-indetukusunoZhi-Ding-"></a>
-<h4 class="subsubsection">3.9.2.3 複数インデックスの指定</h4>
+<h4 class="subsubsection">3.10.2.3 複数インデックスの指定</h4>
 
 <p><code>elmo-search-namazu-default-index-path</code>,
 <code>elmo-search-namazu-index-alias-alist</code> の値としてインデックスのリス
@@ -1589,7 +1629,7 @@ Next: <a href="#grep" accesskey="n" rel="next">grep</a>, Previous: <a href="#Sea
 Next: <a href="#mu" accesskey="n" rel="next">mu</a>, Previous: <a href="#namazu" accesskey="p" rel="prev">namazu</a>, Up: <a href="#Search-Folder" accesskey="u" rel="up">Search Folder</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
 </div>
 <a name="grep-1"></a>
-<h4 class="subsection">3.9.3 grep</h4>
+<h4 class="subsection">3.10.3 grep</h4>
 <a name="index-grep"></a>
 
 <p>grep を使って、検索対象で指定されたディレクトリにあるファイルを検索します。
@@ -1616,7 +1656,7 @@ Next: <a href="#mu" accesskey="n" rel="next">mu</a>, Previous: <a href="#namazu"
 Next: <a href="#notmuch" accesskey="n" rel="next">notmuch</a>, Previous: <a href="#grep" accesskey="p" rel="prev">grep</a>, Up: <a href="#Search-Folder" accesskey="u" rel="up">Search Folder</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
 </div>
 <a name="mu-1"></a>
-<h4 class="subsection">3.9.4 mu</h4>
+<h4 class="subsection">3.10.4 mu</h4>
 <a name="index-mu"></a>
 
 <p>mu (<a href="http://www.djcbsoftware.nl/code/mu/">http://www.djcbsoftware.nl/code/mu/</a>) を使って、文書を検索します。
@@ -1631,10 +1671,12 @@ Next: <a href="#notmuch" accesskey="n" rel="next">notmuch</a>, Previous: <a href
     -&gt; messages to Jack with subject jellyfish containing the word tumbleweed
 
 [size:2k..2m date:20091201..20093112 flag:attach from:bill]
-    -&gt; messages between 2 kilobytes and a 2Mb, written in December 2009 with an attachment from Bill
+    -&gt; messages between 2 kilobytes and a 2Mb,
+       written in December 2009 with an attachment from Bill
 
 [subject:soc* flag:unread]
-    -&gt; サブジェクトが　'soc' で始まる (soccer, society, socrates, ...) 未読のメッセージを探す 
+    -&gt; サブジェクトが　'soc' で始まる (soccer, society, socrates, ...)
+       未読のメッセージを探す
 
 [mime:image/*]
     -&gt; 画像が添付されたメッセージを探す
@@ -1651,7 +1693,7 @@ Next: <a href="#notmuch" accesskey="n" rel="next">notmuch</a>, Previous: <a href
 Previous: <a href="#mu" accesskey="p" rel="prev">mu</a>, Up: <a href="#Search-Folder" accesskey="u" rel="up">Search Folder</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
 </div>
 <a name="notmuch-1"></a>
-<h4 class="subsection">3.9.5 notmuch</h4>
+<h4 class="subsection">3.10.5 notmuch</h4>
 <a name="index-notmuch"></a>
 
 <p>notmuch (<a href="http://notmuchmail.org/">http://notmuchmail.org/</a>) を使って、文書を検索します。
@@ -1680,7 +1722,7 @@ Previous: <a href="#mu" accesskey="p" rel="prev">mu</a>, Up: <a href="#Search-Fo
 Next: <a href="#Filter-Folder" accesskey="n" rel="next">Filter Folder</a>, Previous: <a href="#Search-Folder" accesskey="p" rel="prev">Search Folder</a>, Up: <a href="#Folders" accesskey="u" rel="up">Folders</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
 </div>
 <a name="marutihuoruda"></a>
-<h3 class="section">3.10 マルチフォルダ</h3>
+<h3 class="section">3.11 マルチフォルダ</h3>
 <a name="index-_002a"></a>
 <a name="index-Multi-Folder"></a>
 <a name="index-Folder_002c-Multiple"></a>
@@ -1717,7 +1759,7 @@ Next: <a href="#Filter-Folder" accesskey="n" rel="next">Filter Folder</a>, Previ
 Next: <a href="#Pipe-Folder" accesskey="n" rel="next">Pipe Folder</a>, Previous: <a href="#Multi-Folder" accesskey="p" rel="prev">Multi Folder</a>, Up: <a href="#Folders" accesskey="u" rel="up">Folders</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
 </div>
 <a name="huirutahuoruda"></a>
-<h3 class="section">3.11 フィルタフォルダ</h3>
+<h3 class="section">3.12 フィルタフォルダ</h3>
 <a name="index-_002f"></a>
 <a name="index-Filter-Folder"></a>
 <a name="index-Folder_002c-Filtering"></a>
@@ -1883,7 +1925,7 @@ See <a href="#Internal-Folder">Internal Folder</a>.
 Next: <a href="#Internal-Folder" accesskey="n" rel="next">Internal Folder</a>, Previous: <a href="#Filter-Folder" accesskey="p" rel="prev">Filter Folder</a>, Up: <a href="#Folders" accesskey="u" rel="up">Folders</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
 </div>
 <a name="paipuhuoruda"></a>
-<h3 class="section">3.12 パイプフォルダ</h3>
+<h3 class="section">3.13 パイプフォルダ</h3>
 <a name="index-_007c"></a>
 <a name="index-Pipe-Folder"></a>
 <a name="index-Get-Message"></a>
@@ -1951,7 +1993,7 @@ POP サーバにメールを残したまま、メッセージを &lsquo;<samp>+i
 Next: <a href="#File-Folder" accesskey="n" rel="next">File Folder</a>, Previous: <a href="#Pipe-Folder" accesskey="p" rel="prev">Pipe Folder</a>, Up: <a href="#Folders" accesskey="u" rel="up">Folders</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
 </div>
 <a name="Nei-Bu-huoruda"></a>
-<h3 class="section">3.13 内部フォルダ</h3>
+<h3 class="section">3.14 内部フォルダ</h3>
 <a name="index-_0027"></a>
 <a name="index-Internal-Folder"></a>
 <a name="index-Folder_002c-_0024-mark"></a>
@@ -2004,7 +2046,7 @@ Next: <a href="#File-Folder" accesskey="n" rel="next">File Folder</a>, Previous:
 Next: <a href="#Access-Folder" accesskey="n" rel="next">Access Folder</a>, Previous: <a href="#Internal-Folder" accesskey="p" rel="prev">Internal Folder</a>, Up: <a href="#Folders" accesskey="u" rel="up">Folders</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
 </div>
 <a name="huairuhuoruda"></a>
-<h3 class="section">3.14 ファイルフォルダ</h3>
+<h3 class="section">3.15 ファイルフォルダ</h3>
 <a name="index-File-Folder"></a>
 
 <p>ローカルファイルシステムのファイルを閲覧するためのフォルダです。一つのディ
@@ -2028,10 +2070,10 @@ file:/etc       -&gt; <samp>/etc</samp>
 <a name="Access-Folder"></a>
 <div class="header">
 <p>
-Next: <a href="#RSS-Folder" accesskey="n" rel="next">RSS Folder</a>, Previous: <a href="#File-Folder" accesskey="p" rel="prev">File Folder</a>, Up: <a href="#Folders" accesskey="u" rel="up">Folders</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
+Previous: <a href="#File-Folder" accesskey="p" rel="prev">File Folder</a>, Up: <a href="#Folders" accesskey="u" rel="up">Folders</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
 </div>
 <a name="akusesuhuoruda"></a>
-<h3 class="section">3.15 アクセスフォルダ</h3>
+<h3 class="section">3.16 アクセスフォルダ</h3>
 <a name="index-Access-Folder"></a>
 
 <p>指定されたフォルダの配下のサブフォルダを仮想的に一つのフォルダとして扱え
@@ -2050,38 +2092,6 @@ Next: <a href="#RSS-Folder" accesskey="n" rel="next">RSS Folder</a>, Previous: <
 access:'cache -&gt; 全ての 'cache フォルダ
 </pre></div>
 
-<hr>
-<a name="RSS-Folder"></a>
-<div class="header">
-<p>
-Previous: <a href="#Access-Folder" accesskey="p" rel="prev">Access Folder</a>, Up: <a href="#Folders" accesskey="u" rel="up">Folders</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
-</div>
-<a name="RSS-Folder-1"></a>
-<h3 class="section">3.16 RSS Folder</h3>
-<a name="index-RSS-Folder"></a>
-<a name="index-Atom-Folder"></a>
-
-<p>An RSS folder presents the messages contained in an RSS or Atom feed:
-</p>
-<div class="example">
-<pre class="example">rss:https://github.com/wanderlust/wanderlust/commits/master.atom
-</pre></div>
-
-<p>This folder type attempts to automatically handle all known versions of
-RSS and Atom.  Should you need more configurability, please use
-a Shimbun folder (see <a href="#Shimbun-Folder">Shimbun Folder</a>) instead.
-</p>
-<p>Since this folder doesn&rsquo;t do any persistent caching, messages will
-disappear as soon as they expire from the feed.  Should you want
-persistent messages, combine this with a pipe folder:
-</p>
-<div class="example">
-<pre class="example">|rss:http://lwn.net/http://lwn.net/headlines/newrss|+lwn
-</pre></div>
-
-<p>You may also use an RSS, Atom or OPML feed as an access group, in which
-case related feeds will appear as subfolders.
-</p>
 
 <hr>
 <a name="Folder"></a>
@@ -4445,6 +4455,13 @@ prefix argument つきならばカーソル行があるメッセージを含む�
 (<code>wl-summary-target-mark-thread</code>)
 </p>
 </dd>
+<dt><kbd>m T</kbd></dt>
+<dd><a name="index-m-T-_0028Summary_0029"></a>
+<p>まとめ処理用マーク &lsquo;<samp>*</samp>&rsquo; を、現在マークされたメッセージを含むスレッド全体に拡大します。
+<a name="index-wl_002dsummary_002dtarget_002dmark_002dthreads"></a>
+(<code>wl-summary-target-mark-threads</code>)
+</p>
+</dd>
 <dt><kbd>m r</kbd></dt>
 <dd><a name="index-m-r-_0028Summary_0029"></a>
 <a name="index-wl_002dsummary_002dtarget_002dmark_002dregion-1"></a>
@@ -5296,7 +5313,8 @@ See <a href="mime-ui-ja.html#MIME_002dEdit">MIME-Edit</a> in <cite>a MIME user i
 <p>編集中のドラフトをセーブすると、<code>wl-draft-folder</code> で設定したドラフ
 トフォルダに追加されます。<kbd>C-c C-z</kbd> (<code>wl-draft-save-and-exit</code>)
 により、後から編集できるようにそれをセーブした上でドラフトバッファを離脱
-できます。
+できます。ドラフトフォルダに入って <kbd>E</kbd> (<code>wl-summary-reedit</code>) を
+押せば、編集を再開できます (see <a href="#Key-Bindings-of-Summary">Key Bindings of Summary</a>)。
 </p>
 <p>メッセージの編集が完了したら、<kbd>C-c C-c</kbd> で送信できます。
 </p>
@@ -5651,8 +5669,6 @@ MIME のマルチパートメッセージの確認に使うと便利です。
 <a name="index-wl_002ddraft_002dsave_002dand_002dexit"></a>
 <p>現在のドラフトをセーブし、ドラフトバッファを消去します。
 ドラフトの編集を中断したいときに便利です。
-&lsquo;<samp>+draft</samp>&rsquo; フォルダに入って <kbd>E</kbd> (<code>wl-summary-reedit</code> を押せば、
-編集を再開できます。
 (<code>wl-draft-save-and-exit</code>)
 </p>
 </dd>
@@ -7165,7 +7181,7 @@ Next: <a href="#Address-Book" accesskey="n" rel="next">Address Book</a>, Previou
 <p>このスコア機能は Gnus のスコアとほぼ同等の機能を持ち、またスコアファイルの
 書式もほぼ同じです。ただし、幾つかは未対応であったり Wanderlust 特有の機能
 があったりします。
-See <a href="gnus-ja.html#Scoring">Scoring</a> in <cite>The gnus Newsreader</cite>.
+See <a href="gnus-ja.html#Scoring">Scoring</a> in <cite>Gnus Manual</cite>.
 </p>
 <table class="menu" border="0" cellspacing="0">
 <tr><td align="left" valign="top">&bull; <a href="#Score-Commands" accesskey="1">Score Commands</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">スコアに関するコマンド
@@ -7536,7 +7552,7 @@ Previous: <a href="#Score-Commands" accesskey="p" rel="prev">Score Commands</a>,
 スコアファイルがそのまま利用できます。
 ただし、幾つかのキーは対応していなかったり Wanderlust 特有のキーがあったり
 しますので、完全に互換性があるわけではありません。
-See <a href="gnus-ja.html#Score-File-Format">Score File Format</a> in <cite>The gnus Newsreader</cite>.
+See <a href="gnus-ja.html#Score-File-Format">Score File Format</a> in <cite>Gnus Manual</cite>.
 </p>
 <div class="lisp">
 <pre class="lisp">((&quot;subject&quot;
@@ -7860,17 +7876,17 @@ search, or a filter folder (<a href="#Filter-Folder">Filter Folder</a>).
 a search, and then jump to the search results.
 </p>
 <table class="menu" border="0" cellspacing="0">
-<tr><td align="left" valign="top">&bull; <a href="#Setup" accesskey="1">Setup</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Setup
+<tr><td align="left" valign="top">&bull; <a href="#Setup-of-Quick-Search" accesskey="1">Setup of Quick Search</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Setup
 </td></tr>
-<tr><td align="left" valign="top">&bull; <a href="#Searching" accesskey="2">Searching</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Searching
+<tr><td align="left" valign="top">&bull; <a href="#Usage-of-Quick-Search" accesskey="2">Usage of Quick Search</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Searching
 </td></tr>
 </table>
 
 <hr>
-<a name="Setup"></a>
+<a name="Setup-of-Quick-Search"></a>
 <div class="header">
 <p>
-Next: <a href="#Searching" accesskey="n" rel="next">Searching</a>, Up: <a href="#Quick-Search" accesskey="u" rel="up">Quick Search</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
+Next: <a href="#Usage-of-Quick-Search" accesskey="n" rel="next">Usage of Quick Search</a>, Up: <a href="#Quick-Search" accesskey="u" rel="up">Quick Search</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
 </div>
 <a name="Setup-of-wl_002dqs"></a>
 <h3 class="section">12.1 Setup of <code>wl-qs</code></h3>
@@ -7882,12 +7898,12 @@ example, &lsquo;<samp>%[Gmail]/All Mail:username@imap.gmail.com</samp>&rsquo;,
 index, such as mu, notmuch or namazu, as it is quite fast.
 </p>
 <hr>
-<a name="Searching"></a>
+<a name="Usage-of-Quick-Search"></a>
 <div class="header">
 <p>
-Previous: <a href="#Setup" accesskey="p" rel="prev">Setup</a>, Up: <a href="#Quick-Search" accesskey="u" rel="up">Quick Search</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
+Previous: <a href="#Setup-of-Quick-Search" accesskey="p" rel="prev">Setup of Quick Search</a>, Up: <a href="#Quick-Search" accesskey="u" rel="up">Quick Search</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
 </div>
-<a name="Searching-1"></a>
+<a name="Searching"></a>
 <h3 class="section">12.2 Searching</h3>
 
 <p>To search your mail archive, use the command
@@ -11147,6 +11163,7 @@ Next: <a href="#Variable-Index" accesskey="n" rel="next">Variable Index</a>, Pre
 <tr><td></td><td valign="top"><a href="#index-m-s-_0028Folder_0029"><code>m s (Folder)</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Folder-Manager">Folder Manager</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-m-s-_0028Summary_0029"><code>m s (Summary)</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Usage-of-Spam-Filter">Usage of Spam Filter</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-m-t-_0028Summary_0029"><code>m t (Summary)</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Key-Bindings-of-Summary">Key Bindings of Summary</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-m-T-_0028Summary_0029"><code>m T (Summary)</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Key-Bindings-of-Summary">Key Bindings of Summary</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-m-u-_0028Folder_0029"><code>m u (Folder)</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Folder-Manager">Folder Manager</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-m-u-_0028Summary_0029"><code>m u (Summary)</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Key-Bindings-of-Summary">Key Bindings of Summary</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-m-U-_0028Summary_0029"><code>m U (Summary)</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Key-Bindings-of-Summary">Key Bindings of Summary</a></td></tr>
@@ -11885,6 +11902,7 @@ Previous: <a href="#Variable-Index" accesskey="p" rel="prev">Variable Index</a>,
 <tr><td></td><td valign="top"><a href="#index-wl_002dsummary_002dtarget_002dmark_002dset_002dflags"><code>wl-summary-target-mark-set-flags</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Key-Bindings-of-Summary">Key Bindings of Summary</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-wl_002dsummary_002dtarget_002dmark_002dspam"><code>wl-summary-target-mark-spam</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Usage-of-Spam-Filter">Usage of Spam Filter</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-wl_002dsummary_002dtarget_002dmark_002dthread"><code>wl-summary-target-mark-thread</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Key-Bindings-of-Summary">Key Bindings of Summary</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-wl_002dsummary_002dtarget_002dmark_002dthreads"><code>wl-summary-target-mark-threads</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Key-Bindings-of-Summary">Key Bindings of Summary</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-wl_002dsummary_002dtarget_002dmark_002duudecode"><code>wl-summary-target-mark-uudecode</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Key-Bindings-of-Summary">Key Bindings of Summary</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-wl_002dsummary_002dtest_002dspam"><code>wl-summary-test-spam</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Usage-of-Spam-Filter">Usage of Spam Filter</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-wl_002dsummary_002dtest_002dspam_002dregion"><code>wl-summary-test-spam-region</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Usage-of-Spam-Filter">Usage of Spam Filter</a></td></tr>
@@ -12016,26 +12034,26 @@ Previous: <a href="#Variable-Index" accesskey="p" rel="prev">Variable Index</a>,
     <ul class="no-bullet">
       <li><a name="toc-Xin-Wen-huorudaniGuan-suruBian-Shu-" href="#Xin-Wen-huorudaniGuan-suruBian-Shu-">3.8.1 新聞フォルダに関する変数</a></li>
     </ul></li>
-    <li><a name="toc-Jian-Suo-huoruda" href="#Search-Folder">3.9 検索フォルダ</a>
+    <li><a name="toc-RSS-huoruda" href="#RSS-Folder">3.9 RSS フォルダ</a></li>
+    <li><a name="toc-Jian-Suo-huoruda" href="#Search-Folder">3.10 検索フォルダ</a>
     <ul class="no-bullet">
-      <li><a name="toc-Dui-Ying-siteiruJian-Suo-Fang-Shi-" href="#Dui-Ying-siteiruJian-Suo-Fang-Shi-">3.9.1 対応している検索方式</a></li>
-      <li><a name="toc-namazu-1" href="#namazu">3.9.2 namazu</a>
+      <li><a name="toc-Dui-Ying-siteiruJian-Suo-Fang-Shi-" href="#Dui-Ying-siteiruJian-Suo-Fang-Shi-">3.10.1 対応している検索方式</a></li>
+      <li><a name="toc-namazu-1" href="#namazu">3.10.2 namazu</a>
       <ul class="no-bullet">
-        <li><a name="toc-Fu-Shu-kiwadonoRu-Li-" href="#Fu-Shu-kiwadonoRu-Li-">3.9.2.1 複数キーワードの入力</a></li>
-        <li><a name="toc-indetukusunoeiriasuMing-" href="#indetukusunoeiriasuMing-">3.9.2.2 インデックスのエイリアス名</a></li>
-        <li><a name="toc-Fu-Shu-indetukusunoZhi-Ding-" href="#Fu-Shu-indetukusunoZhi-Ding-">3.9.2.3 複数インデックスの指定</a></li>
+        <li><a name="toc-Fu-Shu-kiwadonoRu-Li-" href="#Fu-Shu-kiwadonoRu-Li-">3.10.2.1 複数キーワードの入力</a></li>
+        <li><a name="toc-indetukusunoeiriasuMing-" href="#indetukusunoeiriasuMing-">3.10.2.2 インデックスのエイリアス名</a></li>
+        <li><a name="toc-Fu-Shu-indetukusunoZhi-Ding-" href="#Fu-Shu-indetukusunoZhi-Ding-">3.10.2.3 複数インデックスの指定</a></li>
       </ul></li>
-      <li><a name="toc-grep-1" href="#grep">3.9.3 grep</a></li>
-      <li><a name="toc-mu-1" href="#mu">3.9.4 mu</a></li>
-      <li><a name="toc-notmuch-1" href="#notmuch">3.9.5 notmuch</a></li>
+      <li><a name="toc-grep-1" href="#grep">3.10.3 grep</a></li>
+      <li><a name="toc-mu-1" href="#mu">3.10.4 mu</a></li>
+      <li><a name="toc-notmuch-1" href="#notmuch">3.10.5 notmuch</a></li>
     </ul></li>
-    <li><a name="toc-marutihuoruda" href="#Multi-Folder">3.10 マルチフォルダ</a></li>
-    <li><a name="toc-huirutahuoruda" href="#Filter-Folder">3.11 フィルタフォルダ</a></li>
-    <li><a name="toc-paipuhuoruda" href="#Pipe-Folder">3.12 パイプフォルダ</a></li>
-    <li><a name="toc-Nei-Bu-huoruda" href="#Internal-Folder">3.13 内部フォルダ</a></li>
-    <li><a name="toc-huairuhuoruda" href="#File-Folder">3.14 ファイルフォルダ</a></li>
-    <li><a name="toc-akusesuhuoruda" href="#Access-Folder">3.15 アクセスフォルダ</a></li>
-    <li><a name="toc-RSS-Folder-1" href="#RSS-Folder">3.16 RSS Folder</a></li>
+    <li><a name="toc-marutihuoruda" href="#Multi-Folder">3.11 マルチフォルダ</a></li>
+    <li><a name="toc-huirutahuoruda" href="#Filter-Folder">3.12 フィルタフォルダ</a></li>
+    <li><a name="toc-paipuhuoruda" href="#Pipe-Folder">3.13 パイプフォルダ</a></li>
+    <li><a name="toc-Nei-Bu-huoruda" href="#Internal-Folder">3.14 内部フォルダ</a></li>
+    <li><a name="toc-huairuhuoruda" href="#File-Folder">3.15 ファイルフォルダ</a></li>
+    <li><a name="toc-akusesuhuoruda" href="#Access-Folder">3.16 アクセスフォルダ</a></li>
   </ul></li>
   <li><a name="toc-huorudamodo" href="#Folder">4 フォルダモード</a>
   <ul class="no-bullet">
@@ -12187,8 +12205,8 @@ Previous: <a href="#Variable-Index" accesskey="p" rel="prev">Variable Index</a>,
   </ul></li>
   <li><a name="toc-Quick-Search-1" href="#Quick-Search">12 Quick Search</a>
   <ul class="no-bullet">
-    <li><a name="toc-Setup-of-wl_002dqs" href="#Setup">12.1 Setup of <code>wl-qs</code></a></li>
-    <li><a name="toc-Searching-1" href="#Searching">12.2 Searching</a>
+    <li><a name="toc-Setup-of-wl_002dqs" href="#Setup-of-Quick-Search">12.1 Setup of <code>wl-qs</code></a></li>
+    <li><a name="toc-Searching" href="#Usage-of-Quick-Search">12.2 Searching</a>
     <ul class="no-bullet">
       <li><a name="toc-Search-folder" href="#Search-folder">12.2.1 Search folder</a></li>
       <li><a name="toc-Gmail" href="#Gmail">12.2.2 Gmail</a></li>
