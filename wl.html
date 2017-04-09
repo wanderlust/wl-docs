@@ -1,6 +1,6 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-<!-- Created by GNU Texinfo 6.1, http://www.gnu.org/software/texinfo/ -->
+<!-- Created by GNU Texinfo 6.3, http://www.gnu.org/software/texinfo/ -->
 <head>
 <title>Wanderlust &ndash; Yet Another Message Interface On Emacsen &ndash;</title>
 
@@ -1170,8 +1170,8 @@ archiver of Wanderlust because they cannot include multiple
 files. Archivers that cannot extract files to standard output are also
 not supported.
 </p>
-<a name="OS-specific-information-about-archiver_002e"></a>
-<h4 class="subsection">3.6.2 OS specific information about archiver.</h4>
+<a name="OS-specific-information-about-archiver"></a>
+<h4 class="subsection">3.6.2 OS specific information about archiver</h4>
 
 <p>Behaviors of the following archivers are confirmed by further experiences.
 (&lsquo;<samp>*</samp>&rsquo; mark means recommended archiver).
@@ -1538,9 +1538,11 @@ be assigned by <code>elmo-search-default-engine</code>.
 </td></tr>
 <tr><td align="left" valign="top">&bull; <a href="#grep" accesskey="2">grep</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">grep
 </td></tr>
-<tr><td align="left" valign="top">&bull; <a href="#mu" accesskey="3">mu</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">mu
+<tr><td align="left" valign="top">&bull; <a href="#rgrep" accesskey="3">rgrep</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">rgrep
 </td></tr>
-<tr><td align="left" valign="top">&bull; <a href="#notmuch" accesskey="4">notmuch</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">notmuch
+<tr><td align="left" valign="top">&bull; <a href="#mu" accesskey="4">mu</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">mu
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="#notmuch" accesskey="5">notmuch</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">notmuch
 </td></tr>
 </table>
 
@@ -1633,11 +1635,12 @@ directory <samp>~/.elmo/cache</samp> and <samp>~/documents</samp>.
 <a name="grep"></a>
 <div class="header">
 <p>
-Next: <a href="#mu" accesskey="n" rel="next">mu</a>, Previous: <a href="#namazu" accesskey="p" rel="prev">namazu</a>, Up: <a href="#Search-Folder" accesskey="u" rel="up">Search Folder</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
+Next: <a href="#rgrep" accesskey="n" rel="next">rgrep</a>, Previous: <a href="#namazu" accesskey="p" rel="prev">namazu</a>, Up: <a href="#Search-Folder" accesskey="u" rel="up">Search Folder</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
 </div>
 <a name="grep-1"></a>
 <h4 class="subsection">3.10.3 grep</h4>
 <a name="index-grep"></a>
+<a name="index-find"></a>
 
 <p>The files that exists in the directory specified with the <var>search
 target</var> are found by using grep.
@@ -1657,14 +1660,57 @@ as <var>search target</var> cannot be omitted.
        <var>search condition</var> should be enclosed with &lsquo;<samp>&quot;</samp>&rsquo;.
 </pre></div>
 
+<p>Because this method passes all target filenames to grep process as
+arguments, starting grep process may fail when there are too many files
+in the target directory.  If your find proram accepts &lsquo;<samp>-maxdepth</samp>&rsquo;
+option, adding the below code in <samp>~/.wl</samp> may resolve the problem.
+</p>
+<div class="example">
+<pre class="example">(eval-after-load &quot;elmo-search&quot;
+  '(elmo-search-register-engine
+    'grep 'local-file
+    :prog &quot;find&quot;
+    :args '(elmo-search-rgrep-target
+            &quot;-maxdepth&quot; &quot;1&quot; &quot;-type&quot; &quot;f&quot; &quot;-exec&quot; &quot;grep&quot; &quot;-l&quot; &quot;-e&quot;
+            pattern &quot;{}&quot; &quot;+&quot;)))
+</pre></div>
+
+<p>If your find program can&rsquo;t handle &lsquo;<samp>-exec command {} +</samp>&rsquo; option
+correctly, replacing the last &lsquo;<samp>+</samp>&rsquo; with &lsquo;<samp>;</samp>&rsquo; would do the trick,
+but it is probably very slow.
+</p>
+<hr>
+<a name="rgrep"></a>
+<div class="header">
+<p>
+Next: <a href="#mu" accesskey="n" rel="next">mu</a>, Previous: <a href="#grep" accesskey="p" rel="prev">grep</a>, Up: <a href="#Search-Folder" accesskey="u" rel="up">Search Folder</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<a name="rgrep-1"></a>
+<h4 class="subsection">3.10.4 rgrep</h4>
+
+<p>Using grep with &lsquo;<samp>-r</samp>&rsquo; option to search files in subdirectories of
+the target directory.
+Grep must accept &lsquo;<samp>-r</samp>&rsquo; option.
+</p>
+<p>There is no limitation about the number of files such as grep method (see <a href="#grep">grep</a>).
+Syntax is similar to grep method.
+</p>
+<p>Example:
+</p>
+<div class="example">
+<pre class="example">[wanderlust]~/Mail/inbox!rgrep
+    -&gt; search messages matched with &quot;wanderlust&quot;
+       from the directory &quot;~/Mail/inbox&quot; including subdirectories.
+</pre></div>
+
 <hr>
 <a name="mu"></a>
 <div class="header">
 <p>
-Next: <a href="#notmuch" accesskey="n" rel="next">notmuch</a>, Previous: <a href="#grep" accesskey="p" rel="prev">grep</a>, Up: <a href="#Search-Folder" accesskey="u" rel="up">Search Folder</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
+Next: <a href="#notmuch" accesskey="n" rel="next">notmuch</a>, Previous: <a href="#rgrep" accesskey="p" rel="prev">rgrep</a>, Up: <a href="#Search-Folder" accesskey="u" rel="up">Search Folder</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
 </div>
 <a name="mu-1"></a>
-<h4 class="subsection">3.10.4 mu</h4>
+<h4 class="subsection">3.10.5 mu</h4>
 <a name="index-mu"></a>
 
 <p>Search mail using mu (<a href="http://www.djcbsoftware.nl/code/mu/">http://www.djcbsoftware.nl/code/mu/</a>).
@@ -1701,7 +1747,7 @@ Next: <a href="#notmuch" accesskey="n" rel="next">notmuch</a>, Previous: <a href
 Previous: <a href="#mu" accesskey="p" rel="prev">mu</a>, Up: <a href="#Search-Folder" accesskey="u" rel="up">Search Folder</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
 </div>
 <a name="notmuch-1"></a>
-<h4 class="subsection">3.10.5 notmuch</h4>
+<h4 class="subsection">3.10.6 notmuch</h4>
 <a name="index-notmuch"></a>
 
 <p>Search mail using notmuch (<a href="http://notmuchmail.org/">http://notmuchmail.org/</a>).
@@ -2170,10 +2216,10 @@ It changes its color if it has many new messages.
 </p>
 <p>The whole folder mode is a folder group named &lsquo;<samp>Desktop</samp>&rsquo;.
 Folder group open/close by return key.
-A operation to a folder group is treated as operations on the
+An operation on a folder group is treated as operations on the
 children folders.
 For example, when you type <kbd>s</kbd> on &lsquo;<samp>[-]Emacsen</samp>&rsquo;,
-six children folders update its unread number status.
+seven children folders update their unread number status.
 </p>
 <a name="Select-Folder"></a>
 <h4 class="subsubsection">4.1.1.2 Select Folder</h4>
@@ -2372,7 +2418,7 @@ If the cursor is on the folder group, it is executed recursively.
 <dt><kbd>o</kbd></dt>
 <dd><a name="index-o-_0028Folder_0029"></a>
 <a name="index-wl_002dfolder_002dopen_002dall_002dunread_002dfolder"></a>
-<p>All unread folder is opened.
+<p>All unread folders are opened.
 (<code>wl-folder-open-all-unread-folder</code>)
 </p>
 </dd>
@@ -2393,14 +2439,14 @@ If the cursor is on the folder group, it is executed recursively.
 <dt><kbd>[</kbd></dt>
 <dd><a name="index-_005b-_0028Folder_0029"></a>
 <a name="index-wl_002dfolder_002dopen_002dall"></a>
-<p>All folder group is opened.
+<p>All folder groups are opened.
 (<code>wl-folder-open-all</code>)
 </p>
 </dd>
 <dt><kbd>]</kbd></dt>
 <dd><a name="index-_005d-_0028Folder_0029"></a>
 <a name="index-wl_002dfolder_002dclose_002dall"></a>
-<p>All folder group is closed.
+<p>All folder groups are closed.
 (<code>wl-folder-close-all</code>)
 </p>
 </dd>
@@ -2607,8 +2653,8 @@ then execute append command in the next line.
 <p>You can cut folder by <kbd>C-k</kbd>, paste by <kbd>C-y</kbd>.
 Thus, you can change folder position as if you were editing a normal file.
 </p>
-<a name="Create-Multi-Folder_002e"></a>
-<h4 class="subsubsection">4.2.1.3 Create Multi Folder.</h4>
+<a name="Create-Multi-Folder"></a>
+<h4 class="subsubsection">4.2.1.3 Create Multi Folder</h4>
 
 <ol>
 <li> Type <kbd>m q</kbd> to clear <code>wl-fldmgr-cut-entity-list</code>.
@@ -2633,8 +2679,8 @@ the folder group above. It is difficult to explain by words so try it.
 In other words, appended position depends on the
 open/close status of the upper one.
 </p>
-<a name="Charset-of-the-Folders-File_002e"></a>
-<h4 class="subsubsection">4.2.1.6 Charset of the Folders File.</h4>
+<a name="Charset-of-the-Folders-File"></a>
+<h4 class="subsubsection">4.2.1.6 Charset of the Folders File</h4>
 
 <p><code>wl-mime-charset</code> is used for saving <code>wl-folders-file</code>.
 </p>
@@ -3360,7 +3406,7 @@ set the variable <code>elmo-msgdb-extra-fields</code> like following.
 
 <p>By this setting, Wanderlust saves extra fields in the msgdb.  You have
 to type <kbd>s all</kbd> to get extra fields for the messages that are
-already exists in the summary.
+already in the summary.
 </p>
 <p>Then, specify the refile rule.  The refile target folder of auto
 refiling is decided by the value of <code>wl-refile-rule-alist</code>.
@@ -3443,7 +3489,7 @@ Next: <a href="#Summary-View" accesskey="n" rel="next">Summary View</a>, Previou
 <p>The buffer of the &lsquo;sticky summary&rsquo; does not killed by typing <kbd>q</kbd>.
 </p>
 <p>By entering the summary by typing <kbd>Shift RET</kbd> in Folder mode or
-<kbd>G</kbd> in some suummary sticky summary buffer is created.
+<kbd>G</kbd> in some summary sticky summary buffer is created.
 Also typing <kbd>M-s</kbd> (<code>wl-summary-stick</code>) on the normal summary
 makes current one sticky.
 </p>
@@ -6681,7 +6727,7 @@ to <code>t</code>, especially in the initial stage.
         ))
 </pre></div>
 
-<p>Items in the list has the format of:
+<p>Items in the list have the format of:
 </p>
 <div class="example">
 <pre class="example">(<var>regexp-for-folders</var> <var>specification-of-messages-to-be-deleted</var> <var>destination</var>)
@@ -6694,7 +6740,7 @@ the third element of the item is <code>nil</code>, expiration will not take
 place.
 </p>
 <p>You can use any one of the following for
-<var>specification-of-message-to-be-deleted</var>:
+<var>specification-of-messages-to-be-deleted</var>:
 </p>
 <dl compact="compact">
 <dt><code>(number <var>n1</var> [<var>n2</var>])</code></dt>
@@ -6742,7 +6788,7 @@ might have to delete them by hand.
 </p>
 </dd>
 <dt><code>hide</code></dt>
-<dd><p>hide the messages from summary (messages are not deleted).
+<dd><p>hides the messages from summary (messages are not deleted).
 </p>
 </dd>
 <dt><code>trash</code></dt>
@@ -6764,7 +6810,7 @@ standard functions described below.
 of messages to be deleted, and msgdb information of the summary.  You
 can specify function-specific arguments after the name of the
 <var>function</var>.  Note that the list contains messages with marks in
-<code>wl-summary-expire-reserve-marks</code>, be careful in writing your own
+<code>wl-summary-expire-reserve-marks</code>, so be careful in writing your own
 function.
 </p>
 <p>These are four standard functions; three of them move messages to an archive
@@ -6839,7 +6885,7 @@ each archiving folder.
 </p>
 </dd>
 <dt><code>wl-expire-localdir-date</code></dt>
-<dd><p>divedes messages depending on its date (year and month) to MH folders
+<dd><p>divides messages depending on their date (year and month) to MH folders
 e.g. to &lsquo;<samp>+ml/wl/1999_11/</samp>&rsquo;, &lsquo;<samp>+ml/wl/1999_12/</samp>&rsquo;.
 </p></dd>
 </dl>
@@ -6854,7 +6900,7 @@ standard function, messages with marks in
 <code>wl-summary-expire-reserve-marks</code> (which are called <em>reserved
 messages</em> thereafter) are retained.
 </p>
-<p>Per default, this variable include the important, new, and unread marks,
+<p>By default, this variable includes the important, new, and unread marks,
 so that messages with these marks are not removed.
 Note that you cannot include the temporary mark (i.e. temporary marks
 are removed anyway), and be sure to process temporary marks before you
@@ -6878,8 +6924,8 @@ matching <code>wl-expire-alist</code> expire.
 <a name="Tips-1"></a>
 <h3 class="section">9.3 Tips</h3>
 
-<a name="Treating-archive-folders_002e"></a>
-<h4 class="subsection">9.3.1 Treating archive folders.</h4>
+<a name="Treating-archive-folders"></a>
+<h4 class="subsection">9.3.1 Treating archive folders</h4>
 <p>To treat archive folders created by <code>wl-expire-archive-number1</code> and so on,
 you must set non-nil value to <code>elmo-archive-treat-file</code>.
 </p>
@@ -7837,7 +7883,7 @@ summary buffer after Wanderlust is invoked.
 # <span class="roman">Format of each line:</span>
 # <var>email-address</var>  &quot;<var>nickname</var> &quot;<var>realname</var>&quot;
 #
-teranisi@gohome.org            &quot;Yuuichi&quot;      &quot;Yuuichi Teranishi&quot;
+teranisi@gohome.org            &quot;Yuuichi&quot;    &quot;Yuuichi Teranishi&quot;
 foo@bar.gohome.org             &quot;Mr. Foo&quot;    &quot;John Foo&quot;
 bar@foo.gohome.org             &quot;Mr. Bar&quot;    &quot;Michael Bar&quot;
 </pre></div>
@@ -7873,7 +7919,7 @@ Previous: <a href="#Mail-Addresses" accesskey="p" rel="prev">Mail Addresses</a>,
 <h3 class="section">11.2 Address Manager</h3>
 <a name="index-Address-Manager"></a>
 
-<p>You can type <kbd>C-c C-a</kbd> to enter address manger mode.  you can edit
+<p>You can type <kbd>C-c C-a</kbd> to enter address manger mode.  You can edit
 the address book and insert address to draft buffer.
 </p>
 <a name="Key-Bindings-3"></a>
@@ -9459,6 +9505,14 @@ If <code>nil</code>, wl doesn&rsquo;t check mail arrival.
 Check mail arrival in this period.
 </p>
 </dd>
+<dt><code>wl-biff-check-delay</code></dt>
+<dd><a name="index-wl_002dbiff_002dcheck_002ddelay"></a>
+<p>The initial setting is 0 (in seconds).
+Check mail when the time spcified by <code>wl-biff-check-interval</code> has
+passed and idling time exceeds specified seconds by this variable.
+This is ignored on XEmacs.
+</p>
+</dd>
 <dt><code>wl-biff-use-idle-timer</code></dt>
 <dd><a name="index-wl_002dbiff_002duse_002didle_002dtimer"></a>
 <p>The initial setting is <code>nil</code>.
@@ -9470,11 +9524,17 @@ mail arrival when idling time exceeds <code>wl-biff-check-interval</code>.
 <dt><code>wl-biff-notify-hook</code></dt>
 <dd><a name="index-wl_002dbiff_002dnotify_002dhook"></a>
 <p>This hook is run at the arrival of new mail.
-To beep with mail arrival(initial setting), set as follows.
+To beep with mail arrival (initial setting), set as follows.
 </p><div class="lisp">
 <pre class="lisp">(setq wl-biff-notify-hook '(ding))
 </pre></div>
 <p>For silence, set to <code>nil</code>.
+</p>
+</dd>
+<dt><code>wl-biff-unnotify-hook</code></dt>
+<dd><a name="index-wl_002dbiff_002dunnotify_002dhook"></a>
+<p>This hook is run if there were new mails at the last check and there is
+no new mail at the current check.
 </p></dd>
 </dl>
 
@@ -9489,14 +9549,16 @@ Next: <a href="#Split-messages" accesskey="n" rel="next">Split messages</a>, Pre
 <h3 class="section">14.4 Manage Passwords</h3>
 
 <p>If you input passwords to connect servers, they are stored in the
-variable <code>elmo-passwd-alist</code> per connection. You should be careful
+variable <code>elmo-passwd-storage</code> per connection. You should be careful
 that others might read your passwords if they can touch your Emacs,
 since encoded plain passwords are there.
 </p>
+<a name="index-elmo_002dpasswd_002dalist_002dclear"></a>
+<a name="index-elmo_002dpasswd_002dalist_002dsave"></a>
 <p>If you invoke <kbd>M-x elmo-passwd-alist-save</kbd> while you have stored
 passwords, then they are saved on the file, and it will save you to
 input passwords. In this case, the risk that someone reads your
-keystroke might decrease, but please not that plain passwords are
+keystroke might decrease, but please note that plain passwords are
 stored on a file. You should treat them very carefully.
 To remove saved passwords on file, invoke <kbd>M-x elmo-passwd-alist-clear</kbd>
 and then <kbd>M-x elmo-passwd-alist-save</kbd>.
@@ -9518,6 +9580,41 @@ If the value is some number, timer is set to remove password entry after
 </p></dd>
 </dl>
 
+<table class="menu" border="0" cellspacing="0">
+<tr><td align="left" valign="top">&bull; <a href="#Auth_002dsource" accesskey="1">Auth-source</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Using auth-source for password managament
+</td></tr>
+</table>
+
+
+<hr>
+<a name="Auth_002dsource"></a>
+<div class="header">
+<p>
+Previous: <a href="#Password-Management" accesskey="p" rel="prev">Password Management</a>, Up: <a href="#Password-Management" accesskey="u" rel="up">Password Management</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<a name="Using-auth_002dsource-for-password-managament"></a>
+<h4 class="subsection">14.4.1 Using auth-source for password managament</h4>
+<a name="index-auth_002dsource"></a>
+
+<a name="index-elmo_002dpasswd_002dstorage_002dtype"></a>
+<p>If you write as <code>(setq elmo-passwd-storage-type 'auth-source)</code> in
+your <samp>~/.wl</samp>, you can use auth-source (see <cite><a href="auth.html#Top">Emacs
+auth-source</a></cite>) for password management.
+</p>
+
+<a name="Limitations-of-using-auth_002dsource"></a>
+<h4 class="subsubsection">14.4.1.1 Limitations of using auth-source</h4>
+
+<p>Thre are some limitations for auth-source.
+</p>
+<ul>
+<li> password is not distinguished by protocol name nor authentication
+mechanism.
+</li><li> If you have multiple accounts on the one host,
+you have to prepare password entry before use.
+In such case, you can&rsquo;t input password interactively.
+It may be limitaion of netrc backend.
+</li></ul>
 
 <hr>
 <a name="Split-messages"></a>
@@ -9996,7 +10093,7 @@ this value as <code>iso-2022-jp</code>.)
 </dd>
 <dt><code>wl-highlight-folder-with-icon</code></dt>
 <dd><a name="index-wl_002dhighlight_002dfolder_002dwith_002dicon"></a>
-<p>This is meaningful for XEmacs or Emacs 21..  The initial setting depends
+<p>This is meaningful for XEmacs or Emacs 21.  The initial setting depends
 on Emacsen (<code>t</code> for XEmacs or Emacs 21 with icons).
 </p>
 </dd>
@@ -10274,8 +10371,8 @@ But you will have following limitations.
 be available.
 </li></ol>
 
-<a name="Changes-from-_0027mark-folder-to-_0027flag_002e"></a>
-<h4 class="subsection">15.1.2 Changes from &lsquo;<samp>'mark</samp>&rsquo; folder to  &lsquo;<samp>'flag</samp>&rsquo;.</h4>
+<a name="Changes-from-_0027mark-folder-to-_0027flag"></a>
+<h4 class="subsection">15.1.2 Changes from &lsquo;<samp>'mark</samp>&rsquo; folder to  &lsquo;<samp>'flag</samp>&rsquo;</h4>
 
 <p>The folder &lsquo;<samp>'mark</samp>&rsquo; will be automatically converted to &lsquo;<samp>'flag</samp>&rsquo;
 folder when you first start the new version of Wanderlust.
@@ -10674,6 +10771,7 @@ Next: <a href="#Key-Index" accesskey="n" rel="next">Key Index</a>, Previous: <a 
 <tr><td></td><td valign="top"><a href="#index-Archive-variables">Archive variables</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Archive-Vars">Archive Vars</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-Archiver">Archiver</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Archiver">Archiver</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-Atom-Folder">Atom Folder</a>:</td><td>&nbsp;</td><td valign="top"><a href="#RSS-Folder">RSS Folder</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-auth_002dsource">auth-source</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Auth_002dsource">Auth-source</a></td></tr>
 <tr><td colspan="4"> <hr></td></tr>
 <tr><th><a name="Concept-Index_cp_letter-B">B</a></th><td></td><td></td></tr>
 <tr><td></td><td valign="top"><a href="#index-Backtrace">Backtrace</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Mailing-List">Mailing List</a></td></tr>
@@ -10708,6 +10806,7 @@ Next: <a href="#Key-Index" accesskey="n" rel="next">Key Index</a>, Previous: <a 
 <tr><th><a name="Concept-Index_cp_letter-F">F</a></th><td></td><td></td></tr>
 <tr><td></td><td valign="top"><a href="#index-File-Folder">File Folder</a>:</td><td>&nbsp;</td><td valign="top"><a href="#File-Folder">File Folder</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-Filter-Folder">Filter Folder</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Filter-Folder">Filter Folder</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-find">find</a>:</td><td>&nbsp;</td><td valign="top"><a href="#grep">grep</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-Flag">Flag</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Filter-Folder">Filter Folder</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-Flag-1">Flag</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Internal-Folder">Internal Folder</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-FLIM">FLIM</a>:</td><td>&nbsp;</td><td valign="top"><a href="#MIME-Modules">MIME Modules</a></td></tr>
@@ -11512,6 +11611,7 @@ Next: <a href="#Function-Index" accesskey="n" rel="next">Function Index</a>, Pre
 <tr><td></td><td valign="top"><a href="#index-elmo_002dnntp_002duse_002dcache"><code>elmo-nntp-use-cache</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Variables-of-Summary">Variables of Summary</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-elmo_002dpasswd_002dalist_002dfile_002dname"><code>elmo-passwd-alist-file-name</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Password-Management">Password Management</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-elmo_002dpasswd_002dlife_002dtime"><code>elmo-passwd-life-time</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Password-Management">Password Management</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-elmo_002dpasswd_002dstorage_002dtype"><code>elmo-passwd-storage-type</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Auth_002dsource">Auth-source</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-elmo_002dplugged_002dcondition"><code>elmo-plugged-condition</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Variables-of-Plugged-Mode">Variables of Plugged Mode</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-elmo_002dpop3_002dsend_002dcommand_002dsynchronously"><code>elmo-pop3-send-command-synchronously</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Customizable-Variables">Customizable Variables</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-elmo_002dpop3_002duse_002dcache"><code>elmo-pop3-use-cache</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Variables-of-Summary">Variables of Summary</a></td></tr>
@@ -11560,9 +11660,11 @@ Next: <a href="#Function-Index" accesskey="n" rel="next">Function Index</a>, Pre
 <tr><td></td><td valign="top"><a href="#index-wl_002dauto_002duncheck_002dfolder_002dlist"><code>wl-auto-uncheck-folder-list</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Customizable-Variables">Customizable Variables</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-wl_002dbatch_002dprefetch_002dfolder_002dlist"><code>wl-batch-prefetch-folder-list</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Batch-Processing">Batch Processing</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-wl_002dbcc"><code>wl-bcc</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Editing-Header">Editing Header</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-wl_002dbiff_002dcheck_002ddelay"><code>wl-biff-check-delay</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Biff">Biff</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-wl_002dbiff_002dcheck_002dfolder_002dlist"><code>wl-biff-check-folder-list</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Biff">Biff</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-wl_002dbiff_002dcheck_002dinterval"><code>wl-biff-check-interval</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Biff">Biff</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-wl_002dbiff_002dnotify_002dhook"><code>wl-biff-notify-hook</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Biff">Biff</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-wl_002dbiff_002dunnotify_002dhook"><code>wl-biff-unnotify-hook</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Biff">Biff</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-wl_002dbiff_002duse_002didle_002dtimer"><code>wl-biff-use-idle-timer</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Biff">Biff</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-wl_002dbreak_002dpages"><code>wl-break-pages</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Variables-of-Summary">Variables of Summary</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-wl_002ddefault_002dfolder"><code>wl-default-folder</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Customizable-Variables">Customizable Variables</a></td></tr>
@@ -11782,6 +11884,8 @@ Previous: <a href="#Variable-Index" accesskey="p" rel="prev">Variable Index</a>,
 <h3 class="unnumberedsec">Function Index</h3>
 <table><tr><th valign="top">Jump to: &nbsp; </th><td><a class="summary-letter" href="#Function-Index_fn_letter-C"><b>C</b></a>
  &nbsp; 
+<a class="summary-letter" href="#Function-Index_fn_letter-E"><b>E</b></a>
+ &nbsp; 
 <a class="summary-letter" href="#Function-Index_fn_letter-W"><b>W</b></a>
  &nbsp; 
 </td></tr></table>
@@ -11790,6 +11894,10 @@ Previous: <a href="#Variable-Index" accesskey="p" rel="prev">Variable Index</a>,
 <tr><td colspan="4"> <hr></td></tr>
 <tr><th><a name="Function-Index_fn_letter-C">C</a></th><td></td><td></td></tr>
 <tr><td></td><td valign="top"><a href="#index-compose_002dmail"><code>compose-mail</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Minimal-Settings">Minimal Settings</a></td></tr>
+<tr><td colspan="4"> <hr></td></tr>
+<tr><th><a name="Function-Index_fn_letter-E">E</a></th><td></td><td></td></tr>
+<tr><td></td><td valign="top"><a href="#index-elmo_002dpasswd_002dalist_002dclear"><code>elmo-passwd-alist-clear</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Password-Management">Password Management</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-elmo_002dpasswd_002dalist_002dsave"><code>elmo-passwd-alist-save</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Password-Management">Password Management</a></td></tr>
 <tr><td colspan="4"> <hr></td></tr>
 <tr><th><a name="Function-Index_fn_letter-W">W</a></th><td></td><td></td></tr>
 <tr><td></td><td valign="top"><a href="#index-wl_002daddrmgr"><code>wl-addrmgr</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Key-Bindings-of-Draft">Key Bindings of Draft</a></td></tr>
@@ -12027,6 +12135,8 @@ Previous: <a href="#Variable-Index" accesskey="p" rel="prev">Variable Index</a>,
 </table>
 <table><tr><th valign="top">Jump to: &nbsp; </th><td><a class="summary-letter" href="#Function-Index_fn_letter-C"><b>C</b></a>
  &nbsp; 
+<a class="summary-letter" href="#Function-Index_fn_letter-E"><b>E</b></a>
+ &nbsp; 
 <a class="summary-letter" href="#Function-Index_fn_letter-W"><b>W</b></a>
  &nbsp; 
 </td></tr></table>
@@ -12104,7 +12214,7 @@ Previous: <a href="#Variable-Index" accesskey="p" rel="prev">Variable Index</a>,
     <li><a name="toc-Archive-Folder-1" href="#Archive-Folder">3.6 Archive Folder</a>
     <ul class="no-bullet">
       <li><a name="toc-Supported-Archives" href="#Archiver">3.6.1 Supported Archives</a></li>
-      <li><a name="toc-OS-specific-information-about-archiver_002e" href="#OS-specific-information-about-archiver_002e">3.6.2 OS specific information about archiver.</a></li>
+      <li><a name="toc-OS-specific-information-about-archiver" href="#OS-specific-information-about-archiver">3.6.2 OS specific information about archiver</a></li>
       <li><a name="toc-TIPS" href="#Archive-Tips">3.6.3 TIPS</a></li>
       <li><a name="toc-Variables-About-Archive-Folder" href="#Archive-Vars">3.6.4 Variables About Archive Folder</a></li>
     </ul></li>
@@ -12124,8 +12234,9 @@ Previous: <a href="#Variable-Index" accesskey="p" rel="prev">Variable Index</a>,
         <li><a name="toc-Multiple-indices" href="#Multiple-indices">3.10.2.3 Multiple indices</a></li>
       </ul></li>
       <li><a name="toc-grep-1" href="#grep">3.10.3 grep</a></li>
-      <li><a name="toc-mu-1" href="#mu">3.10.4 mu</a></li>
-      <li><a name="toc-notmuch-1" href="#notmuch">3.10.5 notmuch</a></li>
+      <li><a name="toc-rgrep-1" href="#rgrep">3.10.4 rgrep</a></li>
+      <li><a name="toc-mu-1" href="#mu">3.10.5 mu</a></li>
+      <li><a name="toc-notmuch-1" href="#notmuch">3.10.6 notmuch</a></li>
     </ul></li>
     <li><a name="toc-Multi-Folder-1" href="#Multi-Folder">3.11 Multi Folder</a></li>
     <li><a name="toc-Filter-Folder-1" href="#Filter-Folder">3.12 Filter Folder</a></li>
@@ -12152,10 +12263,10 @@ Previous: <a href="#Variable-Index" accesskey="p" rel="prev">Variable Index</a>,
       <ul class="no-bullet">
         <li><a name="toc-Append-Folder" href="#Append-Folder">4.2.1.1 Append Folder</a></li>
         <li><a name="toc-Edit-Folder" href="#Edit-Folder">4.2.1.2 Edit Folder</a></li>
-        <li><a name="toc-Create-Multi-Folder_002e" href="#Create-Multi-Folder_002e">4.2.1.3 Create Multi Folder.</a></li>
+        <li><a name="toc-Create-Multi-Folder" href="#Create-Multi-Folder">4.2.1.3 Create Multi Folder</a></li>
         <li><a name="toc-Delete-Nickname_002c-Filter" href="#Delete-Nickname_002c-Filter">4.2.1.4 Delete Nickname, Filter</a></li>
         <li><a name="toc-Append-Folder-to-Empty-Group" href="#Append-Folder-to-Empty-Group">4.2.1.5 Append Folder to Empty Group</a></li>
-        <li><a name="toc-Charset-of-the-Folders-File_002e" href="#Charset-of-the-Folders-File_002e">4.2.1.6 Charset of the Folders File.</a></li>
+        <li><a name="toc-Charset-of-the-Folders-File" href="#Charset-of-the-Folders-File">4.2.1.6 Charset of the Folders File</a></li>
         <li><a name="toc-Create-Filter" href="#Create-Filter">4.2.1.7 Create Filter</a></li>
         <li><a name="toc-Sort-Folders" href="#Sort-Folders">4.2.1.8 Sort Folders</a></li>
         <li><a name="toc-Hiding-Folders-in-the-Access-Group" href="#Hiding-Folders-in-the-Access-Group">4.2.1.9 Hiding Folders in the Access Group</a></li>
@@ -12240,7 +12351,7 @@ Previous: <a href="#Variable-Index" accesskey="p" rel="prev">Variable Index</a>,
     </ul></li>
     <li><a name="toc-Tips-1" href="#Tips-1">9.3 Tips</a>
     <ul class="no-bullet">
-      <li><a name="toc-Treating-archive-folders_002e" href="#Treating-archive-folders_002e">9.3.1 Treating archive folders.</a></li>
+      <li><a name="toc-Treating-archive-folders" href="#Treating-archive-folders">9.3.1 Treating archive folders</a></li>
       <li><a name="toc-Confirming" href="#Confirming">9.3.2 Confirming</a></li>
       <li><a name="toc-Re_002dfiling-Reserved-Messages" href="#Re_002dfiling-Reserved-Messages">9.3.3 Re-filing Reserved Messages</a></li>
     </ul></li>
@@ -12360,7 +12471,13 @@ Previous: <a href="#Variable-Index" accesskey="p" rel="prev">Variable Index</a>,
     <ul class="no-bullet">
       <li><a name="toc-Customizable-Variables-13" href="#Customizable-Variables-13">14.3.1 Customizable Variables</a></li>
     </ul></li>
-    <li><a name="toc-Manage-Passwords" href="#Password-Management">14.4 Manage Passwords</a></li>
+    <li><a name="toc-Manage-Passwords" href="#Password-Management">14.4 Manage Passwords</a>
+    <ul class="no-bullet">
+      <li><a name="toc-Using-auth_002dsource-for-password-managament" href="#Auth_002dsource">14.4.1 Using auth-source for password managament</a>
+      <ul class="no-bullet">
+        <li><a name="toc-Limitations-of-using-auth_002dsource" href="#Limitations-of-using-auth_002dsource">14.4.1.1 Limitations of using auth-source</a></li>
+      </ul></li>
+    </ul></li>
     <li><a name="toc-Message-splitting" href="#Split-messages">14.5 Message splitting</a></li>
     <li><a name="toc-Batch-Processing-1" href="#Batch-Processing">14.6 Batch Processing</a>
     <ul class="no-bullet">
@@ -12380,7 +12497,7 @@ Previous: <a href="#Variable-Index" accesskey="p" rel="prev">Variable Index</a>,
     <li><a name="toc-Migration-from-prior-to-the-version-2_002e12_002e0" href="#Before-2_002e12_002e0">15.1 Migration from prior to the version 2.12.0</a>
     <ul class="no-bullet">
       <li><a name="toc-The-conversion-of-msgdb" href="#The-conversion-of-msgdb">15.1.1 The conversion of msgdb</a></li>
-      <li><a name="toc-Changes-from-_0027mark-folder-to-_0027flag_002e" href="#Changes-from-_0027mark-folder-to-_0027flag_002e">15.1.2 Changes from &lsquo;<samp>'mark</samp>&rsquo; folder to  &lsquo;<samp>'flag</samp>&rsquo;.</a></li>
+      <li><a name="toc-Changes-from-_0027mark-folder-to-_0027flag" href="#Changes-from-_0027mark-folder-to-_0027flag">15.1.2 Changes from &lsquo;<samp>'mark</samp>&rsquo; folder to  &lsquo;<samp>'flag</samp>&rsquo;</a></li>
     </ul></li>
   </ul></li>
   <li><a name="toc-Terminology-around-Wanderlust" href="#Terminology">16 Terminology around Wanderlust</a></li>

@@ -1,6 +1,6 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-<!-- Created by GNU Texinfo 6.1, http://www.gnu.org/software/texinfo/ -->
+<!-- Created by GNU Texinfo 6.3, http://www.gnu.org/software/texinfo/ -->
 <head>
 <title>Wanderlust &ndash; Yet Another Message Interface On Emacsen &ndash;</title>
 
@@ -1533,9 +1533,11 @@ Next: <a href="#Multi-Folder" accesskey="n" rel="next">Multi Folder</a>, Previou
 </td></tr>
 <tr><td align="left" valign="top">&bull; <a href="#grep" accesskey="2">grep</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">grep
 </td></tr>
-<tr><td align="left" valign="top">&bull; <a href="#mu" accesskey="3">mu</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">mu
+<tr><td align="left" valign="top">&bull; <a href="#rgrep" accesskey="3">rgrep</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">rgrep
 </td></tr>
-<tr><td align="left" valign="top">&bull; <a href="#notmuch" accesskey="4">notmuch</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">notmuch
+<tr><td align="left" valign="top">&bull; <a href="#mu" accesskey="4">mu</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">mu
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="#notmuch" accesskey="5">notmuch</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">notmuch
 </td></tr>
 </table>
 
@@ -1626,11 +1628,12 @@ Next: <a href="#grep" accesskey="n" rel="next">grep</a>, Previous: <a href="#Sea
 <a name="grep"></a>
 <div class="header">
 <p>
-Next: <a href="#mu" accesskey="n" rel="next">mu</a>, Previous: <a href="#namazu" accesskey="p" rel="prev">namazu</a>, Up: <a href="#Search-Folder" accesskey="u" rel="up">Search Folder</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
+Next: <a href="#rgrep" accesskey="n" rel="next">rgrep</a>, Previous: <a href="#namazu" accesskey="p" rel="prev">namazu</a>, Up: <a href="#Search-Folder" accesskey="u" rel="up">Search Folder</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
 </div>
 <a name="grep-1"></a>
 <h4 class="subsection">3.10.3 grep</h4>
 <a name="index-grep"></a>
+<a name="index-find"></a>
 
 <p>grep を使って、検索対象で指定されたディレクトリにあるファイルを検索します。
 </p>
@@ -1649,14 +1652,57 @@ Next: <a href="#mu" accesskey="n" rel="next">mu</a>, Previous: <a href="#namazu"
        &lsquo;<samp>&quot;</samp>&rsquo; で囲む必要があります
 </pre></div>
 
+<p>検索対象となるファイル名をすべて引数として grep を起動渡すため、
+ファイルが多すぎると失敗する場合があります。
+find が &lsquo;<samp>-maxdepth</samp>&rsquo; オプションを受け付けるのであれば、
+<samp>~/.wl</samp> に以下のように記載する事でこの問題を回避できます。
+</p>
+<div class="example">
+<pre class="example">(eval-after-load &quot;elmo-search&quot;
+  '(elmo-search-register-engine
+    'grep 'local-file
+    :prog &quot;find&quot;
+    :args '(elmo-search-rgrep-target
+            &quot;-maxdepth&quot; &quot;1&quot; &quot;-type&quot; &quot;f&quot; &quot;-exec&quot; &quot;grep&quot; &quot;-l&quot; &quot;-e&quot;
+            pattern &quot;{}&quot; &quot;+&quot;)))
+</pre></div>
+
+<p>find の &lsquo;<samp>-exec command {} +</samp>&rsquo; オプションが正しく動作しない
+場合は 最後の &lsquo;<samp>+</samp>&rsquo; を &lsquo;<samp>;</samp>&rsquo; に変えると動作するかもしれませんが、
+ものすごく遅いかもしれません。
+</p>
+<hr>
+<a name="rgrep"></a>
+<div class="header">
+<p>
+Next: <a href="#mu" accesskey="n" rel="next">mu</a>, Previous: <a href="#grep" accesskey="p" rel="prev">grep</a>, Up: <a href="#Search-Folder" accesskey="u" rel="up">Search Folder</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<a name="rgrep-1"></a>
+<h4 class="subsection">3.10.4 rgrep</h4>
+
+<p>grep の &lsquo;<samp>-r</samp>&rsquo; オプションをを使って、検索対象で指定された
+ディレクトリ以下にあるファイルを検索します。
+&lsquo;<samp>-r</samp>&rsquo; オプションを受け付ける grep が必要です。
+</p>
+<p>検索方式 grep とは異なり、対象ディレクトリのサブディレクトリにある
+ファイルも検索対象になります (see <a href="#grep">grep</a>)。
+また、ファイル数に関する制限は生じません。
+その他、書式などは検索方式grepに準じます。
+</p>
+<div class="example">
+<pre class="example">[wanderlust]~/Mail/inbox!rgrep
+    -&gt; ディレクトリ &quot;~/Mail/inbox&quot; 以下から
+       &quot;wanderlust&quot; にマッチするものを探す
+</pre></div>
+
 <hr>
 <a name="mu"></a>
 <div class="header">
 <p>
-Next: <a href="#notmuch" accesskey="n" rel="next">notmuch</a>, Previous: <a href="#grep" accesskey="p" rel="prev">grep</a>, Up: <a href="#Search-Folder" accesskey="u" rel="up">Search Folder</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
+Next: <a href="#notmuch" accesskey="n" rel="next">notmuch</a>, Previous: <a href="#rgrep" accesskey="p" rel="prev">rgrep</a>, Up: <a href="#Search-Folder" accesskey="u" rel="up">Search Folder</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
 </div>
 <a name="mu-1"></a>
-<h4 class="subsection">3.10.4 mu</h4>
+<h4 class="subsection">3.10.5 mu</h4>
 <a name="index-mu"></a>
 
 <p>mu (<a href="http://www.djcbsoftware.nl/code/mu/">http://www.djcbsoftware.nl/code/mu/</a>) を使って、文書を検索します。
@@ -1693,7 +1739,7 @@ Next: <a href="#notmuch" accesskey="n" rel="next">notmuch</a>, Previous: <a href
 Previous: <a href="#mu" accesskey="p" rel="prev">mu</a>, Up: <a href="#Search-Folder" accesskey="u" rel="up">Search Folder</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
 </div>
 <a name="notmuch-1"></a>
-<h4 class="subsection">3.10.5 notmuch</h4>
+<h4 class="subsection">3.10.6 notmuch</h4>
 <a name="index-notmuch"></a>
 
 <p>notmuch (<a href="http://notmuchmail.org/">http://notmuchmail.org/</a>) を使って、文書を検索します。
@@ -9371,7 +9417,15 @@ Next: <a href="#Password-Management" accesskey="n" rel="next">Password Managemen
 <dt><code>wl-biff-check-interval</code></dt>
 <dd><a name="index-wl_002dbiff_002dcheck_002dinterval"></a>
 <p>初期設定は 40 (単位:秒)。
-この値ごとにメール着信のチェックを行ないます。
+この値ごとにメール着信のチェックを行なおうとします。
+</p>
+</dd>
+<dt><code>wl-biff-check-delay</code></dt>
+<dd><a name="index-wl_002dbiff_002dcheck_002ddelay"></a>
+<p>初期設定は 0 (単位:秒)。
+<code>wl-biff-check-interval</code> で指定した時間が経過し、かつ、
+この変数で指定された時間だけアイドル状態が続いた場合にチェックを行います。
+XEmacs では無効です。
 </p>
 </dd>
 <dt><code>wl-biff-use-idle-timer</code></dt>
@@ -9390,9 +9444,14 @@ Next: <a href="#Password-Management" accesskey="n" rel="next">Password Managemen
 <pre class="lisp">(setq wl-biff-notify-hook '(ding))
 </pre></div>
 <p>音を鳴らしたりしない場合は <code>nil</code> に設定してください。
+</p>
+</dd>
+<dt><code>wl-biff-unnotify-hook</code></dt>
+<dd><a name="index-wl_002dbiff_002dunnotify_002dhook"></a>
+<p>前回のチェックで新しいメールが届いており、
+今回のチェックで新しいメールが無くなった際に実行されるフック。
 </p></dd>
 </dl>
-
 
 <hr>
 <a name="Password-Management"></a>
@@ -9403,11 +9462,13 @@ Next: <a href="#Split-messages" accesskey="n" rel="next">Split messages</a>, Pre
 <a name="pasuwadonoGuan-Li-"></a>
 <h3 class="section">14.4 パスワードの管理</h3>
 
-<p>サーバに接続する為に入力したパスワードは変数 <code>elmo-passwd-alist</code> に
+<p>サーバに接続する為に入力したパスワードは変数 <code>elmo-passwd-storage</code>  に
 接続毎に保持されます。この変数にはエンコードされた生のパスワードが保持さ
 れており、Emacs を他人に触られるとパスワードを見られる危険性があるので十
 分に注意して下さい。
 </p>
+<a name="index-elmo_002dpasswd_002dalist_002dclear"></a>
+<a name="index-elmo_002dpasswd_002dalist_002dsave"></a>
 <p>パスワードが保持されている状態で <kbd>M-x elmo-passwd-alist-save</kbd> を実行
 するとパスワードがファイルに保存され、パスワードの入力が不要になります。
 この場合、キー入力を盗み見られる危険性は減るかもしれませんが、生のパスワ
@@ -9432,6 +9493,40 @@ Non-nil な値が設定された場合は、新規にパスワードが入力さ
 セットされます。<code>nil</code> の場合は入力されたパスワードを消去しません。
 </p></dd>
 </dl>
+
+<table class="menu" border="0" cellspacing="0">
+<tr><td align="left" valign="top">&bull; <a href="#Auth_002dsource" accesskey="1">Auth-source</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">auth-source を利用したパスワードの管理
+</td></tr>
+</table>
+
+
+<hr>
+<a name="Auth_002dsource"></a>
+<div class="header">
+<p>
+Previous: <a href="#Password-Management" accesskey="p" rel="prev">Password Management</a>, Up: <a href="#Password-Management" accesskey="u" rel="up">Password Management</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<a name="auth_002dsource-woLi-Yong-sitapasuwadonoGuan-Li-"></a>
+<h4 class="subsection">14.4.1 auth-source を利用したパスワードの管理</h4>
+<a name="index-auth_002dsource"></a>
+
+<a name="index-elmo_002dpasswd_002dstorage_002dtype"></a>
+<p><samp>~/.wl</samp> に <code>(setq elmo-passwd-storage-type 'auth-source)</code>
+のように記述するとパスワードの管理に auth-source
+(see <cite><a href="auth.html#Top">Emacs auth-source</a></cite>) を利用するようになります。
+</p>
+
+<a name="auth_002dsource-Li-Yong-Shi-noZhi-Xian-"></a>
+<h4 class="subsubsection">14.4.1.1 auth-source 利用時の制限</h4>
+
+<p>auth-source 使用時は以下の制限があります。
+</p>
+<ul>
+<li> プロトコル名や認証メカニズムによるパスワードの区別を行いません。
+</li><li> netrc バックエンドの制限かもしれませんが、
+同一ホスト名に複数アカウントが存在する場合、インタラクティブにパスワードを
+入力することができず、あらかじめエントリを作成しておく必要があります。
+</li></ul>
 
 
 <hr>
@@ -10580,6 +10675,7 @@ Next: <a href="#Key-Index" accesskey="n" rel="next">Key Index</a>, Previous: <a 
 <tr><td></td><td valign="top"><a href="#index-Archive-variables">Archive variables</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Archive-Vars">Archive Vars</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-Archiver">Archiver</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Archiver">Archiver</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-Atom-Folder">Atom Folder</a>:</td><td>&nbsp;</td><td valign="top"><a href="#RSS-Folder">RSS Folder</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-auth_002dsource">auth-source</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Auth_002dsource">Auth-source</a></td></tr>
 <tr><td colspan="4"> <hr></td></tr>
 <tr><th><a name="Concept-Index_cp_letter-B">B</a></th><td></td><td></td></tr>
 <tr><td></td><td valign="top"><a href="#index-Backtrace">Backtrace</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Mailing-List">Mailing List</a></td></tr>
@@ -10614,6 +10710,7 @@ Next: <a href="#Key-Index" accesskey="n" rel="next">Key Index</a>, Previous: <a 
 <tr><th><a name="Concept-Index_cp_letter-F">F</a></th><td></td><td></td></tr>
 <tr><td></td><td valign="top"><a href="#index-File-Folder">File Folder</a>:</td><td>&nbsp;</td><td valign="top"><a href="#File-Folder">File Folder</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-Filter-Folder">Filter Folder</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Filter-Folder">Filter Folder</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-find">find</a>:</td><td>&nbsp;</td><td valign="top"><a href="#grep">grep</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-Flag">Flag</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Filter-Folder">Filter Folder</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-Flag-1">Flag</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Internal-Folder">Internal Folder</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-FLIM">FLIM</a>:</td><td>&nbsp;</td><td valign="top"><a href="#MIME-Modules">MIME Modules</a></td></tr>
@@ -11426,6 +11523,7 @@ Next: <a href="#Function-Index" accesskey="n" rel="next">Function Index</a>, Pre
 <tr><td></td><td valign="top"><a href="#index-elmo_002dnntp_002duse_002dcache"><code>elmo-nntp-use-cache</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Variables-of-Summary">Variables of Summary</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-elmo_002dpasswd_002dalist_002dfile_002dname"><code>elmo-passwd-alist-file-name</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Password-Management">Password Management</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-elmo_002dpasswd_002dlife_002dtime"><code>elmo-passwd-life-time</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Password-Management">Password Management</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-elmo_002dpasswd_002dstorage_002dtype"><code>elmo-passwd-storage-type</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Auth_002dsource">Auth-source</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-elmo_002dplugged_002dcondition"><code>elmo-plugged-condition</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Variables-of-Plugged-Mode">Variables of Plugged Mode</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-elmo_002dpop3_002dsend_002dcommand_002dsynchronously"><code>elmo-pop3-send-command-synchronously</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Customizable-Valiables">Customizable Valiables</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-elmo_002dpop3_002duse_002dcache"><code>elmo-pop3-use-cache</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Variables-of-Summary">Variables of Summary</a></td></tr>
@@ -11474,9 +11572,11 @@ Next: <a href="#Function-Index" accesskey="n" rel="next">Function Index</a>, Pre
 <tr><td></td><td valign="top"><a href="#index-wl_002dauto_002duncheck_002dfolder_002dlist"><code>wl-auto-uncheck-folder-list</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Customizable-Valiables">Customizable Valiables</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-wl_002dbatch_002dprefetch_002dfolder_002dlist"><code>wl-batch-prefetch-folder-list</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Batch-Processing">Batch Processing</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-wl_002dbcc"><code>wl-bcc</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Editing-Header">Editing Header</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-wl_002dbiff_002dcheck_002ddelay"><code>wl-biff-check-delay</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Biff">Biff</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-wl_002dbiff_002dcheck_002dfolder_002dlist"><code>wl-biff-check-folder-list</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Biff">Biff</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-wl_002dbiff_002dcheck_002dinterval"><code>wl-biff-check-interval</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Biff">Biff</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-wl_002dbiff_002dnotify_002dhook"><code>wl-biff-notify-hook</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Biff">Biff</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-wl_002dbiff_002dunnotify_002dhook"><code>wl-biff-unnotify-hook</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Biff">Biff</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-wl_002dbiff_002duse_002didle_002dtimer"><code>wl-biff-use-idle-timer</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Biff">Biff</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-wl_002dbreak_002dpages"><code>wl-break-pages</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Variables-of-Summary">Variables of Summary</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-wl_002ddefault_002dfolder"><code>wl-default-folder</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Customizable-Valiables">Customizable Valiables</a></td></tr>
@@ -11701,6 +11801,8 @@ Previous: <a href="#Variable-Index" accesskey="p" rel="prev">Variable Index</a>,
 <h3 class="unnumberedsec">関数索引</h3>
 <table><tr><th valign="top">Jump to: &nbsp; </th><td><a class="summary-letter" href="#Function-Index_fn_letter-C"><b>C</b></a>
  &nbsp; 
+<a class="summary-letter" href="#Function-Index_fn_letter-E"><b>E</b></a>
+ &nbsp; 
 <a class="summary-letter" href="#Function-Index_fn_letter-W"><b>W</b></a>
  &nbsp; 
 </td></tr></table>
@@ -11709,6 +11811,10 @@ Previous: <a href="#Variable-Index" accesskey="p" rel="prev">Variable Index</a>,
 <tr><td colspan="4"> <hr></td></tr>
 <tr><th><a name="Function-Index_fn_letter-C">C</a></th><td></td><td></td></tr>
 <tr><td></td><td valign="top"><a href="#index-compose_002dmail"><code>compose-mail</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Minimal-Settings">Minimal Settings</a></td></tr>
+<tr><td colspan="4"> <hr></td></tr>
+<tr><th><a name="Function-Index_fn_letter-E">E</a></th><td></td><td></td></tr>
+<tr><td></td><td valign="top"><a href="#index-elmo_002dpasswd_002dalist_002dclear"><code>elmo-passwd-alist-clear</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Password-Management">Password Management</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-elmo_002dpasswd_002dalist_002dsave"><code>elmo-passwd-alist-save</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Password-Management">Password Management</a></td></tr>
 <tr><td colspan="4"> <hr></td></tr>
 <tr><th><a name="Function-Index_fn_letter-W">W</a></th><td></td><td></td></tr>
 <tr><td></td><td valign="top"><a href="#index-wl_002daddrmgr"><code>wl-addrmgr</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Key-Bindings-of-Draft">Key Bindings of Draft</a></td></tr>
@@ -11948,6 +12054,8 @@ Previous: <a href="#Variable-Index" accesskey="p" rel="prev">Variable Index</a>,
 </table>
 <table><tr><th valign="top">Jump to: &nbsp; </th><td><a class="summary-letter" href="#Function-Index_fn_letter-C"><b>C</b></a>
  &nbsp; 
+<a class="summary-letter" href="#Function-Index_fn_letter-E"><b>E</b></a>
+ &nbsp; 
 <a class="summary-letter" href="#Function-Index_fn_letter-W"><b>W</b></a>
  &nbsp; 
 </td></tr></table>
@@ -12045,8 +12153,9 @@ Previous: <a href="#Variable-Index" accesskey="p" rel="prev">Variable Index</a>,
         <li><a name="toc-Fu-Shu-indetukusunoZhi-Ding-" href="#Fu-Shu-indetukusunoZhi-Ding-">3.10.2.3 複数インデックスの指定</a></li>
       </ul></li>
       <li><a name="toc-grep-1" href="#grep">3.10.3 grep</a></li>
-      <li><a name="toc-mu-1" href="#mu">3.10.4 mu</a></li>
-      <li><a name="toc-notmuch-1" href="#notmuch">3.10.5 notmuch</a></li>
+      <li><a name="toc-rgrep-1" href="#rgrep">3.10.4 rgrep</a></li>
+      <li><a name="toc-mu-1" href="#mu">3.10.5 mu</a></li>
+      <li><a name="toc-notmuch-1" href="#notmuch">3.10.6 notmuch</a></li>
     </ul></li>
     <li><a name="toc-marutihuoruda" href="#Multi-Folder">3.11 マルチフォルダ</a></li>
     <li><a name="toc-huirutahuoruda" href="#Filter-Folder">3.12 フィルタフォルダ</a></li>
@@ -12281,7 +12390,13 @@ Previous: <a href="#Variable-Index" accesskey="p" rel="prev">Variable Index</a>,
     <ul class="no-bullet">
       <li><a name="toc-kasutamaizuBian-Shu--17" href="#kasutamaizuBian-Shu--17">14.3.1 カスタマイズ変数</a></li>
     </ul></li>
-    <li><a name="toc-pasuwadonoGuan-Li-" href="#Password-Management">14.4 パスワードの管理</a></li>
+    <li><a name="toc-pasuwadonoGuan-Li-" href="#Password-Management">14.4 パスワードの管理</a>
+    <ul class="no-bullet">
+      <li><a name="toc-auth_002dsource-woLi-Yong-sitapasuwadonoGuan-Li-" href="#Auth_002dsource">14.4.1 auth-source を利用したパスワードの管理</a>
+      <ul class="no-bullet">
+        <li><a name="toc-auth_002dsource-Li-Yong-Shi-noZhi-Xian-" href="#auth_002dsource-Li-Yong-Shi-noZhi-Xian-">14.4.1.1 auth-source 利用時の制限</a></li>
+      </ul></li>
+    </ul></li>
     <li><a name="toc-metusezinoZhen-riFen-ke" href="#Split-messages">14.5 メッセージの振り分け</a></li>
     <li><a name="toc-batutiChu-Li-" href="#Batch-Processing">14.6 バッチ処理</a>
     <ul class="no-bullet">
