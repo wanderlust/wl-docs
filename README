@@ -1,1 +1,11 @@
 See http://wanderlust.github.io/wl-docs/
+
+# Generating .html file
+## Requirement
+
+* texi2any (included in [Texinfo](https://www.gnu.org/software/texinfo/))
+* [janix-texinfo.css](https://github.com/Janixman/janix-texinfo.css/)
+
+## Procedure
+
+$ texi2any --ifinfo  --no-split --html --css-ref=janix-texinfo.css your.texi
