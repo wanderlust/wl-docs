@@ -3329,8 +3329,24 @@ off-line operation.  The cache file is saved under the directory
 elmo-cache-expire-by-size</kbd>.  The command deletes cache files to the
 specified size by the order of last accessed time.
 </p>
+<a name="Cache-Filename"></a>
+<h4 class="subsection">5.3.2 Cache Filename</h4>
+
+<a name="index-elmo_002dmsgid_002dto_002dcache_002dmax_002dlength"></a>
+<a name="index-elmo_002dmsgid_002dto_002dcache_002dalgorithm"></a>
+<p>A filename of cache file is generated from Message-ID with minimal
+modification.  But if Message-ID is very long, cache file can&rsquo;t be
+created.  To avoid it, filename&rsquo;s length is kept constant by hash
+function when filename is longer than
+<code>elmo-msgid-to-cache-max-length</code>&rsquo;s value.  When the value of this
+variable is <code>nil</code>, this feature is disabled.  An algorithm of hash
+is indicated by <code>elmo-msgid-to-cache-algorithm</code>.
+</p>
+<p>Changing the value of these variables, existing cache files may be
+unused.
+</p>
 <a name="Buffer-Cache-and-Prefetching"></a>
-<h4 class="subsection">5.3.2 Buffer Cache and Prefetching</h4>
+<h4 class="subsection">5.3.3 Buffer Cache and Prefetching</h4>
 
 <p>The messages that are read are kept in the cache buffer so as to make
 the behavior fast when you are to read the message again.  It is called
@@ -11617,6 +11633,8 @@ Next: <a href="#Function-Index" accesskey="n" rel="next">Function Index</a>, Pre
 <tr><td></td><td valign="top"><a href="#index-elmo_002dmessage_002dfetch_002dconfirm"><code>elmo-message-fetch-confirm</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Variables-of-Summary">Variables of Summary</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-elmo_002dmessage_002dfetch_002dthreshold"><code>elmo-message-fetch-threshold</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Variables-of-Summary">Variables of Summary</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-elmo_002dmsgdb_002dextra_002dfields"><code>elmo-msgdb-extra-fields</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Auto-Refile">Auto Refile</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-elmo_002dmsgid_002dto_002dcache_002dalgorithm"><code>elmo-msgid-to-cache-algorithm</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Cache">Cache</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-elmo_002dmsgid_002dto_002dcache_002dmax_002dlength"><code>elmo-msgid-to-cache-max-length</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Cache">Cache</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-elmo_002dnetwork_002dsession_002didle_002dtimeout"><code>elmo-network-session-idle-timeout</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Customizable-Variables">Customizable Variables</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-elmo_002dnntp_002ddefault_002duse_002dlistgroup"><code>elmo-nntp-default-use-listgroup</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Customizable-Variables">Customizable Variables</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-elmo_002dnntp_002dlist_002dfolders_002duse_002dcache"><code>elmo-nntp-list-folders-use-cache</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Customizable-Variables">Customizable Variables</a></td></tr>
@@ -12307,7 +12325,8 @@ Previous: <a href="#Variable-Index" accesskey="p" rel="prev">Variable Index</a>,
     <li><a name="toc-Cache-1" href="#Cache">5.3 Cache</a>
     <ul class="no-bullet">
       <li><a name="toc-Cache-File" href="#Cache-File">5.3.1 Cache File</a></li>
-      <li><a name="toc-Buffer-Cache-and-Prefetching" href="#Buffer-Cache-and-Prefetching">5.3.2 Buffer Cache and Prefetching</a></li>
+      <li><a name="toc-Cache-Filename" href="#Cache-Filename">5.3.2 Cache Filename</a></li>
+      <li><a name="toc-Buffer-Cache-and-Prefetching" href="#Buffer-Cache-and-Prefetching">5.3.3 Buffer Cache and Prefetching</a></li>
     </ul></li>
     <li><a name="toc-Auto-Refile-1" href="#Auto-Refile">5.4 Auto Refile</a></li>
     <li><a name="toc-Sticky-Summary-1" href="#Sticky-Summary">5.5 Sticky Summary</a></li>

@@ -3302,8 +3302,24 @@ Next: <a href="#Auto-Refile" accesskey="n" rel="next">Auto Refile</a>, Previous:
 <kbd>M-x elmo-cache-expire-by-size</kbd> と入力してください。最近使われてない
 キャッシュから順に、一定のディスク容量になるまで消します。
 </p>
+<a name="kiyatusiyuhuairuMing-"></a>
+<h4 class="subsection">5.3.2 キャッシュファイル名</h4>
+
+<a name="index-elmo_002dmsgid_002dto_002dcache_002dmax_002dlength"></a>
+<a name="index-elmo_002dmsgid_002dto_002dcache_002dalgorithm"></a>
+<p>キャッシュファイルのファイル名は、 Message-ID を単純に加工したファイル名
+が生成されます。しかし、Message-ID が極端に長い場合にファイルを作成でき
+ない場合があります。その為、 <code>elmo-msgid-to-cache-max-length</code> に指
+定された整数より長いファイル名が作られた場合はハッシュ関数を用いて一定の
+長さのファイル名になるように調整します。 変数の値が <code>nil</code> の場合に
+はこの処理は行われません。ハッシュ関数のアルゴリズムは
+<code>elmo-msgid-to-cache-algorithm</code> で指定します。
+</p>
+<p>いずれかの値を変更した場合、既存のキャッシュファイルが参照されなく場合
+があります。
+</p>
 <a name="batuhuakiyatusiyutoXian-Du-miJi-Neng-"></a>
-<h4 class="subsection">5.3.2 バッファキャッシュと先読み機能</h4>
+<h4 class="subsection">5.3.3 バッファキャッシュと先読み機能</h4>
 
 <p>一度読んだメッセージは一定数バッファに保持されます。これにより、次にその
 メッセージを表示する際の動作を高速にします。保持するバッファの数は
@@ -10401,7 +10417,7 @@ Next: <a href="#Addition" accesskey="n" rel="next">Addition</a>, Previous: <a hr
 <p>と書いたメールを送って下さい。
 </p>
 <p>バグ報告やパッチの送付もこれらのメーリングリストへ送ってください。メーリ
-ングリスへの送信はメンバになる必要があります。
+ングリストへの送信はメンバになる必要があります。
 </p>
 <p>また、バグ報告の場合はバックトレースを取って添付すると原因究明しやすくな
 ります。 <a name="DOCF3" href="#FOOT3"><sup>3</sup></a>
@@ -11529,6 +11545,8 @@ Next: <a href="#Function-Index" accesskey="n" rel="next">Function Index</a>, Pre
 <tr><td></td><td valign="top"><a href="#index-elmo_002dmessage_002dfetch_002dconfirm"><code>elmo-message-fetch-confirm</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Variables-of-Summary">Variables of Summary</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-elmo_002dmessage_002dfetch_002dthreshold"><code>elmo-message-fetch-threshold</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Variables-of-Summary">Variables of Summary</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-elmo_002dmsgdb_002dextra_002dfields"><code>elmo-msgdb-extra-fields</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Auto-Refile">Auto Refile</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-elmo_002dmsgid_002dto_002dcache_002dalgorithm"><code>elmo-msgid-to-cache-algorithm</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Cache">Cache</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-elmo_002dmsgid_002dto_002dcache_002dmax_002dlength"><code>elmo-msgid-to-cache-max-length</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Cache">Cache</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-elmo_002dnetwork_002dsession_002didle_002dtimeout"><code>elmo-network-session-idle-timeout</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Customizable-Valiables">Customizable Valiables</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-elmo_002dnntp_002ddefault_002duse_002dlistgroup"><code>elmo-nntp-default-use-listgroup</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Customizable-Valiables">Customizable Valiables</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-elmo_002dnntp_002dlist_002dfolders_002duse_002dcache"><code>elmo-nntp-list-folders-use-cache</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Customizable-Valiables">Customizable Valiables</a></td></tr>
@@ -12226,7 +12244,8 @@ Previous: <a href="#Variable-Index" accesskey="p" rel="prev">Variable Index</a>,
     <li><a name="toc-kiyatusiyu" href="#Cache">5.3 キャッシュ</a>
     <ul class="no-bullet">
       <li><a name="toc-kiyatusiyuhuairu" href="#kiyatusiyuhuairu">5.3.1 キャッシュファイル</a></li>
-      <li><a name="toc-batuhuakiyatusiyutoXian-Du-miJi-Neng-" href="#batuhuakiyatusiyutoXian-Du-miJi-Neng-">5.3.2 バッファキャッシュと先読み機能</a></li>
+      <li><a name="toc-kiyatusiyuhuairuMing-" href="#kiyatusiyuhuairuMing-">5.3.2 キャッシュファイル名</a></li>
+      <li><a name="toc-batuhuakiyatusiyutoXian-Du-miJi-Neng-" href="#batuhuakiyatusiyutoXian-Du-miJi-Neng-">5.3.3 バッファキャッシュと先読み機能</a></li>
     </ul></li>
     <li><a name="toc-Zi-Dong-rihuairu" href="#Auto-Refile">5.4 自動リファイル</a></li>
     <li><a name="toc-suteitukisamari" href="#Sticky-Summary">5.5 スティッキーサマリ</a></li>
