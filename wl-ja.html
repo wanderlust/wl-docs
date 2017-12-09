@@ -3516,6 +3516,11 @@ Next: <a href="#Mark-and-Action" accesskey="n" rel="next">Mark and Action</a>, P
 <a name="samariXing-noXing-Shi-"></a>
 <h3 class="section">5.6 サマリ行の形式</h3>
 <a name="index-Format-of-summary-lines"></a>
+<a name="index-wl_002dsummary_002dline_002dformat"></a>
+<a name="index-wl_002dsummary_002dline_002dformat_002dspec_002dalist"></a>
+<a name="index-wl_002dfolder_002dsummary_002dline_002dformat_002dalist"></a>
+<a name="index-wl_002dsummary_002ddefault_002dnumber_002dcolumn"></a>
+<a name="index-wl_002dsummary_002dnumber_002dcolumn_002dalist"></a>
 
 <p>サマリ行の形式は、ある程度自由に変更できます。
 </p>
@@ -3535,8 +3540,8 @@ Next: <a href="#Mark-and-Action" accesskey="n" rel="next">Mark and Action</a>, P
 <p>例:
 </p>
 <div class="example">
-<pre class="example">%5n   -&gt; `1    '
-%-05n -&gt; `00001'
+<pre class="example">%5l   -&gt; `1    '
+%-05l -&gt; `00001'
 </pre></div>
 
 <p>デフォルトの <code>wl-summary-line-format-spec-alist</code> で用意されている
@@ -3566,6 +3571,10 @@ Next: <a href="#Mark-and-Action" accesskey="n" rel="next">Mark and Action</a>, P
 %~  直前の項目が空でない場合に ` '
 </pre></div>
 
+<p>メッセージ番号 (&lsquo;<samp>%n</samp>&rsquo;) の桁数を変更したい場合は、
+<code>wl-summary-default-number-column</code> もしくは
+<code>wl-summary-number-column-alist</code> の値を変更してください。
+</p>
 <p><code>wl-summary-line-format</code> に一時的マーク (&lsquo;<samp>%T</samp>&rsquo;) と永続的マーク
 (&lsquo;<samp>%P</samp>&rsquo;) を含める場合には、必ず一定の位置に表示されるように定義しなけ
 ればなりません。例えば、スレッドによって長さが変わる &lsquo;<samp>%t</samp>&rsquo; のうしろに
@@ -11670,6 +11679,7 @@ Next: <a href="#Function-Index" accesskey="n" rel="next">Function Index</a>, Pre
 <tr><td></td><td valign="top"><a href="#index-wl_002dfolder_002dnotify_002ddeleted"><code>wl-folder-notify-deleted</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Folder-Manager">Folder Manager</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-wl_002dfolder_002dpetname_002dalist"><code>wl-folder-petname-alist</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Selecting-Folder">Selecting Folder</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-wl_002dfolder_002dprocess_002dduplicates_002dalist"><code>wl-folder-process-duplicates-alist</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Variables-of-Summary">Variables of Summary</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-wl_002dfolder_002dsummary_002dline_002dformat_002dalist"><code>wl-folder-summary-line-format-alist</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Summary-View">Summary View</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-wl_002dfolder_002dsync_002drange_002dalist"><code>wl-folder-sync-range-alist</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Customizable-Valiables">Customizable Valiables</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-wl_002dfolder_002duse_002dframe"><code>wl-folder-use-frame</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Selecting-Folder">Selecting Folder</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-wl_002dfolder_002duse_002dserver_002ddiff"><code>wl-folder-use-server-diff</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Customizable-Valiables">Customizable Valiables</a></td></tr>
@@ -11760,6 +11770,7 @@ Next: <a href="#Function-Index" accesskey="n" rel="next">Function Index</a>, Pre
 <tr><td></td><td valign="top"><a href="#index-wl_002dsubscribed_002dmailing_002dlist"><code>wl-subscribed-mailing-list</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Variables-of-Draft-Mode">Variables of Draft Mode</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-wl_002dsummary_002dalways_002dsticky_002dfolder_002dlist"><code>wl-summary-always-sticky-folder-list</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Variables-of-Summary">Variables of Summary</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-wl_002dsummary_002dauto_002dsync_002dmarks"><code>wl-summary-auto-sync-marks</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Score-Commands">Score Commands</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-wl_002dsummary_002ddefault_002dnumber_002dcolumn"><code>wl-summary-default-number-column</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Summary-View">Summary View</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-wl_002dsummary_002ddefault_002dscore"><code>wl-summary-default-score</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Score-Commands">Score Commands</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-wl_002dsummary_002ddefault_002dview"><code>wl-summary-default-view</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Variables-of-Summary">Variables of Summary</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-wl_002dsummary_002ddisplay_002dmime_002dmode_002dlist"><code>wl-summary-display-mime-mode-list</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Variables-of-Summary">Variables of Summary</a></td></tr>
@@ -11775,6 +11786,8 @@ Next: <a href="#Function-Index" accesskey="n" rel="next">Function Index</a>, Pre
 <tr><td></td><td valign="top"><a href="#index-wl_002dsummary_002dimportant_002dabove"><code>wl-summary-important-above</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Score-Commands">Score Commands</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-wl_002dsummary_002dindent_002dlength_002dlimit"><code>wl-summary-indent-length-limit</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Variables-of-Summary">Variables of Summary</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-wl_002dsummary_002dkeep_002dcursor_002dcommand"><code>wl-summary-keep-cursor-command</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Variables-of-Summary">Variables of Summary</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-wl_002dsummary_002dline_002dformat"><code>wl-summary-line-format</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Summary-View">Summary View</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-wl_002dsummary_002dline_002dformat_002dspec_002dalist"><code>wl-summary-line-format-spec-alist</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Summary-View">Summary View</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-wl_002dsummary_002dmark_002dbelow"><code>wl-summary-mark-below</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Score-Commands">Score Commands</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-wl_002dsummary_002dmax_002dthread_002ddepth"><code>wl-summary-max-thread-depth</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Variables-of-Summary">Variables of Summary</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-wl_002dsummary_002dmax_002dthread_002ddepth-1"><code>wl-summary-max-thread-depth</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Variables-of-Summary">Variables of Summary</a></td></tr>
@@ -11782,6 +11795,7 @@ Next: <a href="#Function-Index" accesskey="n" rel="next">Function Index</a>, Pre
 <tr><td></td><td valign="top"><a href="#index-wl_002dsummary_002dmove_002dorder"><code>wl-summary-move-order</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Variables-of-Summary">Variables of Summary</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-wl_002dsummary_002dno_002dfrom_002dmessage"><code>wl-summary-no-from-message</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Variables-of-Summary">Variables of Summary</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-wl_002dsummary_002dno_002dsubject_002dmessage"><code>wl-summary-no-subject-message</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Variables-of-Summary">Variables of Summary</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-wl_002dsummary_002dnumber_002dcolumn_002dalist"><code>wl-summary-number-column-alist</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Summary-View">Summary View</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-wl_002dsummary_002dpartial_002dhighlight_002dabove_002dlines"><code>wl-summary-partial-highlight-above-lines</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Highlights">Highlights</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-wl_002dsummary_002dprint_002dargument_002dwithin_002dwindow"><code>wl-summary-print-argument-within-window</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Variables-of-Summary">Variables of Summary</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-wl_002dsummary_002drecenter"><code>wl-summary-recenter</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Variables-of-Summary">Variables of Summary</a></td></tr>
