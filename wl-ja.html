@@ -1,7 +1,8 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-<!-- Created by GNU Texinfo 6.4, http://www.gnu.org/software/texinfo/ -->
+<!-- Created by GNU Texinfo 6.5, http://www.gnu.org/software/texinfo/ -->
 <head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <title>Wanderlust &ndash; Yet Another Message Interface On Emacsen &ndash;</title>
 
 <meta name="description" content="Wanderlust &ndash; Yet Another Message Interface On Emacsen &ndash;">
@@ -9,7 +10,6 @@
 <meta name="resource-type" content="document">
 <meta name="distribution" content="global">
 <meta name="Generator" content="texi2any">
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <link href="#Top" rel="start" title="Top">
 <link href="#Index" rel="index" title="Index">
 <link href="#SEC_Contents" rel="contents" title="Table of Contents">
@@ -355,22 +355,23 @@ Next: <a href="#Install" accesskey="n" rel="next">Install</a>, Previous: <a href
 <a name="index-starttls"></a>
 
 <p>Wanderlust では、SMTP, IMAP, NNTP, POP のコネクションにおいて、SSL
-(Secure Socket Layer) を使用できます。
+(Secure Socket Layer) を使用でき、Emacs 24 以降でサポートされた
+組み込み GnuTLS が利用可能な場合はそれを使います。
 </p>
 <p>SSL の利用形態には、コネクションと同時に SSL negotiation を始めるものと、
 <code>STARTTLS</code> command の後に SSL negotiation を始めるものの二種類
 があります。
 </p>
-<p>前者については、Emacs 24 以降でサポートされた、組み込み GnuTLS が
-利用可能な場合はそれを使います。
-次に、 <samp>tls.el</samp> が存在すればそれを使います。この時に GnuTLS に
-含まれる <code>gnutls-cli</code> にパスが通っている必要があります。
-どちらもない場合は、本パッケージの <samp>utils</samp> ディレクトリにある
-<samp>ssl.el</samp> をインストールする必要があります。なおかつ、OpenSSL に含ま
-れる <code>openssl</code> にパスが通っている必要があります。
+<p>組み込み GnuTLS が利用不能な場合、前者については <samp>tls.el</samp> が存在すれば
+それを使います。この時に GnuTLS に含まれる <code>gnutls-cli</code> にパスが
+通っている必要があります。どちらもない場合は、本パッケージの
+<samp>utils</samp> ディレクトリにある<samp>ssl.el</samp> をインストールする必要があ
+ります。なおかつ、OpenSSL に含まれる <code>openssl</code> にパスが通ってい
+る必要があります。
 </p>
-<p>後者については <samp>starttls.el</samp> が必要になります。
-変数 <code>starttls-use-gnutls</code> の値によって、GnuTLS もしくは starttls
+<p>後者については、組み込み GnuTLS が利用不能な場合は <samp>starttls.el</samp> が
+必要になります。
+また、変数 <code>starttls-use-gnutls</code> の値によって、GnuTLS もしくは starttls
 パッケージが必要です。
 <samp>starttls.el</samp> が無い、もしくは <samp>starttls.el</samp> 内に
 <code>starttls-use-gnutls</code> の定義が無い場合は starttls パッケージを
@@ -5954,20 +5955,55 @@ Non-nil ならウィンドウを表示しながらテンプレートを選択す
 <dd><a name="index-wl_002ddraft_002dbuffer_002dstyle"></a>
 <p>初期設定は <code>full</code>。
 (返信と転送の場合以外の)ドラフトバッファのウインドウの形態を指定します。
-<code>keep</code> とすると現在のウィンドウを使い、
-<code>full</code> とするとフレーム全体のウインドウを使います。
-<code>split</code> とすると現在のウィンドウを分割して使います。
-関数が指定された場合、ドラフトバッファを引数としてそれ呼び出します。
+</p>
+<dl compact="compact">
+<dt><code>keep</code></dt>
+<dd><p>現在のウィンドウを使います。
+</p>
+</dd>
+<dt><code>full</code></dt>
+<dd><p>フレーム全体のウインドウを使います。
+</p>
+</dd>
+<dt><code>split</code></dt>
+<dd><p>現在のウィンドウを垂直に分割して使います。
+</p>
+</dd>
+<dt><code>split-horiz</code></dt>
+<dd><p>現在のウィンドウを水平に分割して使います。
+</p>
+</dd>
+<dt><code>msg-split</code></dt>
+<dd><p>返信時のようにメッセージバッファのウィンドウを垂直に分割して使います。
+</p>
+</dd>
+<dt><code>msg-split-horiz</code></dt>
+<dd><p>返信時のようにメッセージバッファのウィンドウを水平に分割して使います。
+</p></dd>
+</dl>
+
+<p>関数が指定された場合、ドラフトバッファを引数としてそれ呼び出します。
 </p>
 </dd>
 <dt><code>wl-draft-reply-buffer-style</code></dt>
 <dd><a name="index-wl_002ddraft_002dreply_002dbuffer_002dstyle"></a>
 <p>初期設定は <code>split</code>。
 返信と転送の場合のドラフトバッファのウインドウの形態を指定します。
-<code>keep</code> とするとメッセージバッファのウィンドウを使い、
-<code>full</code> とするとフレーム全体のウインドウを使います。
-<code>split</code> とするとメッセージバッファのウィンドウを分割して使います。
-関数が指定された場合、ドラフトバッファを引数としてそれ呼び出します。
+</p><dl compact="compact">
+<dt><code>keep</code></dt>
+<dd><p>メッセージバッファのウィンドウを使います。
+</p></dd>
+<dt><code>full</code></dt>
+<dd><p>フレーム全体のウインドウを使います。
+</p></dd>
+<dt><code>split</code></dt>
+<dd><p>メッセージバッファのウィンドウを垂直に分割して使います。
+</p></dd>
+<dt><code>split-horiz</code></dt>
+<dd><p>メッセージバッファのウィンドウを水平に分割して使います。
+</p></dd>
+</dl>
+<p>関数が指定された場合、ドラフトバッファを引数としてそれ呼び出します。
 </p>
 </dd>
 <dt><code>wl-draft-use-frame</code></dt>

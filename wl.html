@@ -1,7 +1,8 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-<!-- Created by GNU Texinfo 6.4, http://www.gnu.org/software/texinfo/ -->
+<!-- Created by GNU Texinfo 6.5, http://www.gnu.org/software/texinfo/ -->
 <head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <title>Wanderlust &ndash; Yet Another Message Interface On Emacsen &ndash;</title>
 
 <meta name="description" content="Wanderlust &ndash; Yet Another Message Interface On Emacsen &ndash;">
@@ -9,7 +10,6 @@
 <meta name="resource-type" content="document">
 <meta name="distribution" content="global">
 <meta name="Generator" content="texi2any">
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <link href="#Top" rel="start" title="Top">
 <link href="#Index" rel="index" title="Index">
 <link href="#SEC_Contents" rel="contents" title="Table of Contents">
@@ -344,20 +344,21 @@ Next: <a href="#Install" accesskey="n" rel="next">Install</a>, Previous: <a href
 
 <p>SSL (Secure Socket Layer) can be used for
 SMTP, IMAP, NNTP and POP connections in Wanderlust.
+Emacs 24 and later uses built-in GnuTLS if available.
 </p>
 <p>There are two ways to use SSL. One is to start SSL negotiation just
 after the connection establishment (generic way). The other one is to
 start SSL negotiation by invoking STARTTLS command in the each session.
 </p>
-<p>For the formal SSL (generic SSL), Emacs 24 or later uses built-in GnuTLS
-if available. if not available, Emacs try to use <samp>tls.el</samp>. In this
-case, GnuTLS&rsquo;s <code>gnutls-cli</code> is needed. if neither avialable,
-<samp>ssl.el</samp> of <samp>utils</samp> directory and OpenSSL&rsquo;s <code>openssl</code>.
+<p>If built-in GnuTLS is not available, Emacs try to use <samp>tls.el</samp> for
+the formal SSL (generic SSL). In this case, GnuTLS&rsquo;s
+<code>gnutls-cli</code> is needed. if neither avialable, <samp>ssl.el</samp> of
+<samp>utils</samp> directory and OpenSSL&rsquo;s <code>openssl</code>.
 </p>
-<p>For the latter SSL (STARTTLS), you need <samp>starttls.el</samp>. Moreover,
-GnuTLS or starttls package is needed according to
-<code>starttls-use-gnutls</code> variable&rsquo;s value.  If your Emacs doesn&rsquo;t have
-<samp>starttls.el</samp> neither <samp>starttls.el</samp> doesn&rsquo;t have the
+<p>For the latter SSL (STARTTLS), you need <samp>starttls.el</samp> if built-in
+GnuTLS is not available. Moreover, GnuTLS or starttls package is needed
+according to <code>starttls-use-gnutls</code> variable&rsquo;s value. If your Emacs
+doesn&rsquo;t have <samp>starttls.el</samp> or <samp>starttls.el</samp> doesn&rsquo;t have the
 defninition of <code>starttls-use-gnutls</code>, you need starttls package.
 </p>
 <p>You can download starttls package from the following site.
@@ -5992,10 +5993,36 @@ the size of the preview window.
 <dd><a name="index-wl_002ddraft_002dbuffer_002dstyle"></a>
 <p>The initial setting is <code>full</code>.
 Style of draft buffer window (except for replying and forwarding).
-<code>keep</code> is to use current window,
-<code>full</code> is to use full frame window,
-<code>split</code> is to split current window and use it.
-If some function is specified, it is called with the draft buffer
+</p>
+<dl compact="compact">
+<dt><code>keep</code></dt>
+<dd><p>is to use the current window,
+</p>
+</dd>
+<dt><code>full</code></dt>
+<dd><p>is to use full frame window,
+</p>
+</dd>
+<dt><code>split</code></dt>
+<dd><p>is to split the current window vertically and use it.
+</p>
+</dd>
+<dt><code>msg-split</code></dt>
+<dd><p>is to split the message window vertically and use it as if
+replying message.
+</p>
+</dd>
+<dt><code>split-horiz</code></dt>
+<dd><p>is to split the current window horizontally and use it.
+</p>
+</dd>
+<dt><code>msg-split-horiz</code></dt>
+<dd><p>is to split the message window horizontally and use it as if
+replying message.
+</p></dd>
+</dl>
+
+<p>If some function is specified, it is called with the draft buffer
 as an argument.
 </p>
 </dd>
@@ -6003,10 +6030,26 @@ as an argument.
 <dd><a name="index-wl_002ddraft_002dreply_002dbuffer_002dstyle"></a>
 <p>The initial setting is <code>split</code>.
 Style of draft buffer for replying and forwarding.
-<code>keep</code> is to use message buffer window,
-<code>full</code> is to use full frame window,
-<code>split</code> is to split message buffer window and use it.
-If some function is specified, it is called with the draft buffer
+</p>
+<dl compact="compact">
+<dt><code>keep</code></dt>
+<dd><p>is to use the message buffer window,
+</p>
+</dd>
+<dt><code>full</code></dt>
+<dd><p>is to use full frame window,
+</p>
+</dd>
+<dt><code>split</code></dt>
+<dd><p>is to split the message buffer window vertically and use it.
+</p>
+</dd>
+<dt><code>split-horiz</code></dt>
+<dd><p>is to split the message buffer window horizontally and use it.
+</p></dd>
+</dl>
+
+<p>If some function is specified, it is called with the draft buffer
 as an argument.
 </p>
 </dd>
