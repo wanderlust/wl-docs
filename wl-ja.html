@@ -1,6 +1,6 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-<!-- Created by GNU Texinfo 6.6, http://www.gnu.org/software/texinfo/ -->
+<!-- Created by GNU Texinfo 6.7, http://www.gnu.org/software/texinfo/ -->
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <title>Wanderlust &ndash; Yet Another Message Interface On Emacsen &ndash;</title>
@@ -6678,6 +6678,10 @@ expire を実行しないようにできます。
 なお、リファイル先のアーカイブフォルダは <code>wl-expire-archive-number1</code>
 と同じように決定されます。
 </p>
+<p>この関数を使用する場合、<code>elmo-localdir-folder-path</code>と
+<code>elmo-archive-folder-path</code>を同じディレクトリにしないで下さい。
+デフォルトでは同じディレクトになっているので、注意してください。
+</p>
 </dd>
 <dt><code>wl-expire-archive-date</code></dt>
 <dd><p>メッセージの日付(年月)ごとにアーカイブフォルダにリファイルします。
@@ -10242,13 +10246,13 @@ Previous: <a href="#Addition" accesskey="p" rel="prev">Addition</a>, Up: <a href
 <span id="Suo-Yin-"></span><h2 class="unnumbered">索引</h2>
 
 <table class="menu" border="0" cellspacing="0">
-<tr><td align="left" valign="top">&bull; <a href="#Concept-Index" accesskey="1">Concept Index</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">概念索引
+<tr><td align="left" valign="top">&bull; <a href="#Concept-Index" rel="index" accesskey="1">Concept Index</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">概念索引
 </td></tr>
-<tr><td align="left" valign="top">&bull; <a href="#Key-Index" accesskey="2">Key Index</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">キーバインド索引
+<tr><td align="left" valign="top">&bull; <a href="#Key-Index" rel="index" accesskey="2">Key Index</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">キーバインド索引
 </td></tr>
-<tr><td align="left" valign="top">&bull; <a href="#Variable-Index" accesskey="3">Variable Index</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">変数索引
+<tr><td align="left" valign="top">&bull; <a href="#Variable-Index" rel="index" accesskey="3">Variable Index</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">変数索引
 </td></tr>
-<tr><td align="left" valign="top">&bull; <a href="#Function-Index" accesskey="4">Function Index</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">関数索引
+<tr><td align="left" valign="top">&bull; <a href="#Function-Index" rel="index" accesskey="4">Function Index</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">関数索引
 </td></tr>
 </table>
 
@@ -12151,10 +12155,10 @@ Previous: <a href="#Variable-Index" accesskey="p" rel="prev">Variable Index</a>,
   </ul></li>
   <li><a id="toc-Suo-Yin-" href="#Index">索引</a>
   <ul class="no-bullet">
-    <li><a id="toc-Gai-Nian-Suo-Yin-" href="#Concept-Index">概念索引</a></li>
-    <li><a id="toc-kibaindoSuo-Yin-" href="#Key-Index">キーバインド索引</a></li>
-    <li><a id="toc-Bian-Shu-Suo-Yin-" href="#Variable-Index">変数索引</a></li>
-    <li><a id="toc-Guan-Shu-Suo-Yin-" href="#Function-Index">関数索引</a></li>
+    <li><a id="toc-Gai-Nian-Suo-Yin-" href="#Concept-Index" rel="index">概念索引</a></li>
+    <li><a id="toc-kibaindoSuo-Yin-" href="#Key-Index" rel="index">キーバインド索引</a></li>
+    <li><a id="toc-Bian-Shu-Suo-Yin-" href="#Variable-Index" rel="index">変数索引</a></li>
+    <li><a id="toc-Guan-Shu-Suo-Yin-" href="#Function-Index" rel="index">関数索引</a></li>
   </ul></li>
 </ul>
 </div>
@@ -12163,14 +12167,14 @@ Previous: <a href="#Variable-Index" accesskey="p" rel="prev">Variable Index</a>,
 <hr>
 <h4 class="footnotes-heading">Footnotes</h4>
 
-<h3><a id="FOOT1" href="#DOCF1">(1)</a></h3>
+<h5><a id="FOOT1" href="#DOCF1">(1)</a></h5>
 <p>Emacs 19.34 ベースの Mule を使っている
 場合、<br> <a href="http://www.jpl.org/ftp/attic/INSTALL-SEMI-ja.html">http://www.jpl.org/ftp/attic/INSTALL-SEMI-ja.html</a> が参考にな
 るかもしれません。</p>
-<h3><a id="FOOT2" href="#DOCF2">(2)</a></h3>
+<h5><a id="FOOT2" href="#DOCF2">(2)</a></h5>
 <p>現在は、指定範囲を表示しないフォルダにするとき、
 指定範囲の削除を行った方が高速です。</p>
-<h3><a id="FOOT3" href="#DOCF3">(3)</a></h3>
+<h5><a id="FOOT3" href="#DOCF3">(3)</a></h5>
 <p>バックトレースの取り方は
 <a href="http://www.jpl.org/elips/BUGS-ja.html">http://www.jpl.org/elips/BUGS-ja.html</a>が参考になります。</p>
 </div>

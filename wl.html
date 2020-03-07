@@ -1,6 +1,6 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-<!-- Created by GNU Texinfo 6.6, http://www.gnu.org/software/texinfo/ -->
+<!-- Created by GNU Texinfo 6.7, http://www.gnu.org/software/texinfo/ -->
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <title>Wanderlust &ndash; Yet Another Message Interface On Emacsen &ndash;</title>
@@ -6742,6 +6742,10 @@ to the folder up to the specified number regardless of message numbers.
 The archiving folders to which messages are re-filed are determined in the
 same way as <code>wl-expire-archive-number1</code>.
 </p>
+<p><code>elmo-localdir-folder-path</code> and <code>elmo-archive-folder-path</code>
+should be different from each other when you use this function.  Please
+beware that default values are the same.
+</p>
 </dd>
 <dt><code>wl-expire-archive-date</code></dt>
 <dd><p>re-files messages depending on its date (year and month) to archive
@@ -10349,13 +10353,13 @@ Previous: <a href="#Addition" accesskey="p" rel="prev">Addition</a>, Up: <a href
 <span id="Index-1"></span><h2 class="unnumbered">Index</h2>
 
 <table class="menu" border="0" cellspacing="0">
-<tr><td align="left" valign="top">&bull; <a href="#Concept-Index" accesskey="1">Concept Index</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Concept Index
+<tr><td align="left" valign="top">&bull; <a href="#Concept-Index" rel="index" accesskey="1">Concept Index</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Concept Index
 </td></tr>
-<tr><td align="left" valign="top">&bull; <a href="#Key-Index" accesskey="2">Key Index</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Key Index
+<tr><td align="left" valign="top">&bull; <a href="#Key-Index" rel="index" accesskey="2">Key Index</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Key Index
 </td></tr>
-<tr><td align="left" valign="top">&bull; <a href="#Variable-Index" accesskey="3">Variable Index</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Variable Index
+<tr><td align="left" valign="top">&bull; <a href="#Variable-Index" rel="index" accesskey="3">Variable Index</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Variable Index
 </td></tr>
-<tr><td align="left" valign="top">&bull; <a href="#Function-Index" accesskey="4">Function Index</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Function Index
+<tr><td align="left" valign="top">&bull; <a href="#Function-Index" rel="index" accesskey="4">Function Index</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Function Index
 </td></tr>
 </table>
 
@@ -12243,10 +12247,10 @@ Previous: <a href="#Variable-Index" accesskey="p" rel="prev">Variable Index</a>,
   </ul></li>
   <li><a id="toc-Index-1" href="#Index">Index</a>
   <ul class="no-bullet">
-    <li><a id="toc-Concept-Index-1" href="#Concept-Index">Concept Index</a></li>
-    <li><a id="toc-Key-Index-1" href="#Key-Index">Key Index</a></li>
-    <li><a id="toc-Variable-Index-1" href="#Variable-Index">Variable Index</a></li>
-    <li><a id="toc-Function-Index-1" href="#Function-Index">Function Index</a></li>
+    <li><a id="toc-Concept-Index-1" href="#Concept-Index" rel="index">Concept Index</a></li>
+    <li><a id="toc-Key-Index-1" href="#Key-Index" rel="index">Key Index</a></li>
+    <li><a id="toc-Variable-Index-1" href="#Variable-Index" rel="index">Variable Index</a></li>
+    <li><a id="toc-Function-Index-1" href="#Function-Index" rel="index">Function Index</a></li>
   </ul></li>
 </ul>
 </div>
@@ -12255,14 +12259,14 @@ Previous: <a href="#Variable-Index" accesskey="p" rel="prev">Variable Index</a>,
 <hr>
 <h4 class="footnotes-heading">Footnotes</h4>
 
-<h3><a id="FOOT1" href="#DOCF1">(1)</a></h3>
+<h5><a id="FOOT1" href="#DOCF1">(1)</a></h5>
 <p>If you want to use SEMI on Emacs 19.34. <br>
 <a href="http://www.jpl.org/ftp/attic/INSTALL-SEMI-ja.html">http://www.jpl.org/ftp/attic/INSTALL-SEMI-ja.html</a> (In Japanese)
 may help you.</p>
-<h3><a id="FOOT2" href="#DOCF2">(2)</a></h3>
+<h5><a id="FOOT2" href="#DOCF2">(2)</a></h5>
 <p>In the current implementation,
 it is faster to delete region than to unsubscribe region.</p>
-<h3><a id="FOOT3" href="#DOCF3">(3)</a></h3>
+<h5><a id="FOOT3" href="#DOCF3">(3)</a></h5>
 <p><a href="http://www.jpl.org/elips/BUGS-ja.html">http://www.jpl.org/elips/BUGS-ja.html</a> describes how to
 in Japanese.</p>
 </div>
