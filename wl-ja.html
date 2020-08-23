@@ -165,7 +165,7 @@ IMAP4rev1(RFC2060), NNTP, POP およびローカルのメッセージに対応�
 </li><li>- MH 的 FCC。(&lsquo;<samp>Fcc: %Backup</samp>&rsquo; や &lsquo;<samp>Fcc: $Backup</samp>&rsquo; も可)。
 </li><li>- MIME 対応 (by SEMI)。
 </li><li>- ニュース/メールの送信を統合したメッセージ送信ドラフト。
-</li><li>- フォルダ一覧のアイコン表示 (XEmacs と Emacs 21)。
+</li><li>- フォルダ一覧のアイコン表示。
 </li><li>- 大きなパートを取り寄せずに表示(IMAP4)。
 </li><li>- メッセージの検索をサーバ側で実行(IMAP4)。日本語検索も可。
 </li><li>- 仮想フォルダ。
@@ -181,12 +181,7 @@ IMAP4rev1(RFC2060), NNTP, POP およびローカルのメッセージに対応�
 <p>Wanderlust は以下の Emacsen で動作することが確認されています。
 </p>
 <ul>
-<li> Mule 2.3 based on Emacs 19.34
-</li><li> Emacs 20.2 以降
-</li><li> XEmacs 20.4 以降
-</li><li> Meadow 1.00 以降
-</li><li> NTEmacs 20.4 以降
-</li><li> PMMule
+<li> Emacs 24.5 以降
 </li></ul>
 
 <p>Wanderlust から利用できると確認されている IMAP サーバは以下の通りです。
@@ -271,27 +266,16 @@ SEMI:   <a href="http://git.chise.org/elisp/dist/semi/">http://git.chise.org/eli
 </pre></div>
 
 <p>APEL, FLIM, SEMI[-EPG] の順にインストールしてください。
-基本的にすべて &lsquo;<samp>make install</samp>&rsquo; の実行で済むはずです
-(XEmacs 21 では &lsquo;<samp>make install-package</samp>&rsquo;)。
+基本的にすべて &lsquo;<samp>make install</samp>&rsquo; の実行で済むはずです。
 </p>
 <p>インストールの方法の詳細については、各パッケージに添付されているドキュメ
-ントを参照してください <a id="DOCF1" href="#FOOT1"><sup>1</sup></a>。
+ントを参照してください。
 </p>
 
 <p>推奨される APEL, FLIM, SEMI のバージョンの組合せは、以下の通りです。
 </p>
 <ul class="no-bullet">
 <li>- APEL 10.8, FLIM 1.14.9, SEMI-EPG 1.14.7
-</li></ul>
-
-<p>その他、FLIM, SEMI にはいろいろな変形バージョンが存在しますが、
-それらのいずれも利用可能です。
-基本的に最新版の組合せなら動作するはずです。
-例えば、以下の組合せで動作することが確認されています。
-</p>
-<ul class="no-bullet">
-<li>- APEL 10.6, SLIM 1.14.9, SEMI 1.14.5
-</li><li>- APEL 10.6, CLIME 1.14.5, EMIKO 1.14.1
 </li></ul>
 
 <p>APEL, FLIM もしくは SEMI のバージョンアップを行った場合は、Wanderlust を
@@ -391,22 +375,9 @@ Next: <a href="#Minimal-Settings" accesskey="n" rel="next">Minimal Settings</a>,
 適当なインストール先を自動的に検出します。
 実際のインストール先については後述します。
 </p>
-<p>Mule 2.3 など、<samp>subdirs.el</samp> が無く、<code>load-path</code> にサブディレクトリが
-自動的に加わらない Emacs では、
-</p>
-<div class="example">
-<pre class="example">Cannot open load file: mime-setup
-</pre></div>
-
-<p>というエラーが出ることがあります。この場合は、custom, APEL, FLIM, SEMI 
-のインストール先を環境変数 <code>EMACSLOADPATH</code> に加えるか、展開ディレクト
-リの <samp>WL-CFG</samp> というファイル中で<code>load-path</code> を通しておくと良い
-でしょう。
-</p>
-<p>また、新聞フォルダを利用する場合や、BBDB を利用する場合には、それぞれ
-emacs-w3m、BBDB がインストールされているディレクトリに <code>load-path</code>
-を通しておくと必要なモジュールがバイトコンパイル/インストールされます。
-See <a href="#Shimbun-Folder">Shimbun Folder</a>, See <a href="#BBDB">BBDB</a>.
+<p>新聞フォルダを利用する場合には、emacs-w3m がインストールされている
+ディレクトリに <code>load-path</code> を通しておくと必要なモジュールが
+バイトコンパイル/インストールされます。See <a href="#Shimbun-Folder">Shimbun Folder</a>.
 </p>
 <span id="WL_002dCFG"></span><h4 class="subsection">2.3.2 <samp>WL-CFG</samp></h4>
 
@@ -445,29 +416,7 @@ ELMO モジュールはファイル <samp>elmo*.el</samp> <samp>elmo*.elc</samp>
 
 <p>とします。
 </p>
-<span id="XEmacs-package-tositeinsutoru"></span><h4 class="subsection">2.3.3 XEmacs package としてインストール</h4>
-<span id="index-XEmacs-package"></span>
-<span id="index-XEmacs-package-install"></span>
-<span id="index-Package_002c-XEmacs"></span>
-<span id="index-Package-install_002c-XEmacs"></span>
-
-<p>Wanderlust は XEmacs (21.0 〜) の package のひとつとしてインストールする
-ことも可能です。package としてインストールすると、autoload の設定、
-アイコンのパス設定を個人の <samp>~/.emacs</samp> に記述しなくても Wanderlust
-を正常に起動できるようになります。
-</p>
-<p>XEmacs の package としてインストールするには以下のようにします。
-</p>
-<div class="example">
-<pre class="example">% vi Makefile
-% make package
-% make install-package
-</pre></div>
-
-<p>package のディレクトリは、SEMI をインストールしてあれば自動検出されます。
-(<samp>Makefile</samp> 中の <code>PACKAGEDIR</code> でも設定可)
-</p>
-<span id="insutorusinaideLi-Yong-"></span><h4 class="subsection">2.3.4 インストールしないで利用</h4>
+<span id="insutorusinaideLi-Yong-"></span><h4 class="subsection">2.3.3 インストールしないで利用</h4>
 
 <p>Wanderlust はバイトコンパイル、インストールをしなくても、<samp>wl</samp>,
 <samp>elmo</samp> のディレクトリに <code>load-path</code> を設定すれば起動する
@@ -479,7 +428,7 @@ ELMO モジュールはファイル <samp>elmo*.el</samp> <samp>elmo*.elc</samp>
 (add-to-list 'load-path &quot;~/work/wl-<var>version</var>/elmo&quot;)
 </pre></div>
 
-<span id="maniyuarunituite"></span><h4 class="subsection">2.3.5 マニュアルについて</h4>
+<span id="maniyuarunituite"></span><h4 class="subsection">2.3.4 マニュアルについて</h4>
 
 <p>マニュアルは Info 形式です。
 インストールするには下記を実行してください。
@@ -489,9 +438,6 @@ ELMO モジュールはファイル <samp>elmo*.el</samp> <samp>elmo*.elc</samp>
 % make install-info
 </pre></div>
 
-<p>XEmacs の package としてインストールした場合は自動的に Info ファイルも
-インストールされているので、これらの操作は必要ありません。
-</p>
 <p>また、下記にもマニュアルがあります。
 </p>
 <div class="example">
@@ -529,7 +475,6 @@ Wanderlust の動作をカスタマイズできます。
 </p>
 <div class="lisp">
 <pre class="lisp">;; <span class="roman">autoload の設定</span>
-;; <span class="roman">(XEmacs の package としてインストールした場合は必要ありません)</span>
 (autoload 'wl &quot;wl&quot; &quot;Wanderlust&quot; t)
 (autoload 'wl-other-frame &quot;wl&quot; &quot;Wanderlust on new frame.&quot; t)
 (autoload 'wl-draft &quot;wl-draft&quot; &quot;Write draft with Wanderlust.&quot; t)
@@ -848,30 +793,11 @@ Next: <a href="#NNTP-Folder" accesskey="n" rel="next">NNTP Folder</a>, Previous:
 <span id="index-UTF7"></span>
 <span id="index-UTF8"></span>
 <span id="index-Unicode"></span>
-<span id="index-Mule_002dUCS"></span>
-<span id="index-ucs_002dconv"></span>
 
-<p>Emacs が UTF-7 に対応していれば，変数
-<code>elmo-imap4-use-modified-utf7</code> に non-nil の値を設定すれば (デフォル
-トは Emacs 23 以降では <code>t</code>、それ以外では <code>nil</code>)、日本語 (や、
-その他の英語以外の言語) でメールボックス名を指定することができます。
+<p>変数 <code>elmo-imap4-use-modified-utf7</code> に non-nil の値を設定すれば
+(デフォルトは <code>t</code>)、日本語 (や、その他の英語以外の言語) で
+メールボックス名を指定することができます。
 </p>
-<p>Emacs 23 以降では追加のパッケージは不要です。
-それ以外の Emacsen では、Mule-UCS を別にインストールする必要があります。
-Mule-UCS は以下の Emacsen で動作します。
-</p>
-<ul>
-<li> Emacs 20.3 以降
-</li><li> XEmacs 21.2.37 以降
-</li></ul>
-
-<p>Mule-UCS は以下から2004年のスナップショットが入手可能です。
-</p>
-<div class="example">
-<pre class="example"><a href="http://www.jpl.org/ftp/pub/tmp/">http://www.jpl.org/ftp/pub/tmp/</a>
-</pre></div>
-
-
 <hr>
 <span id="NNTP-Folder"></span><div class="header">
 <p>
@@ -1179,11 +1105,8 @@ Next: <a href="#Archive-Vars" accesskey="n" rel="next">Archive Vars</a>, Previou
 (see <a href="#Archive">Archive</a>) か、Expire 機能 (see <a href="#Expire">Expire</a>) と組み合わせると良い
 でしょう。ただし、Expire 機能で作成したアーカイブフォルダを扱う場合は、
 変数 <code>elmo-archive-treat-file</code> を non-nil に設定する必要があります。
-なお、OS/2 上でのテストでは、Mule2.3(19.28) と Emacs20.2 では処理速度に
-圧倒的な違いがあります。快適に使うには Emacs20 をお勧めします(re-search 
-の速度の問題だとすると 19.3x 以上かどうかが境になるでしょう)。
 </p>
-<p>また、一つの書庫ファイルが多くのファイルを含んでいるとアーカイバ起動時
+<p>一つの書庫ファイルが多くのファイルを含んでいるとアーカイバ起動時
 のオーバーヘッドが加速度的に増加する(特に LHA の場合)ため、150 通程度、
 最大でも 200 通までにしておくと、ストレスなく読み書きできるでしょう。
 </p>
@@ -1325,11 +1248,6 @@ Next: <a href="#Shimbun-Folder" accesskey="n" rel="next">Shimbun Folder</a>, Pre
                         ユーザ &lsquo;<samp>hoge</samp>&rsquo; でアクセス。
 </pre></div>
 
-<p>APOP を利用するには、<samp>md5.el</samp> が必要です。(XEmacs では必要ありません。
-) <samp>md5.el</samp> は 本パッケージの <samp>utils/sasl/lisp/</samp> か Emacs/W3 パッ
-ケージ (<a href="http://www.cs.indiana.edu/elisp/w3/docs.html">http://www.cs.indiana.edu/elisp/w3/docs.html</a>)、または LCD
-archive から入手可能です(GPL2)。
-</p>
 <p>フォルダ名の最後に &lsquo;<samp>!</samp>&rsquo; が付いていると、SSL を利用してコネクションを張ります。
 </p>
 <p>変数 <code>elmo-pop3-default-stream-type</code> の値が <code>ssl</code> なら、&lsquo;<samp>!</samp>&rsquo; を付け
@@ -2092,7 +2010,6 @@ Next: <a href="#Folder-Manager" accesskey="n" rel="next">Folder Manager</a>, Pre
 <span id="Xin-Gui-Shu-_002c-Wei-Du-Shu-notietuku"></span><h4 class="subsubsection">4.1.1.1 新規数、未読数のチェック</h4>
 
 <p>フォルダモードの見ためはこんな感じになるはずです。
-(XEmacs ではもうちょっとかっこよく見えるはずです <tt>;-)</tt>)
 </p>
 <div class="example">
 <pre class="example">[-]Desktop:14186/35580/67263
@@ -2623,7 +2540,7 @@ argument の値が正ならフォルダを非表示、負なら表示、0なら�
 unsubscribe するかどうかを設定しているだけなので、変更が可能なのは、当
 然そのアクセスグループに属しているフォルダだけです。つまり、挿入は 
 subscribe し、削除は unsubscribe したことと同じです。
-<a id="DOCF2" href="#FOOT2"><sup>2</sup></a>
+<a id="DOCF1" href="#FOOT1"><sup>1</sup></a>
 従って、Wanderlust 以外でフォルダを変更した場合、そのフォルダを実際に追
 加したり削除したりするには、アクセスグループを <kbd>C-u <span class="key">RET</span></kbd> で更
 新してください。See <a href="#Selecting-Folder">Selecting Folder</a>.
@@ -3840,8 +3757,8 @@ prefix argument つきで実行すると、任意の入力アドレスを登録/
 <dt><kbd>#</kbd></dt>
 <dd><span id="index-_0023-_0028Summary_0029"></span>
 <span id="index-wl_002dsummary_002dprint_002dmessage"></span>
-<p>現在のメッセージの内容を印刷します。Emacs 20以降 では <code>ps-print</code> を
-使います。白黒プリンタでは、<code>wl-ps-print-buffer-function</code> を
+<p>現在のメッセージの内容を印刷します。<code>ps-print</code> を使います。
+白黒プリンタでは、<code>wl-ps-print-buffer-function</code> を
 <code>ps-print-buffer</code> に設定したほうが良いかもしれません。
 </p>
 <div class="lisp">
@@ -3885,8 +3802,6 @@ prefix argument つきで実行すると、任意の入力アドレスを登録/
 <dd><span id="index-M_002dj-_0028Summary_0029"></span>
 <span id="index-wl_002dsummary_002djump_002dto_002dmsg_002dby_002dmessage_002did"></span>
 <p>入力した &lsquo;<samp>Message-ID:</samp>&rsquo; を持つメッセージの行にジャンプします。
-<code>elmo-use-database</code> が non-nilなら、現在のサマリ以外からも候補を検
-索します。(<code>wl-summary-jump-to-msg-by-message-id</code>)
 </p>
 </dd>
 <dt><kbd>^</kbd></dt>
@@ -5524,8 +5439,7 @@ Next: <a href="#Variables-of-Draft-Mode" accesskey="n" rel="next">Variables of D
 <span id="index-wl_002ddraft_002dyank_002doriginal"></span>
 <p>現在表示中のメッセージバッファ(カーソル位置のパート)の内容を引用します。
 リージョンが有効な場合には、リージョンを引用します
-(<code>transient-mark-mode</code> (GNU Emacs の場合) か <code>zmacs-regions</code>
-(XEmacs の場合) が Non-nil の時のみ)。
+(<code>transient-mark-mode</code> が Non-nil の時のみ)。
 また、prefix argument を付けると、yank で挿入されるテキスト
 の内容(クリップボードの内容)が引用されます。
 (<code>wl-draft-yank-original</code>)
@@ -6347,7 +6261,7 @@ wl-plugged-mode に入り、このモードで各ポートの plug 状態を変�
 <p>また、2行目以降ではサーバとポートのオンラインとオフライン状態を表示し、
 &lsquo;<samp>[ON]</samp>&rsquo; はそのサーバやポートがオンラインであることを、
 &lsquo;<samp>[--]</samp>&rsquo; はオフラインであることを示しています
-(XEmacs と Emacs 21 ではアイコンで表示されます)。
+可能ならアイコンで表示されます。
 そしてそれぞれの行で <kbd><span class="key">SPC</span></kbd> や <kbd><span class="key">RET</span></kbd> を押すことで
 状態を切り替えることができます。
 </p>
@@ -7585,15 +7499,18 @@ See <a href="gnus-ja.html#Score-File-Format">Score File Format</a> in <cite>Gnus
 <p>フォルダ種別により参照できるキーの一覧。
 </p>
 <div class="example">
-<pre class="example">                        chars lines xref  extra
-localdir,localnews      ○    △    △    △
-nntp (xover対応)        ○    △    △    ×
-     (xover非対応)      ×    △    △    △
-imap4                   ○    △    △    △
-pop3                    ×    △    △    △
+<table>
+<thead><tr><th></th><th><pre class="example">chars</pre></th><th><pre class="example">lines</pre></th><th><pre class="example">xref</pre></th><th><pre class="example">extra</pre></th></tr></thead>
+<tr><td><pre class="example">localdir,localnews</pre></td><td><pre class="example">○</pre></td><td><pre class="example">△</pre></td><td><pre class="example">△</pre></td><td><pre class="example">△</pre></td></tr>
+<tr><td><pre class="example">nntp (xover対応)</pre></td><td><pre class="example">○</pre></td><td><pre class="example">△</pre></td><td><pre class="example">△</pre></td><td><pre class="example">&#x00D7;</pre></td></tr>
+<tr><td><pre class="example">(xover非対応)</pre></td><td><pre class="example">&#x00D7;</pre></td><td><pre class="example">△</pre></td><td><pre class="example">△</pre></td><td><pre class="example">△</pre></td></tr>
+<tr><td><pre class="example">imap4</pre></td><td><pre class="example">○</pre></td><td><pre class="example">△</pre></td><td><pre class="example">△</pre></td><td><pre class="example">△</pre></td></tr>
+<tr><td><pre class="example">pop3</pre></td><td><pre class="example">&#x00D7;</pre></td><td><pre class="example">△</pre></td><td><pre class="example">△</pre></td><td><pre class="example">△</pre></td></tr>
+</table>
+<pre class="example">
 
                 ○: 参照できる
-                ×: 参照できない(無視される)
+                &#x00D7;: 参照できない(無視される)
                 △: <code>elmo-msgdb-extra-fields</code> を設定すれば参照できる
 </pre></div>
 
@@ -7662,8 +7579,8 @@ bar@foo.gohome.org             &quot;Bar さん&quot;      &quot;Michael Bar&quo
 す。
 </p>
 <p>LDAP を利用する場合は、<code>wl-ldap-server</code>、<code>wl-ldap-port</code>,
-<code>wl-ldap-base</code> も適切に設定して下さい。また、LDAP 対応の XEmacs 以
-外では、外部プログラムとして <code>ldapsearch</code> を利用しますので、
+<code>wl-ldap-base</code> も適切に設定して下さい。
+外部プログラムとして <code>ldapsearch</code> を利用しますので、
 <code>ldapsearch</code> へあらかじめコマンド実行パスを設定しておく必要があ
 ります。
 </p>
@@ -8599,42 +8516,12 @@ Next: <a href="#LSDB" accesskey="n" rel="next">LSDB</a>, Previous: <a href="#imp
 <span id="bbdb_002eel"></span><h4 class="subsection">14.1.2 bbdb.el</h4>
 <span id="index-BBDB"></span>
 
-<p>The Insidious Big Brother Database (<a href="http://bbdb.sourceforge.net/">http://bbdb.sourceforge.net/</a>)
-を Wanderlust と共に使うには、 <samp>util/bbdb-wl.el</samp> を <code>load-path</code>
-に置いて以下のように設定すれば OK です。
+<p>The Insidious Big Brother Database
+(<a href="http://savannah.nongnu.org/projects/bbdb/">http://savannah.nongnu.org/projects/bbdb/</a>) は 3.2 以降から
+Wanderlust に対応しています。
+設定の詳細は Wanderlust か BBDB のメーリングリストでおたずねください。
+See <a href="#Mailing-List">Mailing List</a>.
 </p>
-<p>ただし、<samp>util/bbdb-wl.el</samp> は <a href="http://savannah.nongnu.org/projects/bbdb/">http://savannah.nongnu.org/projects/bbdb/</a> で
-開発されている、BBDB 3.x とは互換性がありません。
-この場合は、BBDBV3-Wl (<a href="https://gna.org/projects/bbdbv3-wl/">https://gna.org/projects/bbdbv3-wl/</a>) が、
-有用かもしれません。
-</p>
-<p>インストール時に <code>load-path</code> 上に BBDB があれば、
-<samp>bbdb-wl.el</samp> はバイトコンパイル/インストールされます。
-See <a href="#Install">Install</a>.
-</p>
-<div class="lisp">
-<pre class="lisp">(require 'bbdb-wl)
-
-(bbdb-wl-setup)
-;; <span class="roman">ポップアップ表示</span>
-(setq bbdb-use-pop-up t)
-;; <span class="roman">自動収集</span>
-(setq bbdb/mail-auto-create-p t)
-;; <span class="roman">自動収集しないフォルダの指定</span>
-(setq bbdb-wl-ignore-folder-regexp &quot;^@&quot;)
-(setq signature-use-bbdb t)
-(setq bbdb-north-american-phone-numbers-p nil)
-;; <span class="roman">サマリに bbdb の名前を表示</span> :-)。
-(setq wl-summary-from-function 'bbdb-wl-from-func)
-;; <span class="roman">自動的に ML フィールドを加える</span>
-(add-hook 'bbdb-notice-hook 'bbdb-auto-notes-hook)
-(setq bbdb-auto-notes-alist '((&quot;X-ML-Name&quot; (&quot;.*$&quot; ML 0))))
-</pre></div>
-
-<p>ドラフトバッファで <kbd>M-<span class="key">TAB</span></kbd> により BBDB を用いた
-アドレスの補完ができます。
-</p>
-
 <hr>
 <span id="LSDB"></span><div class="header">
 <p>
@@ -8714,9 +8601,7 @@ Next: <a href="#dired_002ddd" accesskey="n" rel="next">dired-dd</a>, Previous: <
 &lsquo;<samp>X-Face:</samp>&rsquo; フィールドをデコードして、画像を表示することができます。
 </p>
 <table class="menu" border="0" cellspacing="0">
-<tr><td align="left" valign="top">&bull; <a href="#x_002dface_002dxmas" accesskey="1">x-face-xmas</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">XEmacs の場合
-</td></tr>
-<tr><td align="left" valign="top">&bull; <a href="#x_002dface_002dmule" accesskey="2">x-face-mule</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Emacs の場合
+<tr><td align="left" valign="top">&bull; <a href="#x_002dface_002dmule" accesskey="1">x-face-mule</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Emacs の場合
 </td></tr>
 </table>
 
@@ -8727,28 +8612,11 @@ Next: <a href="#dired_002ddd" accesskey="n" rel="next">dired-dd</a>, Previous: <
 </p>
 
 <hr>
-<span id="x_002dface_002dxmas"></span><div class="header">
-<p>
-Next: <a href="#x_002dface_002dmule" accesskey="n" rel="next">x-face-mule</a>, Previous: <a href="#X_002dFace" accesskey="p" rel="prev">X-Face</a>, Up: <a href="#X_002dFace" accesskey="u" rel="up">X-Face</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
-</div>
-<span id="x_002dface_002dxmas-_0028XEmacs-noChang-He-_0029"></span><h4 class="subsubsection">14.1.6.1 x-face-xmas (XEmacs の場合)</h4>
-<span id="index-x_002dface_002dxmas"></span>
-
-<p>x-face (<a href="ftp://jpl.org/pub/elisp/">ftp://jpl.org/pub/elisp/</a>) 1.3.6.13 以降に付属の
-<samp>x-face-xmas.el</samp> を使う場合は以下のように設定してください。
-</p>
-<div class="lisp">
-<pre class="lisp">(autoload 'x-face-xmas-wl-display-x-face &quot;x-face&quot;)
-(setq wl-highlight-x-face-function 'x-face-xmas-wl-display-x-face)
-</pre></div>
-
-
-<hr>
 <span id="x_002dface_002dmule"></span><div class="header">
 <p>
-Previous: <a href="#x_002dface_002dxmas" accesskey="p" rel="prev">x-face-xmas</a>, Up: <a href="#X_002dFace" accesskey="u" rel="up">X-Face</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
+Previous: <a href="#X_002dFace" accesskey="p" rel="prev">X-Face</a>, Up: <a href="#X_002dFace" accesskey="u" rel="up">X-Face</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
 </div>
-<span id="x_002dface_002dmule-_0028Emacs-noChang-He-_0029"></span><h4 class="subsubsection">14.1.6.2 x-face-mule (Emacs の場合)</h4>
+<span id="x_002dface_002dmule-1"></span><h4 class="subsubsection">14.1.6.1 x-face-mule</h4>
 <span id="index-x_002dface_002dmule"></span>
 <span id="index-bitmap_002dmule"></span>
 
@@ -8760,10 +8628,10 @@ Previous: <a href="#x_002dface_002dxmas" accesskey="p" rel="prev">x-face-xmas</a
 (setq wl-highlight-x-face-function 'x-face-decode-message-header)
 </pre></div>
 
-<span id="x_002dface_002de21-_0028Emacs-21_002ex-noChang-He-_0029"></span><h4 class="subsubsection">14.1.6.3 x-face-e21 (Emacs 21.x の場合)</h4>
+<span id="x_002dface_002de21"></span><h4 class="subsubsection">14.1.6.2 x-face-e21</h4>
 <span id="index-x_002dface_002de21"></span>
 
-<p>Emacs 21.x の場合には、<samp>x-face-mule.el</samp> の代わりに <samp>x-face-e21.el</samp>
+<p><samp>x-face-mule.el</samp> の代わりに <samp>x-face-e21.el</samp>
 (<a href="ftp://jpl.org/pub/elisp/">ftp://jpl.org/pub/elisp/</a>) を使って X-Face を表示することもできます。
 その場合、bitmap-mule は不要です。以下のように設定してください。
 </p>
@@ -9189,7 +9057,6 @@ Next: <a href="#Password-Management" accesskey="n" rel="next">Password Managemen
 <p>初期設定は 0 (単位:秒)。
 <code>wl-biff-check-interval</code> で指定した時間が経過し、かつ、
 この変数で指定された時間だけアイドル状態が続いた場合にチェックを行います。
-XEmacs では無効です。
 </p>
 </dd>
 <dt><code>wl-biff-use-idle-timer</code></dt>
@@ -9747,8 +9614,7 @@ MIME ではないメッセージの場合 (&lsquo;<samp>Content-Type:</samp>&rsq
 </dd>
 <dt><code>wl-highlight-folder-with-icon</code></dt>
 <dd><span id="index-wl_002dhighlight_002dfolder_002dwith_002dicon"></span>
-<p>XEmacs または Emacs 21 で有効です。初期設定はその Emacs に依存します
-(アイコンを使用できる Emacsen では <code>t</code> になります)。
+<p>初期設定は <code>t</code> です。
 </p>
 </dd>
 <dt><code>wl-strict-diff-folders</code></dt>
@@ -9883,13 +9749,6 @@ See <a href="#x_002dface_002dmule">x-face-mule</a>.
 <p>Non-nil ならばオープニングデモでビットマップのイメージを表示します。
 <code>xpm</code>, <code>xbm</code> を指定すると(可能ならば)、その画像タイプのイメー
 ジを表示します。
-</p>
-</dd>
-<dt><code>elmo-use-database</code></dt>
-<dd><span id="index-elmo_002duse_002ddatabase"></span>
-<p>XEmacs のみ有効です。初期設定は、XEmacs に依存します。
-(dbm の機能をもつ XEmacs ならば <code>t</code> となります。)
-Non-nil ならば dbm を使って Message-ID の管理を行ないます。
 </p>
 </dd>
 <dt><code>elmo-nntp-list-folders-use-cache</code></dt>
@@ -10123,28 +9982,25 @@ Next: <a href="#Addition" accesskey="n" rel="next">Addition</a>, Previous: <a hr
 ングリストへの送信はメンバになる必要があります。
 </p>
 <p>また、バグ報告の場合はバックトレースを取って添付すると原因究明しやすくな
-ります。 <a id="DOCF3" href="#FOOT3"><sup>3</sup></a>
+ります。 <a id="DOCF2" href="#FOOT2"><sup>2</sup></a>
 </p>
 <p>メーリングリストの皆様には貴重な御助言、コードをたくさん御提供いただいて
 おります。この場を借りてお礼申し上げます。
 </p>
 <span id="akaibu"></span><h3 class="section">17.1 アーカイブ</h3>
 
-<p>メーリングリストに投稿されたメッセージは、ウェブや NetNews でも読むこと
-ができます。
+<p>メーリングリストに投稿されたメッセージは、NetNews でも読むことができます。
 </p>
 <p><tt>&lt;wl@ml.gentei.org&gt;</tt> に投稿されたメッセージ
 </p>
 <div class="example">
-<pre class="example"><a href="http://dir.gmane.org/gmane.mail.wanderlust.general.japanese">http://dir.gmane.org/gmane.mail.wanderlust.general.japanese</a>
-<a href="news://news.gmane.org/gmane.mail.wanderlust.general.japanese">news://news.gmane.org/gmane.mail.wanderlust.general.japanese</a>
+<pre class="example"><a href="news://news.gmane.io/gmane.mail.wanderlust.general.japanese">news://news.gmane.io/gmane.mail.wanderlust.general.japanese</a>
 </pre></div>
 
 <p><tt>&lt;wl-en@ml.gentei.org&gt;</tt> に投稿されたメッセージ
 </p>
 <div class="example">
-<pre class="example"><a href="http://dir.gmane.org/gmane.mail.wanderlust.general">http://dir.gmane.org/gmane.mail.wanderlust.general</a>
-<a href="news://news.gmane.org/gmane.mail.wanderlust.general">news://news.gmane.org/gmane.mail.wanderlust.general</a>
+<pre class="example"><a href="news://news.gmane.io/gmane.mail.wanderlust.general">news://news.gmane.io/gmane.mail.wanderlust.general</a>
 </pre></div>
 
 
@@ -10509,7 +10365,6 @@ Next: <a href="#Key-Index" accesskey="n" rel="next">Key Index</a>, Previous: <a 
 <tr><td></td><td valign="top"><a href="#index-Modified-UTF7">Modified UTF7</a>:</td><td>&nbsp;</td><td valign="top"><a href="#IMAP-Folder">IMAP Folder</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-mu">mu</a>:</td><td>&nbsp;</td><td valign="top"><a href="#mu">mu</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-mu_002dcite">mu-cite</a>:</td><td>&nbsp;</td><td valign="top"><a href="#mu_002dcite">mu-cite</a></td></tr>
-<tr><td></td><td valign="top"><a href="#index-Mule_002dUCS">Mule-UCS</a>:</td><td>&nbsp;</td><td valign="top"><a href="#IMAP-Folder">IMAP Folder</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-Multi-Folder">Multi Folder</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Multi-Folder">Multi Folder</a></td></tr>
 <tr><td colspan="4"> <hr></td></tr>
 <tr><th id="Concept-Index_cp_letter-N">N</th><td></td><td></td></tr>
@@ -10527,8 +10382,6 @@ Next: <a href="#Key-Index" accesskey="n" rel="next">Key Index</a>, Previous: <a 
 <tr><td></td><td valign="top"><a href="#index-Overview">Overview</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Overview">Overview</a></td></tr>
 <tr><td colspan="4"> <hr></td></tr>
 <tr><th id="Concept-Index_cp_letter-P">P</th><td></td><td></td></tr>
-<tr><td></td><td valign="top"><a href="#index-Package-install_002c-XEmacs">Package install, XEmacs</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Install">Install</a></td></tr>
-<tr><td></td><td valign="top"><a href="#index-Package_002c-XEmacs">Package, XEmacs</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Install">Install</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-Pipe-Folder">Pipe Folder</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Pipe-Folder">Pipe Folder</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-POP-Folder">POP Folder</a>:</td><td>&nbsp;</td><td valign="top"><a href="#POP-Folder">POP Folder</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-POP_002dbefore_002dSMTP">POP-before-SMTP</a>:</td><td>&nbsp;</td><td valign="top"><a href="#POP_002dbefore_002dSMTP">POP-before-SMTP</a></td></tr>
@@ -10580,7 +10433,6 @@ Next: <a href="#Key-Index" accesskey="n" rel="next">Key Index</a>, Previous: <a 
 <tr><td></td><td valign="top"><a href="#index-Terminology">Terminology</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Terminology">Terminology</a></td></tr>
 <tr><td colspan="4"> <hr></td></tr>
 <tr><th id="Concept-Index_cp_letter-U">U</th><td></td><td></td></tr>
-<tr><td></td><td valign="top"><a href="#index-ucs_002dconv">ucs-conv</a>:</td><td>&nbsp;</td><td valign="top"><a href="#IMAP-Folder">IMAP Folder</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-Unicode">Unicode</a>:</td><td>&nbsp;</td><td valign="top"><a href="#IMAP-Folder">IMAP Folder</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-Unplugged">Unplugged</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Disconnected-Operations">Disconnected Operations</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-UNZIP">UNZIP</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Archiver">Archiver</a></td></tr>
@@ -10595,10 +10447,7 @@ Next: <a href="#Key-Index" accesskey="n" rel="next">Key Index</a>, Previous: <a 
 <tr><td></td><td valign="top"><a href="#index-x_002dface">x-face</a>:</td><td>&nbsp;</td><td valign="top"><a href="#X_002dFace">X-Face</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-x_002dface_002de21">x-face-e21</a>:</td><td>&nbsp;</td><td valign="top"><a href="#x_002dface_002dmule">x-face-mule</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-x_002dface_002dmule">x-face-mule</a>:</td><td>&nbsp;</td><td valign="top"><a href="#x_002dface_002dmule">x-face-mule</a></td></tr>
-<tr><td></td><td valign="top"><a href="#index-x_002dface_002dxmas">x-face-xmas</a>:</td><td>&nbsp;</td><td valign="top"><a href="#x_002dface_002dxmas">x-face-xmas</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-X_002dMailer">X-Mailer</a>:</td><td>&nbsp;</td><td valign="top"><a href="#User_002dAgent-Field">User-Agent Field</a></td></tr>
-<tr><td></td><td valign="top"><a href="#index-XEmacs-package">XEmacs package</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Install">Install</a></td></tr>
-<tr><td></td><td valign="top"><a href="#index-XEmacs-package-install">XEmacs package install</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Install">Install</a></td></tr>
 <tr><td colspan="4"> <hr></td></tr>
 <tr><th id="Concept-Index_cp_letter-Z">Z</th><td></td><td></td></tr>
 <tr><td></td><td valign="top"><a href="#index-ZOO">ZOO</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Archiver">Archiver</a></td></tr>
@@ -11272,7 +11121,6 @@ Next: <a href="#Function-Index" accesskey="n" rel="next">Function Index</a>, Pre
 <tr><td></td><td valign="top"><a href="#index-elmo_002dspam_002dspamoracle_002dprogram"><code>elmo-spam-spamoracle-program</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#SpamOracle">SpamOracle</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-elmo_002dspam_002dspamoracle_002dspam_002dheader_002dregexp"><code>elmo-spam-spamoracle-spam-header-regexp</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#SpamOracle">SpamOracle</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-elmo_002dspamassassin_002ddebug"><code>elmo-spamassassin-debug</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#SpamAssassin">SpamAssassin</a></td></tr>
-<tr><td></td><td valign="top"><a href="#index-elmo_002duse_002ddatabase"><code>elmo-use-database</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Customizable-Valiables">Customizable Valiables</a></td></tr>
 <tr><td colspan="4"> <hr></td></tr>
 <tr><th id="Variable-Index_vr_letter-M">M</th><td></td><td></td></tr>
 <tr><td></td><td valign="top"><a href="#index-mail_002duser_002dagent"><code>mail-user-agent</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Minimal-Settings">Minimal Settings</a></td></tr>
@@ -11830,9 +11678,8 @@ Previous: <a href="#Variable-Index" accesskey="p" rel="prev">Variable Index</a>,
     <ul class="no-bullet">
       <li><a id="toc-Tong-Chang-noinsutoru" href="#Tong-Chang-noinsutoru">2.3.1 通常のインストール</a></li>
       <li><a id="toc-WL_002dCFG" href="#WL_002dCFG">2.3.2 <samp>WL-CFG</samp></a></li>
-      <li><a id="toc-XEmacs-package-tositeinsutoru" href="#XEmacs-package-tositeinsutoru">2.3.3 XEmacs package としてインストール</a></li>
-      <li><a id="toc-insutorusinaideLi-Yong-" href="#insutorusinaideLi-Yong-">2.3.4 インストールしないで利用</a></li>
-      <li><a id="toc-maniyuarunituite" href="#maniyuarunituite">2.3.5 マニュアルについて</a></li>
+      <li><a id="toc-insutorusinaideLi-Yong-" href="#insutorusinaideLi-Yong-">2.3.3 インストールしないで利用</a></li>
+      <li><a id="toc-maniyuarunituite" href="#maniyuarunituite">2.3.4 マニュアルについて</a></li>
     </ul></li>
     <li><a id="toc-_002eemacs_002c-_002ewl-noShe-Ding-" href="#Minimal-Settings">2.4 <samp>.emacs</samp>, <samp>.wl</samp> の設定</a>
     <ul class="no-bullet">
@@ -12095,9 +11942,8 @@ Previous: <a href="#Variable-Index" accesskey="p" rel="prev">Variable Index</a>,
       <li><a id="toc-mu_002dcite_002eel" href="#mu_002dcite">14.1.5 mu-cite.el</a></li>
       <li><a id="toc-x_002dface" href="#X_002dFace">14.1.6 x-face</a>
       <ul class="no-bullet">
-        <li><a id="toc-x_002dface_002dxmas-_0028XEmacs-noChang-He-_0029" href="#x_002dface_002dxmas">14.1.6.1 x-face-xmas (XEmacs の場合)</a></li>
-        <li><a id="toc-x_002dface_002dmule-_0028Emacs-noChang-He-_0029" href="#x_002dface_002dmule">14.1.6.2 x-face-mule (Emacs の場合)</a></li>
-        <li><a id="toc-x_002dface_002de21-_0028Emacs-21_002ex-noChang-He-_0029" href="#x_002dface_002de21-_0028Emacs-21_002ex-noChang-He-_0029">14.1.6.3 x-face-e21 (Emacs 21.x の場合)</a></li>
+        <li><a id="toc-x_002dface_002dmule-1" href="#x_002dface_002dmule">14.1.6.1 x-face-mule</a></li>
+        <li><a id="toc-x_002dface_002de21" href="#x_002dface_002de21">14.1.6.2 x-face-e21</a></li>
       </ul></li>
       <li><a id="toc-dired_002ddd_0028Dired_002dDragDrop_0029" href="#dired_002ddd">14.1.7 dired-dd(Dired-DragDrop)</a></li>
       <li><a id="toc-mhc_002eel" href="#MHC">14.1.8 mhc.el</a></li>
@@ -12168,13 +12014,9 @@ Previous: <a href="#Variable-Index" accesskey="p" rel="prev">Variable Index</a>,
 <h4 class="footnotes-heading">Footnotes</h4>
 
 <h5><a id="FOOT1" href="#DOCF1">(1)</a></h5>
-<p>Emacs 19.34 ベースの Mule を使っている
-場合、<br> <a href="http://www.jpl.org/ftp/attic/INSTALL-SEMI-ja.html">http://www.jpl.org/ftp/attic/INSTALL-SEMI-ja.html</a> が参考にな
-るかもしれません。</p>
-<h5><a id="FOOT2" href="#DOCF2">(2)</a></h5>
 <p>現在は、指定範囲を表示しないフォルダにするとき、
 指定範囲の削除を行った方が高速です。</p>
-<h5><a id="FOOT3" href="#DOCF3">(3)</a></h5>
+<h5><a id="FOOT2" href="#DOCF2">(2)</a></h5>
 <p>バックトレースの取り方は
 <a href="http://www.jpl.org/elips/BUGS-ja.html">http://www.jpl.org/elips/BUGS-ja.html</a>が参考になります。</p>
 </div>

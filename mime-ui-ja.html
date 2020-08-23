@@ -1,7 +1,8 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-<!-- Created by GNU Texinfo 6.1, http://www.gnu.org/software/texinfo/ -->
+<!-- Created by GNU Texinfo 6.7, http://www.gnu.org/software/texinfo/ -->
 <head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <title>SEMI 1.14 説明書</title>
 
 <meta name="description" content="SEMI 1.14 説明書">
@@ -9,7 +10,6 @@
 <meta name="resource-type" content="document">
 <meta name="distribution" content="global">
 <meta name="Generator" content="texi2any">
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <link href="#Top" rel="start" title="Top">
 <link href="#Concept-Index" rel="index" title="Concept Index">
 <link href="dir.html#Top" rel="up" title="(dir)">
@@ -17,23 +17,14 @@
 <!--
 a.summary-letter {text-decoration: none}
 blockquote.indentedblock {margin-right: 0em}
-blockquote.smallindentedblock {margin-right: 0em; font-size: smaller}
-blockquote.smallquotation {font-size: smaller}
 div.display {margin-left: 3.2em}
 div.example {margin-left: 3.2em}
 div.lisp {margin-left: 3.2em}
-div.smalldisplay {margin-left: 3.2em}
-div.smallexample {margin-left: 3.2em}
-div.smalllisp {margin-left: 3.2em}
 kbd {font-style: oblique}
 pre.display {font-family: inherit}
 pre.format {font-family: inherit}
 pre.menu-comment {font-family: serif}
 pre.menu-preformatted {font-family: serif}
-pre.smalldisplay {font-family: inherit; font-size: smaller}
-pre.smallexample {font-size: smaller}
-pre.smallformat {font-family: inherit; font-size: smaller}
-pre.smalllisp {font-size: smaller}
 span.nolinebreak {white-space: nowrap}
 span.roman {font-family: initial; font-weight: normal}
 span.sansserif {font-family: sans-serif; font-weight: normal}
@@ -47,13 +38,13 @@ ul.no-bullet {list-style: none}
 
 <body lang="ja">
 <h1 class="settitle" align="center">SEMI 1.14 説明書</h1>
-<a name="Top"></a>
-<div class="header">
+
+
+<span id="Top"></span><div class="header">
 <p>
 Next: <a href="#Introduction" accesskey="n" rel="next">Introduction</a>, Previous: <a href="dir.html#Top" accesskey="p" rel="prev">(dir)</a>, Up: <a href="dir.html#Top" accesskey="u" rel="up">(dir)</a> &nbsp; [<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
 </div>
-<a name="SEMI-1_002e14-Shuo-Ming-Shu-"></a>
-<h1 class="top">SEMI 1.14 説明書</h1>
+<span id="SEMI-1_002e14-Shuo-Ming-Shu-"></span><h1 class="top">SEMI 1.14 説明書</h1>
 
 
 <p>This file documents SEMI, a MIME user interface for GNU Emacs.
@@ -61,30 +52,28 @@ Next: <a href="#Introduction" accesskey="n" rel="next">Introduction</a>, Previou
 <p>GNU Emacs 用の MIME user interface である SEMI について説明します。
 </p>
 <table class="menu" border="0" cellspacing="0">
-<tr><td align="left" valign="top">&bull; <a href="#Introduction" accesskey="1">Introduction</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">SEMI って何？
+<tr><td align="left" valign="top">&bull; <a href="#Introduction" accesskey="1">Introduction</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">SEMI って何？
 </td></tr>
-<tr><td align="left" valign="top">&bull; <a href="#MIME_002dView" accesskey="2">MIME-View</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">MIME message の閲覧
+<tr><td align="left" valign="top">&bull; <a href="#MIME_002dView" accesskey="2">MIME-View</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">MIME message の閲覧
 </td></tr>
-<tr><td align="left" valign="top">&bull; <a href="#MIME_002dEdit" accesskey="3">MIME-Edit</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">MIME message の編集
+<tr><td align="left" valign="top">&bull; <a href="#MIME_002dEdit" accesskey="3">MIME-Edit</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">MIME message の編集
 </td></tr>
-<tr><td align="left" valign="top">&bull; <a href="#Various" accesskey="4">Various</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">その他
+<tr><td align="left" valign="top">&bull; <a href="#Various" accesskey="4">Various</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">その他
 </td></tr>
-<tr><td align="left" valign="top">&bull; <a href="#Concept-Index" accesskey="5">Concept Index</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">概念索引
+<tr><td align="left" valign="top">&bull; <a href="#Concept-Index" rel="index" accesskey="5">Concept Index</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">概念索引
 </td></tr>
-<tr><td align="left" valign="top">&bull; <a href="#Function-Index" accesskey="6">Function Index</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">関数索引
+<tr><td align="left" valign="top">&bull; <a href="#Function-Index" rel="index" accesskey="6">Function Index</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">関数索引
 </td></tr>
-<tr><td align="left" valign="top">&bull; <a href="#Variable-Index" accesskey="7">Variable Index</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">変数索引
+<tr><td align="left" valign="top">&bull; <a href="#Variable-Index" rel="index" accesskey="7">Variable Index</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">変数索引
 </td></tr>
 </table>
 
 <hr>
-<a name="Introduction"></a>
-<div class="header">
+<span id="Introduction"></span><div class="header">
 <p>
 Next: <a href="#MIME_002dView" accesskey="n" rel="next">MIME-View</a>, Previous: <a href="#Top" accesskey="p" rel="prev">Top</a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a> &nbsp; [<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
 </div>
-<a name="SEMI-tuteHe-_003f"></a>
-<h2 class="chapter">1 SEMI って何？</h2>
+<span id="SEMI-tuteHe-_003f"></span><h2 class="chapter">1 SEMI って何？</h2>
 
 <p>SEMI は GNU Emacs 用の MIME user interface を提供する package です。
 
@@ -103,13 +92,11 @@ Next: <a href="#MIME_002dView" accesskey="n" rel="next">MIME-View</a>, Previous:
 </p>
 
 <hr>
-<a name="MIME_002dView"></a>
-<div class="header">
+<span id="MIME_002dView"></span><div class="header">
 <p>
 Next: <a href="#MIME_002dEdit" accesskey="n" rel="next">MIME-Edit</a>, Previous: <a href="#Introduction" accesskey="p" rel="prev">Introduction</a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a> &nbsp; [<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
 </div>
-<a name="MIME-message-noYue-Lan-"></a>
-<h2 class="chapter">2 MIME message の閲覧</h2>
+<span id="MIME-message-noYue-Lan-"></span><h2 class="chapter">2 MIME message の閲覧</h2>
 
 <p>MIME-View は GNU Emacs で動作する汎用的な MIME viewer です。
 </p>
@@ -120,22 +107,20 @@ Next: <a href="#MIME_002dEdit" accesskey="n" rel="next">MIME-Edit</a>, Previous:
 </p>
 
 <table class="menu" border="0" cellspacing="0">
-<tr><td align="left" valign="top">&bull; <a href="#Overview-of-MIME_002dView" accesskey="1">Overview of MIME-View</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">MIME-View 概説
+<tr><td align="left" valign="top">&bull; <a href="#Overview-of-MIME_002dView" accesskey="1">Overview of MIME-View</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">MIME-View 概説
 </td></tr>
-<tr><td align="left" valign="top">&bull; <a href="#MIME_002dPreview" accesskey="2">MIME-Preview</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">mime-preview-buffer の画面構成
+<tr><td align="left" valign="top">&bull; <a href="#MIME_002dPreview" accesskey="2">MIME-Preview</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">mime-preview-buffer の画面構成
 </td></tr>
-<tr><td align="left" valign="top">&bull; <a href="#mime_002dview_002dmode" accesskey="3">mime-view-mode</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">mime-preview-buffer での操作
+<tr><td align="left" valign="top">&bull; <a href="#mime_002dview_002dmode" accesskey="3">mime-view-mode</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">mime-preview-buffer での操作
 </td></tr>
 </table>
 
 <hr>
-<a name="Overview-of-MIME_002dView"></a>
-<div class="header">
+<span id="Overview-of-MIME_002dView"></span><div class="header">
 <p>
 Next: <a href="#MIME_002dPreview" accesskey="n" rel="next">MIME-Preview</a>, Previous: <a href="#MIME_002dView" accesskey="p" rel="prev">MIME-View</a>, Up: <a href="#MIME_002dView" accesskey="u" rel="up">MIME-View</a> &nbsp; [<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
 </div>
-<a name="MIME_002dView-Gai-Shuo-"></a>
-<h3 class="section">2.1 MIME-View 概説</h3>
+<span id="MIME_002dView-Gai-Shuo-"></span><h3 class="section">2.1 MIME-View 概説</h3>
 
 <p>Internet の電子書簡・ネットニュースなどの書面 (message) の表現形式は STD
 11 に基づいています。STD 11 の書面本体 (message body) は行を唯一の構造と
@@ -172,13 +157,11 @@ message を閲覧するための mode を提供します。利用者はここで
 </p>
 
 <hr>
-<a name="MIME_002dPreview"></a>
-<div class="header">
+<span id="MIME_002dPreview"></span><div class="header">
 <p>
 Next: <a href="#mime_002dview_002dmode" accesskey="n" rel="next">mime-view-mode</a>, Previous: <a href="#Overview-of-MIME_002dView" accesskey="p" rel="prev">Overview of MIME-View</a>, Up: <a href="#MIME_002dView" accesskey="u" rel="up">MIME-View</a> &nbsp; [<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
 </div>
-<a name="mime_002dpreview_002dbuffer-noHua-Mian-Gou-Cheng-"></a>
-<h3 class="section">2.2 mime-preview-buffer の画面構成</h3>
+<span id="mime_002dpreview_002dbuffer-noHua-Mian-Gou-Cheng-"></span><h3 class="section">2.2 mime-preview-buffer の画面構成</h3>
 
 <p>mime-view-mode では各 entity に対して
 </p>
@@ -247,24 +230,22 @@ C-c C-x p	preview editing MIME message.
 
 
 <table class="menu" border="0" cellspacing="0">
-<tr><td align="left" valign="top">&bull; <a href="#entity_002dbutton" accesskey="1">entity-button</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+<tr><td align="left" valign="top">&bull; <a href="#entity_002dbutton" accesskey="1">entity-button</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
 </td></tr>
-<tr><td align="left" valign="top">&bull; <a href="#entity_002dheader" accesskey="2">entity-header</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+<tr><td align="left" valign="top">&bull; <a href="#entity_002dheader" accesskey="2">entity-header</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
 </td></tr>
-<tr><td align="left" valign="top">&bull; <a href="#entity_002dbody" accesskey="3">entity-body</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+<tr><td align="left" valign="top">&bull; <a href="#entity_002dbody" accesskey="3">entity-body</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
 </td></tr>
 </table>
 
 <hr>
-<a name="entity_002dbutton"></a>
-<div class="header">
+<span id="entity_002dbutton"></span><div class="header">
 <p>
 Next: <a href="#entity_002dheader" accesskey="n" rel="next">entity-header</a>, Previous: <a href="#MIME_002dPreview" accesskey="p" rel="prev">MIME-Preview</a>, Up: <a href="#MIME_002dPreview" accesskey="u" rel="up">MIME-Preview</a> &nbsp; [<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
 </div>
-<a name="entity_002dbutton-1"></a>
-<h4 class="subsection">2.2.1 entity-button</h4>
-<a name="index-entity_002dnumber"></a>
-<a name="index-entity_002dbutton"></a>
+<span id="entity_002dbutton-1"></span><h4 class="subsection">2.2.1 entity-button</h4>
+<span id="index-entity_002dnumber"></span>
+<span id="index-entity_002dbutton"></span>
 
 <p><strong>entity-button</strong> は entity の先頭にあって、その entity に関する大
 まかな情報を表示する部分です。
@@ -308,28 +289,24 @@ mouse の場合、中央のボタン）で押せば、同様にその絵が表�
 </p>
 
 <hr>
-<a name="entity_002dheader"></a>
-<div class="header">
+<span id="entity_002dheader"></span><div class="header">
 <p>
 Next: <a href="#entity_002dbody" accesskey="n" rel="next">entity-body</a>, Previous: <a href="#entity_002dbutton" accesskey="p" rel="prev">entity-button</a>, Up: <a href="#MIME_002dPreview" accesskey="u" rel="up">MIME-Preview</a> &nbsp; [<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
 </div>
-<a name="entity_002dheader-1"></a>
-<h4 class="subsection">2.2.2 entity-header</h4>
-<a name="index-entity_002dheader"></a>
+<span id="entity_002dheader-1"></span><h4 class="subsection">2.2.2 entity-header</h4>
+<span id="index-entity_002dheader"></span>
 
 <p><strong>entity-header</strong> はある entity の header を表示する部
 分です（「そのままやんけ」って怒らないで。そういうもんなんです）。
 </p>
 
 <hr>
-<a name="entity_002dbody"></a>
-<div class="header">
+<span id="entity_002dbody"></span><div class="header">
 <p>
 Previous: <a href="#entity_002dheader" accesskey="p" rel="prev">entity-header</a>, Up: <a href="#MIME_002dPreview" accesskey="u" rel="up">MIME-Preview</a> &nbsp; [<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
 </div>
-<a name="entity_002dbody-1"></a>
-<h4 class="subsection">2.2.3 entity-body</h4>
-<a name="index-entity_002dbody"></a>
+<span id="entity_002dbody-1"></span><h4 class="subsection">2.2.3 entity-body</h4>
+<span id="index-entity_002dbody"></span>
 
 <p><strong>entity-body</strong> は part の内容を表示する部分です。
 </p>
@@ -344,13 +321,11 @@ Previous: <a href="#entity_002dheader" accesskey="p" rel="prev">entity-header</a
 </p>
 
 <hr>
-<a name="mime_002dview_002dmode"></a>
-<div class="header">
+<span id="mime_002dview_002dmode"></span><div class="header">
 <p>
 Previous: <a href="#MIME_002dPreview" accesskey="p" rel="prev">MIME-Preview</a>, Up: <a href="#MIME_002dView" accesskey="u" rel="up">MIME-View</a> &nbsp; [<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
 </div>
-<a name="mime_002dpreview_002dbuffer-denoCao-Zuo-"></a>
-<h3 class="section">2.3 mime-preview-buffer での操作</h3>
+<span id="mime_002dpreview_002dbuffer-denoCao-Zuo-"></span><h3 class="section">2.3 mime-preview-buffer での操作</h3>
 
 <p>mime-preview-buffer には以下の機能があります。
 </p>
@@ -430,49 +405,45 @@ mode に戻る (*1)）
 
 
 <hr>
-<a name="MIME_002dEdit"></a>
-<div class="header">
+<span id="MIME_002dEdit"></span><div class="header">
 <p>
 Next: <a href="#Various" accesskey="n" rel="next">Various</a>, Previous: <a href="#MIME_002dView" accesskey="p" rel="prev">MIME-View</a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a> &nbsp; [<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
 </div>
-<a name="MIME-message-noBian-Ji-"></a>
-<h2 class="chapter">3 MIME message の編集</h2>
-<a name="index-MIME_002dEdit"></a>
+<span id="MIME-message-noBian-Ji-"></span><h2 class="chapter">3 MIME message の編集</h2>
+<span id="index-MIME_002dEdit"></span>
 
 <p><strong>MIME-Edit</strong> は GNU Emacs で動作する汎用的な MIME
 composer です。
 </p>
 
 <table class="menu" border="0" cellspacing="0">
-<tr><td align="left" valign="top">&bull; <a href="#mime_002dedit_002dmode" accesskey="1">mime-edit-mode</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">MIME message を編集するための minor-mode
+<tr><td align="left" valign="top">&bull; <a href="#mime_002dedit_002dmode" accesskey="1">mime-edit-mode</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">MIME message を編集するための minor-mode
 </td></tr>
-<tr><td align="left" valign="top">&bull; <a href="#single_002dpart-tags" accesskey="2">single-part tags</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">single-part に対する操作
+<tr><td align="left" valign="top">&bull; <a href="#single_002dpart-tags" accesskey="2">single-part tags</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">single-part に対する操作
 </td></tr>
-<tr><td align="left" valign="top">&bull; <a href="#enclosure-tags" accesskey="3">enclosure tags</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">enclosure に対する操作
+<tr><td align="left" valign="top">&bull; <a href="#enclosure-tags" accesskey="3">enclosure tags</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">enclosure に対する操作
 </td></tr>
-<tr><td align="left" valign="top">&bull; <a href="#other-MIME_002dEdit-operations" accesskey="4">other MIME-Edit operations</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">mime-edit-mode におけるその他の操作
+<tr><td align="left" valign="top">&bull; <a href="#other-MIME_002dEdit-operations" accesskey="4">other MIME-Edit operations</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">mime-edit-mode におけるその他の操作
 </td></tr>
-<tr><td align="left" valign="top">&bull; <a href="#file_002dtype-specification" accesskey="5">file-type specification</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">挿入される file に対する tag の決定
+<tr><td align="left" valign="top">&bull; <a href="#file_002dtype-specification" accesskey="5">file-type specification</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">挿入される file に対する tag の決定
 </td></tr>
-<tr><td align="left" valign="top">&bull; <a href="#transfer-level" accesskey="6">transfer level</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+<tr><td align="left" valign="top">&bull; <a href="#transfer-level" accesskey="6">transfer level</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
 </td></tr>
-<tr><td align="left" valign="top">&bull; <a href="#message_002fpartial-sending" accesskey="7">message/partial sending</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Splitting
+<tr><td align="left" valign="top">&bull; <a href="#message_002fpartial-sending" accesskey="7">message/partial sending</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Splitting
 </td></tr>
 </table>
 
 <hr>
-<a name="mime_002dedit_002dmode"></a>
-<div class="header">
+<span id="mime_002dedit_002dmode"></span><div class="header">
 <p>
 Next: <a href="#single_002dpart-tags" accesskey="n" rel="next">single-part tags</a>, Previous: <a href="#MIME_002dEdit" accesskey="p" rel="prev">MIME-Edit</a>, Up: <a href="#MIME_002dEdit" accesskey="u" rel="up">MIME-Edit</a> &nbsp; [<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
 </div>
-<a name="MIME-message-woBian-Ji-surutameno-minor_002dmode"></a>
-<h3 class="section">3.1 MIME message を編集するための minor-mode</h3>
-<a name="index-enclosure"></a>
-<a name="index-multi_002dpart-Zhong-Liao--tag"></a>
-<a name="index-multi_002dpart-Kai-Shi--tag"></a>
-<a name="index-tag"></a>
-<a name="index-mime_002dedit_002dmode"></a>
+<span id="MIME-message-woBian-Ji-surutameno-minor_002dmode"></span><h3 class="section">3.1 MIME message を編集するための minor-mode</h3>
+<span id="index-enclosure"></span>
+<span id="index-multi_002dpart-Zhong-Liao--tag"></span>
+<span id="index-multi_002dpart-Kai-Shi--tag"></span>
+<span id="index-tag"></span>
+<span id="index-mime_002dedit_002dmode"></span>
 
 <p><strong>mime-edit-mode</strong> は MIME message を作成するための minor-mode です。
 この mode では <strong>tag</strong> を使ってさまざまな種類の data を表現し、さま
@@ -530,13 +501,11 @@ part の終了を示す tag があります。
 </p>
 
 <hr>
-<a name="single_002dpart-tags"></a>
-<div class="header">
+<span id="single_002dpart-tags"></span><div class="header">
 <p>
 Next: <a href="#enclosure-tags" accesskey="n" rel="next">enclosure tags</a>, Previous: <a href="#mime_002dedit_002dmode" accesskey="p" rel="prev">mime-edit-mode</a>, Up: <a href="#MIME_002dEdit" accesskey="u" rel="up">MIME-Edit</a> &nbsp; [<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
 </div>
-<a name="single_002dpart-niDui-suruCao-Zuo-"></a>
-<h3 class="section">3.2 single-part に対する操作</h3>
+<span id="single_002dpart-niDui-suruCao-Zuo-"></span><h3 class="section">3.2 single-part に対する操作</h3>
 
 <p>single-part を作るための操作には以下のようなものがあります。
 </p>
@@ -585,13 +554,11 @@ media-type, subtype 等を聞いて来ます。(cf. <a href="#file_002dtype-spec
 
 
 <hr>
-<a name="enclosure-tags"></a>
-<div class="header">
+<span id="enclosure-tags"></span><div class="header">
 <p>
 Next: <a href="#other-MIME_002dEdit-operations" accesskey="n" rel="next">other MIME-Edit operations</a>, Previous: <a href="#single_002dpart-tags" accesskey="p" rel="prev">single-part tags</a>, Up: <a href="#MIME_002dEdit" accesskey="u" rel="up">MIME-Edit</a> &nbsp; [<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
 </div>
-<a name="enclosure-niDui-suruCao-Zuo-"></a>
-<h3 class="section">3.3 enclosure に対する操作</h3>
+<span id="enclosure-niDui-suruCao-Zuo-"></span><h3 class="section">3.3 enclosure に対する操作</h3>
 
 <p>enclosure を作るための操作としては以下のようなものがあります。
 </p>
@@ -631,13 +598,11 @@ Next: <a href="#other-MIME_002dEdit-operations" accesskey="n" rel="next">other M
 
 
 <hr>
-<a name="other-MIME_002dEdit-operations"></a>
-<div class="header">
+<span id="other-MIME_002dEdit-operations"></span><div class="header">
 <p>
 Next: <a href="#file_002dtype-specification" accesskey="n" rel="next">file-type specification</a>, Previous: <a href="#enclosure-tags" accesskey="p" rel="prev">enclosure tags</a>, Up: <a href="#MIME_002dEdit" accesskey="u" rel="up">MIME-Edit</a> &nbsp; [<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
 </div>
-<a name="mime_002dedit_002dmode-niokerusonoTa-noCao-Zuo-"></a>
-<h3 class="section">3.4 mime-edit-mode におけるその他の操作</h3>
+<span id="mime_002dedit_002dmode-niokerusonoTa-noCao-Zuo-"></span><h3 class="section">3.4 mime-edit-mode におけるその他の操作</h3>
 
 <p>mime-edit-mode におけるその他の操作を説明します。
 </p>
@@ -686,13 +651,11 @@ Next: <a href="#file_002dtype-specification" accesskey="n" rel="next">file-type 
 
 
 <hr>
-<a name="file_002dtype-specification"></a>
-<div class="header">
+<span id="file_002dtype-specification"></span><div class="header">
 <p>
 Next: <a href="#transfer-level" accesskey="n" rel="next">transfer level</a>, Previous: <a href="#other-MIME_002dEdit-operations" accesskey="p" rel="prev">other MIME-Edit operations</a>, Up: <a href="#MIME_002dEdit" accesskey="u" rel="up">MIME-Edit</a> &nbsp; [<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
 </div>
-<a name="Cha-Ru-sareru-file-niDui-suru-tag-noJue-Ding-"></a>
-<h3 class="section">3.5 挿入される file に対する tag の決定</h3>
+<span id="Cha-Ru-sareru-file-niDui-suru-tag-noJue-Ding-"></span><h3 class="section">3.5 挿入される file に対する tag の決定</h3>
 
 <p><kbd>C-c C-x C-i</kbd> (<code>mime-edit-insert-file</code>) を実行した時、挿入され
 る file に対する media-type や encoding などの tag の情報は変数 
@@ -706,7 +669,7 @@ Next: <a href="#transfer-level" accesskey="n" rel="next">transfer level</a>, Pre
 を設定して下さい。
 </p>
 <dl>
-<dt><a name="index-mime_002dfile_002dtypes"></a>Variable: <strong>mime-file-types</strong></dt>
+<dt id="index-mime_002dfile_002dtypes">Variable: <strong>mime-file-types</strong></dt>
 <dd>
 <p>挿入される file の file 名に対する tag の既定値を与える。
 </p>
@@ -768,14 +731,12 @@ Next: <a href="#transfer-level" accesskey="n" rel="next">transfer level</a>, Pre
 
 
 <hr>
-<a name="transfer-level"></a>
-<div class="header">
+<span id="transfer-level"></span><div class="header">
 <p>
 Next: <a href="#message_002fpartial-sending" accesskey="n" rel="next">message/partial sending</a>, Previous: <a href="#file_002dtype-specification" accesskey="p" rel="prev">file-type specification</a>, Up: <a href="#MIME_002dEdit" accesskey="u" rel="up">MIME-Edit</a> &nbsp; [<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
 </div>
-<a name="transfer-level-1"></a>
-<h3 class="section">3.6 transfer level</h3>
-<a name="index-transfer-level"></a>
+<span id="transfer-level-1"></span><h3 class="section">3.6 transfer level</h3>
+<span id="index-transfer-level"></span>
 
 <p>message に挿入する data は 7bit (<a href="mime-ja.html#g_t7bit">(mime-ja)7bit</a>) ないし 8bit
 (<a href="mime-ja.html#g_t8bit">(mime-ja)8bit</a>) もしくは binary (<a href="mime-ja.html#binary">(mime-ja)binary</a>) で表現する
@@ -808,7 +769,7 @@ transfer level を表現します。
 </p>
 
 <dl>
-<dt><a name="index-mime_002dtransfer_002dlevel"></a>Variable: <strong>mime-transfer-level</strong></dt>
+<dt id="index-mime_002dtransfer_002dlevel">Variable: <strong>mime-transfer-level</strong></dt>
 <dd>
 <p>transfer level を表す。
 </p>
@@ -833,30 +794,28 @@ body において、8bit の data を使えるように STD 11 (<a href="mime-ja
 
 
 <hr>
-<a name="message_002fpartial-sending"></a>
-<div class="header">
+<span id="message_002fpartial-sending"></span><div class="header">
 <p>
 Previous: <a href="#transfer-level" accesskey="p" rel="prev">transfer level</a>, Up: <a href="#MIME_002dEdit" accesskey="u" rel="up">MIME-Edit</a> &nbsp; [<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
 </div>
-<a name="Splitting"></a>
-<h3 class="section">3.7 Splitting</h3>
+<span id="Splitting"></span><h3 class="section">3.7 Splitting</h3>
 
 <dl>
-<dt><a name="index-mime_002dedit_002dsplit_002dmessage"></a>Variable: <strong>mime-edit-split-message</strong></dt>
+<dt id="index-mime_002dedit_002dsplit_002dmessage">Variable: <strong>mime-edit-split-message</strong></dt>
 <dd>
 <p>Non-nil ならば大きなメッセージを分割して送信します。
 </p></dd></dl>
 
 
 <dl>
-<dt><a name="index-mime_002dedit_002dmessage_002ddefault_002dmax_002dlines"></a>Variable: <strong>mime-edit-message-default-max-lines</strong></dt>
+<dt id="index-mime_002dedit_002dmessage_002ddefault_002dmax_002dlines">Variable: <strong>mime-edit-message-default-max-lines</strong></dt>
 <dd>
 <p>メッセージの最大行数のデフォルト値です。
 </p></dd></dl>
 
 
 <dl>
-<dt><a name="index-mime_002dedit_002dmessage_002dmax_002dlines_002dalist"></a>Variable: <strong>mime-edit-message-max-lines-alist</strong></dt>
+<dt id="index-mime_002dedit_002dmessage_002dmax_002dlines_002dalist">Variable: <strong>mime-edit-message-max-lines-alist</strong></dt>
 <dd>
 <p>メジャーモード対メッセージの最大行数から成る連想リストです。
 </p>
@@ -866,7 +825,7 @@ Previous: <a href="#transfer-level" accesskey="p" rel="prev">transfer level</a>,
 
 
 <dl>
-<dt><a name="index-mime_002dedit_002dsplit_002dblind_002dfield_002dregexp"></a>Variable: <strong>mime-edit-split-blind-field-regexp</strong></dt>
+<dt id="index-mime_002dedit_002dsplit_002dblind_002dfield_002dregexp">Variable: <strong>mime-edit-split-blind-field-regexp</strong></dt>
 <dd>
 <p>分割送信の際に無視されるフィールド名にマッチする正規表現です。
 </p></dd></dl>
@@ -874,34 +833,30 @@ Previous: <a href="#transfer-level" accesskey="p" rel="prev">transfer level</a>,
 
 
 <hr>
-<a name="Various"></a>
-<div class="header">
+<span id="Various"></span><div class="header">
 <p>
 Next: <a href="#Concept-Index" accesskey="n" rel="next">Concept Index</a>, Previous: <a href="#MIME_002dEdit" accesskey="p" rel="prev">MIME-Edit</a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a> &nbsp; [<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
 </div>
-<a name="sonoTa-"></a>
-<h2 class="chapter">4 その他</h2>
+<span id="sonoTa-"></span><h2 class="chapter">4 その他</h2>
 
 
 <table class="menu" border="0" cellspacing="0">
-<tr><td align="left" valign="top">&bull; <a href="#PGP" accesskey="1">PGP</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">暗号化、署名
+<tr><td align="left" valign="top">&bull; <a href="#PGP" accesskey="1">PGP</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">暗号化、署名
 </td></tr>
-<tr><td align="left" valign="top">&bull; <a href="#Buttons" accesskey="2">Buttons</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">押釦
+<tr><td align="left" valign="top">&bull; <a href="#Buttons" accesskey="2">Buttons</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">押釦
 </td></tr>
-<tr><td align="left" valign="top">&bull; <a href="#Acting_002dcondition-configuration" accesskey="3">Acting-condition configuration</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">実行条件の設定
+<tr><td align="left" valign="top">&bull; <a href="#Acting_002dcondition-configuration" accesskey="3">Acting-condition configuration</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">実行条件の設定
 </td></tr>
 </table>
 
 <hr>
-<a name="PGP"></a>
-<div class="header">
+<span id="PGP"></span><div class="header">
 <p>
 Next: <a href="#Buttons" accesskey="n" rel="next">Buttons</a>, Previous: <a href="#Various" accesskey="p" rel="prev">Various</a>, Up: <a href="#Various" accesskey="u" rel="up">Various</a> &nbsp; [<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
 </div>
-<a name="PGP-1"></a>
-<h3 class="section">4.1 PGP</h3>
-<a name="index-PGP_002dkazu"></a>
-<a name="index-PGP_002fMIME"></a>
+<span id="PGP-1"></span><h3 class="section">4.1 PGP</h3>
+<span id="index-PGP_002dkazu"></span>
+<span id="index-PGP_002fMIME"></span>
 
 <p>mime-edit では <strong>PGP/MIME</strong> (RFC 2015) および<strong>PGP-kazu</strong>
 (draft-kazu-pgp-mime-00.txt) による暗号化・電子署名・公開鍵の挿入機能を
@@ -910,7 +865,7 @@ Next: <a href="#Buttons" accesskey="n" rel="next">Buttons</a>, Previous: <a href
 <p>但し、この機能を利用するには各種 pgp command が必要です。
 </p>
 <dl>
-<dt><a name="index-pgg_002ddefault_002dscheme"></a>Variable: <strong>pgg-default-scheme</strong></dt>
+<dt id="index-pgg_002ddefault_002dscheme">Variable: <strong>pgg-default-scheme</strong></dt>
 <dd>
 <p>暗号化もしくは署名に用いる PGP もしくは GnuPG コマンドのバージョンです。
 値は symbol を指定します。使えるバージョンは <code>gpg</code>、
@@ -919,7 +874,7 @@ Next: <a href="#Buttons" accesskey="n" rel="next">Buttons</a>, Previous: <a href
 
 
 <dl>
-<dt><a name="index-pgg_002dscheme"></a>Variable: <strong>pgg-scheme</strong></dt>
+<dt id="index-pgg_002dscheme">Variable: <strong>pgg-scheme</strong></dt>
 <dd>
 <p>復号もしくは検証に用いる PGP もしくは GnuPG コマンドのバージョンです。
 値は symbol を指定します。使えるバージョンは <code>gpg</code>、
@@ -928,7 +883,7 @@ Next: <a href="#Buttons" accesskey="n" rel="next">Buttons</a>, Previous: <a href
 
 
 <dl>
-<dt><a name="index-pgg_002dinsert_002durl_002dfunction"></a>Variable: <strong>pgg-insert-url-function</strong></dt>
+<dt id="index-pgg_002dinsert_002durl_002dfunction">Variable: <strong>pgg-insert-url-function</strong></dt>
 <dd>
 <p>鍵サーバから公開鍵を取り寄せる際に使う関数です。デフォルトでは
 Emacs/W3 を使う設定になっています。emacs-w3m を使う場合には
@@ -941,16 +896,14 @@ Emacs/W3 を使う設定になっています。emacs-w3m を使う場合には
 
 
 <hr>
-<a name="Buttons"></a>
-<div class="header">
+<span id="Buttons"></span><div class="header">
 <p>
 Next: <a href="#Acting_002dcondition-configuration" accesskey="n" rel="next">Acting-condition configuration</a>, Previous: <a href="#PGP" accesskey="p" rel="prev">PGP</a>, Up: <a href="#Various" accesskey="u" rel="up">Various</a> &nbsp; [<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
 </div>
-<a name="Ya-Kou-"></a>
-<h3 class="section">4.2 押釦</h3>
+<span id="Ya-Kou-"></span><h3 class="section">4.2 押釦</h3>
 
 <dl>
-<dt><a name="index-mime_002dbutton_002dface"></a>Variable: <strong>mime-button-face</strong></dt>
+<dt id="index-mime_002dbutton_002dface">Variable: <strong>mime-button-face</strong></dt>
 <dd>
 <p>MIME-Preview バッファで  content-button もしくは URL-button  に用いる
 face です。
@@ -958,14 +911,14 @@ face です。
 
 
 <dl>
-<dt><a name="index-mime_002dbutton_002dmouse_002dface"></a>Variable: <strong>mime-button-mouse-face</strong></dt>
+<dt id="index-mime_002dbutton_002dmouse_002dface">Variable: <strong>mime-button-mouse-face</strong></dt>
 <dd>
 <p>MIME-preview バッファでマウスをハイライトする際に用いる face です。
 </p></dd></dl>
 
 
 <dl>
-<dt><a name="index-mime_002dbrowse_002durl_002dfunction"></a>Variable: <strong>mime-browse-url-function</strong></dt>
+<dt id="index-mime_002dbrowse_002durl_002dfunction">Variable: <strong>mime-browse-url-function</strong></dt>
 <dd>
 <p>URL をブラウズする関数です。
 </p></dd></dl>
@@ -973,16 +926,14 @@ face です。
 
 
 <hr>
-<a name="Acting_002dcondition-configuration"></a>
-<div class="header">
+<span id="Acting_002dcondition-configuration"></span><div class="header">
 <p>
 Previous: <a href="#Buttons" accesskey="p" rel="prev">Buttons</a>, Up: <a href="#Various" accesskey="u" rel="up">Various</a> &nbsp; [<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
 </div>
-<a name="Shi-Xing-Tiao-Jian-noShe-Ding-"></a>
-<h3 class="section">4.3 実行条件の設定</h3>
+<span id="Shi-Xing-Tiao-Jian-noShe-Ding-"></span><h3 class="section">4.3 実行条件の設定</h3>
 
 <dl>
-<dt><a name="index-mime_002dadd_002dcondition"></a>Function: <strong>mime-add-condition</strong> <em>target-type condition  &amp;optional  mode file</em></dt>
+<dt id="index-mime_002dadd_002dcondition">Function: <strong>mime-add-condition</strong> <em>target-type condition  &amp;optional  mode file</em></dt>
 <dd>
 <p>Add <var>condition</var> to database specified by <var>target-type</var>.
 </p>
@@ -1001,13 +952,11 @@ is added with default rule.
 
 
 <hr>
-<a name="Concept-Index"></a>
-<div class="header">
+<span id="Concept-Index"></span><div class="header">
 <p>
 Next: <a href="#Function-Index" accesskey="n" rel="next">Function Index</a>, Previous: <a href="#Various" accesskey="p" rel="prev">Various</a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a> &nbsp; [<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
 </div>
-<a name="Gai-Nian-Suo-Yin-"></a>
-<h2 class="chapter">5 概念索引</h2>
+<span id="Gai-Nian-Suo-Yin-"></span><h2 class="chapter">5 概念索引</h2>
 
 <table><tr><th valign="top">Jump to: &nbsp; </th><td><a class="summary-letter" href="#Concept-Index_cp_letter-E"><b>E</b></a>
  &nbsp; 
@@ -1021,24 +970,24 @@ Next: <a href="#Function-Index" accesskey="n" rel="next">Function Index</a>, Pre
 <table class="index-cp" border="0">
 <tr><td></td><th align="left">Index Entry</th><td>&nbsp;</td><th align="left"> Section</th></tr>
 <tr><td colspan="4"> <hr></td></tr>
-<tr><th><a name="Concept-Index_cp_letter-E">E</a></th><td></td><td></td></tr>
+<tr><th id="Concept-Index_cp_letter-E">E</th><td></td><td></td></tr>
 <tr><td></td><td valign="top"><a href="#index-enclosure">enclosure</a>:</td><td>&nbsp;</td><td valign="top"><a href="#mime_002dedit_002dmode">mime-edit-mode</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-entity_002dbody">entity-body</a>:</td><td>&nbsp;</td><td valign="top"><a href="#entity_002dbody">entity-body</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-entity_002dbutton">entity-button</a>:</td><td>&nbsp;</td><td valign="top"><a href="#entity_002dbutton">entity-button</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-entity_002dheader">entity-header</a>:</td><td>&nbsp;</td><td valign="top"><a href="#entity_002dheader">entity-header</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-entity_002dnumber">entity-number</a>:</td><td>&nbsp;</td><td valign="top"><a href="#entity_002dbutton">entity-button</a></td></tr>
 <tr><td colspan="4"> <hr></td></tr>
-<tr><th><a name="Concept-Index_cp_letter-M">M</a></th><td></td><td></td></tr>
+<tr><th id="Concept-Index_cp_letter-M">M</th><td></td><td></td></tr>
 <tr><td></td><td valign="top"><a href="#index-MIME_002dEdit">MIME-Edit</a>:</td><td>&nbsp;</td><td valign="top"><a href="#MIME_002dEdit">MIME-Edit</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-mime_002dedit_002dmode">mime-edit-mode</a>:</td><td>&nbsp;</td><td valign="top"><a href="#mime_002dedit_002dmode">mime-edit-mode</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-multi_002dpart-Zhong-Liao--tag">multi-part 終了 tag</a>:</td><td>&nbsp;</td><td valign="top"><a href="#mime_002dedit_002dmode">mime-edit-mode</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-multi_002dpart-Kai-Shi--tag">multi-part 開始 tag</a>:</td><td>&nbsp;</td><td valign="top"><a href="#mime_002dedit_002dmode">mime-edit-mode</a></td></tr>
 <tr><td colspan="4"> <hr></td></tr>
-<tr><th><a name="Concept-Index_cp_letter-P">P</a></th><td></td><td></td></tr>
+<tr><th id="Concept-Index_cp_letter-P">P</th><td></td><td></td></tr>
 <tr><td></td><td valign="top"><a href="#index-PGP_002dkazu">PGP-kazu</a>:</td><td>&nbsp;</td><td valign="top"><a href="#PGP">PGP</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-PGP_002fMIME">PGP/MIME</a>:</td><td>&nbsp;</td><td valign="top"><a href="#PGP">PGP</a></td></tr>
 <tr><td colspan="4"> <hr></td></tr>
-<tr><th><a name="Concept-Index_cp_letter-T">T</a></th><td></td><td></td></tr>
+<tr><th id="Concept-Index_cp_letter-T">T</th><td></td><td></td></tr>
 <tr><td></td><td valign="top"><a href="#index-tag">tag</a>:</td><td>&nbsp;</td><td valign="top"><a href="#mime_002dedit_002dmode">mime-edit-mode</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-transfer-level">transfer level</a>:</td><td>&nbsp;</td><td valign="top"><a href="#transfer-level">transfer level</a></td></tr>
 <tr><td colspan="4"> <hr></td></tr>
@@ -1054,13 +1003,11 @@ Next: <a href="#Function-Index" accesskey="n" rel="next">Function Index</a>, Pre
 </td></tr></table>
 
 <hr>
-<a name="Function-Index"></a>
-<div class="header">
+<span id="Function-Index"></span><div class="header">
 <p>
 Next: <a href="#Variable-Index" accesskey="n" rel="next">Variable Index</a>, Previous: <a href="#Concept-Index" accesskey="p" rel="prev">Concept Index</a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a> &nbsp; [<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
 </div>
-<a name="Guan-Shu-Suo-Yin-"></a>
-<h2 class="chapter">6 関数索引</h2>
+<span id="Guan-Shu-Suo-Yin-"></span><h2 class="chapter">6 関数索引</h2>
 
 <table><tr><th valign="top">Jump to: &nbsp; </th><td><a class="summary-letter" href="#Function-Index_fn_letter-M"><b>M</b></a>
  &nbsp; 
@@ -1068,7 +1015,7 @@ Next: <a href="#Variable-Index" accesskey="n" rel="next">Variable Index</a>, Pre
 <table class="index-fn" border="0">
 <tr><td></td><th align="left">Index Entry</th><td>&nbsp;</td><th align="left"> Section</th></tr>
 <tr><td colspan="4"> <hr></td></tr>
-<tr><th><a name="Function-Index_fn_letter-M">M</a></th><td></td><td></td></tr>
+<tr><th id="Function-Index_fn_letter-M">M</th><td></td><td></td></tr>
 <tr><td></td><td valign="top"><a href="#index-mime_002dadd_002dcondition"><code>mime-add-condition</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Acting_002dcondition-configuration">Acting-condition configuration</a></td></tr>
 <tr><td colspan="4"> <hr></td></tr>
 </table>
@@ -1077,13 +1024,11 @@ Next: <a href="#Variable-Index" accesskey="n" rel="next">Variable Index</a>, Pre
 </td></tr></table>
 
 <hr>
-<a name="Variable-Index"></a>
-<div class="header">
+<span id="Variable-Index"></span><div class="header">
 <p>
 Previous: <a href="#Function-Index" accesskey="p" rel="prev">Function Index</a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a> &nbsp; [<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
 </div>
-<a name="Bian-Shu-Suo-Yin-"></a>
-<h2 class="chapter">7 変数索引</h2>
+<span id="Bian-Shu-Suo-Yin-"></span><h2 class="chapter">7 変数索引</h2>
 
 <table><tr><th valign="top">Jump to: &nbsp; </th><td><a class="summary-letter" href="#Variable-Index_vr_letter-M"><b>M</b></a>
  &nbsp; 
@@ -1093,7 +1038,7 @@ Previous: <a href="#Function-Index" accesskey="p" rel="prev">Function Index</a>,
 <table class="index-vr" border="0">
 <tr><td></td><th align="left">Index Entry</th><td>&nbsp;</td><th align="left"> Section</th></tr>
 <tr><td colspan="4"> <hr></td></tr>
-<tr><th><a name="Variable-Index_vr_letter-M">M</a></th><td></td><td></td></tr>
+<tr><th id="Variable-Index_vr_letter-M">M</th><td></td><td></td></tr>
 <tr><td></td><td valign="top"><a href="#index-mime_002dbrowse_002durl_002dfunction"><code>mime-browse-url-function</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Buttons">Buttons</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-mime_002dbutton_002dface"><code>mime-button-face</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Buttons">Buttons</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-mime_002dbutton_002dmouse_002dface"><code>mime-button-mouse-face</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Buttons">Buttons</a></td></tr>
@@ -1104,7 +1049,7 @@ Previous: <a href="#Function-Index" accesskey="p" rel="prev">Function Index</a>,
 <tr><td></td><td valign="top"><a href="#index-mime_002dfile_002dtypes"><code>mime-file-types</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#file_002dtype-specification">file-type specification</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-mime_002dtransfer_002dlevel"><code>mime-transfer-level</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#transfer-level">transfer level</a></td></tr>
 <tr><td colspan="4"> <hr></td></tr>
-<tr><th><a name="Variable-Index_vr_letter-P">P</a></th><td></td><td></td></tr>
+<tr><th id="Variable-Index_vr_letter-P">P</th><td></td><td></td></tr>
 <tr><td></td><td valign="top"><a href="#index-pgg_002ddefault_002dscheme"><code>pgg-default-scheme</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#PGP">PGP</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-pgg_002dinsert_002durl_002dfunction"><code>pgg-insert-url-function</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#PGP">PGP</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-pgg_002dscheme"><code>pgg-scheme</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#PGP">PGP</a></td></tr>

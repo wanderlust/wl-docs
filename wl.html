@@ -153,7 +153,7 @@ It supports IMAP4rev1(RFC2060), NNTP, POP and local message files.
 </li><li>- MH-like FCC. (Fcc: %Backup and Fcc: $Backup is allowed).
 </li><li>- MIME compliant (by SEMI).
 </li><li>- Transmission of news and mail are unified by Message transmitting draft.
-</li><li>- Graphical list of folders (XEmacs and Emacs 21).
+</li><li>- Graphical list of folders.
 </li><li>- View a part of message without retrieving the whole message (IMAP4).
 </li><li>- Server-side message look up (IMAP4). Multi-byte characters are allowed.
 </li><li>- Virtual Folders.
@@ -169,12 +169,7 @@ It supports IMAP4rev1(RFC2060), NNTP, POP and local message files.
 <p>We confirm Wanderlust works on following Emacsen:
 </p>
 <ul>
-<li> Mule 2.3 based on Emacs 19.34
-</li><li> Emacs 20.2 or later
-</li><li> XEmacs 20.4 or later
-</li><li> Meadow 1.00 or later
-</li><li> NTEmacs 20.4 or later
-</li><li> PMMule
+<li> Emacs 24.5 or later
 </li></ul>
 
 <p>IMAP4 connectivity with following imapd are confirmed to work with
@@ -262,26 +257,16 @@ SEMI:   <a href="http://git.chise.org/elisp/dist/semi/">http://git.chise.org/eli
 </pre></div>
 
 <p>You have to install APEL, FLIM and SEMI[-EPG] in this order.  Generally,
-&lsquo;<samp>make install</samp>&rsquo; will do the job.  (In XEmacs 21, &lsquo;<samp>make
-install-package</samp>&rsquo;.)
+&lsquo;<samp>make install</samp>&rsquo; will do the job.
 </p>
 <p>Refer to the documents of each package for detailed installation
-procedure <a id="DOCF1" href="#FOOT1"><sup>1</sup></a>.
+procedure.
 </p>
 
 <p>Recommended combination of APEL, FLIM and SEMI are following:
 </p>
 <ul class="no-bullet">
 <li>- APEL 10.8, FLIM 1.14.9, SEMI-EPG 1.14.7
-</li></ul>
-
-<p>You can also use many other FLIM/SEMI variants. Combination of the
-latest versions should work.  For example, the following combination are
-confirmed to work.
-</p>
-<ul class="no-bullet">
-<li>- APEL 10.6, SLIM 1.14.9, SEMI 1.14.5
-</li><li>- APEL 10.6, CLIME 1.14.5, EMIKO 1.14.1
 </li></ul>
 
 <p>You have to re-install Wanderlust if you upgraded APEL, FLIM or SEMI.
@@ -373,22 +358,10 @@ Then, please execute following commands.
 <p>Destination directory is auto-probed if you leave <code>LISPDIR</code>
 in <samp>Makefile</samp> as is. (That is, leave it as &lsquo;<samp>NONE</samp>&rsquo;)
 </p>
-<p>If you are using an Emacs variant which does not merge specified directory
-to <code>load-path</code> (e.g. Mule 2.3 based on Emacs 19.28),
-then you will see the error message:
-</p>
-<div class="example">
-<pre class="example">Cannot open load file: mime-setup
-</pre></div>
-
-<p>In this case, either add destination directories of custom, APEL, FLIM
-and SEMI to environmental variable <code>EMACSLOADPATH</code>, or define
-<code>load-path</code> in <samp>WL-CFG</samp> in extracted directory.
-</p>
-<p>If you want to handle shimbun folders or to use BBDB, add directory
-where emacs-w3m or BBDB is installed to <code>load-path</code>. Then necessary
-modules will be byte-compiled and installed.
-See <a href="#Shimbun-Folder">Shimbun Folder</a>, See <a href="#BBDB">BBDB</a>.
+<p>If you want to handle shimbun folders, add directory where emacs-w3m is
+installed to <code>load-path</code>. Then necessary modules will be
+byte-compiled and installed.
+See <a href="#Shimbun-Folder">Shimbun Folder</a>.
 </p>
 <span id="WL_002dCFG"></span><h4 class="subsection">2.3.2 <samp>WL-CFG</samp></h4>
 
@@ -422,29 +395,7 @@ such as &quot;elmo&quot; then add following to <samp>WL-CFG</samp>:
 <pre class="lisp">(setq ELMO_PREFIX &quot;elmo&quot;)
 </pre></div>
 
-<span id="Install-as-a-XEmacs-package"></span><h4 class="subsection">2.3.3 Install as a XEmacs package</h4>
-<span id="index-XEmacs-package"></span>
-<span id="index-XEmacs-package-install"></span>
-<span id="index-Package_002c-XEmacs"></span>
-<span id="index-Package-install_002c-XEmacs"></span>
-
-<p>It is possible to install Wanderlust as one of packages of XEmacs (21.0
-or later). Configuration for autoload and icon-path in local
-<samp>~/.emacs</samp> files are no longer necessary, if you install Wanderlust
-as a package.
-</p>
-<p>Follow the next example to install Wanderlust as an XEmacs package.
-</p>
-<div class="example">
-<pre class="example">% vi Makefile
-% make package
-% make install-package
-</pre></div>
-
-<p>package directory is auto-probed, if SEMI is installed.
-(you can also specify it with <code>PACKAGEDIR</code> in <samp>Makefile</samp>)
-</p>
-<span id="Run-in-place"></span><h4 class="subsection">2.3.4 Run in place</h4>
+<span id="Run-in-place"></span><h4 class="subsection">2.3.3 Run in place</h4>
 
 <p>If wl and elmo directories are defined in <code>load-path</code>, then
 byte-compilation and installation are not necessary to start Wanderlust.
@@ -456,7 +407,7 @@ invoked with following setting in <samp>~/.emacs</samp>.
 (add-to-list 'load-path &quot;~/work/wl-<var>version</var>/elmo&quot;)
 </pre></div>
 
-<span id="Manual"></span><h4 class="subsection">2.3.5 Manual</h4>
+<span id="Manual"></span><h4 class="subsection">2.3.4 Manual</h4>
 
 <p>Manual is described in Info format. Please do following.
 </p>
@@ -465,9 +416,6 @@ invoked with following setting in <samp>~/.emacs</samp>.
 % make install-info
 </pre></div>
 
-<p>If you install Wanderlust as a XEmacs package, Info file is already
-installed too, so there are no need of these commands.
-</p>
 <p>Manual directory is automatically detected. Of course, it can be
 configured by <code>INFODIR</code> in <samp>Makefile</samp>.
 </p>
@@ -508,7 +456,6 @@ of environmental variables which begins with <code>elmo-</code> and <code>wl-</c
 </p>
 <div class="lisp">
 <pre class="lisp">;; <span class="roman">autoload configuration</span>
-;; <span class="roman">(Not required if you have installed Wanderlust as XEmacs package)</span>
 (autoload 'wl &quot;wl&quot; &quot;Wanderlust&quot; t)
 (autoload 'wl-other-frame &quot;wl&quot; &quot;Wanderlust on new frame.&quot; t)
 (autoload 'wl-draft &quot;wl-draft&quot; &quot;Write draft with Wanderlust.&quot; t)
@@ -840,29 +787,11 @@ authentication will fall back to <code>clear</code> without confirmation
 <span id="index-UTF7"></span>
 <span id="index-UTF8"></span>
 <span id="index-Unicode"></span>
-<span id="index-Mule_002dUCS"></span>
-<span id="index-ucs_002dconv"></span>
 
-<p>You can use international mailbox names in <var>mailbox</var> part, if you
-are using Emacs with UTF-7 support and
+<p>You can use international mailbox names in <var>mailbox</var> part, if
 <code>elmo-imap4-use-modified-utf7</code> is set to non-nil value (default
-value is <code>t</code> on Emacs 23 or later and <code>nil</code> on other
-Emacsen).
+value is <code>t</code>).
 </p>
-<p>Emacs 23 or later doesn&rsquo;t need additional package.
-Other Emacsen needs Mule-UCS package to use UTF-7.
-Mule-UCS works on following Emacsen.
-</p>
-<ul>
-<li> Emacs 20.3 or later
-</li><li> XEmacs 21.2.37 or later
-</li></ul>
-
-<p>You can obtain Mule-UCS package (snapshot of 2004) from following URL.
-</p>
-<div class="example">
-<pre class="example"><a href="http://www.jpl.org/ftp/pub/tmp/">http://www.jpl.org/ftp/pub/tmp/</a>
-</pre></div>
 
 <hr>
 <span id="NNTP-Folder"></span><div class="header">
@@ -1176,10 +1105,6 @@ Next: <a href="#Archive-Vars" accesskey="n" rel="next">Archive Vars</a>, Previou
 archive folders created by expiration, you must set non-nil value to
 <code>elmo-archive-treat-file</code>.
 </p>
-<p>On the OS/2, there is a great difference between Mule2.3(19.28) and Emacs20.2
-in processing speed. For comfortable use, Emacs20 is recommended.
-(If re-search&rsquo;s performance is the problem, 19.3x or later may be okay.)
-</p>
 <p>If many files are included in one archive,
 it takes long time to access the archive folder because
 archiver starting overhead is increased (especially LHA).
@@ -1326,12 +1251,6 @@ as <var>authenticate-type</var>.
                         as user &lsquo;<samp>hoge</samp>&rsquo;.
 </pre></div>
 
-<p>To use apop as an <var>authenticate-type</var>, <samp>md5.el</samp> is needed
-(XEmacs doesn&rsquo;t need <samp>md5.el</samp>).  <samp>md5.el</samp> is included in
-<samp>utils/sasl/lisp/</samp> or Emacs/W3 package
-(<a href="http://www.cs.indiana.edu/elisp/w3/docs.html">http://www.cs.indiana.edu/elisp/w3/docs.html</a>) or LCD archive
-(GPL2).
-</p>
 <p>If the last character of the folder name is &lsquo;<samp>!</samp>&rsquo;, Wanderlust
 connects to the POP server via SSL (Secure Socket Layer).  If a folder
 name ends with &lsquo;<samp>!!</samp>&rsquo;, STARTTLS connection will be established.
@@ -2100,7 +2019,6 @@ Next: <a href="#Folder-Manager" accesskey="n" rel="next">Folder Manager</a>, Pre
 <span id="Check-new_002c-unread-number"></span><h4 class="subsubsection">4.1.1.1 Check new, unread number</h4>
 
 <p>Folder mode looks like this.
-(In XEmacs, it looks much nicer <tt>;-)</tt>)
 </p>
 <div class="example">
 <pre class="example">[-]Desktop:14186/35580/67263
@@ -2637,7 +2555,7 @@ group.  But insert and delete commands can be only available for the
 children folders of the access group and they only sets the subscribe
 status.  In other words, insertion of the folder means subscribing,
 deletion means unsubscribing.
-<a id="DOCF2" href="#FOOT2"><sup>2</sup></a>
+<a id="DOCF1" href="#FOOT1"><sup>1</sup></a>
 </p>
 <p>To update the access group when children folders are inserted or deleted
 by other way (other than Wanderlust),
@@ -3890,7 +3808,7 @@ prefix argument, arbitrary address can be edited.
 <dd><span id="index-_0023-_0028Summary_0029"></span>
 <span id="index-wl_002dsummary_002dprint_002dmessage"></span>
 <p>Print out current message&rsquo;s content.
-It uses <code>ps-print</code> module in Emacs 20.x.
+It uses <code>ps-print</code> module.
 If you don&rsquo;t use color printer, you might want to set
 <code>wl-ps-print-buffer-function</code> to <code>ps-print-buffer</code>.
 </p>
@@ -3934,9 +3852,7 @@ prefetch all messages which have marks included in the
 <dt><kbd>M-j</kbd></dt>
 <dd><span id="index-M_002dj-_0028Summary_0029"></span>
 <span id="index-wl_002dsummary_002djump_002dto_002dmsg_002dby_002dmessage_002did"></span>
-<p>Jump cursor to the message which have specified &lsquo;<samp>Message-Id:</samp>&rsquo;.  If
-<code>elmo-use-database</code> is non-nil, other folder is also searched.
-(<code>wl-summary-jump-to-msg-by-message-id</code>)
+<p>Jump cursor to the message which have specified &lsquo;<samp>Message-Id:</samp>&rsquo;.
 </p>
 </dd>
 <dt><kbd>^</kbd></dt>
@@ -5554,8 +5470,8 @@ Next: <a href="#Variables-of-Draft-Mode" accesskey="n" rel="next">Variables of D
 <span id="index-wl_002ddraft_002dyank_002doriginal"></span>
 <p>Cites the content of the current message buffer (the part under cursor).
 If the region is active, cites the region (it affects only if
-<code>transient-mark-mode</code> (on GNU Emacs) or <code>zmacs-regions</code>
-(on XEmacs) is Non-nil). If the command is called with prefix argument,
+<code>transient-mark-mode</code> is Non-nil).
+If the command is called with prefix argument,
 the text inserted by yank command (the text content of clipboard) is cited.
 (<code>wl-draft-yank-original</code>)
 </p>
@@ -7673,12 +7589,15 @@ the last one only.
 <p>Keys that can be seen by folder of types:
 </p>
 <div class="example">
-<pre class="example">                        chars lines xref  extra
-localdir,localnews        Y     E     E     E
-nntp (supporting xover)   Y     E     E     N
-     (otherwise)          N     E     E     E
-imap4                     Y     E     E     E
-pop3                      N     E     E     E
+<table>
+<thead><tr><th></th><th><pre class="example">chars</pre></th><th><pre class="example">lines</pre></th><th><pre class="example">xref</pre></th><th><pre class="example">extra</pre></th></tr></thead>
+<tr><td><pre class="example">localdir,localnews</pre></td><td><pre class="example">Y</pre></td><td><pre class="example">E</pre></td><td><pre class="example">E</pre></td><td><pre class="example">E</pre></td></tr>
+<tr><td><pre class="example">nntp (supporting xover)</pre></td><td><pre class="example">Y</pre></td><td><pre class="example">E</pre></td><td><pre class="example">E</pre></td><td><pre class="example">N</pre></td></tr>
+<tr><td><pre class="example">(otherwise)</pre></td><td><pre class="example">N</pre></td><td><pre class="example">E</pre></td><td><pre class="example">E</pre></td><td><pre class="example">E</pre></td></tr>
+<tr><td><pre class="example">imap4</pre></td><td><pre class="example">Y</pre></td><td><pre class="example">E</pre></td><td><pre class="example">E</pre></td><td><pre class="example">E</pre></td></tr>
+<tr><td><pre class="example">pop3</pre></td><td><pre class="example">N</pre></td><td><pre class="example">E</pre></td><td><pre class="example">E</pre></td><td><pre class="example">E</pre></td></tr>
+</table>
+<pre class="example">
 
                 Y: can be seen
                 N: cannot be seen (ignored)
@@ -7755,9 +7674,8 @@ it is used as an address information in the draft preparation mode.
 <code>nil</code>), address completion in draft mode uses LDAP information.
 </p>
 <p>If you use LDAP, you have to set <code>wl-ldap-server</code>,
-<code>wl-ldap-port</code> and <code>wl-ldap-base</code> properly. If your emacs does
-not have LDAP feature as built-in feature (Currently only XEmacs can
-have built-in LDAP feature), you have to set command exec <code>PATH</code> to
+<code>wl-ldap-port</code> and <code>wl-ldap-base</code> properly.
+You also have to set command exec <code>PATH</code> to
 the program <code>ldapsearch</code>.
 </p>
 
@@ -8691,39 +8609,9 @@ Next: <a href="#LSDB" accesskey="n" rel="next">LSDB</a>, Previous: <a href="#imp
 <span id="bbdb_002eel"></span><h4 class="subsection">14.1.2 bbdb.el</h4>
 <span id="index-BBDB"></span>
 
-<p>To use The Insidious Big Brother Database (<a href="http://bbdb.sourceforge.net/">http://bbdb.sourceforge.net/</a>)
-with Wanderlust, place <samp>util/bbdb-wl.el</samp> on the <code>load-path</code>
-and do the following settings.
-</p>
-<p>But, <samp>util/bbdb-wl.el</samp> is not compatible with BBDB 3.x
-(<a href="http://savannah.nongnu.org/projects/bbdb/">http://savannah.nongnu.org/projects/bbdb/</a>).
-For BBDB 3.x, BBDBV3-Wl (<a href="https://gna.org/projects/bbdbv3-wl/">https://gna.org/projects/bbdbv3-wl/</a>) may be useful.
-</p>
-<p>If BBDB is on the <code>load-path</code> at the installation, <samp>bbdb-wl.el</samp> is
-byte-compiled and installed.
-See <a href="#Install">Install</a>.
-</p>
-<div class="lisp">
-<pre class="lisp">(require 'bbdb-wl)
-
-(bbdb-wl-setup)
-;; <span class="roman">enable pop-ups</span>
-(setq bbdb-use-pop-up t)
-;; <span class="roman">auto collection</span>
-(setq bbdb/mail-auto-create-p t)
-;; <span class="roman">exceptional folders against auto collection</span>
-(setq bbdb-wl-ignore-folder-regexp &quot;^@&quot;)
-(setq signature-use-bbdb t)
-(setq bbdb-north-american-phone-numbers-p nil)
-;; <span class="roman">shows the name of bbdb in the summary</span> :-)
-(setq wl-summary-from-function 'bbdb-wl-from-func)
-;; <span class="roman">automatically add mailing list fields</span>
-(add-hook 'bbdb-notice-hook 'bbdb-auto-notes-hook)
-(setq bbdb-auto-notes-alist '((&quot;X-ML-Name&quot; (&quot;.*$&quot; ML 0))))
-</pre></div>
-
-<p>You can complete address with BBDB by <kbd>M-<span class="key">TAB</span></kbd>
-in draft buffer.
+<p>The Insidious Big Brother Database (<a href="http://savannah.nongnu.org/projects/bbdb/">http://savannah.nongnu.org/projects/bbdb/</a>) supports Wanderlust since 3.2. 
+Please ask details of setings to mailing list of Wanderlust of BBDB.
+See <a href="#Mailing-List">Mailing List</a>.
 </p>
 
 <hr>
@@ -8805,9 +8693,7 @@ Next: <a href="#dired_002ddd" accesskey="n" rel="next">dired-dd</a>, Previous: <
 &lsquo;<samp>X-Face:</samp>&rsquo; field in message buffer and you will see face image.
 </p>
 <table class="menu" border="0" cellspacing="0">
-<tr><td align="left" valign="top">&bull; <a href="#x_002dface_002dxmas" accesskey="1">x-face-xmas</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">XEmacs case
-</td></tr>
-<tr><td align="left" valign="top">&bull; <a href="#x_002dface_002dmule" accesskey="2">x-face-mule</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Emacs case
+<tr><td align="left" valign="top">&bull; <a href="#x_002dface_002dmule" accesskey="1">x-face-mule</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Emacs case
 </td></tr>
 </table>
 
@@ -8817,27 +8703,11 @@ value of the variable <code>wl-x-face-file</code>), it is inserted as a
 <code>wl-auto-insert-x-face</code> is non-nil).
 </p>
 <hr>
-<span id="x_002dface_002dxmas"></span><div class="header">
-<p>
-Next: <a href="#x_002dface_002dmule" accesskey="n" rel="next">x-face-mule</a>, Previous: <a href="#X_002dFace" accesskey="p" rel="prev">X-Face</a>, Up: <a href="#X_002dFace" accesskey="u" rel="up">X-Face</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
-</div>
-<span id="x_002dface_002dxmas-_0028for-XEmacs_0029"></span><h4 class="subsubsection">14.1.6.1 x-face-xmas (for XEmacs)</h4>
-<span id="index-x_002dface_002dxmas"></span>
-
-<p>If you use <samp>x-face-xmas.el</samp> in x-face (<a href="ftp://jpl.org/pub/elisp/">ftp://jpl.org/pub/elisp/</a>)
-1.3.6.13 or later, do the following:
-</p>
-<div class="lisp">
-<pre class="lisp">(autoload 'x-face-xmas-wl-display-x-face &quot;x-face&quot;)
-(setq wl-highlight-x-face-function 'x-face-xmas-wl-display-x-face)
-</pre></div>
-
-<hr>
 <span id="x_002dface_002dmule"></span><div class="header">
 <p>
-Previous: <a href="#x_002dface_002dxmas" accesskey="p" rel="prev">x-face-xmas</a>, Up: <a href="#X_002dFace" accesskey="u" rel="up">X-Face</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
+Previous: <a href="#X_002dFace" accesskey="p" rel="prev">X-Face</a>, Up: <a href="#X_002dFace" accesskey="u" rel="up">X-Face</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
 </div>
-<span id="x_002dface_002dmule-_0028for-Emacs_0029"></span><h4 class="subsubsection">14.1.6.2 x-face-mule (for Emacs)</h4>
+<span id="x_002dface_002dmule-1"></span><h4 class="subsubsection">14.1.6.1 x-face-mule</h4>
 <span id="index-x_002dface_002dmule"></span>
 <span id="index-bitmap_002dmule"></span>
 
@@ -8849,10 +8719,10 @@ Previous: <a href="#x_002dface_002dxmas" accesskey="p" rel="prev">x-face-xmas</a
 (setq wl-highlight-x-face-function 'x-face-decode-message-header)
 </pre></div>
 
-<span id="x_002dface_002de21-_0028for-Emacs-21_002ex_0029"></span><h4 class="subsubsection">14.1.6.3 x-face-e21 (for Emacs 21.x)</h4>
+<span id="x_002dface_002de21"></span><h4 class="subsubsection">14.1.6.2 x-face-e21</h4>
 <span id="index-x_002dface_002de21"></span>
 
-<p>With Emacs 21.x, you can use <samp>x-face-e21.el</samp>
+<p>You can use <samp>x-face-e21.el</samp>
 (<a href="ftp://jpl.org/pub/elisp/">ftp://jpl.org/pub/elisp/</a>) instead of <samp>x-face-mule.el</samp>
 to display X-Face. In this case, bitmap-mule is not required.
 Do as follows:
@@ -9284,7 +9154,6 @@ Check mail arrival in this period.
 <p>The initial setting is 0 (in seconds).
 Check mail when the time spcified by <code>wl-biff-check-interval</code> has
 passed and idling time exceeds specified seconds by this variable.
-This is ignored on XEmacs.
 </p>
 </dd>
 <dt><code>wl-biff-use-idle-timer</code></dt>
@@ -9847,8 +9716,7 @@ this value as <code>iso-2022-jp</code>.)
 </dd>
 <dt><code>wl-highlight-folder-with-icon</code></dt>
 <dd><span id="index-wl_002dhighlight_002dfolder_002dwith_002dicon"></span>
-<p>This is meaningful for XEmacs or Emacs 21.  The initial setting depends
-on Emacsen (<code>t</code> for XEmacs or Emacs 21 with icons).
+<p>The default value is <code>t</code>.
 </p>
 </dd>
 <dt><code>wl-strict-diff-folders</code></dt>
@@ -9986,13 +9854,6 @@ See <a href="#x_002dface_002dmule">x-face-mule</a>.
 <p>If non-nil, bitmap image is shown on the opening demo.  If you set
 <code>xpm</code> or <code>xbm</code>, (if possible) display selected image type
 logo.
-</p>
-</dd>
-<dt><code>elmo-use-database</code></dt>
-<dd><span id="index-elmo_002duse_002ddatabase"></span>
-<p>This is meaningful for XEmacs only.  The initial setting depends on
-XEmacs (<code>t</code> for XEmacs with dbm).
-If non-nil, Message-ID is controlled by dbm.
 </p>
 </dd>
 <dt><code>elmo-nntp-list-folders-use-cache</code></dt>
@@ -10232,28 +10093,25 @@ the English one) with the body
 subscribe the mailing list to post a message.
 </p>
 <p>If you send a bug report, please attach Backtrace with it.
-<a id="DOCF3" href="#FOOT3"><sup>3</sup></a>
+<a id="DOCF2" href="#FOOT2"><sup>2</sup></a>
 </p>
 <p>I would like to express my thanks to the members of the mailing list for
 valuable advice and many pieces of code they contributed.
 </p>
 <span id="Archive-1"></span><h3 class="section">17.1 Archive</h3>
 
-<p>You can read messages posted to the mailing list on the web or in
-NetNews.
+<p>You can read messages posted to the mailing list in NetNews.
 </p>
 <p>Read messages posted to <tt>&lt;wl@ml.gentei.org&gt;</tt>
 </p>
 <div class="example">
-<pre class="example"><a href="http://dir.gmane.org/gmane.mail.wanderlust.general.japanese">http://dir.gmane.org/gmane.mail.wanderlust.general.japanese</a>
-<a href="news://news.gmane.org/gmane.mail.wanderlust.general.japanese">news://news.gmane.org/gmane.mail.wanderlust.general.japanese</a>
+<pre class="example"><a href="news://news.gmane.io/gmane.mail.wanderlust.general.japanese">news://news.gmane.io/gmane.mail.wanderlust.general.japanese</a>
 </pre></div>
 
 <p>Read messages posted to <tt>&lt;wl-en@ml.gentei.org&gt;</tt>
 </p>
 <div class="example">
-<pre class="example"><a href="http://dir.gmane.org/gmane.mail.wanderlust.general">http://dir.gmane.org/gmane.mail.wanderlust.general</a>
-<a href="news://news.gmane.org/gmane.mail.wanderlust.general">news://news.gmane.org/gmane.mail.wanderlust.general</a>
+<pre class="example"><a href="news://news.gmane.io/gmane.mail.wanderlust.general">news://news.gmane.io/gmane.mail.wanderlust.general</a>
 </pre></div>
 
 
@@ -10613,7 +10471,6 @@ Next: <a href="#Key-Index" accesskey="n" rel="next">Key Index</a>, Previous: <a 
 <tr><td></td><td valign="top"><a href="#index-Modified-UTF7">Modified UTF7</a>:</td><td>&nbsp;</td><td valign="top"><a href="#IMAP-Folder">IMAP Folder</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-mu">mu</a>:</td><td>&nbsp;</td><td valign="top"><a href="#mu">mu</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-mu_002dcite">mu-cite</a>:</td><td>&nbsp;</td><td valign="top"><a href="#mu_002dcite">mu-cite</a></td></tr>
-<tr><td></td><td valign="top"><a href="#index-Mule_002dUCS">Mule-UCS</a>:</td><td>&nbsp;</td><td valign="top"><a href="#IMAP-Folder">IMAP Folder</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-Multi-Folder">Multi Folder</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Multi-Folder">Multi Folder</a></td></tr>
 <tr><td colspan="4"> <hr></td></tr>
 <tr><th id="Concept-Index_cp_letter-N">N</th><td></td><td></td></tr>
@@ -10630,8 +10487,6 @@ Next: <a href="#Key-Index" accesskey="n" rel="next">Key Index</a>, Previous: <a 
 <tr><td></td><td valign="top"><a href="#index-Overview">Overview</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Overview">Overview</a></td></tr>
 <tr><td colspan="4"> <hr></td></tr>
 <tr><th id="Concept-Index_cp_letter-P">P</th><td></td><td></td></tr>
-<tr><td></td><td valign="top"><a href="#index-Package-install_002c-XEmacs">Package install, XEmacs</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Install">Install</a></td></tr>
-<tr><td></td><td valign="top"><a href="#index-Package_002c-XEmacs">Package, XEmacs</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Install">Install</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-Pipe-Folder">Pipe Folder</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Pipe-Folder">Pipe Folder</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-POP-Folder">POP Folder</a>:</td><td>&nbsp;</td><td valign="top"><a href="#POP-Folder">POP Folder</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-POP_002dbefore_002dSMTP">POP-before-SMTP</a>:</td><td>&nbsp;</td><td valign="top"><a href="#POP_002dbefore_002dSMTP">POP-before-SMTP</a></td></tr>
@@ -10682,7 +10537,6 @@ Next: <a href="#Key-Index" accesskey="n" rel="next">Key Index</a>, Previous: <a 
 <tr><td></td><td valign="top"><a href="#index-Terminology">Terminology</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Terminology">Terminology</a></td></tr>
 <tr><td colspan="4"> <hr></td></tr>
 <tr><th id="Concept-Index_cp_letter-U">U</th><td></td><td></td></tr>
-<tr><td></td><td valign="top"><a href="#index-ucs_002dconv">ucs-conv</a>:</td><td>&nbsp;</td><td valign="top"><a href="#IMAP-Folder">IMAP Folder</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-Unicode">Unicode</a>:</td><td>&nbsp;</td><td valign="top"><a href="#IMAP-Folder">IMAP Folder</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-UNZIP">UNZIP</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Archiver">Archiver</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-User_002dAgent">User-Agent</a>:</td><td>&nbsp;</td><td valign="top"><a href="#User_002dAgent-Field">User-Agent Field</a></td></tr>
@@ -10696,10 +10550,7 @@ Next: <a href="#Key-Index" accesskey="n" rel="next">Key Index</a>, Previous: <a 
 <tr><td></td><td valign="top"><a href="#index-x_002dface">x-face</a>:</td><td>&nbsp;</td><td valign="top"><a href="#X_002dFace">X-Face</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-x_002dface_002de21">x-face-e21</a>:</td><td>&nbsp;</td><td valign="top"><a href="#x_002dface_002dmule">x-face-mule</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-x_002dface_002dmule">x-face-mule</a>:</td><td>&nbsp;</td><td valign="top"><a href="#x_002dface_002dmule">x-face-mule</a></td></tr>
-<tr><td></td><td valign="top"><a href="#index-x_002dface_002dxmas">x-face-xmas</a>:</td><td>&nbsp;</td><td valign="top"><a href="#x_002dface_002dxmas">x-face-xmas</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-X_002dMailer">X-Mailer</a>:</td><td>&nbsp;</td><td valign="top"><a href="#User_002dAgent-Field">User-Agent Field</a></td></tr>
-<tr><td></td><td valign="top"><a href="#index-XEmacs-package">XEmacs package</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Install">Install</a></td></tr>
-<tr><td></td><td valign="top"><a href="#index-XEmacs-package-install">XEmacs package install</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Install">Install</a></td></tr>
 <tr><td colspan="4"> <hr></td></tr>
 <tr><th id="Concept-Index_cp_letter-Z">Z</th><td></td><td></td></tr>
 <tr><td></td><td valign="top"><a href="#index-ZOO">ZOO</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Archiver">Archiver</a></td></tr>
@@ -11371,7 +11222,6 @@ Next: <a href="#Function-Index" accesskey="n" rel="next">Function Index</a>, Pre
 <tr><td></td><td valign="top"><a href="#index-elmo_002dspam_002dspamoracle_002dprogram"><code>elmo-spam-spamoracle-program</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#SpamOracle">SpamOracle</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-elmo_002dspam_002dspamoracle_002dspam_002dheader_002dregexp"><code>elmo-spam-spamoracle-spam-header-regexp</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#SpamOracle">SpamOracle</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-elmo_002dspamassassin_002ddebug"><code>elmo-spamassassin-debug</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#SpamAssassin">SpamAssassin</a></td></tr>
-<tr><td></td><td valign="top"><a href="#index-elmo_002duse_002ddatabase"><code>elmo-use-database</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Customizable-Variables">Customizable Variables</a></td></tr>
 <tr><td colspan="4"> <hr></td></tr>
 <tr><th id="Variable-Index_vr_letter-M">M</th><td></td><td></td></tr>
 <tr><td></td><td valign="top"><a href="#index-mail_002duser_002dagent"><code>mail-user-agent</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Minimal-Settings">Minimal Settings</a></td></tr>
@@ -11922,9 +11772,8 @@ Previous: <a href="#Variable-Index" accesskey="p" rel="prev">Variable Index</a>,
     <ul class="no-bullet">
       <li><a id="toc-Installation" href="#Installation">2.3.1 Installation</a></li>
       <li><a id="toc-WL_002dCFG" href="#WL_002dCFG">2.3.2 <samp>WL-CFG</samp></a></li>
-      <li><a id="toc-Install-as-a-XEmacs-package" href="#Install-as-a-XEmacs-package">2.3.3 Install as a XEmacs package</a></li>
-      <li><a id="toc-Run-in-place" href="#Run-in-place">2.3.4 Run in place</a></li>
-      <li><a id="toc-Manual" href="#Manual">2.3.5 Manual</a></li>
+      <li><a id="toc-Run-in-place" href="#Run-in-place">2.3.3 Run in place</a></li>
+      <li><a id="toc-Manual" href="#Manual">2.3.4 Manual</a></li>
     </ul></li>
     <li><a id="toc-Set-up-_002eemacs" href="#Minimal-Settings">2.4 Set up .emacs</a>
     <ul class="no-bullet">
@@ -12187,9 +12036,8 @@ Previous: <a href="#Variable-Index" accesskey="p" rel="prev">Variable Index</a>,
       <li><a id="toc-mu_002dcite_002eel" href="#mu_002dcite">14.1.5 mu-cite.el</a></li>
       <li><a id="toc-x_002dface" href="#X_002dFace">14.1.6 x-face</a>
       <ul class="no-bullet">
-        <li><a id="toc-x_002dface_002dxmas-_0028for-XEmacs_0029" href="#x_002dface_002dxmas">14.1.6.1 x-face-xmas (for XEmacs)</a></li>
-        <li><a id="toc-x_002dface_002dmule-_0028for-Emacs_0029" href="#x_002dface_002dmule">14.1.6.2 x-face-mule (for Emacs)</a></li>
-        <li><a id="toc-x_002dface_002de21-_0028for-Emacs-21_002ex_0029" href="#x_002dface_002de21-_0028for-Emacs-21_002ex_0029">14.1.6.3 x-face-e21 (for Emacs 21.x)</a></li>
+        <li><a id="toc-x_002dface_002dmule-1" href="#x_002dface_002dmule">14.1.6.1 x-face-mule</a></li>
+        <li><a id="toc-x_002dface_002de21" href="#x_002dface_002de21">14.1.6.2 x-face-e21</a></li>
       </ul></li>
       <li><a id="toc-dired_002ddd_0028Dired_002dDragDrop_0029" href="#dired_002ddd">14.1.7 dired-dd(Dired-DragDrop)</a></li>
       <li><a id="toc-mhc_002eel" href="#MHC">14.1.8 mhc.el</a></li>
@@ -12260,13 +12108,9 @@ Previous: <a href="#Variable-Index" accesskey="p" rel="prev">Variable Index</a>,
 <h4 class="footnotes-heading">Footnotes</h4>
 
 <h5><a id="FOOT1" href="#DOCF1">(1)</a></h5>
-<p>If you want to use SEMI on Emacs 19.34. <br>
-<a href="http://www.jpl.org/ftp/attic/INSTALL-SEMI-ja.html">http://www.jpl.org/ftp/attic/INSTALL-SEMI-ja.html</a> (In Japanese)
-may help you.</p>
-<h5><a id="FOOT2" href="#DOCF2">(2)</a></h5>
 <p>In the current implementation,
 it is faster to delete region than to unsubscribe region.</p>
-<h5><a id="FOOT3" href="#DOCF3">(3)</a></h5>
+<h5><a id="FOOT2" href="#DOCF2">(2)</a></h5>
 <p><a href="http://www.jpl.org/elips/BUGS-ja.html">http://www.jpl.org/elips/BUGS-ja.html</a> describes how to
 in Japanese.</p>
 </div>
