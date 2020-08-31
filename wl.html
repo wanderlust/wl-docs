@@ -235,16 +235,12 @@ Next: <a href="#Download" accesskey="n" rel="next">Download</a>, Previous: <a hr
 <span id="index-FLIM"></span>
 <span id="index-SEMI"></span>
 
-<p>You must install packages named APEL, FLIM and SEMI beforehand to use
-Wanderlust.
-</p>
-<p>For Emacs 23 or later, downloading from below URLs is highly
-recommended.
-SEMI-EPG is corresponding package to SEMI.
+<p>You must install packages named APEL-LB, FLIM-LB and SEMI-EPG, which are
+variants of APEL, FLIM and SEMI, beforehand to use Wanderlust.
 </p>
 <div class="example">
-<pre class="example">APEL:     <a href="https://github.com/wanderlust/apel">https://github.com/wanderlust/apel</a>
-FLIM:     <a href="https://github.com/wanderlust/flim">https://github.com/wanderlust/flim</a>
+<pre class="example">APEL-LB:  <a href="https://github.com/wanderlust/apel">https://github.com/wanderlust/apel</a>
+FLIM-LB:  <a href="https://github.com/wanderlust/flim">https://github.com/wanderlust/flim</a>
 SEMI-EPG: <a href="https://github.com/wanderlust/semi">https://github.com/wanderlust/semi</a>
 </pre></div>
 
@@ -256,20 +252,14 @@ FLIM:   <a href="http://git.chise.org/elisp/dist/apel/">http://git.chise.org/eli
 SEMI:   <a href="http://git.chise.org/elisp/dist/semi/">http://git.chise.org/elisp/dist/semi/</a>
 </pre></div>
 
-<p>You have to install APEL, FLIM and SEMI[-EPG] in this order.  Generally,
-&lsquo;<samp>make install</samp>&rsquo; will do the job.
+<p>You have to install APEL-LB, FLIM-LB and SEMI-EPG in this order.
+Generally, &lsquo;<samp>make install</samp>&rsquo; will do the job.
 </p>
 <p>Refer to the documents of each package for detailed installation
 procedure.
 </p>
-
-<p>Recommended combination of APEL, FLIM and SEMI are following:
-</p>
-<ul class="no-bullet">
-<li>- APEL 10.8, FLIM 1.14.9, SEMI-EPG 1.14.7
-</li></ul>
-
-<p>You have to re-install Wanderlust if you upgraded APEL, FLIM or SEMI.
+<p>You have to re-install Wanderlust if you upgraded APEL-LB, FLIM-LB or
+SEMI-EPG.
 </p>
 
 <hr>
@@ -10092,8 +10082,13 @@ the English one) with the body
 <p>Please send bug reports or patches to one of those lists.  You have to
 subscribe the mailing list to post a message.
 </p>
+<p>Alternatively, You can also use GitHub.  If you send a pull request,
+please embed unindented <samp>ChangeLog</samp> entries in commit message like
+Emacs&rsquo;s.  See <cite>Commit messages</cite> section of Emacs&rsquo;s CONTRIBUTE file
+<a id="DOCF2" href="#FOOT2"><sup>2</sup></a>.
+</p>
 <p>If you send a bug report, please attach Backtrace with it.
-<a id="DOCF2" href="#FOOT2"><sup>2</sup></a>
+<a id="DOCF3" href="#FOOT3"><sup>3</sup></a>
 </p>
 <p>I would like to express my thanks to the members of the mailing list for
 valuable advice and many pieces of code they contributed.
@@ -12111,6 +12106,8 @@ Previous: <a href="#Variable-Index" accesskey="p" rel="prev">Variable Index</a>,
 <p>In the current implementation,
 it is faster to delete region than to unsubscribe region.</p>
 <h5><a id="FOOT2" href="#DOCF2">(2)</a></h5>
+<p><a href="https://git.savannah.gnu.org/cgit/emacs.git/plain/CONTRIBUTE">https://git.savannah.gnu.org/cgit/emacs.git/plain/CONTRIBUTE</a></p>
+<h5><a id="FOOT3" href="#DOCF3">(3)</a></h5>
 <p><a href="http://www.jpl.org/elips/BUGS-ja.html">http://www.jpl.org/elips/BUGS-ja.html</a> describes how to
 in Japanese.</p>
 </div>
