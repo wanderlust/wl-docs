@@ -3,10 +3,10 @@
 <!-- Created by GNU Texinfo 6.7, http://www.gnu.org/software/texinfo/ -->
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<title>SEMI 1.14 Manual</title>
+<title>SEMI-EPG 1.14 Manual</title>
 
-<meta name="description" content="SEMI 1.14 Manual">
-<meta name="keywords" content="SEMI 1.14 Manual">
+<meta name="description" content="SEMI-EPG 1.14 Manual">
+<meta name="keywords" content="SEMI-EPG 1.14 Manual">
 <meta name="resource-type" content="document">
 <meta name="distribution" content="global">
 <meta name="Generator" content="texi2any">
@@ -37,20 +37,20 @@ ul.no-bullet {list-style: none}
 </head>
 
 <body lang="en">
-<h1 class="settitle" align="center">SEMI 1.14 Manual</h1>
+<h1 class="settitle" align="center">SEMI-EPG 1.14 Manual</h1>
 
 
 <span id="Top"></span><div class="header">
 <p>
 Next: <a href="#Introduction" accesskey="n" rel="next">Introduction</a>, Previous: <a href="dir.html#Top" accesskey="p" rel="prev">(dir)</a>, Up: <a href="dir.html#Top" accesskey="u" rel="up">(dir)</a> &nbsp; [<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
 </div>
-<span id="SEMI-1_002e14-Manual"></span><h1 class="top">SEMI 1.14 Manual</h1>
+<span id="SEMI_002dEPG-1_002e14-Manual"></span><h1 class="top">SEMI-EPG 1.14 Manual</h1>
 
 
 <p>This file documents SEMI, a MIME user interface for GNU Emacs.
 </p>
 <table class="menu" border="0" cellspacing="0">
-<tr><td align="left" valign="top">&bull; <a href="#Introduction" accesskey="1">Introduction</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">What is SEMI?
+<tr><td align="left" valign="top">&bull; <a href="#Introduction" accesskey="1">Introduction</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">What is SEMI-EPG?
 </td></tr>
 <tr><td align="left" valign="top">&bull; <a href="#MIME_002dView" accesskey="2">MIME-View</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">MIME message viewing
 </td></tr>
@@ -71,10 +71,11 @@ Next: <a href="#Introduction" accesskey="n" rel="next">Introduction</a>, Previou
 <p>
 Next: <a href="#MIME_002dView" accesskey="n" rel="next">MIME-View</a>, Previous: <a href="#Top" accesskey="p" rel="prev">Top</a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a> &nbsp; [<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
 </div>
-<span id="What-is-SEMI_003f"></span><h2 class="chapter">1 What is SEMI?</h2>
+<span id="What-is-SEMI_002dEPG_003f"></span><h2 class="chapter">1 What is SEMI-EPG?</h2>
 
 <p>SEMI is a package for GNU Emacs to provide features related with MIME
-user interface.
+user interface.  SEMI-EPG is a variant of SEMI, which
+features supports to EasyPG and latest Emacs.
 </p>
 <p>SEMI provides two user interfaces: MIME-View and MIME-Edit.
 </p>
@@ -271,8 +272,11 @@ taken from
 </p>
 <ol>
 <li> Title described in Content-Description field or Subject field
+
 </li><li> File name specified by filename parameter in Content-Disposition field
+
 </li><li> File name specified by name parameter in Content-Type field
+
 </li><li> File name for uuencode&rsquo;ing
 </li></ol>
 
@@ -461,6 +465,7 @@ image, audio, etc.
 </p>
 <ul>
 <li> single-part tag
+
 </li><li> multi-part tag
 </li></ul>
 
@@ -472,12 +477,12 @@ image, audio, etc.
 </pre></div>
 
 <p>TYPE/SUBTYPE and PARAMETERS indicates type/subtype and parameters of
-Content-Type (<a href="mime-en.html#Content_002dType">(mime-en)Content-Type</a>) field.  TYPE/SUBTYPE is
-required, PARAMETERS is optional.
+Content-Type (<a href="mime-en.html#Content_002dType">Content-Type</a> in <cite>FLIM Manual</cite>) field.
+TYPE/SUBTYPE is required, PARAMETERS is optional.
 </p>
 <p>ENCODING indicates Content-Transfer-Encoding
-(<a href="mime-en.html#Content_002dTransfer_002dEncoding">(mime-en)Content-Transfer-Encoding</a>) field.  It is optional
-too.
+(<a href="mime-en.html#Content_002dTransfer_002dEncoding">Content-Transfer-Encoding</a> in <cite>FLIM Manual</cite>) field.  It
+is optional too.
 </p>
 <p>OPTIONAL-FIELDS is to represent another fields except Content-Type field
 and Content-Transfer-Encoding field.
@@ -627,11 +632,13 @@ Form of automatic split messages is message/partial.
 </p>
 </dd>
 <dt><kbd><span class="key">C-c C-x 7</span></kbd></dt>
-<dd><p>Set 7bit (<a href="mime-en.html#g_t7bit">(mime-en)7bit</a>) to transfer level (<a href="#transfer-level">transfer level</a>).
+<dd><p>Set 7bit (<a href="mime-en.html#g_t7bit">7bit</a> in <cite>FLIM Manual</cite>) to transfer level
+(<a href="#transfer-level">transfer level</a>).
 </p>
 </dd>
 <dt><kbd><span class="key">C-c C-x 8</span></kbd></dt>
-<dd><p>Set 8bit (<a href="mime-en.html#g_t8bit">(mime-en)8bit</a>) to transfer level (<a href="#transfer-level">transfer level</a>).
+<dd><p>Set 8bit (<a href="mime-en.html#g_t8bit">8bit</a> in <cite>FLIM Manual</cite>) to transfer level
+(<a href="#transfer-level">transfer level</a>).
 </p>
 </dd>
 <dt><kbd><span class="key">C-c C-x v</span></kbd></dt>
@@ -740,12 +747,11 @@ Next: <a href="#message_002fpartial-sending" accesskey="n" rel="next">message/pa
 <span id="index-transfer-level"></span>
 
 <p>Each content inserted in a message is represented by 7bit
-(<a href="mime-en.html#g_t7bit">(mime-en)7bit</a>), 8bit (<a href="mime-en.html#g_t8bit">(mime-en)8bit</a>) or binary
-(<a href="mime-en.html#binary">(mime-en)binary</a>).
+(<a href="mime-en.html#g_t7bit">7bit</a> in <cite>FLIM Manual</cite>), 8bit (<a href="mime-en.html#g_t8bit">8bit</a> in <cite>FLIM
+Manual</cite>) or binary (<a href="mime-en.html#binary">binary</a> in <cite>FLIM Manual</cite>).
 </p>
-<p>If a message is translated by 7bit-through MTA (<a href="mime-en.html#MTA">(mime-en)MTA</a>),
-there is no need to encode 7bit data, but 8bit and binary data must be
-encoded to 7bit data.
+<p>If a message is translated by 7bit-through MTA (<a href="mime-en.html#MTA">MTA</a> in <cite>FLIM Manual</cite>), there is no need to encode 7bit data, but 8bit and
+binary data must be encoded to 7bit data.
 </p>
 <p>Similarly, if a message is translated by 8bit-through MTA, there is no
 need to encode 7bit or 8bit data, but binary data must be encoded to
@@ -785,9 +791,9 @@ binary will be 9.  But it will not be implemented.
 
 <p><strong>[Memo]</strong>
 </p><blockquote>
-<p>transfer level is only for body, not for message header (<a href="#entity_002dheader">entity-header</a>).
-MIME extends RFC 822 (<a href="mime-en.html#RFC-822">(mime-en)RFC 822</a>) to use 8bit data in body,
-but it requires to use us-ascii (<a href="mime-en.html#us_002dascii">(mime-en)us-ascii</a>) in header.
+<p>transfer level is only for body, not for message header
+(<a href="#entity_002dheader">entity-header</a>).  MIME extends RFC 822 (<a href="mime-en.html#RFC-822">RFC 822</a> in <cite>FLIM Manual</cite>) to use 8bit data in body, but it requires to use
+us-ascii (<a href="mime-en.html#us_002dascii">us-ascii</a> in <cite>FLIM Manual</cite>) in header.
 </p></blockquote>
 
 
@@ -854,44 +860,31 @@ Next: <a href="#Concept-Index" accesskey="n" rel="next">Concept Index</a>, Previ
 Next: <a href="#Buttons" accesskey="n" rel="next">Buttons</a>, Previous: <a href="#Various" accesskey="p" rel="prev">Various</a>, Up: <a href="#Various" accesskey="u" rel="up">Various</a> &nbsp; [<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
 </div>
 <span id="PGP-1"></span><h3 class="section">4.1 PGP</h3>
-<span id="index-PGP_002dkazu"></span>
 <span id="index-PGP_002fMIME"></span>
 
 <p>mime-edit provides PGP encryption, signature and inserting public-key
-features based on <strong>PGP/MIME</strong> (RFC 2015) or <strong>PGP-kazu</strong>
-(draft-kazu-pgp-mime-00.txt).
-</p>
-<p>This feature requires your pgp command.
+features based on <strong>PGP/MIME</strong> (RFC 3156) by using EasyPG.
 </p>
 <dl>
-<dt id="index-pgg_002ddefault_002dscheme">Variable: <strong>pgg-default-scheme</strong></dt>
-<dd>
-<p>Version of PGP or GnuPG command to be used for encryption or sign.
-The value should be a symbol.  Allowed versions are <code>gpg</code>,
-<code>pgp</code> or <code>pgp5</code>.
+<dt id="index-mime_002dedit_002dpgp_002dverbose">Variable: <strong>mime-edit-pgp-verbose</strong></dt>
+<dd><p>When non-nil, ask the user about the current operation more verbosely.
 </p></dd></dl>
 
-
 <dl>
-<dt id="index-pgg_002dscheme">Variable: <strong>pgg-scheme</strong></dt>
-<dd>
-<p>Version of PGP or GnuPG command to be used for decryption or verification.
-The value should be a symbol.  Allowed versions are <code>gpg</code>,
-<code>pgp</code> or <code>pgp5</code>.
+<dt id="index-mime_002dedit_002dpgp_002dsigners">Variable: <strong>mime-edit-pgp-signers</strong></dt>
+<dd><p>A list of your own key ID which will be preferredly used to sign a message.
 </p></dd></dl>
 
+<dl>
+<dt id="index-mime_002dedit_002dpgp_002dencrypt_002dto_002dself">Variable: <strong>mime-edit-pgp-encrypt-to-self</strong></dt>
+<dd><p>When non-nil, add sender&rsquo;s key ID to recipient list when encryption.
+When nil, sender can&rsquo;t decrypt encrypted content in general.
+</p></dd></dl>
 
 <dl>
-<dt id="index-pgg_002dinsert_002durl_002dfunction">Variable: <strong>pgg-insert-url-function</strong></dt>
-<dd>
-<p>The function to fetch public key from the keyserver.
-Use Emacs/W3 by the default setting. To use emacs-w3m
-instead, set as follows:
-</p><div class="lisp">
-<pre class="lisp">(setq pgg-insert-url-function #'w3m-retrieve)
-</pre></div>
-</dd></dl>
-
+<dt id="index-mime_002dedit_002dpgp_002dfiltered_002dvalidities">Variable: <strong>mime-edit-pgp-filtered-validities</strong></dt>
+<dd><p>A list of keys&rsquo;s validities which are used for neither signing nor encrypting.
+</p></dd></dl>
 
 
 <hr>
@@ -982,7 +975,6 @@ Next: <a href="#Function-Index" accesskey="n" rel="next">Function Index</a>, Pre
 <tr><td></td><td valign="top"><a href="#index-multi_002dpart-ending-tag">multi-part ending tag</a>:</td><td>&nbsp;</td><td valign="top"><a href="#mime_002dedit_002dmode">mime-edit-mode</a></td></tr>
 <tr><td colspan="4"> <hr></td></tr>
 <tr><th id="Concept-Index_cp_letter-P">P</th><td></td><td></td></tr>
-<tr><td></td><td valign="top"><a href="#index-PGP_002dkazu">PGP-kazu</a>:</td><td>&nbsp;</td><td valign="top"><a href="#PGP">PGP</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-PGP_002fMIME">PGP/MIME</a>:</td><td>&nbsp;</td><td valign="top"><a href="#PGP">PGP</a></td></tr>
 <tr><td colspan="4"> <hr></td></tr>
 <tr><th id="Concept-Index_cp_letter-T">T</th><td></td><td></td></tr>
@@ -1030,8 +1022,6 @@ Previous: <a href="#Function-Index" accesskey="p" rel="prev">Function Index</a>,
 
 <table><tr><th valign="top">Jump to: &nbsp; </th><td><a class="summary-letter" href="#Variable-Index_vr_letter-M"><b>M</b></a>
  &nbsp; 
-<a class="summary-letter" href="#Variable-Index_vr_letter-P"><b>P</b></a>
- &nbsp; 
 </td></tr></table>
 <table class="index-vr" border="0">
 <tr><td></td><th align="left">Index Entry</th><td>&nbsp;</td><th align="left"> Section</th></tr>
@@ -1042,20 +1032,17 @@ Previous: <a href="#Function-Index" accesskey="p" rel="prev">Function Index</a>,
 <tr><td></td><td valign="top"><a href="#index-mime_002dbutton_002dmouse_002dface"><code>mime-button-mouse-face</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Buttons">Buttons</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-mime_002dedit_002dmessage_002ddefault_002dmax_002dlines"><code>mime-edit-message-default-max-lines</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#message_002fpartial-sending">message/partial sending</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-mime_002dedit_002dmessage_002dmax_002dlines_002dalist"><code>mime-edit-message-max-lines-alist</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#message_002fpartial-sending">message/partial sending</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-mime_002dedit_002dpgp_002dencrypt_002dto_002dself"><code>mime-edit-pgp-encrypt-to-self</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#PGP">PGP</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-mime_002dedit_002dpgp_002dfiltered_002dvalidities"><code>mime-edit-pgp-filtered-validities</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#PGP">PGP</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-mime_002dedit_002dpgp_002dsigners"><code>mime-edit-pgp-signers</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#PGP">PGP</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-mime_002dedit_002dpgp_002dverbose"><code>mime-edit-pgp-verbose</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#PGP">PGP</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-mime_002dedit_002dsplit_002dblind_002dfield_002dregexp"><code>mime-edit-split-blind-field-regexp</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#message_002fpartial-sending">message/partial sending</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-mime_002dedit_002dsplit_002dmessage"><code>mime-edit-split-message</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#message_002fpartial-sending">message/partial sending</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-mime_002dfile_002dtypes"><code>mime-file-types</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#file_002dtype-specification">file-type specification</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-mime_002dtransfer_002dlevel"><code>mime-transfer-level</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#transfer-level">transfer level</a></td></tr>
 <tr><td colspan="4"> <hr></td></tr>
-<tr><th id="Variable-Index_vr_letter-P">P</th><td></td><td></td></tr>
-<tr><td></td><td valign="top"><a href="#index-pgg_002ddefault_002dscheme"><code>pgg-default-scheme</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#PGP">PGP</a></td></tr>
-<tr><td></td><td valign="top"><a href="#index-pgg_002dinsert_002durl_002dfunction"><code>pgg-insert-url-function</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#PGP">PGP</a></td></tr>
-<tr><td></td><td valign="top"><a href="#index-pgg_002dscheme"><code>pgg-scheme</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#PGP">PGP</a></td></tr>
-<tr><td colspan="4"> <hr></td></tr>
 </table>
 <table><tr><th valign="top">Jump to: &nbsp; </th><td><a class="summary-letter" href="#Variable-Index_vr_letter-M"><b>M</b></a>
- &nbsp; 
-<a class="summary-letter" href="#Variable-Index_vr_letter-P"><b>P</b></a>
  &nbsp; 
 </td></tr></table>
 <hr>

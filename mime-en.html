@@ -3,10 +3,10 @@
 <!-- Created by GNU Texinfo 6.7, http://www.gnu.org/software/texinfo/ -->
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<title>FLIM 1.14 Reference Manual about MIME Features</title>
+<title>FLIM-LB 1.14 Reference Manual about MIME Features</title>
 
-<meta name="description" content="FLIM 1.14 Reference Manual about MIME Features">
-<meta name="keywords" content="FLIM 1.14 Reference Manual about MIME Features">
+<meta name="description" content="FLIM-LB 1.14 Reference Manual about MIME Features">
+<meta name="keywords" content="FLIM-LB 1.14 Reference Manual about MIME Features">
 <meta name="resource-type" content="document">
 <meta name="distribution" content="global">
 <meta name="Generator" content="texi2any">
@@ -37,19 +37,19 @@ ul.no-bullet {list-style: none}
 </head>
 
 <body lang="en">
-<h1 class="settitle" align="center">FLIM 1.14 Reference Manual about MIME Features</h1>
+<h1 class="settitle" align="center">FLIM-LB 1.14 Reference Manual about MIME Features</h1>
 <span id="Top"></span><div class="header">
 <p>
 Next: <a href="#Introduction" accesskey="n" rel="next">Introduction</a>, Previous: <a href="dir.html#Top" accesskey="p" rel="prev">(dir)</a>, Up: <a href="dir.html#Top" accesskey="u" rel="up">(dir)</a> &nbsp; [<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
 </div>
-<span id="FLIM-1_002e14-Reference-Manual-about-MIME-Features"></span><h1 class="top">FLIM 1.14 Reference Manual about MIME Features</h1>
+<span id="FLIM_002dLB-1_002e14-Reference-Manual-about-MIME-Features"></span><h1 class="top">FLIM-LB 1.14 Reference Manual about MIME Features</h1>
 
 
-<p>This file documents MIME features of FLIM, a fundamental library to
+<p>This file documents MIME features of FLIM-LB, a fundamental library to
 process Internet Messages for GNU Emacsen.
 </p>
 <table class="menu" border="0" cellspacing="0">
-<tr><td align="left" valign="top">&bull; <a href="#Introduction" accesskey="1">Introduction</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">What is FLIM?
+<tr><td align="left" valign="top">&bull; <a href="#Introduction" accesskey="1">Introduction</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">What is FLIM-LB?
 </td></tr>
 <tr><td align="left" valign="top">&bull; <a href="#How-to-use" accesskey="2">How to use</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">How to use MIME features
 </td></tr>
@@ -80,10 +80,11 @@ process Internet Messages for GNU Emacsen.
 <p>
 Next: <a href="#How-to-use" accesskey="n" rel="next">How to use</a>, Previous: <a href="#Top" accesskey="p" rel="prev">Top</a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a> &nbsp; [<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
 </div>
-<span id="What-is-FLIM_003f"></span><h2 class="chapter">1 What is FLIM?</h2>
+<span id="What-is-FLIM_002dLB_003f"></span><h2 class="chapter">1 What is FLIM-LB?</h2>
 
 <p>FLIM is a library to provide basic features about message
-representation or encoding.
+representation or encoding.  FLIM-LB is a variant of FLIM, which
+features supports to latest Emacs.
 </p>
 
 <hr>
@@ -1317,7 +1318,7 @@ Next: <a href="#Concept-Index" accesskey="n" rel="next">Concept Index</a>, Previ
 </td></tr>
 <tr><td align="left" valign="top">&bull; <a href="#Bug-report" accesskey="2">Bug report</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">How to report bugs
 </td></tr>
-<tr><td align="left" valign="top">&bull; <a href="#CVS" accesskey="3">CVS</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">CVS based development
+<tr><td align="left" valign="top">&bull; <a href="#GitHub" accesskey="3">GitHub</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">GitHub based development
 </td></tr>
 <tr><td align="left" valign="top">&bull; <a href="#History" accesskey="4">History</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">History of FLIM
 </td></tr>
@@ -1843,84 +1844,79 @@ interpreted as us-ascii.
 <hr>
 <span id="Bug-report"></span><div class="header">
 <p>
-Next: <a href="#CVS" accesskey="n" rel="next">CVS</a>, Previous: <a href="#Glossary" accesskey="p" rel="prev">Glossary</a>, Up: <a href="#Appendix" accesskey="u" rel="up">Appendix</a> &nbsp; [<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
+Next: <a href="#GitHub" accesskey="n" rel="next">GitHub</a>, Previous: <a href="#Glossary" accesskey="p" rel="prev">Glossary</a>, Up: <a href="#Appendix" accesskey="u" rel="up">Appendix</a> &nbsp; [<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
 </div>
 <span id="How-to-report-bugs"></span><h3 class="section">9.2 How to report bugs</h3>
 <span id="index-good-bug-report"></span>
 
-<p>If you write bug-reports and/or suggestions for improvement, please
-send them to the EMACS-MIME Mailing List:
+<p>Topics related to FLIM-LB are discussed in following mailing lists.
+The latest version is also announced there.
 </p>
-<ul>
-<li> English &lt;emacs-mime-en@m17n.org&gt;
-</li><li> Japanese &lt;emacs-mime-ja@m17n.org&gt;
-</li></ul>
+<div class="display">
+<pre class="display">Wanderlust Mailing List <tt>&lt;wl@ml.gentei.org&gt;</tt>
+</pre></div>
 
+<p>In this list Japanese is mainly used for discussion. We also have a list
+for discussion in English:
+</p>
+<div class="display">
+<pre class="display">Wanderlust List in English <tt>&lt;wl-en@ml.gentei.org&gt;</tt>
+</pre></div>
+<p>(Messages posted to this list are also forwarded to the former one.)
+</p>
+<p>A guide can be obtained automatically by sending mail to
+<tt>wl-ctl@ml.gentei.org</tt> (or to <tt>wl-en-ctl@ml.gentei.org</tt> for
+the English one) with the body
+</p>
+<div class="example">
+<pre class="example"># guide
+</pre></div>
 
+<p>Please send bug reports or patches to one of those lists.  You have to
+subscribe the mailing list to post a message.
+</p>
 <p>Notice that, we do not welcome bug reports about too old version.  Bugs
 in old version might be fixed.  So please try latest version at
 first.
 </p>
 <p>You should write <strong>good bug report</strong>.  If you write only &ldquo;FLIM
-does not work&rdquo;, we can not find such situations.  At least, you should
-write name, type, variants and version of OS, emacs, APEL, FLIM, SEMI
-and MUA, and setting.  In addition, if error occurs, to send backtrace
-is very important. (cf. <a href="https://www.gnu.org/software/emacs/manual/html_mono/emacs.html#Bugs">(emacs)Bugs</a>) 
+does not work&rdquo;, we can not find such situations.  At least, you
+should write name, type, variants and version of OS, emacs, APEL,
+FLIM, SEMI and MUA, and setting.  In addition, if error occurs, to
+send backtrace is very important. (cf. <a href="https://www.gnu.org/software/emacs/manual/html_mono/emacs.html#Bugs">Reporting Bugs</a> in <cite>GNU Emacs Manual</cite>) 
 </p>
 <p>Bug may not appear only your environment, but also in a lot of
 environment (otherwise it might not bug).  Therefor if you send mail
 to author directly, we must write a lot of mails.  So please send mail
 to address for EMACS-MIME Mailing List instead of author.
 </p>
-<p>Via the EMACS-MIME ML, you can report FLIM bugs, obtain the latest
-release of FLIM, and discuss future enhancements to FLIM.  To join the
-EMACS-MIME ML, send an empty e-mail to:
-</p>
-<ul>
-<li> English  &lt;emacs-mime-en-ctl@m17n.org&gt;
-</li><li> Japanese &lt;emacs-mime-ja-ctl@m17n.org&gt;
-</li></ul>
-
-
 
 <hr>
-<span id="CVS"></span><div class="header">
+<span id="GitHub"></span><div class="header">
 <p>
 Next: <a href="#History" accesskey="n" rel="next">History</a>, Previous: <a href="#Bug-report" accesskey="p" rel="prev">Bug report</a>, Up: <a href="#Appendix" accesskey="u" rel="up">Appendix</a> &nbsp; [<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
 </div>
-<span id="CVS-based-development"></span><h3 class="section">9.3 CVS based development</h3>
+<span id="GitHub-based-development"></span><h3 class="section">9.3 GitHub based development</h3>
 
-<p>Files in FLIM are managed under CVS. Therefore you can obtain the
-newest FLIM by the following method.
+<p>FLIM-LB&rsquo;s repository is published in GitHub.
 </p>
 <div class="example">
-<pre class="example">(0) cvs login
-
-    % cvs -d :pserver:anonymous@cvs.m17n.org:/cvs/root login
-
-    CVS password: [CR] # NULL string
-
-(1) checkout
-
-    % cvs -d :pserver:anonymous@cvs.m17n.org:/cvs/root checkout
-	checkout [-r TAG] flim
+<pre class="example"><a href="https://github.com/wanderlust/flim">https://github.com/wanderlust/flim</a>
 </pre></div>
 
-
-<p>If you would like to join CVS based development, please send mail to
+<p>If you send a pull request, please embed unindented <samp>ChangeLog</samp>
+entries in commit message like Emacs&rsquo;s.  See <cite>Commit messages</cite>
+section of Emacs&rsquo;s CONTRIBUTE file
+<a id="DOCF1" href="#FOOT1"><sup>1</sup></a>.
 </p>
-<ul>
-<li> &lt;cvs@cvs.m17n.org&gt;
-</li></ul>
-
-<p>with your account name and your public key for ssh.
-cvsroot is :ext:cvs@cvs.m17n.org:/cvs/root.
+<p>If you send a bug report, please attach Backtrace with it.
+<a id="DOCF2" href="#FOOT2"><sup>2</sup></a>
 </p>
 
 <hr>
 <span id="History"></span><div class="header">
 <p>
-Previous: <a href="#CVS" accesskey="p" rel="prev">CVS</a>, Up: <a href="#Appendix" accesskey="u" rel="up">Appendix</a> &nbsp; [<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
+Previous: <a href="#GitHub" accesskey="p" rel="prev">GitHub</a>, Up: <a href="#Appendix" accesskey="u" rel="up">Appendix</a> &nbsp; [<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
 </div>
 <span id="History-of-FLIM"></span><h3 class="section">9.4 History of FLIM</h3>
 
@@ -2281,6 +2277,16 @@ Previous: <a href="#Function-Index" accesskey="p" rel="prev">Function Index</a>,
 <a class="summary-letter" href="#Variable-Index_vr_letter-M"><b>M</b></a>
  &nbsp; 
 </td></tr></table>
+<div class="footnote">
+<hr>
+<h4 class="footnotes-heading">Footnotes</h4>
+
+<h5><a id="FOOT1" href="#DOCF1">(1)</a></h5>
+<p><a href="https://git.savannah.gnu.org/cgit/emacs.git/plain/CONTRIBUTE">https://git.savannah.gnu.org/cgit/emacs.git/plain/CONTRIBUTE</a></p>
+<h5><a id="FOOT2" href="#DOCF2">(2)</a></h5>
+<p><a href="http://www.jpl.org/elips/BUGS-ja.html">http://www.jpl.org/elips/BUGS-ja.html</a> describes how to
+in Japanese.</p>
+</div>
 <hr>
 
 

@@ -3,10 +3,10 @@
 <!-- Created by GNU Texinfo 6.7, http://www.gnu.org/software/texinfo/ -->
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<title>SEMI 1.14 説明書</title>
+<title>SEMI-EPG 1.14 説明書</title>
 
-<meta name="description" content="SEMI 1.14 説明書">
-<meta name="keywords" content="SEMI 1.14 説明書">
+<meta name="description" content="SEMI-EPG 1.14 説明書">
+<meta name="keywords" content="SEMI-EPG 1.14 説明書">
 <meta name="resource-type" content="document">
 <meta name="distribution" content="global">
 <meta name="Generator" content="texi2any">
@@ -37,22 +37,23 @@ ul.no-bullet {list-style: none}
 </head>
 
 <body lang="ja">
-<h1 class="settitle" align="center">SEMI 1.14 説明書</h1>
+<h1 class="settitle" align="center">SEMI-EPG 1.14 説明書</h1>
 
 
 <span id="Top"></span><div class="header">
 <p>
 Next: <a href="#Introduction" accesskey="n" rel="next">Introduction</a>, Previous: <a href="dir.html#Top" accesskey="p" rel="prev">(dir)</a>, Up: <a href="dir.html#Top" accesskey="u" rel="up">(dir)</a> &nbsp; [<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
 </div>
-<span id="SEMI-1_002e14-Shuo-Ming-Shu-"></span><h1 class="top">SEMI 1.14 説明書</h1>
+<span id="SEMI_002dEPG-1_002e14-Shuo-Ming-Shu-"></span><h1 class="top">SEMI-EPG 1.14 説明書</h1>
 
 
-<p>This file documents SEMI, a MIME user interface for GNU Emacs.
+<p>This file documents SEMI-EPG, a MIME user interface for GNU
+Emacs.
 </p>
-<p>GNU Emacs 用の MIME user interface である SEMI について説明します。
+<p>GNU Emacs 用の MIME user interface である SEMI-EPG について説明します。
 </p>
 <table class="menu" border="0" cellspacing="0">
-<tr><td align="left" valign="top">&bull; <a href="#Introduction" accesskey="1">Introduction</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">SEMI って何？
+<tr><td align="left" valign="top">&bull; <a href="#Introduction" accesskey="1">Introduction</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">SEMI-EPG って何？
 </td></tr>
 <tr><td align="left" valign="top">&bull; <a href="#MIME_002dView" accesskey="2">MIME-View</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">MIME message の閲覧
 </td></tr>
@@ -73,9 +74,11 @@ Next: <a href="#Introduction" accesskey="n" rel="next">Introduction</a>, Previou
 <p>
 Next: <a href="#MIME_002dView" accesskey="n" rel="next">MIME-View</a>, Previous: <a href="#Top" accesskey="p" rel="prev">Top</a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a> &nbsp; [<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
 </div>
-<span id="SEMI-tuteHe-_003f"></span><h2 class="chapter">1 SEMI って何？</h2>
+<span id="SEMI_002dEPG-tuteHe-_003f"></span><h2 class="chapter">1 SEMI-EPG って何？</h2>
 
 <p>SEMI は GNU Emacs 用の MIME user interface を提供する package です。
+SEMI-EPG は SEMI のバリアントの一つで、
+EasyPG や最新バージョンの Emacs への対応などを特徴とします。
 
 </p>
 <p>SEMI が提供する MIME user interface は MIME-View と MIME-Edit からなりま
@@ -265,8 +268,11 @@ Next: <a href="#entity_002dheader" accesskey="n" rel="next">entity-header</a>, P
 </p>
 <ol>
 <li> Content-Description field もしくは Subject field に書かれた表題
+
 </li><li> Content-Disposition field の filename parameter に書かれた file 名
+
 </li><li> Content-Type field の name parameter に書かれた file 名
+
 </li><li> uuencode の場合の file 名
 </li></ol>
 
@@ -454,6 +460,7 @@ Next: <a href="#single_002dpart-tags" accesskey="n" rel="next">single-part tags<
 </p>
 <ul>
 <li> single-part tag
+
 </li><li> multi-part tag
 </li></ul>
 
@@ -468,13 +475,12 @@ Next: <a href="#single_002dpart-tags" accesskey="n" rel="next">single-part tags<
 
 <p>というような形をしています。
 </p>
-<p>TYPE/SUBTYPE および PARAMETERS は Content-Type
-(<a href="mime-ja.html#Content_002dType">(mime-ja)Content-Type</a>) 欄の type/subtype および parameters を表し
-ます。TYPE/SUBTYPE は必須であり、PARAMETERS は省略可です。
+<p>TYPE/SUBTYPE および PARAMETERS は Content-Type (<a href="mime-ja.html#Content_002dType">Content-Type</a> in <cite>FLIM 説明書</cite>) 欄の type/subtype および parameters を表します。
+TYPE/SUBTYPE は必須であり、PARAMETERS は省略可です。
 </p>
 <p>ENCODING は Content-Transfer-Encoding
-(<a href="mime-ja.html#Content_002dTransfer_002dEncoding">(mime-ja)Content-Transfer-Encoding</a>) 欄を表します。これも省略可で
-す。
+(<a href="mime-ja.html#Content_002dTransfer_002dEncoding">Content-Transfer-Encoding</a> in <cite>FLIM 説明書</cite>) 欄を表しま
+す。これも省略可です。
 </p>
 <p>OPTIONAL-FIELDS は Content-Type, Content-Transfer-Encoding 以外の field 
 を書くための部分で、省略可です。
@@ -625,13 +631,11 @@ Next: <a href="#file_002dtype-specification" accesskey="n" rel="next">file-type 
 </p>
 </dd>
 <dt><kbd><span class="key">C-c C-x 7</span></kbd></dt>
-<dd><p>transfer level (<a href="#transfer-level">transfer level</a>) を 7bit (<a href="mime-ja.html#g_t7bit">(mime-ja)7bit</a>) にし
-ます。
+<dd><p>transfer level (<a href="#transfer-level">transfer level</a>) を 7bit (<a href="mime-ja.html#g_t7bit">7bit</a> in <cite>FLIM 説明書</cite>) にします。
 </p>
 </dd>
 <dt><kbd><span class="key">C-c C-x 8</span></kbd></dt>
-<dd><p>transfer level (<a href="#transfer-level">transfer level</a>) を 8bit (<a href="mime-ja.html#g_t8bit">(mime-ja)8bit</a>) にし
-ます。
+<dd><p>transfer level (<a href="#transfer-level">transfer level</a>) を 8bit (<a href="mime-ja.html#g_t8bit">8bit</a> in <cite>FLIM 説明書</cite>) にします。
 </p>
 </dd>
 <dt><kbd><span class="key">C-c C-x v</span></kbd></dt>
@@ -738,13 +742,14 @@ Next: <a href="#message_002fpartial-sending" accesskey="n" rel="next">message/pa
 <span id="transfer-level-1"></span><h3 class="section">3.6 transfer level</h3>
 <span id="index-transfer-level"></span>
 
-<p>message に挿入する data は 7bit (<a href="mime-ja.html#g_t7bit">(mime-ja)7bit</a>) ないし 8bit
-(<a href="mime-ja.html#g_t8bit">(mime-ja)8bit</a>) もしくは binary (<a href="mime-ja.html#binary">(mime-ja)binary</a>) で表現する
-ことができます。
+<p>message に挿入する data は 7bit (<a href="mime-ja.html#g_t7bit">7bit</a> in <cite>FLIM 説明書</cite>)
+ないし 8bit (<a href="mime-ja.html#g_t8bit">8bit</a> in <cite>FLIM 説明書</cite>) もしくは binary
+(<a href="mime-ja.html#binary">binary</a> in <cite>FLIM 説明書</cite>) で表現することができます。
+
 </p>
-<p>よって、7bit しか通さない MTA (<a href="mime-ja.html#MTA">(mime-ja)MTA</a>) を経由する場合、7bit 
-の data はそのままで送れますが、8bit や binary の data は 7bit に変換し
-なければなりません。
+<p>よって、7bit しか通さない MTA (<a href="mime-ja.html#MTA">MTA</a> in <cite>FLIM 説明書</cite>) を経
+由する場合、7bit の data はそのままで送れますが、8bit や binary の
+data は 7bit に変換しなければなりません。
 </p>
 <p>同様に、8bit しか通さない MTA を経由する場合、7bit や 8bit の data はそ
 のままで送れますが、binary の data は 7bit か 8bit に変換しなければなり
@@ -786,9 +791,11 @@ transfer level を表現します。
 
 <p><strong>[Memo]</strong>
 </p><blockquote>
-<p>transfer level は message header (<a href="#entity_002dheader">entity-header</a>) には関係しない。MIME は 
-body において、8bit の data を使えるように STD 11 (<a href="mime-ja.html#STD-11">(mime-ja)STD 11</a>) を拡張しているが、message header では us-ascii
-(<a href="mime-ja.html#us_002dascii">(mime-ja)us-ascii</a>) のみを用いることを求めている。
+<p>transfer level は message header (<a href="#entity_002dheader">entity-header</a>) には関係しない。
+MIME は body において、8bit の data を使えるように STD 11 (<a href="mime-ja.html#STD-11">STD
+11</a> in <cite>FLIM 説明書</cite>) を拡張しているが、message header では
+us-ascii (<a href="mime-ja.html#us_002dascii">us-ascii</a> in <cite>FLIM 説明書</cite>) のみを用いることを求
+めている。
 </p></blockquote>
 
 
@@ -855,44 +862,31 @@ Next: <a href="#Concept-Index" accesskey="n" rel="next">Concept Index</a>, Previ
 Next: <a href="#Buttons" accesskey="n" rel="next">Buttons</a>, Previous: <a href="#Various" accesskey="p" rel="prev">Various</a>, Up: <a href="#Various" accesskey="u" rel="up">Various</a> &nbsp; [<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
 </div>
 <span id="PGP-1"></span><h3 class="section">4.1 PGP</h3>
-<span id="index-PGP_002dkazu"></span>
 <span id="index-PGP_002fMIME"></span>
 
-<p>mime-edit では <strong>PGP/MIME</strong> (RFC 2015) および<strong>PGP-kazu</strong>
-(draft-kazu-pgp-mime-00.txt) による暗号化・電子署名・公開鍵の挿入機能を
-利用することができます。
-</p>
-<p>但し、この機能を利用するには各種 pgp command が必要です。
+<p>mime-edit では EasyPG を利用した <strong>PGP/MIME</strong> (RFC 3156) による暗
+号化・電子署名・公開鍵の挿入機能を利用することができます。
 </p>
 <dl>
-<dt id="index-pgg_002ddefault_002dscheme">Variable: <strong>pgg-default-scheme</strong></dt>
-<dd>
-<p>暗号化もしくは署名に用いる PGP もしくは GnuPG コマンドのバージョンです。
-値は symbol を指定します。使えるバージョンは <code>gpg</code>、
-<code>pgp</code> もしくは <code>pgp5</code> です。
+<dt id="index-mime_002dedit_002dpgp_002dverbose">Variable: <strong>mime-edit-pgp-verbose</strong></dt>
+<dd><p>When non-nil, ask the user about the current operation more verbosely.
 </p></dd></dl>
 
-
 <dl>
-<dt id="index-pgg_002dscheme">Variable: <strong>pgg-scheme</strong></dt>
-<dd>
-<p>復号もしくは検証に用いる PGP もしくは GnuPG コマンドのバージョンです。
-値は symbol を指定します。使えるバージョンは <code>gpg</code>、
-<code>pgp</code> もしくは <code>pgp5</code> です。
+<dt id="index-mime_002dedit_002dpgp_002dsigners">Variable: <strong>mime-edit-pgp-signers</strong></dt>
+<dd><p>署名時に優先的に使用する鍵 ID のリストです。
 </p></dd></dl>
 
+<dl>
+<dt id="index-mime_002dedit_002dpgp_002dencrypt_002dto_002dself">Variable: <strong>mime-edit-pgp-encrypt-to-self</strong></dt>
+<dd><p>non-nilの場合、暗号化の際に送信者の鍵 ID を recipient に含めます。
+nilの場合、送信者は暗号化した内容を通常は復号できません。
+</p></dd></dl>
 
 <dl>
-<dt id="index-pgg_002dinsert_002durl_002dfunction">Variable: <strong>pgg-insert-url-function</strong></dt>
-<dd>
-<p>鍵サーバから公開鍵を取り寄せる際に使う関数です。デフォルトでは
-Emacs/W3 を使う設定になっています。emacs-w3m を使う場合には
-次のように設定します。
-</p><div class="lisp">
-<pre class="lisp">(setq pgg-insert-url-function #'w3m-retrieve)
-</pre></div>
-</dd></dl>
-
+<dt id="index-mime_002dedit_002dpgp_002dfiltered_002dvalidities">Variable: <strong>mime-edit-pgp-filtered-validities</strong></dt>
+<dd><p>A list of keys&rsquo;s validities which are used for neither signing nor encrypting.
+</p></dd></dl>
 
 
 <hr>
@@ -984,7 +978,6 @@ Next: <a href="#Function-Index" accesskey="n" rel="next">Function Index</a>, Pre
 <tr><td></td><td valign="top"><a href="#index-multi_002dpart-Kai-Shi--tag">multi-part 開始 tag</a>:</td><td>&nbsp;</td><td valign="top"><a href="#mime_002dedit_002dmode">mime-edit-mode</a></td></tr>
 <tr><td colspan="4"> <hr></td></tr>
 <tr><th id="Concept-Index_cp_letter-P">P</th><td></td><td></td></tr>
-<tr><td></td><td valign="top"><a href="#index-PGP_002dkazu">PGP-kazu</a>:</td><td>&nbsp;</td><td valign="top"><a href="#PGP">PGP</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-PGP_002fMIME">PGP/MIME</a>:</td><td>&nbsp;</td><td valign="top"><a href="#PGP">PGP</a></td></tr>
 <tr><td colspan="4"> <hr></td></tr>
 <tr><th id="Concept-Index_cp_letter-T">T</th><td></td><td></td></tr>
@@ -1032,8 +1025,6 @@ Previous: <a href="#Function-Index" accesskey="p" rel="prev">Function Index</a>,
 
 <table><tr><th valign="top">Jump to: &nbsp; </th><td><a class="summary-letter" href="#Variable-Index_vr_letter-M"><b>M</b></a>
  &nbsp; 
-<a class="summary-letter" href="#Variable-Index_vr_letter-P"><b>P</b></a>
- &nbsp; 
 </td></tr></table>
 <table class="index-vr" border="0">
 <tr><td></td><th align="left">Index Entry</th><td>&nbsp;</td><th align="left"> Section</th></tr>
@@ -1044,20 +1035,17 @@ Previous: <a href="#Function-Index" accesskey="p" rel="prev">Function Index</a>,
 <tr><td></td><td valign="top"><a href="#index-mime_002dbutton_002dmouse_002dface"><code>mime-button-mouse-face</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Buttons">Buttons</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-mime_002dedit_002dmessage_002ddefault_002dmax_002dlines"><code>mime-edit-message-default-max-lines</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#message_002fpartial-sending">message/partial sending</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-mime_002dedit_002dmessage_002dmax_002dlines_002dalist"><code>mime-edit-message-max-lines-alist</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#message_002fpartial-sending">message/partial sending</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-mime_002dedit_002dpgp_002dencrypt_002dto_002dself"><code>mime-edit-pgp-encrypt-to-self</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#PGP">PGP</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-mime_002dedit_002dpgp_002dfiltered_002dvalidities"><code>mime-edit-pgp-filtered-validities</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#PGP">PGP</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-mime_002dedit_002dpgp_002dsigners"><code>mime-edit-pgp-signers</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#PGP">PGP</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-mime_002dedit_002dpgp_002dverbose"><code>mime-edit-pgp-verbose</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#PGP">PGP</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-mime_002dedit_002dsplit_002dblind_002dfield_002dregexp"><code>mime-edit-split-blind-field-regexp</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#message_002fpartial-sending">message/partial sending</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-mime_002dedit_002dsplit_002dmessage"><code>mime-edit-split-message</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#message_002fpartial-sending">message/partial sending</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-mime_002dfile_002dtypes"><code>mime-file-types</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#file_002dtype-specification">file-type specification</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-mime_002dtransfer_002dlevel"><code>mime-transfer-level</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#transfer-level">transfer level</a></td></tr>
 <tr><td colspan="4"> <hr></td></tr>
-<tr><th id="Variable-Index_vr_letter-P">P</th><td></td><td></td></tr>
-<tr><td></td><td valign="top"><a href="#index-pgg_002ddefault_002dscheme"><code>pgg-default-scheme</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#PGP">PGP</a></td></tr>
-<tr><td></td><td valign="top"><a href="#index-pgg_002dinsert_002durl_002dfunction"><code>pgg-insert-url-function</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#PGP">PGP</a></td></tr>
-<tr><td></td><td valign="top"><a href="#index-pgg_002dscheme"><code>pgg-scheme</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#PGP">PGP</a></td></tr>
-<tr><td colspan="4"> <hr></td></tr>
 </table>
 <table><tr><th valign="top">Jump to: &nbsp; </th><td><a class="summary-letter" href="#Variable-Index_vr_letter-M"><b>M</b></a>
- &nbsp; 
-<a class="summary-letter" href="#Variable-Index_vr_letter-P"><b>P</b></a>
  &nbsp; 
 </td></tr></table>
 <hr>
