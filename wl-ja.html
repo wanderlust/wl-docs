@@ -4533,6 +4533,13 @@ Non-nil なら、&lsquo;<samp>^L</samp>&rsquo; で改ページしてメッセー
 番号順なら <code>'sequence</code> のいずれかで指定します。
 </p>
 </dd>
+<dt><code>wl-summary-order</code></dt>
+<dd><span id="index-wl_002dsummary_002dorder"></span>
+<p>初期設定は <code>'ascending</code>。
+<code>'descending</code> ならサマリバッファのメッセージを降順に並べます。
+各スレッド中のメッセージの順序はこの値に関わらず常に昇順です。
+</p>
+</dd>
 <dt><code>wl-summary-use-frame</code></dt>
 <dd><span id="index-wl_002dsummary_002duse_002dframe"></span>
 <p>初期設定は <code>nil</code>。
@@ -8562,17 +8569,6 @@ Next: <a href="#X_002dFace" accesskey="n" rel="next">X-Face</a>, Previous: <a hr
 
 <p>普通のメーラと同じ設定で OK です。以下は設定の一例です。
 </p>
-<p>mu-cite 8.0以前のバージョンをお使いなら、
-以下のように設定してください。
-</p>
-<div class="lisp">
-<pre class="lisp">(autoload 'mu-cite/cite-original &quot;mu-cite&quot; nil t)
-(setq mail-citation-hook 'mu-cite/cite-original)
-</pre></div>
-
-<p>mu-cite 8.1以降のバージョンをお使いなら、
-以下のように設定してください。
-</p>
 <div class="lisp">
 <pre class="lisp">(autoload 'mu-cite-original &quot;mu-cite&quot; nil t)
 (add-hook 'mail-citation-hook (function mu-cite-original))
@@ -11320,6 +11316,7 @@ Next: <a href="#Function-Index" accesskey="n" rel="next">Function Index</a>, Pre
 <tr><td></td><td valign="top"><a href="#index-wl_002dsummary_002dno_002dfrom_002dmessage"><code>wl-summary-no-from-message</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Variables-of-Summary">Variables of Summary</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-wl_002dsummary_002dno_002dsubject_002dmessage"><code>wl-summary-no-subject-message</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Variables-of-Summary">Variables of Summary</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-wl_002dsummary_002dnumber_002dcolumn_002dalist"><code>wl-summary-number-column-alist</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Summary-View">Summary View</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-wl_002dsummary_002dorder"><code>wl-summary-order</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Variables-of-Summary">Variables of Summary</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-wl_002dsummary_002dpartial_002dhighlight_002dabove_002dlines"><code>wl-summary-partial-highlight-above-lines</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Highlights">Highlights</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-wl_002dsummary_002dprint_002dargument_002dwithin_002dwindow"><code>wl-summary-print-argument-within-window</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Variables-of-Summary">Variables of Summary</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-wl_002dsummary_002drecenter"><code>wl-summary-recenter</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Variables-of-Summary">Variables of Summary</a></td></tr>

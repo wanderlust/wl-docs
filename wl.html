@@ -3897,7 +3897,7 @@ last:NUM         Move to the filter folder(partial filter).
 <p>Sort summary order.
 You can sort by &lsquo;<samp>date</samp>&rsquo;, &lsquo;<samp>from</samp>&rsquo;, &lsquo;<samp>number</samp>&rsquo;, &lsquo;<samp>subject</samp>&rsquo;,
 &lsquo;<samp>size</samp>&rsquo; and &lsquo;<samp>list-info</samp>&rsquo;.
-With prefix argument, sort summary lines into descending order.
+With prefix argument, sort summary lines into reverse order.
 (<code>wl-summary-sort</code>)
 </p>
 </dd>
@@ -4581,6 +4581,14 @@ which is displayed when there&rsquo;s no &lsquo;<samp>Subject:</samp>&rsquo; fie
 <p>The initial setting is <code>'thread</code>.
 The default state for newly created summary. You can set either
 <code>'thread</code> for thread view or <code>'sequence</code> for sequential view.
+</p>
+</dd>
+<dt><code>wl-summary-order</code></dt>
+<dd><span id="index-wl_002dsummary_002dorder"></span>
+<p>The initial setting is <code>'ascending</code>.
+Specify order of messages in summary buffer.
+Note that messages in a thread are always listed in ascending order
+even if this value is <code>'descending</code>.
 </p>
 </dd>
 <dt><code>wl-summary-use-frame</code></dt>
@@ -8657,15 +8665,6 @@ Next: <a href="#X_002dFace" accesskey="n" rel="next">X-Face</a>, Previous: <a hr
 <p>The same setting as usual mailers should be OK.  The following is an
 example of settings.
 </p>
-<p>If you use mu-cite version 8.0 or earlier:
-</p>
-<div class="lisp">
-<pre class="lisp">(autoload 'mu-cite/cite-original &quot;mu-cite&quot; nil t)
-(setq mail-citation-hook 'mu-cite/cite-original)
-</pre></div>
-
-<p>If you use mu-cite version 8.1 or later:
-</p>
 <div class="lisp">
 <pre class="lisp">(autoload 'mu-cite-original &quot;mu-cite&quot; nil t)
 (add-hook 'mail-citation-hook (function mu-cite-original))
@@ -11415,6 +11414,7 @@ Next: <a href="#Function-Index" accesskey="n" rel="next">Function Index</a>, Pre
 <tr><td></td><td valign="top"><a href="#index-wl_002dsummary_002dno_002dfrom_002dmessage"><code>wl-summary-no-from-message</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Variables-of-Summary">Variables of Summary</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-wl_002dsummary_002dno_002dsubject_002dmessage"><code>wl-summary-no-subject-message</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Variables-of-Summary">Variables of Summary</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-wl_002dsummary_002dnumber_002dcolumn_002dalist"><code>wl-summary-number-column-alist</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Summary-View">Summary View</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-wl_002dsummary_002dorder"><code>wl-summary-order</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Variables-of-Summary">Variables of Summary</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-wl_002dsummary_002dpartial_002dhighlight_002dabove_002dlines"><code>wl-summary-partial-highlight-above-lines</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Highlights">Highlights</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-wl_002dsummary_002dprint_002dargument_002dwithin_002dwindow"><code>wl-summary-print-argument-within-window</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Variables-of-Summary">Variables of Summary</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-wl_002dsummary_002drecenter"><code>wl-summary-recenter</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Variables-of-Summary">Variables of Summary</a></td></tr>
