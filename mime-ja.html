@@ -1,6 +1,6 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-<!-- Created by GNU Texinfo 6.7, http://www.gnu.org/software/texinfo/ -->
+<!-- Created by GNU Texinfo 6.8, http://www.gnu.org/software/texinfo/ -->
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <title>FLIM-LB 1.14 MIME 機能説明書</title>
@@ -10,16 +10,20 @@
 <meta name="resource-type" content="document">
 <meta name="distribution" content="global">
 <meta name="Generator" content="texi2any">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
 <link href="#Top" rel="start" title="Top">
 <link href="#Concept-Index" rel="index" title="Concept Index">
 <link href="dir.html#Top" rel="up" title="(dir)">
+<link href="#Introduction" rel="next" title="Introduction">
+<link href="dir.html#Top" rel="prev" title="(dir)">
 <style type="text/css">
 <!--
+a.copiable-anchor {visibility: hidden; text-decoration: none; line-height: 0em}
 a.summary-letter {text-decoration: none}
 blockquote.indentedblock {margin-right: 0em}
 div.display {margin-left: 3.2em}
 div.example {margin-left: 3.2em}
-div.lisp {margin-left: 3.2em}
 kbd {font-style: oblique}
 pre.display {font-family: inherit}
 pre.format {font-family: inherit}
@@ -28,6 +32,7 @@ pre.menu-preformatted {font-family: serif}
 span.nolinebreak {white-space: nowrap}
 span.roman {font-family: initial; font-weight: normal}
 span.sansserif {font-family: sans-serif; font-weight: normal}
+span:hover a.copiable-anchor {visibility: visible}
 ul.no-bullet {list-style: none}
 -->
 </style>
@@ -38,9 +43,10 @@ ul.no-bullet {list-style: none}
 
 <body lang="ja">
 <h1 class="settitle" align="center">FLIM-LB 1.14 MIME 機能説明書</h1>
-<span id="Top"></span><div class="header">
+<div class="top" id="Top">
+<div class="header">
 <p>
-Next: <a href="#Introduction" accesskey="n" rel="next">Introduction</a>, Previous: <a href="dir.html#Top" accesskey="p" rel="prev">(dir)</a>, Up: <a href="dir.html#Top" accesskey="u" rel="up">(dir)</a> &nbsp; [<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
+Next: <a href="#Introduction" accesskey="n" rel="next">FLIM-LB って何？</a>, Previous: <a href="dir.html#Top" accesskey="p" rel="prev">(dir)</a>, Up: <a href="dir.html#Top" accesskey="u" rel="up">(dir)</a> &nbsp; [<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
 </div>
 <span id="FLIM_002dLB-1_002e14-MIME-Ji-Neng-Shuo-Ming-Shu-"></span><h1 class="top">FLIM-LB 1.14 MIME 機能説明書</h1>
 
@@ -51,37 +57,26 @@ process Internet Messages for GNU Emacsen.
 <p>GNU Emacsen 用の Internet Message 処理のための基礎 library である FLIM-LB
 の MIME 機能に関して説明します。
 </p>
-<table class="menu" border="0" cellspacing="0">
-<tr><td align="left" valign="top">&bull; <a href="#Introduction" accesskey="1">Introduction</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">FLIM-LB って何？
-</td></tr>
-<tr><td align="left" valign="top">&bull; <a href="#How-to-use" accesskey="2">How to use</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">FLIM の MIME 機能の使い方
-</td></tr>
-<tr><td align="left" valign="top">&bull; <a href="#Entity" accesskey="3">Entity</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Message と Entity
-</td></tr>
-<tr><td align="left" valign="top">&bull; <a href="#Content_002dType" accesskey="4">Content-Type</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Content-Type 欄の情報
-</td></tr>
-<tr><td align="left" valign="top">&bull; <a href="#Content_002dDisposition" accesskey="5">Content-Disposition</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Content-Disposition 欄の情報
-</td></tr>
-<tr><td align="left" valign="top">&bull; <a href="#Content_002dTransfer_002dEncoding" accesskey="6">Content-Transfer-Encoding</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">符号化法
-</td></tr>
-<tr><td align="left" valign="top">&bull; <a href="#encoded_002dword" accesskey="7">encoded-word</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Header の network 表現
-</td></tr>
-<tr><td align="left" valign="top">&bull; <a href="#custom" accesskey="8">custom</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">一般設定
-</td></tr>
-<tr><td align="left" valign="top">&bull; <a href="#Appendix" accesskey="9">Appendix</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">付録
-</td></tr>
-<tr><td align="left" valign="top">&bull; <a href="#Concept-Index" rel="index">Concept Index</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">概念索引
-</td></tr>
-<tr><td align="left" valign="top">&bull; <a href="#Function-Index" rel="index">Function Index</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">関数索引
-</td></tr>
-<tr><td align="left" valign="top">&bull; <a href="#Variable-Index" rel="index">Variable Index</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">変数索引
-</td></tr>
-</table>
 
+<ul class="section-toc">
+<li><a href="#Introduction" accesskey="1">FLIM-LB って何？</a></li>
+<li><a href="#How-to-use" accesskey="2">FLIM の MIME 機能の使い方</a></li>
+<li><a href="#Entity" accesskey="3">Message と Entity</a></li>
+<li><a href="#Content_002dType" accesskey="4">Content-Type 欄の情報</a></li>
+<li><a href="#Content_002dDisposition" accesskey="5">Content-Disposition 欄の情報</a></li>
+<li><a href="#Content_002dTransfer_002dEncoding" accesskey="6">符号化法</a></li>
+<li><a href="#encoded_002dword" accesskey="7">Header の network 表現</a></li>
+<li><a href="#custom" accesskey="8">一般設定</a></li>
+<li><a href="#Appendix" accesskey="9">付録</a></li>
+<li><a href="#Concept-Index">概念索引</a></li>
+<li><a href="#Function-Index">関数索引</a></li>
+<li><a href="#Variable-Index">変数索引</a></li>
+</ul>
 <hr>
-<span id="Introduction"></span><div class="header">
+<div class="chapter" id="Introduction">
+<div class="header">
 <p>
-Next: <a href="#How-to-use" accesskey="n" rel="next">How to use</a>, Previous: <a href="#Top" accesskey="p" rel="prev">Top</a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a> &nbsp; [<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
+Next: <a href="#How-to-use" accesskey="n" rel="next">FLIM の MIME 機能の使い方</a>, Previous: <a href="#Top" accesskey="p" rel="prev">FLIM-LB 1.14 MIME 機能説明書</a>, Up: <a href="#Top" accesskey="u" rel="up">FLIM-LB 1.14 MIME 機能説明書</a> &nbsp; [<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
 </div>
 <span id="FLIM_002dLB-tuteHe-_003f"></span><h2 class="chapter">1 FLIM-LB って何？</h2>
 
@@ -92,15 +87,17 @@ FLIM-LB は FLIM のバリアントの一つで、
 </p>
 
 <hr>
-<span id="How-to-use"></span><div class="header">
+</div>
+<div class="chapter" id="How-to-use">
+<div class="header">
 <p>
-Next: <a href="#Entity" accesskey="n" rel="next">Entity</a>, Previous: <a href="#Introduction" accesskey="p" rel="prev">Introduction</a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a> &nbsp; [<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
+Next: <a href="#Entity" accesskey="n" rel="next">Message と Entity</a>, Previous: <a href="#Introduction" accesskey="p" rel="prev">FLIM-LB って何？</a>, Up: <a href="#Top" accesskey="u" rel="up">FLIM-LB 1.14 MIME 機能説明書</a> &nbsp; [<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
 </div>
 <span id="FLIM-no-MIME-Ji-Neng-noShi-iFang-"></span><h2 class="chapter">2 FLIM の MIME 機能の使い方</h2>
 
 <p>FLIM の提供する MIME 機能を使うためには
 </p>
-<div class="lisp">
+<div class="example lisp">
 <pre class="lisp">(require 'mime)
 </pre></div>
 
@@ -108,9 +105,11 @@ Next: <a href="#Entity" accesskey="n" rel="next">Entity</a>, Previous: <a href="
 </p>
 
 <hr>
-<span id="Entity"></span><div class="header">
+</div>
+<div class="chapter" id="Entity">
+<div class="header">
 <p>
-Next: <a href="#Content_002dType" accesskey="n" rel="next">Content-Type</a>, Previous: <a href="#How-to-use" accesskey="p" rel="prev">How to use</a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a> &nbsp; [<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
+Next: <a href="#Content_002dType" accesskey="n" rel="next">Content-Type 欄の情報</a>, Previous: <a href="#How-to-use" accesskey="p" rel="prev">FLIM の MIME 機能の使い方</a>, Up: <a href="#Top" accesskey="u" rel="up">FLIM-LB 1.14 MIME 機能説明書</a> &nbsp; [<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
 </div>
 <span id="Message-to-Entity"></span><h2 class="chapter">3 Message と Entity</h2>
 <span id="index-mime_002dentity"></span>
@@ -129,50 +128,41 @@ field 以外の全ての header と body を指す語として <strong>entity</s
 造体を用います。以下では単に mime-entity と呼ぶことにします。
 </p>
 
-<table class="menu" border="0" cellspacing="0">
-<tr><td align="left" valign="top">&bull; <a href="#Entity-creation" accesskey="1">Entity creation</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Entity の生成
-</td></tr>
-<tr><td align="left" valign="top">&bull; <a href="#Entity-hierarchy" accesskey="2">Entity hierarchy</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Entity 階層
-</td></tr>
-<tr><td align="left" valign="top">&bull; <a href="#Entity-Search" accesskey="3">Entity Search</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Entity の検索
-</td></tr>
-<tr><td align="left" valign="top">&bull; <a href="#Entity-Attributes" accesskey="4">Entity Attributes</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Entity の属性
-</td></tr>
-<tr><td align="left" valign="top">&bull; <a href="#Entity_002dheader" accesskey="5">Entity-header</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Entity header の情報
-</td></tr>
-<tr><td align="left" valign="top">&bull; <a href="#entity-formatting" accesskey="6">entity formatting</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Entity の文字表現
-</td></tr>
-<tr><td align="left" valign="top">&bull; <a href="#Entity_002dcontent" accesskey="7">Entity-content</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Entity の内容
-</td></tr>
-<tr><td align="left" valign="top">&bull; <a href="#Entity_002dnetwork_002drepresentation" accesskey="8">Entity-network-representation</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Entity のネットワーク表現
-</td></tr>
-<tr><td align="left" valign="top">&bull; <a href="#Entity-buffer" accesskey="9">Entity buffer</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Entity の buffer による表現
-</td></tr>
-<tr><td align="left" valign="top">&bull; <a href="#mm_002dbackend">mm-backend</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Entity の表現と実現
-</td></tr>
-</table>
 
+<ul class="section-toc">
+<li><a href="#Entity-creation" accesskey="1">Entity の生成</a></li>
+<li><a href="#Entity-hierarchy" accesskey="2">Entity 階層</a></li>
+<li><a href="#Entity-Search" accesskey="3">Entity の検索</a></li>
+<li><a href="#Entity-Attributes" accesskey="4">Entity の属性</a></li>
+<li><a href="#Entity_002dheader" accesskey="5">Entity header の情報</a></li>
+<li><a href="#entity-formatting" accesskey="6">Entity の文字表現</a></li>
+<li><a href="#Entity_002dcontent" accesskey="7">Entity の内容</a></li>
+<li><a href="#Entity_002dnetwork_002drepresentation" accesskey="8">Entity のネットワーク表現</a></li>
+<li><a href="#Entity-buffer" accesskey="9">Entity の buffer による表現</a></li>
+<li><a href="#mm_002dbackend">Entity の表現と実現</a></li>
+</ul>
 <hr>
-<span id="Entity-creation"></span><div class="header">
+<div class="section" id="Entity-creation">
+<div class="header">
 <p>
-Next: <a href="#Entity-hierarchy" accesskey="n" rel="next">Entity hierarchy</a>, Previous: <a href="#Entity" accesskey="p" rel="prev">Entity</a>, Up: <a href="#Entity" accesskey="u" rel="up">Entity</a> &nbsp; [<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
+Next: <a href="#Entity-hierarchy" accesskey="n" rel="next">Entity 階層</a>, Previous: <a href="#Entity" accesskey="p" rel="prev">Message と Entity</a>, Up: <a href="#Entity" accesskey="u" rel="up">Message と Entity</a> &nbsp; [<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
 </div>
 <span id="Entity-noSheng-Cheng-"></span><h3 class="section">3.1 Entity の生成</h3>
 
-<dl>
-<dt id="index-mime_002dopen_002dentity">Function: <strong>mime-open-entity</strong> <em>type location</em></dt>
+<dl class="def">
+<dt id="index-mime_002dopen_002dentity"><span class="category">Function: </span><span><strong>mime-open-entity</strong> <em>type location</em><a href='#index-mime_002dopen_002dentity' class='copiable-anchor'> &para;</a></span></dt>
 <dd>
 <p>Entity を開いて、それを返します。
 </p>
-<p><var>type</var> は representation-type です。(cf. <a href="#mm_002dbackend">mm-backend</a>) 
+<p><var>type</var> は representation-type です。(cf. <a href="#mm_002dbackend">Entity の表現と実現</a>) 
 </p>
 <p><var>location</var> は entity の位置です。指定方法は
 representation-type に依って変わります。
 </p></dd></dl>
 
 
-<dl>
-<dt id="index-mime_002dparse_002dbuffer">Function: <strong>mime-parse-buffer</strong> <em>&amp;optional  buffer type</em></dt>
+<dl class="def">
+<dt id="index-mime_002dparse_002dbuffer"><span class="category">Function: </span><span><strong>mime-parse-buffer</strong> <em>&amp;optional  buffer type</em><a href='#index-mime_002dparse_002dbuffer' class='copiable-anchor'> &para;</a></span></dt>
 <dd>
 <p><var>buffer</var> を message として構文解析し、その結果の mime-entity を 
 <var>buffer</var> の<code>mime-message-structure</code> に格納する。
@@ -180,15 +170,17 @@ representation-type に依って変わります。
 <p><var>buffer</var> が省略された場合、現在の buffer を構文解析する。
 </p>
 <p><var>type</var> が指定された場合、その値を生成される mime-entity の表象型とし
-て用いる。省略された場合は <var>buffer</var> となる。(cf. <a href="#mm_002dbackend">mm-backend</a>)
+て用いる。省略された場合は <var>buffer</var> となる。(cf. <a href="#mm_002dbackend">Entity の表現と実現</a>)
 </p></dd></dl>
 
 
 
 <hr>
-<span id="Entity-hierarchy"></span><div class="header">
+</div>
+<div class="section" id="Entity-hierarchy">
+<div class="header">
 <p>
-Next: <a href="#Entity-Search" accesskey="n" rel="next">Entity Search</a>, Previous: <a href="#Entity-creation" accesskey="p" rel="prev">Entity creation</a>, Up: <a href="#Entity" accesskey="u" rel="up">Entity</a> &nbsp; [<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
+Next: <a href="#Entity-Search" accesskey="n" rel="next">Entity の検索</a>, Previous: <a href="#Entity-creation" accesskey="p" rel="prev">Entity の生成</a>, Up: <a href="#Entity" accesskey="u" rel="up">Message と Entity</a> &nbsp; [<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
 </div>
 <span id="Entity-Jie-Ceng-"></span><h3 class="section">3.2 Entity 階層</h3>
 <span id="index-node_002did"></span>
@@ -240,23 +232,23 @@ local 変数 <code>mime-message-structure</code> に格納することにしま�
 <p><code>mime-message-structure</code> を起点に entity-number や node-id 
 で示される entity を取り出すことができます。
 </p>
-<dl>
-<dt id="index-mime_002dmessage_002dstructure">Variable: <strong>mime-message-structure</strong></dt>
+<dl class="def">
+<dt id="index-mime_002dmessage_002dstructure"><span class="category">Variable: </span><span><strong>mime-message-structure</strong><a href='#index-mime_002dmessage_002dstructure' class='copiable-anchor'> &para;</a></span></dt>
 <dd>
 <p>現在の buffer における message 全体の mime-entity 構造体を格納するbuffer
 local 変数。
 </p></dd></dl>
 
 
-<dl>
-<dt id="index-mime_002dentity_002dchildren">Function: <strong>mime-entity-children</strong> <em>entity</em></dt>
+<dl class="def">
+<dt id="index-mime_002dentity_002dchildren"><span class="category">Function: </span><span><strong>mime-entity-children</strong> <em>entity</em><a href='#index-mime_002dentity_002dchildren' class='copiable-anchor'> &para;</a></span></dt>
 <dd>
 <p><var>entity</var> に含まれる entity の list を返す。
 </p></dd></dl>
 
 
-<dl>
-<dt id="index-mime_002dentity_002dparent">Function: <strong>mime-entity-parent</strong> <em>entity  &amp;optional  message</em></dt>
+<dl class="def">
+<dt id="index-mime_002dentity_002dparent"><span class="category">Function: </span><span><strong>mime-entity-parent</strong> <em>entity  &amp;optional  message</em><a href='#index-mime_002dentity_002dparent' class='copiable-anchor'> &para;</a></span></dt>
 <dd>
 <p><var>entity</var> の親の entity を返す。
 </p>
@@ -264,23 +256,23 @@ local 変数。
 </p></dd></dl>
 
 
-<dl>
-<dt id="index-mime_002droot_002dentity_002dp">Function: <strong>mime-root-entity-p</strong> <em>entity</em></dt>
+<dl class="def">
+<dt id="index-mime_002droot_002dentity_002dp"><span class="category">Function: </span><span><strong>mime-root-entity-p</strong> <em>entity</em><a href='#index-mime_002droot_002dentity_002dp' class='copiable-anchor'> &para;</a></span></dt>
 <dd>
 <p><var>entity</var> が根（即ち、message 全体）である場合に、非-<code>nil</code> を返
 す。
 </p></dd></dl>
 
 
-<dl>
-<dt id="index-mime_002dentity_002dnode_002did">Function: <strong>mime-entity-node-id</strong> <em>entity</em></dt>
+<dl class="def">
+<dt id="index-mime_002dentity_002dnode_002did"><span class="category">Function: </span><span><strong>mime-entity-node-id</strong> <em>entity</em><a href='#index-mime_002dentity_002dnode_002did' class='copiable-anchor'> &para;</a></span></dt>
 <dd>
 <p><var>entity</var> の node-id を返す。
 </p></dd></dl>
 
 
-<dl>
-<dt id="index-mime_002dentity_002dnumber">Function: <strong>mime-entity-number</strong> <em>entity</em></dt>
+<dl class="def">
+<dt id="index-mime_002dentity_002dnumber"><span class="category">Function: </span><span><strong>mime-entity-number</strong> <em>entity</em><a href='#index-mime_002dentity_002dnumber' class='copiable-anchor'> &para;</a></span></dt>
 <dd>
 <p><var>entity</var> の entity-number を返す。
 </p></dd></dl>
@@ -288,14 +280,16 @@ local 変数。
 
 
 <hr>
-<span id="Entity-Search"></span><div class="header">
+</div>
+<div class="section" id="Entity-Search">
+<div class="header">
 <p>
-Next: <a href="#Entity-Attributes" accesskey="n" rel="next">Entity Attributes</a>, Previous: <a href="#Entity-hierarchy" accesskey="p" rel="prev">Entity hierarchy</a>, Up: <a href="#Entity" accesskey="u" rel="up">Entity</a> &nbsp; [<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
+Next: <a href="#Entity-Attributes" accesskey="n" rel="next">Entity の属性</a>, Previous: <a href="#Entity-hierarchy" accesskey="p" rel="prev">Entity 階層</a>, Up: <a href="#Entity" accesskey="u" rel="up">Message と Entity</a> &nbsp; [<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
 </div>
 <span id="Entity-noJian-Suo-"></span><h3 class="section">3.3 Entity の検索</h3>
 
-<dl>
-<dt id="index-mime_002dfind_002dentity_002dfrom_002dnumber">Function: <strong>mime-find-entity-from-number</strong> <em>entity-number  &amp;optional  message</em></dt>
+<dl class="def">
+<dt id="index-mime_002dfind_002dentity_002dfrom_002dnumber"><span class="category">Function: </span><span><strong>mime-find-entity-from-number</strong> <em>entity-number  &amp;optional  message</em><a href='#index-mime_002dfind_002dentity_002dfrom_002dnumber' class='copiable-anchor'> &para;</a></span></dt>
 <dd>
 <p><var>message</var> から、<var>enity-number</var> の entity を返します。
 </p>
@@ -304,8 +298,8 @@ Next: <a href="#Entity-Attributes" accesskey="n" rel="next">Entity Attributes</a
 </p></dd></dl>
 
 
-<dl>
-<dt id="index-mime_002dfind_002dentity_002dfrom_002dnode_002did">Function: <strong>mime-find-entity-from-node-id</strong> <em>entity-node-id  &amp;optional  message</em></dt>
+<dl class="def">
+<dt id="index-mime_002dfind_002dentity_002dfrom_002dnode_002did"><span class="category">Function: </span><span><strong>mime-find-entity-from-node-id</strong> <em>entity-node-id  &amp;optional  message</em><a href='#index-mime_002dfind_002dentity_002dfrom_002dnode_002did' class='copiable-anchor'> &para;</a></span></dt>
 <dd>
 <p><var>message</var> から、<var>entity-node-id</var> の entity を返します。
 </p>
@@ -314,8 +308,8 @@ Next: <a href="#Entity-Attributes" accesskey="n" rel="next">Entity Attributes</a
 </p></dd></dl>
 
 
-<dl>
-<dt id="index-mime_002dfind_002dentity_002dfrom_002dcontent_002did">Function: <strong>mime-find-entity-from-content-id</strong> <em>cid  &amp;optional  message</em></dt>
+<dl class="def">
+<dt id="index-mime_002dfind_002dentity_002dfrom_002dcontent_002did"><span class="category">Function: </span><span><strong>mime-find-entity-from-content-id</strong> <em>cid  &amp;optional  message</em><a href='#index-mime_002dfind_002dentity_002dfrom_002dcontent_002did' class='copiable-anchor'> &para;</a></span></dt>
 <dd>
 <p><var>message</var> から、<var>cid</var> の entity を返します。
 </p>
@@ -326,39 +320,41 @@ Next: <a href="#Entity-Attributes" accesskey="n" rel="next">Entity Attributes</a
 
 
 <hr>
-<span id="Entity-Attributes"></span><div class="header">
+</div>
+<div class="section" id="Entity-Attributes">
+<div class="header">
 <p>
-Next: <a href="#Entity_002dheader" accesskey="n" rel="next">Entity-header</a>, Previous: <a href="#Entity-Search" accesskey="p" rel="prev">Entity Search</a>, Up: <a href="#Entity" accesskey="u" rel="up">Entity</a> &nbsp; [<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
+Next: <a href="#Entity_002dheader" accesskey="n" rel="next">Entity header の情報</a>, Previous: <a href="#Entity-Search" accesskey="p" rel="prev">Entity の検索</a>, Up: <a href="#Entity" accesskey="u" rel="up">Message と Entity</a> &nbsp; [<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
 </div>
 <span id="Entity-noShu-Xing-"></span><h3 class="section">3.4 Entity の属性</h3>
 
-<dl>
-<dt id="index-mime_002dentity_002dcontent_002dtype">Function: <strong>mime-entity-content-type</strong> <em>entity</em></dt>
+<dl class="def">
+<dt id="index-mime_002dentity_002dcontent_002dtype"><span class="category">Function: </span><span><strong>mime-entity-content-type</strong> <em>entity</em><a href='#index-mime_002dentity_002dcontent_002dtype' class='copiable-anchor'> &para;</a></span></dt>
 <dd>
-<p><var>entity</var> の content-type を返す。(cf. <a href="#mime_002dcontent_002dtype">mime-content-type</a>)
+<p><var>entity</var> の content-type を返す。(cf. <a href="#mime_002dcontent_002dtype">mime-content-type 構造体</a>)
 </p></dd></dl>
 
 
-<dl>
-<dt id="index-mime_002dentity_002dcontent_002ddisposition">Function: <strong>mime-entity-content-disposition</strong> <em>entity</em></dt>
+<dl class="def">
+<dt id="index-mime_002dentity_002dcontent_002ddisposition"><span class="category">Function: </span><span><strong>mime-entity-content-disposition</strong> <em>entity</em><a href='#index-mime_002dentity_002dcontent_002ddisposition' class='copiable-anchor'> &para;</a></span></dt>
 <dd>
 <p><var>entity</var> の content-disposition を返す。
-(cf. <a href="#mime_002dcontent_002ddisposition">mime-content-disposition</a>)
+(cf. <a href="#mime_002dcontent_002ddisposition">mime-content-disposition 構造体</a>)
 </p></dd></dl>
 
 
-<dl>
-<dt id="index-mime_002dentity_002dfilename">Function: <strong>mime-entity-filename</strong> <em>entity</em></dt>
+<dl class="def">
+<dt id="index-mime_002dentity_002dfilename"><span class="category">Function: </span><span><strong>mime-entity-filename</strong> <em>entity</em><a href='#index-mime_002dentity_002dfilename' class='copiable-anchor'> &para;</a></span></dt>
 <dd>
 <p><var>entity</var> の file 名を返す。
 </p></dd></dl>
 
 
-<dl>
-<dt id="index-mime_002dentity_002dencoding">Function: <strong>mime-entity-encoding</strong> <em>entity  &amp;optional  default-encoding</em></dt>
+<dl class="def">
+<dt id="index-mime_002dentity_002dencoding"><span class="category">Function: </span><span><strong>mime-entity-encoding</strong> <em>entity  &amp;optional  default-encoding</em><a href='#index-mime_002dentity_002dencoding' class='copiable-anchor'> &para;</a></span></dt>
 <dd>
 <p><var>entity</var> の content-transfer-encoding を返す。
-(cf. <a href="#Content_002dTransfer_002dEncoding">Content-Transfer-Encoding</a>) 
+(cf. <a href="#Content_002dTransfer_002dEncoding">符号化法</a>) 
 </p>
 <p>もし、<var>entity</var> に Content-Transfer-Encoding 欄が存在しない場合は、
 <var>default-encoding</var> を返す。これが指定されない場合は、<code>&quot;7bit&quot;</code> 
@@ -366,8 +362,8 @@ Next: <a href="#Entity_002dheader" accesskey="n" rel="next">Entity-header</a>, P
 </p></dd></dl>
 
 
-<dl>
-<dt id="index-mime_002dentity_002dcooked_002dp">Function: <strong>mime-entity-cooked-p</strong> <em>entity</em></dt>
+<dl class="def">
+<dt id="index-mime_002dentity_002dcooked_002dp"><span class="category">Function: </span><span><strong>mime-entity-cooked-p</strong> <em>entity</em><a href='#index-mime_002dentity_002dcooked_002dp' class='copiable-anchor'> &para;</a></span></dt>
 <dd>
 <p><var>entity</var> の内容が既にコード変換されている場合は nil で無い値
 を返す。
@@ -376,14 +372,16 @@ Next: <a href="#Entity_002dheader" accesskey="n" rel="next">Entity-header</a>, P
 
 
 <hr>
-<span id="Entity_002dheader"></span><div class="header">
+</div>
+<div class="section" id="Entity_002dheader">
+<div class="header">
 <p>
-Next: <a href="#entity-formatting" accesskey="n" rel="next">entity formatting</a>, Previous: <a href="#Entity-Attributes" accesskey="p" rel="prev">Entity Attributes</a>, Up: <a href="#Entity" accesskey="u" rel="up">Entity</a> &nbsp; [<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
+Next: <a href="#entity-formatting" accesskey="n" rel="next">Entity の文字表現</a>, Previous: <a href="#Entity-Attributes" accesskey="p" rel="prev">Entity の属性</a>, Up: <a href="#Entity" accesskey="u" rel="up">Message と Entity</a> &nbsp; [<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
 </div>
 <span id="Entity-header-noQing-Bao-"></span><h3 class="section">3.5 Entity header の情報</h3>
 
-<dl>
-<dt id="index-mime_002dfetch_002dfield">Function: <strong>mime-fetch-field</strong> <em>field-name  &amp;optional  entity</em></dt>
+<dl class="def">
+<dt id="index-mime_002dfetch_002dfield"><span class="category">Function: </span><span><strong>mime-fetch-field</strong> <em>field-name  &amp;optional  entity</em><a href='#index-mime_002dfetch_002dfield' class='copiable-anchor'> &para;</a></span></dt>
 <dd>
 <p><var>entity</var> の header 中の <var>field-name</var> 欄の body を返す。
 </p>
@@ -396,8 +394,8 @@ Next: <a href="#entity-formatting" accesskey="n" rel="next">entity formatting</a
 </p></dd></dl>
 
 
-<dl>
-<dt id="index-mime_002dread_002dfield">Function: <strong>mime-read-field</strong> <em>field-name  &amp;optional  entity</em></dt>
+<dl class="def">
+<dt id="index-mime_002dread_002dfield"><span class="category">Function: </span><span><strong>mime-read-field</strong> <em>field-name  &amp;optional  entity</em><a href='#index-mime_002dread_002dfield' class='copiable-anchor'> &para;</a></span></dt>
 <dd>
 <p><var>entity</var> の header 中の <var>field-name</var> 欄を構文解析した結果を返す。
 
@@ -416,14 +414,16 @@ Next: <a href="#entity-formatting" accesskey="n" rel="next">entity formatting</a
 
 
 <hr>
-<span id="entity-formatting"></span><div class="header">
+</div>
+<div class="section" id="entity-formatting">
+<div class="header">
 <p>
-Next: <a href="#Entity_002dcontent" accesskey="n" rel="next">Entity-content</a>, Previous: <a href="#Entity_002dheader" accesskey="p" rel="prev">Entity-header</a>, Up: <a href="#Entity" accesskey="u" rel="up">Entity</a> &nbsp; [<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
+Next: <a href="#Entity_002dcontent" accesskey="n" rel="next">Entity の内容</a>, Previous: <a href="#Entity_002dheader" accesskey="p" rel="prev">Entity header の情報</a>, Up: <a href="#Entity" accesskey="u" rel="up">Message と Entity</a> &nbsp; [<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
 </div>
 <span id="Entity-noWenZi-Biao-Xian-"></span><h3 class="section">3.6 Entity の文字表現</h3>
 
-<dl>
-<dt id="index-mime_002dinsert_002dheader">Function: <strong>mime-insert-header</strong> <em>entity  &amp;optional  invisible-fields visible-fields</em></dt>
+<dl class="def">
+<dt id="index-mime_002dinsert_002dheader"><span class="category">Function: </span><span><strong>mime-insert-header</strong> <em>entity  &amp;optional  invisible-fields visible-fields</em><a href='#index-mime_002dinsert_002dheader' class='copiable-anchor'> &para;</a></span></dt>
 <dd>
 <p>現在位置に <var>entity</var> の復号した header を挿入する。
 </p>
@@ -435,13 +435,13 @@ Next: <a href="#Entity_002dcontent" accesskey="n" rel="next">Entity-content</a>,
 <var>visible-fields</var> の要素のどれにも match しない欄は表示されない。
 
 </p>
-<p>encoded-word (<a href="#encoded_002dword">encoded-word</a>) は復号される。『生の非 us-ascii 文字』
+<p>encoded-word (<a href="#encoded_002dword">Header の network 表現</a>) は復号される。『生の非 us-ascii 文字』
 は <code>default-mime-charset</code> として解釈される。
 </p></dd></dl>
 
 
-<dl>
-<dt id="index-mime_002dinsert_002dtext_002dcontent">Function: <strong>mime-insert-text-content</strong> <em>entity</em></dt>
+<dl class="def">
+<dt id="index-mime_002dinsert_002dtext_002dcontent"><span class="category">Function: </span><span><strong>mime-insert-text-content</strong> <em>entity</em><a href='#index-mime_002dinsert_002dtext_002dcontent' class='copiable-anchor'> &para;</a></span></dt>
 <dd>
 <p>point の前に <var>entity</var> を text entity として挿入します。
 </p>
@@ -451,8 +451,8 @@ Next: <a href="#Entity_002dcontent" accesskey="n" rel="next">Entity-content</a>,
 </p></dd></dl>
 
 
-<dl>
-<dt id="index-default_002dmime_002dcharset">Variable: <strong>default-mime-charset</strong></dt>
+<dl class="def">
+<dt id="index-default_002dmime_002dcharset"><span class="category">Variable: </span><span><strong>default-mime-charset</strong><a href='#index-default_002dmime_002dcharset' class='copiable-anchor'> &para;</a></span></dt>
 <dd>
 <p>適切な MIME charset (<a href="#MIME-charset">MIME charset</a>) が見つからなかった場合に用いら
 れるMIME charset.
@@ -463,28 +463,30 @@ Next: <a href="#Entity_002dcontent" accesskey="n" rel="next">Entity-content</a>,
 
 
 <hr>
-<span id="Entity_002dcontent"></span><div class="header">
+</div>
+<div class="section" id="Entity_002dcontent">
+<div class="header">
 <p>
-Next: <a href="#Entity_002dnetwork_002drepresentation" accesskey="n" rel="next">Entity-network-representation</a>, Previous: <a href="#entity-formatting" accesskey="p" rel="prev">entity formatting</a>, Up: <a href="#Entity" accesskey="u" rel="up">Entity</a> &nbsp; [<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
+Next: <a href="#Entity_002dnetwork_002drepresentation" accesskey="n" rel="next">Entity のネットワーク表現</a>, Previous: <a href="#entity-formatting" accesskey="p" rel="prev">Entity の文字表現</a>, Up: <a href="#Entity" accesskey="u" rel="up">Message と Entity</a> &nbsp; [<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
 </div>
 <span id="Entity-noNei-Rong-"></span><h3 class="section">3.7 Entity の内容</h3>
 
-<dl>
-<dt id="index-mime_002dentity_002dcontent">Function: <strong>mime-entity-content</strong> <em>entity</em></dt>
+<dl class="def">
+<dt id="index-mime_002dentity_002dcontent"><span class="category">Function: </span><span><strong>mime-entity-content</strong> <em>entity</em><a href='#index-mime_002dentity_002dcontent' class='copiable-anchor'> &para;</a></span></dt>
 <dd>
 <p><var>entity</var> の内容の byte 列を返す。
 </p></dd></dl>
 
 
-<dl>
-<dt id="index-mime_002dinsert_002dentity_002dcontent">Function: <strong>mime-insert-entity-content</strong> <em>entity</em></dt>
+<dl class="def">
+<dt id="index-mime_002dinsert_002dentity_002dcontent"><span class="category">Function: </span><span><strong>mime-insert-entity-content</strong> <em>entity</em><a href='#index-mime_002dinsert_002dentity_002dcontent' class='copiable-anchor'> &para;</a></span></dt>
 <dd>
 <p>point の位置に <var>entity</var> の内容を挿入します。
 </p></dd></dl>
 
 
-<dl>
-<dt id="index-mime_002dwrite_002dentity_002dcontent">Function: <strong>mime-write-entity-content</strong> <em>entity filename</em></dt>
+<dl class="def">
+<dt id="index-mime_002dwrite_002dentity_002dcontent"><span class="category">Function: </span><span><strong>mime-write-entity-content</strong> <em>entity filename</em><a href='#index-mime_002dwrite_002dentity_002dcontent' class='copiable-anchor'> &para;</a></span></dt>
 <dd>
 <p><var>entity</var> の内容を <var>filename</var> に書き込みます。
 </p></dd></dl>
@@ -492,28 +494,30 @@ Next: <a href="#Entity_002dnetwork_002drepresentation" accesskey="n" rel="next">
 
 
 <hr>
-<span id="Entity_002dnetwork_002drepresentation"></span><div class="header">
+</div>
+<div class="section" id="Entity_002dnetwork_002drepresentation">
+<div class="header">
 <p>
-Next: <a href="#Entity-buffer" accesskey="n" rel="next">Entity buffer</a>, Previous: <a href="#Entity_002dcontent" accesskey="p" rel="prev">Entity-content</a>, Up: <a href="#Entity" accesskey="u" rel="up">Entity</a> &nbsp; [<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
+Next: <a href="#Entity-buffer" accesskey="n" rel="next">Entity の buffer による表現</a>, Previous: <a href="#Entity_002dcontent" accesskey="p" rel="prev">Entity の内容</a>, Up: <a href="#Entity" accesskey="u" rel="up">Message と Entity</a> &nbsp; [<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
 </div>
 <span id="Entity-nonetutowakuBiao-Xian-"></span><h3 class="section">3.8 Entity のネットワーク表現</h3>
 
-<dl>
-<dt id="index-mime_002dinsert_002dentity">Function: <strong>mime-insert-entity</strong> <em>entity</em></dt>
+<dl class="def">
+<dt id="index-mime_002dinsert_002dentity"><span class="category">Function: </span><span><strong>mime-insert-entity</strong> <em>entity</em><a href='#index-mime_002dinsert_002dentity' class='copiable-anchor'> &para;</a></span></dt>
 <dd>
 <p><var>entity</var> の header と body を point のところに挿入します。
 </p></dd></dl>
 
 
-<dl>
-<dt id="index-mime_002dwrite_002dentity">Function: <strong>mime-write-entity</strong> <em>entity filename</em></dt>
+<dl class="def">
+<dt id="index-mime_002dwrite_002dentity"><span class="category">Function: </span><span><strong>mime-write-entity</strong> <em>entity filename</em><a href='#index-mime_002dwrite_002dentity' class='copiable-anchor'> &para;</a></span></dt>
 <dd>
 <p><var>entity</var> の表現を <var>filename</var> に書き込みます。
 </p></dd></dl>
 
 
-<dl>
-<dt id="index-mime_002dwrite_002dentity_002dbody">Function: <strong>mime-write-entity-body</strong> <em>entity filename</em></dt>
+<dl class="def">
+<dt id="index-mime_002dwrite_002dentity_002dbody"><span class="category">Function: </span><span><strong>mime-write-entity-body</strong> <em>entity filename</em><a href='#index-mime_002dwrite_002dentity_002dbody' class='copiable-anchor'> &para;</a></span></dt>
 <dd>
 <p><var>entity</var> の body を <var>filename</var> に書き込みます。
 </p></dd></dl>
@@ -521,61 +525,63 @@ Next: <a href="#Entity-buffer" accesskey="n" rel="next">Entity buffer</a>, Previ
 
 
 <hr>
-<span id="Entity-buffer"></span><div class="header">
+</div>
+<div class="section" id="Entity-buffer">
+<div class="header">
 <p>
-Next: <a href="#mm_002dbackend" accesskey="n" rel="next">mm-backend</a>, Previous: <a href="#Entity_002dnetwork_002drepresentation" accesskey="p" rel="prev">Entity-network-representation</a>, Up: <a href="#Entity" accesskey="u" rel="up">Entity</a> &nbsp; [<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
+Next: <a href="#mm_002dbackend" accesskey="n" rel="next">Entity の表現と実現</a>, Previous: <a href="#Entity_002dnetwork_002drepresentation" accesskey="p" rel="prev">Entity のネットワーク表現</a>, Up: <a href="#Entity" accesskey="u" rel="up">Message と Entity</a> &nbsp; [<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
 </div>
 <span id="Entity-no-buffer-niyoruBiao-Xian-"></span><h3 class="section">3.9 Entity の buffer による表現</h3>
 
-<dl>
-<dt id="index-mime_002dentity_002dbuffer">Function: <strong>mime-entity-buffer</strong> <em>entity</em></dt>
+<dl class="def">
+<dt id="index-mime_002dentity_002dbuffer"><span class="category">Function: </span><span><strong>mime-entity-buffer</strong> <em>entity</em><a href='#index-mime_002dentity_002dbuffer' class='copiable-anchor'> &para;</a></span></dt>
 <dd>
 <p><var>entity</var> が存在する buffer を返す。
 </p></dd></dl>
 
 
-<dl>
-<dt id="index-mime_002dentity_002dpoint_002dmin">Function: <strong>mime-entity-point-min</strong> <em>entity</em></dt>
+<dl class="def">
+<dt id="index-mime_002dentity_002dpoint_002dmin"><span class="category">Function: </span><span><strong>mime-entity-point-min</strong> <em>entity</em><a href='#index-mime_002dentity_002dpoint_002dmin' class='copiable-anchor'> &para;</a></span></dt>
 <dd>
 <p><var>entity</var> が存在する buffer における、<var>entity</var> が占める領域の先頭
 位置を返す。
 </p></dd></dl>
 
 
-<dl>
-<dt id="index-mime_002dentity_002dpoint_002dmax">Function: <strong>mime-entity-point-max</strong> <em>entity</em></dt>
+<dl class="def">
+<dt id="index-mime_002dentity_002dpoint_002dmax"><span class="category">Function: </span><span><strong>mime-entity-point-max</strong> <em>entity</em><a href='#index-mime_002dentity_002dpoint_002dmax' class='copiable-anchor'> &para;</a></span></dt>
 <dd>
 <p><var>entity</var> が存在する buffer における、<var>entity</var> が占める領域の末尾
 位置を返す。
 </p></dd></dl>
 
 
-<dl>
-<dt id="index-mime_002dentity_002dheader_002dstart">Function: <strong>mime-entity-header-start</strong> <em>entity</em></dt>
+<dl class="def">
+<dt id="index-mime_002dentity_002dheader_002dstart"><span class="category">Function: </span><span><strong>mime-entity-header-start</strong> <em>entity</em><a href='#index-mime_002dentity_002dheader_002dstart' class='copiable-anchor'> &para;</a></span></dt>
 <dd>
 <p><var>entity</var> が存在する buffer における、header が占める領域の先頭位置を
 返す。
 </p></dd></dl>
 
 
-<dl>
-<dt id="index-mime_002dentity_002dheader_002dend">Function: <strong>mime-entity-header-end</strong> <em>entity</em></dt>
+<dl class="def">
+<dt id="index-mime_002dentity_002dheader_002dend"><span class="category">Function: </span><span><strong>mime-entity-header-end</strong> <em>entity</em><a href='#index-mime_002dentity_002dheader_002dend' class='copiable-anchor'> &para;</a></span></dt>
 <dd>
 <p><var>entity</var> が存在する buffer における、header が占める領域の末尾位置を
 返す。
 </p></dd></dl>
 
 
-<dl>
-<dt id="index-mime_002dentity_002dbody_002dstart">Function: <strong>mime-entity-body-start</strong> <em>entity</em></dt>
+<dl class="def">
+<dt id="index-mime_002dentity_002dbody_002dstart"><span class="category">Function: </span><span><strong>mime-entity-body-start</strong> <em>entity</em><a href='#index-mime_002dentity_002dbody_002dstart' class='copiable-anchor'> &para;</a></span></dt>
 <dd>
 <p><var>entity</var> が存在する buffer における、body が占める領域の先頭位置を返
 す。
 </p></dd></dl>
 
 
-<dl>
-<dt id="index-mime_002dentity_002dbody_002dend">Function: <strong>mime-entity-body-end</strong> <em>entity</em></dt>
+<dl class="def">
+<dt id="index-mime_002dentity_002dbody_002dend"><span class="category">Function: </span><span><strong>mime-entity-body-end</strong> <em>entity</em><a href='#index-mime_002dentity_002dbody_002dend' class='copiable-anchor'> &para;</a></span></dt>
 <dd>
 <p><var>entity</var> が存在する buffer における、body が占める領域の末尾位置を返
 す。
@@ -584,9 +590,11 @@ Next: <a href="#mm_002dbackend" accesskey="n" rel="next">mm-backend</a>, Previou
 
 
 <hr>
-<span id="mm_002dbackend"></span><div class="header">
+</div>
+<div class="section" id="mm_002dbackend">
+<div class="header">
 <p>
-Previous: <a href="#Entity-buffer" accesskey="p" rel="prev">Entity buffer</a>, Up: <a href="#Entity" accesskey="u" rel="up">Entity</a> &nbsp; [<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
+Previous: <a href="#Entity-buffer" accesskey="p" rel="prev">Entity の buffer による表現</a>, Up: <a href="#Entity" accesskey="u" rel="up">Message と Entity</a> &nbsp; [<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
 </div>
 <span id="Entity-noBiao-Xian-toShi-Xian-"></span><h3 class="section">3.10 Entity の表現と実現</h3>
 <span id="index-mm_002dbackend"></span>
@@ -598,7 +606,7 @@ Previous: <a href="#Entity-buffer" accesskey="p" rel="prev">Entity buffer</a>, U
 </p>
 <p>ここで、entity がどういう種類の表現を行っているかを示すのが
 <strong>representation-type</strong> で、entity を生成する時にはこれを指定します。
-(cf. <a href="#Entity-creation">Entity creation</a>) 
+(cf. <a href="#Entity-creation">Entity の生成</a>) 
 </p>
 <p>前節までに述べて来た entity に対する処理は、entity に対してその処理を依
 頼することによって実現されています。Entity は自分の representation-type 
@@ -614,22 +622,21 @@ representation-type の名前の先頭に <code>mm</code> を付けたものに�
 時に自動的に require されます。
 </p>
 
-<table class="menu" border="0" cellspacing="0">
-<tr><td align="left" valign="top">&bull; <a href="#Request-for-entity" accesskey="1">Request for entity</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Entity への便り
-</td></tr>
-<tr><td align="left" valign="top">&bull; <a href="#mm_002dbackend-module" accesskey="2">mm-backend module</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">mm-backend の作り方
-</td></tr>
-</table>
 
+<ul class="section-toc">
+<li><a href="#Request-for-entity" accesskey="1">Entity への便り</a></li>
+<li><a href="#mm_002dbackend-module" accesskey="2">mm-backend の作り方</a></li>
+</ul>
 <hr>
-<span id="Request-for-entity"></span><div class="header">
+<div class="subsection" id="Request-for-entity">
+<div class="header">
 <p>
-Next: <a href="#mm_002dbackend-module" accesskey="n" rel="next">mm-backend module</a>, Previous: <a href="#mm_002dbackend" accesskey="p" rel="prev">mm-backend</a>, Up: <a href="#mm_002dbackend" accesskey="u" rel="up">mm-backend</a> &nbsp; [<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
+Next: <a href="#mm_002dbackend-module" accesskey="n" rel="next">mm-backend の作り方</a>, Previous: <a href="#mm_002dbackend" accesskey="p" rel="prev">Entity の表現と実現</a>, Up: <a href="#mm_002dbackend" accesskey="u" rel="up">Entity の表現と実現</a> &nbsp; [<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
 </div>
 <span id="Entity-henoBian-ri"></span><h4 class="subsection">3.10.1 Entity への便り</h4>
 
-<dl>
-<dt id="index-mime_002dentity_002dsend">Function: <strong>mime-entity-send</strong> <em>entity message  &amp;rest  args</em></dt>
+<dl class="def">
+<dt id="index-mime_002dentity_002dsend"><span class="category">Function: </span><span><strong>mime-entity-send</strong> <em>entity message  &amp;rest  args</em><a href='#index-mime_002dentity_002dsend' class='copiable-anchor'> &para;</a></span></dt>
 <dd>
 <p><var>entity</var> に <var>message</var> を送る。
 </p>
@@ -639,14 +646,16 @@ Next: <a href="#mm_002dbackend-module" accesskey="n" rel="next">mm-backend modul
 
 
 <hr>
-<span id="mm_002dbackend-module"></span><div class="header">
+</div>
+<div class="subsection" id="mm_002dbackend-module">
+<div class="header">
 <p>
-Previous: <a href="#Request-for-entity" accesskey="p" rel="prev">Request for entity</a>, Up: <a href="#mm_002dbackend" accesskey="u" rel="up">mm-backend</a> &nbsp; [<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
+Previous: <a href="#Request-for-entity" accesskey="p" rel="prev">Entity への便り</a>, Up: <a href="#mm_002dbackend" accesskey="u" rel="up">Entity の表現と実現</a> &nbsp; [<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
 </div>
 <span id="mm_002dbackend-noZuo-riFang-"></span><h4 class="subsection">3.10.2 mm-backend の作り方</h4>
 
-<dl>
-<dt id="index-mm_002ddefine_002dbackend">Macro: <strong>mm-define-backend</strong> <em>type &amp;optional  parents</em></dt>
+<dl class="def">
+<dt id="index-mm_002ddefine_002dbackend"><span class="category">Macro: </span><span><strong>mm-define-backend</strong> <em>type &amp;optional  parents</em><a href='#index-mm_002ddefine_002dbackend' class='copiable-anchor'> &para;</a></span></dt>
 <dd>
 <p><var>type</var> を mm-backend として定義します。
 </p>
@@ -656,14 +665,14 @@ Previous: <a href="#Request-for-entity" accesskey="p" rel="prev">Request for ent
 </p>
 <p>例:
 </p>
-<div class="lisp">
+<div class="example lisp">
 <pre class="lisp">(mm-define-backend chao (generic))
 </pre></div>
 </dd></dl>
 
 
-<dl>
-<dt id="index-mm_002ddefine_002dmethod">Macro: <strong>mm-define-method</strong> <em>name args  &amp;rest  body</em></dt>
+<dl class="def">
+<dt id="index-mm_002ddefine_002dmethod"><span class="category">Macro: </span><span><strong>mm-define-method</strong> <em>name args  &amp;rest  body</em><a href='#index-mm_002ddefine_002dmethod' class='copiable-anchor'> &para;</a></span></dt>
 <dd>
 <p><var>name</var> を (nth 1 (car <var>args</var>)) backend の method 関
 数として定義します。
@@ -675,7 +684,7 @@ Previous: <a href="#Request-for-entity" accesskey="p" rel="prev">Request for ent
 </p>
 <p>例:
 </p>
-<div class="lisp">
+<div class="example lisp">
 <pre class="lisp">(mm-define-method entity-cooked-p ((entity chao)) nil)
 </pre></div>
 </dd></dl>
@@ -683,16 +692,20 @@ Previous: <a href="#Request-for-entity" accesskey="p" rel="prev">Request for ent
 
 
 <hr>
-<span id="Content_002dType"></span><div class="header">
+</div>
+</div>
+</div>
+<div class="chapter" id="Content_002dType">
+<div class="header">
 <p>
-Next: <a href="#Content_002dDisposition" accesskey="n" rel="next">Content-Disposition</a>, Previous: <a href="#Entity" accesskey="p" rel="prev">Entity</a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a> &nbsp; [<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
+Next: <a href="#Content_002dDisposition" accesskey="n" rel="next">Content-Disposition 欄の情報</a>, Previous: <a href="#Entity" accesskey="p" rel="prev">Message と Entity</a>, Up: <a href="#Top" accesskey="u" rel="up">FLIM-LB 1.14 MIME 機能説明書</a> &nbsp; [<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
 </div>
 <span id="Content_002dType-Lan-noQing-Bao-"></span><h2 class="chapter">4 Content-Type 欄の情報</h2>
 <span id="index-mime_002dcontent_002dtype"></span>
 <span id="index-Content_002dType-Lan-"></span>
 
 <p><strong>Content-Type 欄</strong> は media-type (<a href="#media_002dtype">media-type</a>) や MIME
-charset といった entity (<a href="#Entity">Entity</a>) の内容の種類や表現形式などを記述
+charset といった entity (<a href="#Entity">Message と Entity</a>) の内容の種類や表現形式などを記述
 するためのもので、RFC 2045 (<a href="#RFC-2045">RFC 2045</a>) で定義されています。
 </p>
 <p><strong>[Memo]</strong>
@@ -708,21 +721,18 @@ media-type のような type と subtype の区別はなく、MIME charset の�
 格納する構造体 <strong>mime-content-type</strong> を提供します。
 </p>
 
-<table class="menu" border="0" cellspacing="0">
-<tr><td align="left" valign="top">&bull; <a href="#Content_002dType-field" accesskey="1">Content-Type field</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Content-Type 欄の形式
-</td></tr>
-<tr><td align="left" valign="top">&bull; <a href="#mime_002dcontent_002dtype" accesskey="2">mime-content-type</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">mime-content-type 構造体
-</td></tr>
-<tr><td align="left" valign="top">&bull; <a href="#Content_002dType-parser" accesskey="3">Content-Type parser</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Content-Type 欄の解析器
-</td></tr>
-<tr><td align="left" valign="top">&bull; <a href="#Content_002dType-utility" accesskey="4">Content-Type utility</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Content-Type に関する有用な関数
-</td></tr>
-</table>
 
+<ul class="section-toc">
+<li><a href="#Content_002dType-field" accesskey="1">Content-Type 欄の形式</a></li>
+<li><a href="#mime_002dcontent_002dtype" accesskey="2">mime-content-type 構造体</a></li>
+<li><a href="#Content_002dType-parser" accesskey="3">Content-Type 欄の解析器</a></li>
+<li><a href="#Content_002dType-utility" accesskey="4">Content-Type に関する有用な関数</a></li>
+</ul>
 <hr>
-<span id="Content_002dType-field"></span><div class="header">
+<div class="section" id="Content_002dType-field">
+<div class="header">
 <p>
-Next: <a href="#mime_002dcontent_002dtype" accesskey="n" rel="next">mime-content-type</a>, Previous: <a href="#Content_002dType" accesskey="p" rel="prev">Content-Type</a>, Up: <a href="#Content_002dType" accesskey="u" rel="up">Content-Type</a> &nbsp; [<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
+Next: <a href="#mime_002dcontent_002dtype" accesskey="n" rel="next">mime-content-type 構造体</a>, Previous: <a href="#Content_002dType" accesskey="p" rel="prev">Content-Type 欄の情報</a>, Up: <a href="#Content_002dType" accesskey="u" rel="up">Content-Type 欄の情報</a> &nbsp; [<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
 </div>
 <span id="Content_002dType-Lan-noXing-Shi-"></span><h3 class="section">4.1 Content-Type 欄の形式</h3>
 <span id="index-parameter"></span>
@@ -775,14 +785,16 @@ Next: <a href="#mime_002dcontent_002dtype" accesskey="n" rel="next">mime-content
 
 
 <hr>
-<span id="mime_002dcontent_002dtype"></span><div class="header">
+</div>
+<div class="section" id="mime_002dcontent_002dtype">
+<div class="header">
 <p>
-Next: <a href="#Content_002dType-parser" accesskey="n" rel="next">Content-Type parser</a>, Previous: <a href="#Content_002dType-field" accesskey="p" rel="prev">Content-Type field</a>, Up: <a href="#Content_002dType" accesskey="u" rel="up">Content-Type</a> &nbsp; [<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
+Next: <a href="#Content_002dType-parser" accesskey="n" rel="next">Content-Type 欄の解析器</a>, Previous: <a href="#Content_002dType-field" accesskey="p" rel="prev">Content-Type 欄の形式</a>, Up: <a href="#Content_002dType" accesskey="u" rel="up">Content-Type 欄の情報</a> &nbsp; [<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
 </div>
 <span id="mime_002dcontent_002dtype-Gou-Zao-Ti-"></span><h3 class="section">4.2 mime-content-type 構造体</h3>
 
-<dl>
-<dt id="index-mime_002dcontent_002dtype-1">Structure: <strong>mime-content-type</strong></dt>
+<dl class="def">
+<dt id="index-mime_002dcontent_002dtype-1"><span class="category">Structure: </span><span><strong>mime-content-type</strong><a href='#index-mime_002dcontent_002dtype-1' class='copiable-anchor'> &para;</a></span></dt>
 <dd>
 <p>Content-Type 欄の情報を格納するための構造体。
 </p>
@@ -792,15 +804,15 @@ Next: <a href="#Content_002dType-parser" accesskey="n" rel="next">Content-Type p
 <p>この構造体の要素は以下の通りである：
 </p>
 <dl compact="compact">
-<dt><var>primary-type</var></dt>
+<dt><span><var>primary-type</var></span></dt>
 <dd><p>media-type の主型 (symbol).
 </p>
 </dd>
-<dt><var>subtype</var></dt>
+<dt><span><var>subtype</var></span></dt>
 <dd><p>media-type の副型 (symbol).
 </p>
 </dd>
-<dt><var>parameters</var></dt>
+<dt><span><var>parameters</var></span></dt>
 <dd><p>Content-Type 欄の parameter (連想 list).
 </p>
 </dd>
@@ -808,16 +820,16 @@ Next: <a href="#Content_002dType-parser" accesskey="n" rel="next">Content-Type p
 </dd></dl>
 
 
-<dl>
-<dt id="index-make_002dmime_002dcontent_002dtype">Function: <strong>make-mime-content-type</strong> <em>type subtype</em></dt>
+<dl class="def">
+<dt id="index-make_002dmime_002dcontent_002dtype"><span class="category">Function: </span><span><strong>make-mime-content-type</strong> <em>type subtype</em><a href='#index-make_002dmime_002dcontent_002dtype' class='copiable-anchor'> &para;</a></span></dt>
 <dd><p>&amp;optional  parameters
 </p>
 <p>content-type の生成子。
 </p></dd></dl>
 
 
-<dl>
-<dt id="index-mime_002dcontent_002dtype_002dparameter">Function: <strong>mime-content-type-parameter</strong> <em>content-type parameter</em></dt>
+<dl class="def">
+<dt id="index-mime_002dcontent_002dtype_002dparameter"><span class="category">Function: </span><span><strong>mime-content-type-parameter</strong> <em>content-type parameter</em><a href='#index-mime_002dcontent_002dtype_002dparameter' class='copiable-anchor'> &para;</a></span></dt>
 <dd>
 <p><var>content-type</var> の <var>parameter</var> の値を返す。
 </p></dd></dl>
@@ -825,21 +837,23 @@ Next: <a href="#Content_002dType-parser" accesskey="n" rel="next">Content-Type p
 
 
 <hr>
-<span id="Content_002dType-parser"></span><div class="header">
+</div>
+<div class="section" id="Content_002dType-parser">
+<div class="header">
 <p>
-Next: <a href="#Content_002dType-utility" accesskey="n" rel="next">Content-Type utility</a>, Previous: <a href="#mime_002dcontent_002dtype" accesskey="p" rel="prev">mime-content-type</a>, Up: <a href="#Content_002dType" accesskey="u" rel="up">Content-Type</a> &nbsp; [<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
+Next: <a href="#Content_002dType-utility" accesskey="n" rel="next">Content-Type に関する有用な関数</a>, Previous: <a href="#mime_002dcontent_002dtype" accesskey="p" rel="prev">mime-content-type 構造体</a>, Up: <a href="#Content_002dType" accesskey="u" rel="up">Content-Type 欄の情報</a> &nbsp; [<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
 </div>
 <span id="Content_002dType-Lan-noJie-Xi-Qi-"></span><h3 class="section">4.3 Content-Type 欄の解析器</h3>
 
-<dl>
-<dt id="index-mime_002dparse_002dContent_002dType">Function: <strong>mime-parse-Content-Type</strong> <em>string</em></dt>
+<dl class="def">
+<dt id="index-mime_002dparse_002dContent_002dType"><span class="category">Function: </span><span><strong>mime-parse-Content-Type</strong> <em>string</em><a href='#index-mime_002dparse_002dContent_002dType' class='copiable-anchor'> &para;</a></span></dt>
 <dd>
 <p><var>string</var> を content-type として解析した結果を返す。
 </p></dd></dl>
 
 
-<dl>
-<dt id="index-mime_002dread_002dContent_002dType">Function: <strong>mime-read-Content-Type</strong></dt>
+<dl class="def">
+<dt id="index-mime_002dread_002dContent_002dType"><span class="category">Function: </span><span><strong>mime-read-Content-Type</strong><a href='#index-mime_002dread_002dContent_002dType' class='copiable-anchor'> &para;</a></span></dt>
 <dd>
 <p>現在の buffer の Content-Type 欄を読み取り、解析した結果を返す。
 </p>
@@ -849,14 +863,16 @@ Next: <a href="#Content_002dType-utility" accesskey="n" rel="next">Content-Type 
 
 
 <hr>
-<span id="Content_002dType-utility"></span><div class="header">
+</div>
+<div class="section" id="Content_002dType-utility">
+<div class="header">
 <p>
-Previous: <a href="#Content_002dType-parser" accesskey="p" rel="prev">Content-Type parser</a>, Up: <a href="#Content_002dType" accesskey="u" rel="up">Content-Type</a> &nbsp; [<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
+Previous: <a href="#Content_002dType-parser" accesskey="p" rel="prev">Content-Type 欄の解析器</a>, Up: <a href="#Content_002dType" accesskey="u" rel="up">Content-Type 欄の情報</a> &nbsp; [<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
 </div>
 <span id="Content_002dType-niGuan-suruYou-Yong-naGuan-Shu-"></span><h3 class="section">4.4 Content-Type に関する有用な関数</h3>
 
-<dl>
-<dt id="index-mime_002dtype_002fsubtype_002dstring">Function: <strong>mime-type/subtype-string</strong> <em>type  &amp;optional  subtype</em></dt>
+<dl class="def">
+<dt id="index-mime_002dtype_002fsubtype_002dstring"><span class="category">Function: </span><span><strong>mime-type/subtype-string</strong> <em>type  &amp;optional  subtype</em><a href='#index-mime_002dtype_002fsubtype_002dstring' class='copiable-anchor'> &para;</a></span></dt>
 <dd>
 <p><var>type</var> と <var>subtype</var> から type/subtype 形式の文字列を返す。
 </p></dd></dl>
@@ -864,9 +880,12 @@ Previous: <a href="#Content_002dType-parser" accesskey="p" rel="prev">Content-Ty
 
 
 <hr>
-<span id="Content_002dDisposition"></span><div class="header">
+</div>
+</div>
+<div class="chapter" id="Content_002dDisposition">
+<div class="header">
 <p>
-Next: <a href="#Content_002dTransfer_002dEncoding" accesskey="n" rel="next">Content-Transfer-Encoding</a>, Previous: <a href="#Content_002dType" accesskey="p" rel="prev">Content-Type</a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a> &nbsp; [<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
+Next: <a href="#Content_002dTransfer_002dEncoding" accesskey="n" rel="next">符号化法</a>, Previous: <a href="#Content_002dType" accesskey="p" rel="prev">Content-Type 欄の情報</a>, Up: <a href="#Top" accesskey="u" rel="up">FLIM-LB 1.14 MIME 機能説明書</a> &nbsp; [<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
 </div>
 <span id="Content_002dDisposition-Lan-noQing-Bao-"></span><h2 class="chapter">5 Content-Disposition 欄の情報</h2>
 <span id="index-mime_002dcontent_002ddisposition"></span>
@@ -890,22 +909,21 @@ August 1997, Standards Track.
 <strong>mime-content-disposition</strong> を提供します。
 </p>
 
-<table class="menu" border="0" cellspacing="0">
-<tr><td align="left" valign="top">&bull; <a href="#mime_002dcontent_002ddisposition" accesskey="1">mime-content-disposition</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">mime-content-disposition 構造体
-</td></tr>
-<tr><td align="left" valign="top">&bull; <a href="#Content_002dDisposition-parser" accesskey="2">Content-Disposition parser</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Content-Disposition 欄の解析器
-</td></tr>
-</table>
 
+<ul class="section-toc">
+<li><a href="#mime_002dcontent_002ddisposition" accesskey="1">mime-content-disposition 構造体</a></li>
+<li><a href="#Content_002dDisposition-parser" accesskey="2">Content-Disposition 欄の解析器</a></li>
+</ul>
 <hr>
-<span id="mime_002dcontent_002ddisposition"></span><div class="header">
+<div class="section" id="mime_002dcontent_002ddisposition">
+<div class="header">
 <p>
-Next: <a href="#Content_002dDisposition-parser" accesskey="n" rel="next">Content-Disposition parser</a>, Previous: <a href="#Content_002dDisposition" accesskey="p" rel="prev">Content-Disposition</a>, Up: <a href="#Content_002dDisposition" accesskey="u" rel="up">Content-Disposition</a> &nbsp; [<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
+Next: <a href="#Content_002dDisposition-parser" accesskey="n" rel="next">Content-Disposition 欄の解析器</a>, Previous: <a href="#Content_002dDisposition" accesskey="p" rel="prev">Content-Disposition 欄の情報</a>, Up: <a href="#Content_002dDisposition" accesskey="u" rel="up">Content-Disposition 欄の情報</a> &nbsp; [<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
 </div>
 <span id="mime_002dcontent_002ddisposition-Gou-Zao-Ti-"></span><h3 class="section">5.1 mime-content-disposition 構造体</h3>
 
-<dl>
-<dt id="index-mime_002dcontent_002ddisposition-1">Structure: <strong>mime-content-disposition</strong></dt>
+<dl class="def">
+<dt id="index-mime_002dcontent_002ddisposition-1"><span class="category">Structure: </span><span><strong>mime-content-disposition</strong><a href='#index-mime_002dcontent_002ddisposition-1' class='copiable-anchor'> &para;</a></span></dt>
 <dd>
 <p>Content-Disposition 欄の解析結果を収めるための構造体。
 </p>
@@ -915,11 +933,11 @@ Next: <a href="#Content_002dDisposition-parser" accesskey="n" rel="next">Content
 <p>この構造体の要素は以下の通りである：
 </p>
 <dl compact="compact">
-<dt><var>disposition-type</var></dt>
+<dt><span><var>disposition-type</var></span></dt>
 <dd><p>disposition-type (symbol).
 </p>
 </dd>
-<dt><var>parameters</var></dt>
+<dt><span><var>parameters</var></span></dt>
 <dd><p>Content-Disposition 欄の parameter (連想 list).
 </p>
 </dd>
@@ -927,15 +945,15 @@ Next: <a href="#Content_002dDisposition-parser" accesskey="n" rel="next">Content
 </dd></dl>
 
 
-<dl>
-<dt id="index-mime_002dcontent_002ddisposition_002dparameter">Function: <strong>mime-content-disposition-parameter</strong> <em>content-disposition parameter</em></dt>
+<dl class="def">
+<dt id="index-mime_002dcontent_002ddisposition_002dparameter"><span class="category">Function: </span><span><strong>mime-content-disposition-parameter</strong> <em>content-disposition parameter</em><a href='#index-mime_002dcontent_002ddisposition_002dparameter' class='copiable-anchor'> &para;</a></span></dt>
 <dd>
 <p><var>content-disposition</var> の <var>parameter</var> の値を返す。
 </p></dd></dl>
 
 
-<dl>
-<dt id="index-mime_002dcontent_002ddisposition_002dfilename">Function: <strong>mime-content-disposition-filename</strong> <em>content-disposition</em></dt>
+<dl class="def">
+<dt id="index-mime_002dcontent_002ddisposition_002dfilename"><span class="category">Function: </span><span><strong>mime-content-disposition-filename</strong> <em>content-disposition</em><a href='#index-mime_002dcontent_002ddisposition_002dfilename' class='copiable-anchor'> &para;</a></span></dt>
 <dd>
 <p><var>content-disposition</var> の filename の値を返す。
 </p></dd></dl>
@@ -943,21 +961,23 @@ Next: <a href="#Content_002dDisposition-parser" accesskey="n" rel="next">Content
 
 
 <hr>
-<span id="Content_002dDisposition-parser"></span><div class="header">
+</div>
+<div class="section" id="Content_002dDisposition-parser">
+<div class="header">
 <p>
-Previous: <a href="#mime_002dcontent_002ddisposition" accesskey="p" rel="prev">mime-content-disposition</a>, Up: <a href="#Content_002dDisposition" accesskey="u" rel="up">Content-Disposition</a> &nbsp; [<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
+Previous: <a href="#mime_002dcontent_002ddisposition" accesskey="p" rel="prev">mime-content-disposition 構造体</a>, Up: <a href="#Content_002dDisposition" accesskey="u" rel="up">Content-Disposition 欄の情報</a> &nbsp; [<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
 </div>
 <span id="Content_002dDisposition-Lan-noJie-Xi-Qi-"></span><h3 class="section">5.2 Content-Disposition 欄の解析器</h3>
 
-<dl>
-<dt id="index-mime_002dparse_002dContent_002dDisposition">Function: <strong>mime-parse-Content-Disposition</strong> <em>string</em></dt>
+<dl class="def">
+<dt id="index-mime_002dparse_002dContent_002dDisposition"><span class="category">Function: </span><span><strong>mime-parse-Content-Disposition</strong> <em>string</em><a href='#index-mime_002dparse_002dContent_002dDisposition' class='copiable-anchor'> &para;</a></span></dt>
 <dd>
 <p><var>string</var> を content-disposition として解析した結果を返す。
 </p></dd></dl>
 
 
-<dl>
-<dt id="index-mime_002dread_002dContent_002dDisposition">Function: <strong>mime-read-Content-Disposition</strong></dt>
+<dl class="def">
+<dt id="index-mime_002dread_002dContent_002dDisposition"><span class="category">Function: </span><span><strong>mime-read-Content-Disposition</strong><a href='#index-mime_002dread_002dContent_002dDisposition' class='copiable-anchor'> &para;</a></span></dt>
 <dd>
 <p>現在の buffer の Content-Disposition 欄を読み取り、解析した結果を返す。
 
@@ -968,9 +988,12 @@ Previous: <a href="#mime_002dcontent_002ddisposition" accesskey="p" rel="prev">m
 
 
 <hr>
-<span id="Content_002dTransfer_002dEncoding"></span><div class="header">
+</div>
+</div>
+<div class="chapter" id="Content_002dTransfer_002dEncoding">
+<div class="header">
 <p>
-Next: <a href="#encoded_002dword" accesskey="n" rel="next">encoded-word</a>, Previous: <a href="#Content_002dDisposition" accesskey="p" rel="prev">Content-Disposition</a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a> &nbsp; [<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
+Next: <a href="#encoded_002dword" accesskey="n" rel="next">Header の network 表現</a>, Previous: <a href="#Content_002dDisposition" accesskey="p" rel="prev">Content-Disposition 欄の情報</a>, Up: <a href="#Top" accesskey="u" rel="up">FLIM-LB 1.14 MIME 機能説明書</a> &nbsp; [<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
 </div>
 <span id="Fu-Hao-Hua-Fa-"></span><h2 class="chapter">6 符号化法</h2>
 <span id="index-Content_002dTransfer_002dEncoding-Lan-"></span>
@@ -986,35 +1009,31 @@ Next: <a href="#encoded_002dword" accesskey="n" rel="next">encoded-word</a>, Pre
 供されます。
 </p>
 
-<table class="menu" border="0" cellspacing="0">
-<tr><td align="left" valign="top">&bull; <a href="#Content_002dTransfer_002dEncoding-parser" accesskey="1">Content-Transfer-Encoding parser</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Content-Transfer-Encoding 欄の解析器
-</td></tr>
-<tr><td align="left" valign="top">&bull; <a href="#encoder_002fdecoder" accesskey="2">encoder/decoder</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">符号化・復号化
-</td></tr>
-<tr><td align="left" valign="top">&bull; <a href="#Encoding-information" accesskey="3">Encoding information</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Other utilities
-</td></tr>
-<tr><td align="left" valign="top">&bull; <a href="#mel_002dbackend" accesskey="4">mel-backend</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">How to write encoder/decoder module
-</td></tr>
-<tr><td align="left" valign="top">&bull; <a href="#generic-function-for-mel_002dbackend" accesskey="5">generic function for mel-backend</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">How to add encoding/decoding service
-</td></tr>
-</table>
 
+<ul class="section-toc">
+<li><a href="#Content_002dTransfer_002dEncoding-parser" accesskey="1">Content-Transfer-Encoding 欄の解析器</a></li>
+<li><a href="#encoder_002fdecoder" accesskey="2">符号化・復号化</a></li>
+<li><a href="#Encoding-information" accesskey="3">Other utilities</a></li>
+<li><a href="#mel_002dbackend" accesskey="4">How to write encoder/decoder module</a></li>
+<li><a href="#generic-function-for-mel_002dbackend" accesskey="5">符号化/復号化 service を追加する方法</a></li>
+</ul>
 <hr>
-<span id="Content_002dTransfer_002dEncoding-parser"></span><div class="header">
+<div class="section" id="Content_002dTransfer_002dEncoding-parser">
+<div class="header">
 <p>
-Next: <a href="#encoder_002fdecoder" accesskey="n" rel="next">encoder/decoder</a>, Previous: <a href="#Content_002dTransfer_002dEncoding" accesskey="p" rel="prev">Content-Transfer-Encoding</a>, Up: <a href="#Content_002dTransfer_002dEncoding" accesskey="u" rel="up">Content-Transfer-Encoding</a> &nbsp; [<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
+Next: <a href="#encoder_002fdecoder" accesskey="n" rel="next">符号化・復号化</a>, Previous: <a href="#Content_002dTransfer_002dEncoding" accesskey="p" rel="prev">符号化法</a>, Up: <a href="#Content_002dTransfer_002dEncoding" accesskey="u" rel="up">符号化法</a> &nbsp; [<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
 </div>
 <span id="Content_002dTransfer_002dEncoding-Lan-noJie-Xi-Qi-"></span><h3 class="section">6.1 Content-Transfer-Encoding 欄の解析器</h3>
 
-<dl>
-<dt id="index-mime_002dparse_002dContent_002dTransfer_002dEncoding">Function: <strong>mime-parse-Content-Transfer-Encoding</strong> <em>string</em></dt>
+<dl class="def">
+<dt id="index-mime_002dparse_002dContent_002dTransfer_002dEncoding"><span class="category">Function: </span><span><strong>mime-parse-Content-Transfer-Encoding</strong> <em>string</em><a href='#index-mime_002dparse_002dContent_002dTransfer_002dEncoding' class='copiable-anchor'> &para;</a></span></dt>
 <dd>
 <p><var>string</var> を content-transfer-encoding として解析した結果を返す。
 </p></dd></dl>
 
 
-<dl>
-<dt id="index-mime_002dread_002dContent_002dTransfer_002dEncoding">Function: <strong>mime-read-Content-Transfer-Encoding</strong> <em>&amp;optional default-encoding</em></dt>
+<dl class="def">
+<dt id="index-mime_002dread_002dContent_002dTransfer_002dEncoding"><span class="category">Function: </span><span><strong>mime-read-Content-Transfer-Encoding</strong> <em>&amp;optional default-encoding</em><a href='#index-mime_002dread_002dContent_002dTransfer_002dEncoding' class='copiable-anchor'> &para;</a></span></dt>
 <dd>
 <p>現在の buffer の Content-Transfer-Encoding 欄を読み取り、解析した結果を
 返す。
@@ -1026,22 +1045,24 @@ Next: <a href="#encoder_002fdecoder" accesskey="n" rel="next">encoder/decoder</a
 
 
 <hr>
-<span id="encoder_002fdecoder"></span><div class="header">
+</div>
+<div class="section" id="encoder_002fdecoder">
+<div class="header">
 <p>
-Next: <a href="#Encoding-information" accesskey="n" rel="next">Encoding information</a>, Previous: <a href="#Content_002dTransfer_002dEncoding-parser" accesskey="p" rel="prev">Content-Transfer-Encoding parser</a>, Up: <a href="#Content_002dTransfer_002dEncoding" accesskey="u" rel="up">Content-Transfer-Encoding</a> &nbsp; [<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
+Next: <a href="#Encoding-information" accesskey="n" rel="next">Other utilities</a>, Previous: <a href="#Content_002dTransfer_002dEncoding-parser" accesskey="p" rel="prev">Content-Transfer-Encoding 欄の解析器</a>, Up: <a href="#Content_002dTransfer_002dEncoding" accesskey="u" rel="up">符号化法</a> &nbsp; [<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
 </div>
 <span id="Fu-Hao-Hua-Fu-Hao-Hua-"></span><h3 class="section">6.2 符号化・復号化</h3>
 
-<dl>
-<dt id="index-mime_002dencode_002dregion">Function: <strong>mime-encode-region</strong> <em>start end encoding</em></dt>
+<dl class="def">
+<dt id="index-mime_002dencode_002dregion"><span class="category">Function: </span><span><strong>mime-encode-region</strong> <em>start end encoding</em><a href='#index-mime_002dencode_002dregion' class='copiable-anchor'> &para;</a></span></dt>
 <dd>
 <p>現在の buffer の <var>start</var> から <var>end</var> までの region を
 <var>encoding</var> を使って符号化します。
 </p></dd></dl>
 
 
-<dl>
-<dt id="index-mime_002ddecode_002dregion">Function: <strong>mime-decode-region</strong> <em>start end encoding</em></dt>
+<dl class="def">
+<dt id="index-mime_002ddecode_002dregion"><span class="category">Function: </span><span><strong>mime-decode-region</strong> <em>start end encoding</em><a href='#index-mime_002ddecode_002dregion' class='copiable-anchor'> &para;</a></span></dt>
 <dd>
 <p>現在の buffer の <var>start</var> から <var>end</var> までの region を
 <var>encoding</var> を使って復号化します。
@@ -1049,24 +1070,24 @@ Next: <a href="#Encoding-information" accesskey="n" rel="next">Encoding informat
 
 
 
-<dl>
-<dt id="index-mime_002ddecode_002dstring">Function: <strong>mime-decode-string</strong> <em>string encoding</em></dt>
+<dl class="def">
+<dt id="index-mime_002ddecode_002dstring"><span class="category">Function: </span><span><strong>mime-decode-string</strong> <em>string encoding</em><a href='#index-mime_002ddecode_002dstring' class='copiable-anchor'> &para;</a></span></dt>
 <dd>
 <p><var>string</var> を <var>encoding</var> として復号した結果を返す。
 </p></dd></dl>
 
 
 
-<dl>
-<dt id="index-mime_002dinsert_002dencoded_002dfile">Function: <strong>mime-insert-encoded-file</strong> <em>filename encoding</em></dt>
+<dl class="def">
+<dt id="index-mime_002dinsert_002dencoded_002dfile"><span class="category">Function: </span><span><strong>mime-insert-encoded-file</strong> <em>filename encoding</em><a href='#index-mime_002dinsert_002dencoded_002dfile' class='copiable-anchor'> &para;</a></span></dt>
 <dd>
 <p><var>ENCODING</var> format で符号化された file <var>FILENAME</var> を
 挿入する。
 </p></dd></dl>
 
 
-<dl>
-<dt id="index-mime_002dwrite_002ddecoded_002dregion">Function: <strong>mime-write-decoded-region</strong> <em>start end filename encoding</em></dt>
+<dl class="def">
+<dt id="index-mime_002dwrite_002ddecoded_002dregion"><span class="category">Function: </span><span><strong>mime-write-decoded-region</strong> <em>start end filename encoding</em><a href='#index-mime_002dwrite_002ddecoded_002dregion' class='copiable-anchor'> &para;</a></span></dt>
 <dd>
 <p><var>encoding</var> で符号化された現在の region を復号化して
 <var>filename</var>に書き込みます。
@@ -1077,14 +1098,16 @@ Next: <a href="#Encoding-information" accesskey="n" rel="next">Encoding informat
 
 
 <hr>
-<span id="Encoding-information"></span><div class="header">
+</div>
+<div class="section" id="Encoding-information">
+<div class="header">
 <p>
-Next: <a href="#mel_002dbackend" accesskey="n" rel="next">mel-backend</a>, Previous: <a href="#encoder_002fdecoder" accesskey="p" rel="prev">encoder/decoder</a>, Up: <a href="#Content_002dTransfer_002dEncoding" accesskey="u" rel="up">Content-Transfer-Encoding</a> &nbsp; [<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
+Next: <a href="#mel_002dbackend" accesskey="n" rel="next">How to write encoder/decoder module</a>, Previous: <a href="#encoder_002fdecoder" accesskey="p" rel="prev">符号化・復号化</a>, Up: <a href="#Content_002dTransfer_002dEncoding" accesskey="u" rel="up">符号化法</a> &nbsp; [<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
 </div>
 <span id="Other-utilities"></span><h3 class="section">6.3 Other utilities</h3>
 
-<dl>
-<dt id="index-mime_002dencoding_002dlist">Function: <strong>mime-encoding-list</strong> <em>&amp;optional  SERVICE</em></dt>
+<dl class="def">
+<dt id="index-mime_002dencoding_002dlist"><span class="category">Function: </span><span><strong>mime-encoding-list</strong> <em>&amp;optional  SERVICE</em><a href='#index-mime_002dencoding_002dlist' class='copiable-anchor'> &para;</a></span></dt>
 <dd>
 <p>Content-Transfer-Encoding の list を返します。
 </p>
@@ -1093,8 +1116,8 @@ Content-Transfer-Encoding を返します。
 </p></dd></dl>
 
 
-<dl>
-<dt id="index-mime_002dencoding_002dalist">Function: <strong>mime-encoding-alist</strong> <em>&amp;optional  SERVICE</em></dt>
+<dl class="def">
+<dt id="index-mime_002dencoding_002dalist"><span class="category">Function: </span><span><strong>mime-encoding-alist</strong> <em>&amp;optional  SERVICE</em><a href='#index-mime_002dencoding_002dalist' class='copiable-anchor'> &para;</a></span></dt>
 <dd>
 <p>補完のための Content-Transfer-Encoding の表を返します。
 </p>
@@ -1105,14 +1128,16 @@ Content-Transfer-Encoding の list を返します。
 
 
 <hr>
-<span id="mel_002dbackend"></span><div class="header">
+</div>
+<div class="section" id="mel_002dbackend">
+<div class="header">
 <p>
-Next: <a href="#generic-function-for-mel_002dbackend" accesskey="n" rel="next">generic function for mel-backend</a>, Previous: <a href="#Encoding-information" accesskey="p" rel="prev">Encoding information</a>, Up: <a href="#Content_002dTransfer_002dEncoding" accesskey="u" rel="up">Content-Transfer-Encoding</a> &nbsp; [<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
+Next: <a href="#generic-function-for-mel_002dbackend" accesskey="n" rel="next">符号化/復号化 service を追加する方法</a>, Previous: <a href="#Encoding-information" accesskey="p" rel="prev">Other utilities</a>, Up: <a href="#Content_002dTransfer_002dEncoding" accesskey="u" rel="up">符号化法</a> &nbsp; [<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
 </div>
 <span id="How-to-write-encoder_002fdecoder-module"></span><h3 class="section">6.4 How to write encoder/decoder module</h3>
 
-<dl>
-<dt id="index-mel_002ddefine_002dmethod">Macro: <strong>mel-define-method</strong> <em>name args  &amp;rest  body</em></dt>
+<dl class="def">
+<dt id="index-mel_002ddefine_002dmethod"><span class="category">Macro: </span><span><strong>mel-define-method</strong> <em>name args  &amp;rest  body</em><a href='#index-mel_002ddefine_002dmethod' class='copiable-anchor'> &para;</a></span></dt>
 <dd>
 <p><var>name</var> を (nth 1 (car (last <var>args</var>))) backend の
 method 関数として定義します。
@@ -1124,7 +1149,7 @@ method 関数として定義します。
 </p>
 <p>例:
 </p>
-<div class="lisp">
+<div class="example lisp">
 <pre class="lisp">(mel-define-method mime-write-decoded-region (start end filename
 						    (nil &quot;base64&quot;))
   &quot;Decode and write current region encoded by base64 into FILENAME.
@@ -1141,8 +1166,8 @@ START and END are buffer positions.&quot;
 </dd></dl>
 
 
-<dl>
-<dt id="index-mel_002ddefine_002dmethod_002dfunction">Macro: <strong>mel-define-method-function</strong> <em>spec function</em></dt>
+<dl class="def">
+<dt id="index-mel_002ddefine_002dmethod_002dfunction"><span class="category">Macro: </span><span><strong>mel-define-method-function</strong> <em>spec function</em><a href='#index-mel_002ddefine_002dmethod_002dfunction' class='copiable-anchor'> &para;</a></span></dt>
 <dd>
 <p><var>spec</var> の関数定義を <var>function</var> に設定します。
 </p>
@@ -1155,7 +1180,7 @@ START and END are buffer positions.&quot;
 </p>
 <p>例:
 </p>
-<div class="lisp">
+<div class="example lisp">
 <pre class="lisp">(mel-define-method-function (mime-encode-string string (nil &quot;base64&quot;))
 			    'encode-base64-string)
 </pre></div>
@@ -1164,14 +1189,16 @@ START and END are buffer positions.&quot;
 
 
 <hr>
-<span id="generic-function-for-mel_002dbackend"></span><div class="header">
+</div>
+<div class="section" id="generic-function-for-mel_002dbackend">
+<div class="header">
 <p>
-Previous: <a href="#mel_002dbackend" accesskey="p" rel="prev">mel-backend</a>, Up: <a href="#Content_002dTransfer_002dEncoding" accesskey="u" rel="up">Content-Transfer-Encoding</a> &nbsp; [<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
+Previous: <a href="#mel_002dbackend" accesskey="p" rel="prev">How to write encoder/decoder module</a>, Up: <a href="#Content_002dTransfer_002dEncoding" accesskey="u" rel="up">符号化法</a> &nbsp; [<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
 </div>
 <span id="Fu-Hao-Hua-_002fFu-Hao-Hua--service-woZhui-Jia-suruFang-Fa-"></span><h3 class="section">6.5 符号化/復号化 service を追加する方法</h3>
 
-<dl>
-<dt id="index-mel_002ddefine_002dservice">Macro: <strong>mel-define-service</strong> <em>name &amp;optional  args doc-string</em></dt>
+<dl class="def">
+<dt id="index-mel_002ddefine_002dservice"><span class="category">Macro: </span><span><strong>mel-define-service</strong> <em>name &amp;optional  args doc-string</em><a href='#index-mel_002ddefine_002dservice' class='copiable-anchor'> &para;</a></span></dt>
 <dd>
 <p><var>name</var> を Content-Transfer-Encoding の service として定義しま
 す。
@@ -1181,7 +1208,7 @@ generic function として定義されます。
 </p>
 <p>例:
 </p>
-<div class="lisp">
+<div class="example lisp">
 <pre class="lisp">(mel-define-service encoded-text-encode-string (string encoding)
   &quot;Encode STRING as encoded-text using ENCODING.
 ENCODING must be string.&quot;)
@@ -1191,9 +1218,12 @@ ENCODING must be string.&quot;)
 
 
 <hr>
-<span id="encoded_002dword"></span><div class="header">
+</div>
+</div>
+<div class="chapter" id="encoded_002dword">
+<div class="header">
 <p>
-Next: <a href="#custom" accesskey="n" rel="next">custom</a>, Previous: <a href="#Content_002dTransfer_002dEncoding" accesskey="p" rel="prev">Content-Transfer-Encoding</a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a> &nbsp; [<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
+Next: <a href="#custom" accesskey="n" rel="next">一般設定</a>, Previous: <a href="#Content_002dTransfer_002dEncoding" accesskey="p" rel="prev">符号化法</a>, Up: <a href="#Top" accesskey="u" rel="up">FLIM-LB 1.14 MIME 機能説明書</a> &nbsp; [<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
 </div>
 <span id="Header-no-network-Biao-Xian-"></span><h2 class="chapter">7 Header の network 表現</h2>
 <span id="index-RFC-2047"></span>
@@ -1217,20 +1247,20 @@ Track (obsolete RFC 1521,1522,1590).
 <p>FLIM はこれらを符号化・復号化する機能を提供します。
 </p>
 
-<table class="menu" border="0" cellspacing="0">
-<tr><td align="left" valign="top">&bull; <a href="#Header-encoder_002fdecoder" accesskey="1">Header encoder/decoder</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Header の符号化・復号化
-</td></tr>
-</table>
 
+<ul class="section-toc">
+<li><a href="#Header-encoder_002fdecoder" accesskey="1">Header の符号化・復号化</a></li>
+</ul>
 <hr>
-<span id="Header-encoder_002fdecoder"></span><div class="header">
+<div class="section" id="Header-encoder_002fdecoder">
+<div class="header">
 <p>
-Previous: <a href="#encoded_002dword" accesskey="p" rel="prev">encoded-word</a>, Up: <a href="#encoded_002dword" accesskey="u" rel="up">encoded-word</a> &nbsp; [<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
+Previous: <a href="#encoded_002dword" accesskey="p" rel="prev">Header の network 表現</a>, Up: <a href="#encoded_002dword" accesskey="u" rel="up">Header の network 表現</a> &nbsp; [<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
 </div>
 <span id="Header-noFu-Hao-Hua-Fu-Hao-Hua-"></span><h3 class="section">7.1 Header の符号化・復号化</h3>
 
-<dl>
-<dt id="index-eword_002ddecode_002dheader">Function: <strong>eword-decode-header</strong> <em>&amp;optional  code-conversion separator</em></dt>
+<dl class="def">
+<dt id="index-eword_002ddecode_002dheader"><span class="category">Function: </span><span><strong>eword-decode-header</strong> <em>&amp;optional  code-conversion separator</em><a href='#index-eword_002ddecode_002dheader' class='copiable-anchor'> &para;</a></span></dt>
 <dd>
 <p>Header 中の encoded-word を復号する。
 </p>
@@ -1238,15 +1268,15 @@ Previous: <a href="#encoded_002dword" accesskey="p" rel="prev">encoded-word</a>,
 れる。もし、<var>code-conversion</var> が MIME charset (<a href="#MIME-charset">MIME charset</a>) 
 なら、非 ASCII bit patterns はその MIME charset として復号される。これ以
 外の場合、非 ASCII bit patterns は<code>default-mime-charset</code>. として復
-号される。(cf. <a href="#entity-formatting">entity formatting</a>) 
+号される。(cf. <a href="#entity-formatting">Entity の文字表現</a>) 
 </p>
 <p>もし <var>separator</var> が <code>nil</code> でなければ、その値がheader separator 
 として用いられる。
 </p></dd></dl>
 
 
-<dl>
-<dt id="index-eword_002dencode_002dheader">Function: <strong>eword-encode-header</strong> <em>&amp;optional  code-conversion</em></dt>
+<dl class="def">
+<dt id="index-eword_002dencode_002dheader"><span class="category">Function: </span><span><strong>eword-encode-header</strong> <em>&amp;optional  code-conversion</em><a href='#index-eword_002dencode_002dheader' class='copiable-anchor'> &para;</a></span></dt>
 <dd>
 <p>Header を network 表現に符号化する。
 </p>
@@ -1255,8 +1285,8 @@ Previous: <a href="#encoded_002dword" accesskey="p" rel="prev">encoded-word</a>,
 </p></dd></dl>
 
 
-<dl>
-<dt id="index-mime_002dfield_002dencoding_002dmethod_002dalist">Variable: <strong>mime-field-encoding-method-alist</strong></dt>
+<dl class="def">
+<dt id="index-mime_002dfield_002dencoding_002dmethod_002dalist"><span class="category">Variable: </span><span><strong>mime-field-encoding-method-alist</strong><a href='#index-mime_002dfield_002dencoding_002dmethod_002dalist' class='copiable-anchor'> &para;</a></span></dt>
 <dd>
 <p>Field を符号化する方法を指定する連想 list。各 element は (FIELD
 . METHOD) の様になっている。
@@ -1276,14 +1306,17 @@ Previous: <a href="#encoded_002dword" accesskey="p" rel="prev">encoded-word</a>,
 
 
 <hr>
-<span id="custom"></span><div class="header">
+</div>
+</div>
+<div class="chapter" id="custom">
+<div class="header">
 <p>
-Next: <a href="#Appendix" accesskey="n" rel="next">Appendix</a>, Previous: <a href="#encoded_002dword" accesskey="p" rel="prev">encoded-word</a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a> &nbsp; [<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
+Next: <a href="#Appendix" accesskey="n" rel="next">付録</a>, Previous: <a href="#encoded_002dword" accesskey="p" rel="prev">Header の network 表現</a>, Up: <a href="#Top" accesskey="u" rel="up">FLIM-LB 1.14 MIME 機能説明書</a> &nbsp; [<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
 </div>
 <span id="YiBan-She-Ding-"></span><h2 class="chapter">8 一般設定</h2>
 
-<dl>
-<dt id="index-mime">group: <strong>mime</strong></dt>
+<dl class="def">
+<dt id="index-mime"><span class="category">group: </span><span><strong>mime</strong><a href='#index-mime' class='copiable-anchor'> &para;</a></span></dt>
 <dd>
 <p>MIME 関連機能に関する group.
 </p>
@@ -1292,81 +1325,60 @@ Next: <a href="#Appendix" accesskey="n" rel="next">Appendix</a>, Previous: <a hr
 
 
 <hr>
-<span id="Appendix"></span><div class="header">
+</div>
+<div class="chapter" id="Appendix">
+<div class="header">
 <p>
-Next: <a href="#Concept-Index" accesskey="n" rel="next">Concept Index</a>, Previous: <a href="#custom" accesskey="p" rel="prev">custom</a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a> &nbsp; [<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
+Next: <a href="#Concept-Index" accesskey="n" rel="next">概念索引</a>, Previous: <a href="#custom" accesskey="p" rel="prev">一般設定</a>, Up: <a href="#Top" accesskey="u" rel="up">FLIM-LB 1.14 MIME 機能説明書</a> &nbsp; [<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
 </div>
 <span id="Fu-Lu-"></span><h2 class="chapter">9 付録</h2>
 
 
-<table class="menu" border="0" cellspacing="0">
-<tr><td align="left" valign="top">&bull; <a href="#Glossary" accesskey="1">Glossary</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">用語
-</td></tr>
-<tr><td align="left" valign="top">&bull; <a href="#Bug-report" accesskey="2">Bug report</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">bug 報告の仕方
-</td></tr>
-<tr><td align="left" valign="top">&bull; <a href="#GitHub" accesskey="3">GitHub</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">GitHub による開発
-</td></tr>
-<tr><td align="left" valign="top">&bull; <a href="#History" accesskey="4">History</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">歴史
-</td></tr>
-</table>
 
+<ul class="section-toc">
+<li><a href="#Glossary" accesskey="1">用語</a></li>
+<li><a href="#Bug-report" accesskey="2">bug 報告の仕方</a></li>
+<li><a href="#GitHub" accesskey="3">GitHub による開発</a></li>
+<li><a href="#History" accesskey="4">歴史</a></li>
+</ul>
 <hr>
-<span id="Glossary"></span><div class="header">
+<div class="section" id="Glossary">
+<div class="header">
 <p>
-Next: <a href="#Bug-report" accesskey="n" rel="next">Bug report</a>, Previous: <a href="#Appendix" accesskey="p" rel="prev">Appendix</a>, Up: <a href="#Appendix" accesskey="u" rel="up">Appendix</a> &nbsp; [<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
+Next: <a href="#Bug-report" accesskey="n" rel="next">bug 報告の仕方</a>, Previous: <a href="#Appendix" accesskey="p" rel="prev">付録</a>, Up: <a href="#Appendix" accesskey="u" rel="up">付録</a> &nbsp; [<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
 </div>
 <span id="Yong-Yu-"></span><h3 class="section">9.1 用語</h3>
 
 
-<table class="menu" border="0" cellspacing="0">
-<tr><td align="left" valign="top">&bull; <a href="#g_t7bit" accesskey="1">7bit</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
-</td></tr>
-<tr><td align="left" valign="top">&bull; <a href="#g_t8bit" accesskey="2">8bit</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
-</td></tr>
-<tr><td align="left" valign="top">&bull; <a href="#ASCII" accesskey="3">ASCII</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
-</td></tr>
-<tr><td align="left" valign="top">&bull; <a href="#Base64" accesskey="4">Base64</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
-</td></tr>
-<tr><td align="left" valign="top">&bull; <a href="#binary" accesskey="5">binary</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
-</td></tr>
-<tr><td align="left" valign="top">&bull; <a href="#Coded-character-set" accesskey="6">Coded character set</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Coded character set（符号化文字集合）, Character code（文字符号）
-</td></tr>
-<tr><td align="left" valign="top">&bull; <a href="#media_002dtype" accesskey="7">media-type</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
-</td></tr>
-<tr><td align="left" valign="top">&bull; <a href="#message" accesskey="8">message</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
-</td></tr>
-<tr><td align="left" valign="top">&bull; <a href="#MIME" accesskey="9">MIME</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
-</td></tr>
-<tr><td align="left" valign="top">&bull; <a href="#MIME-charset">MIME charset</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
-</td></tr>
-<tr><td align="left" valign="top">&bull; <a href="#MTA">MTA</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
-</td></tr>
-<tr><td align="left" valign="top">&bull; <a href="#MUA">MUA</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
-</td></tr>
-<tr><td align="left" valign="top">&bull; <a href="#Quoted_002dPrintable">Quoted-Printable</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
-</td></tr>
-<tr><td align="left" valign="top">&bull; <a href="#RFC-822">RFC 822</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
-</td></tr>
-<tr><td align="left" valign="top">&bull; <a href="#RFC-1036">RFC 1036</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
-</td></tr>
-<tr><td align="left" valign="top">&bull; <a href="#RFC-2045">RFC 2045</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
-</td></tr>
-<tr><td align="left" valign="top">&bull; <a href="#RFC-2046">RFC 2046</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
-</td></tr>
-<tr><td align="left" valign="top">&bull; <a href="#RFC-2048">RFC 2048</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
-</td></tr>
-<tr><td align="left" valign="top">&bull; <a href="#RFC-2049">RFC 2049</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
-</td></tr>
-<tr><td align="left" valign="top">&bull; <a href="#plain-text">plain text</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
-</td></tr>
-<tr><td align="left" valign="top">&bull; <a href="#us_002dascii">us-ascii</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
-</td></tr>
-</table>
 
+<ul class="section-toc">
+<li><a href="#g_t7bit" accesskey="1">7bit</a></li>
+<li><a href="#g_t8bit" accesskey="2">8bit</a></li>
+<li><a href="#ASCII" accesskey="3">ASCII</a></li>
+<li><a href="#Base64" accesskey="4">Base64</a></li>
+<li><a href="#binary" accesskey="5">binary</a></li>
+<li><a href="#Coded-character-set" accesskey="6">Coded character set（符号化文字集合）, Character code（文字符号）</a></li>
+<li><a href="#media_002dtype" accesskey="7">media-type</a></li>
+<li><a href="#message" accesskey="8">message</a></li>
+<li><a href="#MIME" accesskey="9">MIME</a></li>
+<li><a href="#MIME-charset">MIME charset</a></li>
+<li><a href="#MTA">MTA</a></li>
+<li><a href="#MUA">MUA</a></li>
+<li><a href="#Quoted_002dPrintable">Quoted-Printable</a></li>
+<li><a href="#RFC-822">RFC 822</a></li>
+<li><a href="#RFC-1036">RFC 1036</a></li>
+<li><a href="#RFC-2045">RFC 2045</a></li>
+<li><a href="#RFC-2046">RFC 2046</a></li>
+<li><a href="#RFC-2048">RFC 2048</a></li>
+<li><a href="#RFC-2049">RFC 2049</a></li>
+<li><a href="#plain-text">plain text</a></li>
+<li><a href="#us_002dascii">us-ascii</a></li>
+</ul>
 <hr>
-<span id="g_t7bit"></span><div class="header">
+<div class="subsection" id="g_t7bit">
+<div class="header">
 <p>
-Next: <a href="#g_t8bit" accesskey="n" rel="next">8bit</a>, Previous: <a href="#Glossary" accesskey="p" rel="prev">Glossary</a>, Up: <a href="#Glossary" accesskey="u" rel="up">Glossary</a> &nbsp; [<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
+Next: <a href="#g_t8bit" accesskey="n" rel="next">8bit</a>, Previous: <a href="#Glossary" accesskey="p" rel="prev">用語</a>, Up: <a href="#Glossary" accesskey="u" rel="up">用語</a> &nbsp; [<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
 </div>
 <span id="g_t7bit-1"></span><h4 class="subsection">9.1.1 7bit</h4>
 
@@ -1392,9 +1404,11 @@ encodeする必用がある。
 </p>
 
 <hr>
-<span id="g_t8bit"></span><div class="header">
+</div>
+<div class="subsection" id="g_t8bit">
+<div class="header">
 <p>
-Next: <a href="#ASCII" accesskey="n" rel="next">ASCII</a>, Previous: <a href="#g_t7bit" accesskey="p" rel="prev">7bit</a>, Up: <a href="#Glossary" accesskey="u" rel="up">Glossary</a> &nbsp; [<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
+Next: <a href="#ASCII" accesskey="n" rel="next">ASCII</a>, Previous: <a href="#g_t7bit" accesskey="p" rel="prev">7bit</a>, Up: <a href="#Glossary" accesskey="u" rel="up">用語</a> &nbsp; [<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
 </div>
 <span id="g_t8bit-1"></span><h4 class="subsection">9.1.2 8bit</h4>
 <span id="index-binary"></span>
@@ -1435,15 +1449,17 @@ data は <strong>binary</strong> (<a href="#binary">binary</a>) と呼ぶこと�
 </p>
 
 <hr>
-<span id="ASCII"></span><div class="header">
+</div>
+<div class="subsection" id="ASCII">
+<div class="header">
 <p>
-Next: <a href="#Base64" accesskey="n" rel="next">Base64</a>, Previous: <a href="#g_t8bit" accesskey="p" rel="prev">8bit</a>, Up: <a href="#Glossary" accesskey="u" rel="up">Glossary</a> &nbsp; [<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
+Next: <a href="#Base64" accesskey="n" rel="next">Base64</a>, Previous: <a href="#g_t8bit" accesskey="p" rel="prev">8bit</a>, Up: <a href="#Glossary" accesskey="u" rel="up">用語</a> &nbsp; [<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
 </div>
 <span id="ASCII-1"></span><h4 class="subsection">9.1.3 ASCII</h4>
 <span id="index-ANSI-X3_002e4_003a1986"></span>
 <span id="index-ASCII"></span>
 
-<p>アメリカ連邦で使われる文字を符号化した符号化文字集合 (<a href="#Coded-character-set">Coded character set</a>)。A-Z, a-z の Latin 文字と数字、幾つかの記号からなる。ISO 646 の一つ
+<p>アメリカ連邦で使われる文字を符号化した符号化文字集合 (<a href="#Coded-character-set">Coded character set（符号化文字集合）, Character code（文字符号）</a>)。A-Z, a-z の Latin 文字と数字、幾つかの記号からなる。ISO 646 の一つ
 で、現在は国際基準版 (IRV) になっている。
 </p>
 
@@ -1456,9 +1472,11 @@ Interchange&rdquo;, ANSI X3.4:1986.
 
 
 <hr>
-<span id="Base64"></span><div class="header">
+</div>
+<div class="subsection" id="Base64">
+<div class="header">
 <p>
-Next: <a href="#binary" accesskey="n" rel="next">binary</a>, Previous: <a href="#ASCII" accesskey="p" rel="prev">ASCII</a>, Up: <a href="#Glossary" accesskey="u" rel="up">Glossary</a> &nbsp; [<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
+Next: <a href="#binary" accesskey="n" rel="next">binary</a>, Previous: <a href="#ASCII" accesskey="p" rel="prev">ASCII</a>, Up: <a href="#Glossary" accesskey="u" rel="up">用語</a> &nbsp; [<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
 </div>
 <span id="Base64-1"></span><h4 class="subsection">9.1.4 Base64</h4>
 <span id="index-pad"></span>
@@ -1476,9 +1494,11 @@ Internet 以外の network を経由する場合でも安全に転送できる�
 </p>
 
 <hr>
-<span id="binary"></span><div class="header">
+</div>
+<div class="subsection" id="binary">
+<div class="header">
 <p>
-Next: <a href="#Coded-character-set" accesskey="n" rel="next">Coded character set</a>, Previous: <a href="#Base64" accesskey="p" rel="prev">Base64</a>, Up: <a href="#Glossary" accesskey="u" rel="up">Glossary</a> &nbsp; [<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
+Next: <a href="#Coded-character-set" accesskey="n" rel="next">Coded character set（符号化文字集合）, Character code（文字符号）</a>, Previous: <a href="#Base64" accesskey="p" rel="prev">Base64</a>, Up: <a href="#Glossary" accesskey="u" rel="up">用語</a> &nbsp; [<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
 </div>
 <span id="binary-1"></span><h4 class="subsection">9.1.5 binary</h4>
 <span id="index-binary-data"></span>
@@ -1497,9 +1517,11 @@ Next: <a href="#Coded-character-set" accesskey="n" rel="next">Coded character se
 </p>
 
 <hr>
-<span id="Coded-character-set"></span><div class="header">
+</div>
+<div class="subsection" id="Coded-character-set">
+<div class="header">
 <p>
-Next: <a href="#media_002dtype" accesskey="n" rel="next">media-type</a>, Previous: <a href="#binary" accesskey="p" rel="prev">binary</a>, Up: <a href="#Glossary" accesskey="u" rel="up">Glossary</a> &nbsp; [<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
+Next: <a href="#media_002dtype" accesskey="n" rel="next">media-type</a>, Previous: <a href="#binary" accesskey="p" rel="prev">binary</a>, Up: <a href="#Glossary" accesskey="u" rel="up">用語</a> &nbsp; [<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
 </div>
 <span id="Coded-character-set_0028Fu-Hao-Hua-WenZi-Ji-He-_0029_002c-Character-code_0028WenZi-Fu-Hao-_0029"></span><h4 class="subsection">9.1.6 Coded character set（符号化文字集合）, Character code（文字符号）</h4>
 
@@ -1507,9 +1529,11 @@ Next: <a href="#media_002dtype" accesskey="n" rel="next">media-type</a>, Previou
 </p>
 
 <hr>
-<span id="media_002dtype"></span><div class="header">
+</div>
+<div class="subsection" id="media_002dtype">
+<div class="header">
 <p>
-Next: <a href="#message" accesskey="n" rel="next">message</a>, Previous: <a href="#Coded-character-set" accesskey="p" rel="prev">Coded character set</a>, Up: <a href="#Glossary" accesskey="u" rel="up">Glossary</a> &nbsp; [<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
+Next: <a href="#message" accesskey="n" rel="next">message</a>, Previous: <a href="#Coded-character-set" accesskey="p" rel="prev">Coded character set（符号化文字集合）, Character code（文字符号）</a>, Up: <a href="#Glossary" accesskey="u" rel="up">用語</a> &nbsp; [<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
 </div>
 <span id="media_002dtype-1"></span><h4 class="subsection">9.1.7 media-type</h4>
 <span id="index-x_002dtoken"></span>
@@ -1524,7 +1548,7 @@ Next: <a href="#message" accesskey="n" rel="next">message</a>, Previous: <a href
 <span id="index-subtype-1"></span>
 <span id="index-primary_002dtype"></span>
 
-<p>MIME (<a href="#MIME">MIME</a>) における entity (<a href="#Entity">Entity</a>) の種類。
+<p>MIME (<a href="#MIME">MIME</a>) における entity (<a href="#Entity">Message と Entity</a>) の種類。
 <strong>primary-type</strong> と <strong>subtype</strong> からなる。RFC 2046 (<a href="#RFC-2046">RFC 2046</a>) で定義されている。
 </p>
 <p>primary-type は標準では
@@ -1560,14 +1584,16 @@ image/jpeg, multipart/mixed, text/plain, video/mpeg などの
 当然のことながら、こうした私的な media-type は諒解を得た者の間でしか解釈
 できないので利用には注意すること。
 </p>
-<p>(cf. <a href="#Content_002dType">Content-Type</a>)
+<p>(cf. <a href="#Content_002dType">Content-Type 欄の情報</a>)
 </p>
 
 
 <hr>
-<span id="message"></span><div class="header">
+</div>
+<div class="subsection" id="message">
+<div class="header">
 <p>
-Next: <a href="#MIME" accesskey="n" rel="next">MIME</a>, Previous: <a href="#media_002dtype" accesskey="p" rel="prev">media-type</a>, Up: <a href="#Glossary" accesskey="u" rel="up">Glossary</a> &nbsp; [<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
+Next: <a href="#MIME" accesskey="n" rel="next">MIME</a>, Previous: <a href="#media_002dtype" accesskey="p" rel="prev">media-type</a>, Up: <a href="#Glossary" accesskey="u" rel="up">用語</a> &nbsp; [<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
 </div>
 <span id="message-1"></span><h4 class="subsection">9.1.8 message</h4>
 
@@ -1575,9 +1601,11 @@ Next: <a href="#MIME" accesskey="n" rel="next">MIME</a>, Previous: <a href="#med
 </p>
 
 <hr>
-<span id="MIME"></span><div class="header">
+</div>
+<div class="subsection" id="MIME">
+<div class="header">
 <p>
-Next: <a href="#MIME-charset" accesskey="n" rel="next">MIME charset</a>, Previous: <a href="#message" accesskey="p" rel="prev">message</a>, Up: <a href="#Glossary" accesskey="u" rel="up">Glossary</a> &nbsp; [<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
+Next: <a href="#MIME-charset" accesskey="n" rel="next">MIME charset</a>, Previous: <a href="#message" accesskey="p" rel="prev">message</a>, Up: <a href="#Glossary" accesskey="u" rel="up">用語</a> &nbsp; [<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
 </div>
 <span id="MIME-1"></span><h4 class="subsection">9.1.9 MIME</h4>
 <span id="index-Multipurpose-Internet-Mail-Extensions"></span>
@@ -1604,18 +1632,20 @@ US-ASCII text のみに留まり、message の内容や message body に関す�
 
 
 <p>RFC 2045 (<a href="#RFC-2045">RFC 2045</a>), RFC 2046 (<a href="#RFC-2046">RFC 2046</a>), RFC 2047
-(<a href="#encoded_002dword">encoded-word</a>), RFC 2048 (<a href="#RFC-2048">RFC 2048</a>), RFC 2049 (<a href="#RFC-2049">RFC 2049</a>) で定義されている。
+(<a href="#encoded_002dword">Header の network 表現</a>), RFC 2048 (<a href="#RFC-2048">RFC 2048</a>), RFC 2049 (<a href="#RFC-2049">RFC 2049</a>) で定義されている。
 </p>
 
 <hr>
-<span id="MIME-charset"></span><div class="header">
+</div>
+<div class="subsection" id="MIME-charset">
+<div class="header">
 <p>
-Next: <a href="#MTA" accesskey="n" rel="next">MTA</a>, Previous: <a href="#MIME" accesskey="p" rel="prev">MIME</a>, Up: <a href="#Glossary" accesskey="u" rel="up">Glossary</a> &nbsp; [<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
+Next: <a href="#MTA" accesskey="n" rel="next">MTA</a>, Previous: <a href="#MIME" accesskey="p" rel="prev">MIME</a>, Up: <a href="#Glossary" accesskey="u" rel="up">用語</a> &nbsp; [<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
 </div>
 <span id="MIME-charset-1"></span><h4 class="subsection">9.1.10 MIME charset</h4>
 
-<p>Content-Type (<a href="#Content_002dType">Content-Type</a>) 欄や encoded-word (<a href="#encoded_002dword">encoded-word</a>) 
-の charset parameter で用いられる登録された符号化文字集合(<a href="#Coded-character-set">Coded character set</a>)。
+<p>Content-Type (<a href="#Content_002dType">Content-Type 欄の情報</a>) 欄や encoded-word (<a href="#encoded_002dword">Header の network 表現</a>) 
+の charset parameter で用いられる登録された符号化文字集合(<a href="#Coded-character-set">Coded character set（符号化文字集合）, Character code（文字符号）</a>)。
 </p>
 <p>RFC 2045 (<a href="#RFC-2045">RFC 2045</a>) で定義されている。
 </p>
@@ -1623,9 +1653,11 @@ Next: <a href="#MTA" accesskey="n" rel="next">MTA</a>, Previous: <a href="#MIME"
 </p>
 
 <hr>
-<span id="MTA"></span><div class="header">
+</div>
+<div class="subsection" id="MTA">
+<div class="header">
 <p>
-Next: <a href="#MUA" accesskey="n" rel="next">MUA</a>, Previous: <a href="#MIME-charset" accesskey="p" rel="prev">MIME charset</a>, Up: <a href="#Glossary" accesskey="u" rel="up">Glossary</a> &nbsp; [<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
+Next: <a href="#MUA" accesskey="n" rel="next">MUA</a>, Previous: <a href="#MIME-charset" accesskey="p" rel="prev">MIME charset</a>, Up: <a href="#Glossary" accesskey="u" rel="up">用語</a> &nbsp; [<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
 </div>
 <span id="MTA-1"></span><h4 class="subsection">9.1.11 MTA</h4>
 <span id="index-Message-Transfer-Agent"></span>
@@ -1638,9 +1670,11 @@ Next: <a href="#MUA" accesskey="n" rel="next">MUA</a>, Previous: <a href="#MIME-
 
 
 <hr>
-<span id="MUA"></span><div class="header">
+</div>
+<div class="subsection" id="MUA">
+<div class="header">
 <p>
-Next: <a href="#Quoted_002dPrintable" accesskey="n" rel="next">Quoted-Printable</a>, Previous: <a href="#MTA" accesskey="p" rel="prev">MTA</a>, Up: <a href="#Glossary" accesskey="u" rel="up">Glossary</a> &nbsp; [<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
+Next: <a href="#Quoted_002dPrintable" accesskey="n" rel="next">Quoted-Printable</a>, Previous: <a href="#MTA" accesskey="p" rel="prev">MTA</a>, Up: <a href="#Glossary" accesskey="u" rel="up">用語</a> &nbsp; [<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
 </div>
 <span id="MUA-1"></span><h4 class="subsection">9.1.12 MUA</h4>
 <span id="index-Message-User-Agent"></span>
@@ -1653,9 +1687,11 @@ Next: <a href="#Quoted_002dPrintable" accesskey="n" rel="next">Quoted-Printable<
 
 
 <hr>
-<span id="Quoted_002dPrintable"></span><div class="header">
+</div>
+<div class="subsection" id="Quoted_002dPrintable">
+<div class="header">
 <p>
-Next: <a href="#RFC-822" accesskey="n" rel="next">RFC 822</a>, Previous: <a href="#MUA" accesskey="p" rel="prev">MUA</a>, Up: <a href="#Glossary" accesskey="u" rel="up">Glossary</a> &nbsp; [<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
+Next: <a href="#RFC-822" accesskey="n" rel="next">RFC 822</a>, Previous: <a href="#MUA" accesskey="p" rel="prev">MUA</a>, Up: <a href="#Glossary" accesskey="u" rel="up">用語</a> &nbsp; [<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
 </div>
 <span id="Quoted_002dPrintable-1"></span><h4 class="subsection">9.1.13 Quoted-Printable</h4>
 
@@ -1672,9 +1708,11 @@ Base64 (<a href="#Base64">Base64</a>) に比べると可読性が高くなる可
 </p>
 
 <hr>
-<span id="RFC-822"></span><div class="header">
+</div>
+<div class="subsection" id="RFC-822">
+<div class="header">
 <p>
-Next: <a href="#RFC-1036" accesskey="n" rel="next">RFC 1036</a>, Previous: <a href="#Quoted_002dPrintable" accesskey="p" rel="prev">Quoted-Printable</a>, Up: <a href="#Glossary" accesskey="u" rel="up">Glossary</a> &nbsp; [<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
+Next: <a href="#RFC-1036" accesskey="n" rel="next">RFC 1036</a>, Previous: <a href="#Quoted_002dPrintable" accesskey="p" rel="prev">Quoted-Printable</a>, Up: <a href="#Glossary" accesskey="u" rel="up">用語</a> &nbsp; [<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
 </div>
 <span id="RFC-822-1"></span><h4 class="subsection">9.1.14 RFC 822</h4>
 <span id="index-RFC-822"></span>
@@ -1704,9 +1742,11 @@ August 1982, STD 11.
 
 
 <hr>
-<span id="RFC-1036"></span><div class="header">
+</div>
+<div class="subsection" id="RFC-1036">
+<div class="header">
 <p>
-Next: <a href="#RFC-2045" accesskey="n" rel="next">RFC 2045</a>, Previous: <a href="#RFC-822" accesskey="p" rel="prev">RFC 822</a>, Up: <a href="#Glossary" accesskey="u" rel="up">Glossary</a> &nbsp; [<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
+Next: <a href="#RFC-2045" accesskey="n" rel="next">RFC 2045</a>, Previous: <a href="#RFC-822" accesskey="p" rel="prev">RFC 822</a>, Up: <a href="#Glossary" accesskey="u" rel="up">用語</a> &nbsp; [<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
 </div>
 <span id="RFC-1036-1"></span><h4 class="subsection">9.1.15 RFC 1036</h4>
 <span id="index-RFC-1036"></span>
@@ -1726,9 +1766,11 @@ December 1987, (obsolete RFC 850).
 
 
 <hr>
-<span id="RFC-2045"></span><div class="header">
+</div>
+<div class="subsection" id="RFC-2045">
+<div class="header">
 <p>
-Next: <a href="#RFC-2046" accesskey="n" rel="next">RFC 2046</a>, Previous: <a href="#RFC-1036" accesskey="p" rel="prev">RFC 1036</a>, Up: <a href="#Glossary" accesskey="u" rel="up">Glossary</a> &nbsp; [<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
+Next: <a href="#RFC-2046" accesskey="n" rel="next">RFC 2046</a>, Previous: <a href="#RFC-1036" accesskey="p" rel="prev">RFC 1036</a>, Up: <a href="#Glossary" accesskey="u" rel="up">用語</a> &nbsp; [<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
 </div>
 <span id="RFC-2045-1"></span><h4 class="subsection">9.1.16 RFC 2045</h4>
 <span id="index-RFC-2045"></span>
@@ -1745,9 +1787,11 @@ Standards Track (obsolete RFC 1521, 1522, 1590).
 
 
 <hr>
-<span id="RFC-2046"></span><div class="header">
+</div>
+<div class="subsection" id="RFC-2046">
+<div class="header">
 <p>
-Next: <a href="#RFC-2048" accesskey="n" rel="next">RFC 2048</a>, Previous: <a href="#RFC-2045" accesskey="p" rel="prev">RFC 2045</a>, Up: <a href="#Glossary" accesskey="u" rel="up">Glossary</a> &nbsp; [<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
+Next: <a href="#RFC-2048" accesskey="n" rel="next">RFC 2048</a>, Previous: <a href="#RFC-2045" accesskey="p" rel="prev">RFC 2045</a>, Up: <a href="#Glossary" accesskey="u" rel="up">用語</a> &nbsp; [<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
 </div>
 <span id="RFC-2046-1"></span><h4 class="subsection">9.1.17 RFC 2046</h4>
 <span id="index-RFC-2046"></span>
@@ -1764,9 +1808,11 @@ RFC 1521, 1522, 1590).
 
 
 <hr>
-<span id="RFC-2048"></span><div class="header">
+</div>
+<div class="subsection" id="RFC-2048">
+<div class="header">
 <p>
-Next: <a href="#RFC-2049" accesskey="n" rel="next">RFC 2049</a>, Previous: <a href="#RFC-2046" accesskey="p" rel="prev">RFC 2046</a>, Up: <a href="#Glossary" accesskey="u" rel="up">Glossary</a> &nbsp; [<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
+Next: <a href="#RFC-2049" accesskey="n" rel="next">RFC 2049</a>, Previous: <a href="#RFC-2046" accesskey="p" rel="prev">RFC 2046</a>, Up: <a href="#Glossary" accesskey="u" rel="up">用語</a> &nbsp; [<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
 </div>
 <span id="RFC-2048-1"></span><h4 class="subsection">9.1.18 RFC 2048</h4>
 <span id="index-RFC-2048"></span>
@@ -1783,9 +1829,11 @@ Standards Track (obsolete RFC 1521, 1522, 1590).
 
 
 <hr>
-<span id="RFC-2049"></span><div class="header">
+</div>
+<div class="subsection" id="RFC-2049">
+<div class="header">
 <p>
-Next: <a href="#plain-text" accesskey="n" rel="next">plain text</a>, Previous: <a href="#RFC-2048" accesskey="p" rel="prev">RFC 2048</a>, Up: <a href="#Glossary" accesskey="u" rel="up">Glossary</a> &nbsp; [<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
+Next: <a href="#plain-text" accesskey="n" rel="next">plain text</a>, Previous: <a href="#RFC-2048" accesskey="p" rel="prev">RFC 2048</a>, Up: <a href="#Glossary" accesskey="u" rel="up">用語</a> &nbsp; [<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
 </div>
 <span id="RFC-2049-1"></span><h4 class="subsection">9.1.19 RFC 2049</h4>
 <span id="index-RFC-2049"></span>
@@ -1802,21 +1850,25 @@ Standards Track (obsolete RFC 1521, 1522, 1590).
 
 
 <hr>
-<span id="plain-text"></span><div class="header">
+</div>
+<div class="subsection" id="plain-text">
+<div class="header">
 <p>
-Next: <a href="#us_002dascii" accesskey="n" rel="next">us-ascii</a>, Previous: <a href="#RFC-2049" accesskey="p" rel="prev">RFC 2049</a>, Up: <a href="#Glossary" accesskey="u" rel="up">Glossary</a> &nbsp; [<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
+Next: <a href="#us_002dascii" accesskey="n" rel="next">us-ascii</a>, Previous: <a href="#RFC-2049" accesskey="p" rel="prev">RFC 2049</a>, Up: <a href="#Glossary" accesskey="u" rel="up">用語</a> &nbsp; [<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
 </div>
 <span id="plain-text-1"></span><h4 class="subsection">9.1.20 plain text</h4>
 
-<p>書体や組版に関する情報を持たない文字符号 (<a href="#Coded-character-set">Coded character set</a>) のみ
+<p>書体や組版に関する情報を持たない文字符号 (<a href="#Coded-character-set">Coded character set（符号化文字集合）, Character code（文字符号）</a>) のみ
 で表現される text 情報。
 </p>
 
 
 <hr>
-<span id="us_002dascii"></span><div class="header">
+</div>
+<div class="subsection" id="us_002dascii">
+<div class="header">
 <p>
-Previous: <a href="#plain-text" accesskey="p" rel="prev">plain text</a>, Up: <a href="#Glossary" accesskey="u" rel="up">Glossary</a> &nbsp; [<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
+Previous: <a href="#plain-text" accesskey="p" rel="prev">plain text</a>, Up: <a href="#Glossary" accesskey="u" rel="up">用語</a> &nbsp; [<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
 </div>
 <span id="us_002dascii-1"></span><h4 class="subsection">9.1.21 us-ascii</h4>
 <span id="index-ASCII-1"></span>
@@ -1827,7 +1879,7 @@ Previous: <a href="#plain-text" accesskey="p" rel="prev">plain text</a>, Up: <a 
 </p>
 <p>ASCII (<a href="#ASCII">ASCII</a>) のみからなり ISO 2022 による符号拡張は許されない。
 </p>
-<p>Internet message における標準の符号化文字集合 (<a href="#Coded-character-set">Coded character set</a>)
+<p>Internet message における標準の符号化文字集合 (<a href="#Coded-character-set">Coded character set（符号化文字集合）, Character code（文字符号）</a>)
 であり、明示的に MIME charset が示されない場合は原則として 
 <strong>us-ascii</strong> が使われる。
 </p>
@@ -1835,9 +1887,12 @@ Previous: <a href="#plain-text" accesskey="p" rel="prev">plain text</a>, Up: <a 
 </p>
 
 <hr>
-<span id="Bug-report"></span><div class="header">
+</div>
+</div>
+<div class="section" id="Bug-report">
+<div class="header">
 <p>
-Next: <a href="#GitHub" accesskey="n" rel="next">GitHub</a>, Previous: <a href="#Glossary" accesskey="p" rel="prev">Glossary</a>, Up: <a href="#Appendix" accesskey="u" rel="up">Appendix</a> &nbsp; [<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
+Next: <a href="#GitHub" accesskey="n" rel="next">GitHub による開発</a>, Previous: <a href="#Glossary" accesskey="p" rel="prev">用語</a>, Up: <a href="#Appendix" accesskey="u" rel="up">付録</a> &nbsp; [<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
 </div>
 <span id="bug-Bao-Gao-noShi-Fang-"></span><h3 class="section">9.2 bug 報告の仕方</h3>
 
@@ -1876,7 +1931,7 @@ Next: <a href="#GitHub" accesskey="n" rel="next">GitHub</a>, Previous: <a href="
 ういう状況なのかはさっぱり判りません。最低限、OS, emacs, APEL, FLIM,
 SEMI, 使っている MUA の種類および版、設定を書く必要があります。また、
 error が起っている場合は backtrace を送ることも重要です。
-(cf. <a href="https://www.gnu.org/software/emacs/manual/html_mono/emacs.html#Bugs">Reporting Bugs</a> in <cite>GNU Emacs
+(cf. <a data-manual="emacs" href="https://www.gnu.org/software/emacs/manual/html_mono/emacs.html#Bugs">Reporting Bugs</a> in <cite>GNU Emacs
 Manual</cite>)
 </p>
 <p>また、bug は大抵複数の人が遭遇するものです（そうでなければ、bug ではな
@@ -1886,9 +1941,11 @@ Manual</cite>)
 </p>
 
 <hr>
-<span id="GitHub"></span><div class="header">
+</div>
+<div class="section" id="GitHub">
+<div class="header">
 <p>
-Next: <a href="#History" accesskey="n" rel="next">History</a>, Previous: <a href="#Bug-report" accesskey="p" rel="prev">Bug report</a>, Up: <a href="#Appendix" accesskey="u" rel="up">Appendix</a> &nbsp; [<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
+Next: <a href="#History" accesskey="n" rel="next">歴史</a>, Previous: <a href="#Bug-report" accesskey="p" rel="prev">bug 報告の仕方</a>, Up: <a href="#Appendix" accesskey="u" rel="up">付録</a> &nbsp; [<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
 </div>
 <span id="GitHub-niyoruKai-Fa-"></span><h3 class="section">9.3 GitHub による開発</h3>
 
@@ -1909,9 +1966,11 @@ Emacs の <samp>CONTRIBUTE</samp> ファイル
 </p>
 
 <hr>
-<span id="History"></span><div class="header">
+</div>
+<div class="section" id="History">
+<div class="header">
 <p>
-Previous: <a href="#GitHub" accesskey="p" rel="prev">GitHub</a>, Up: <a href="#Appendix" accesskey="u" rel="up">Appendix</a> &nbsp; [<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
+Previous: <a href="#GitHub" accesskey="p" rel="prev">GitHub による開発</a>, Up: <a href="#Appendix" accesskey="u" rel="up">付録</a> &nbsp; [<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
 </div>
 <span id="Li-Shi-"></span><h3 class="section">9.4 歴史</h3>
 
@@ -1966,9 +2025,12 @@ FLIM の枝である &ldquo;FLIM-FLAM&rdquo; となっています。
 </p>
 
 <hr>
-<span id="Concept-Index"></span><div class="header">
+</div>
+</div>
+<div class="chapter" id="Concept-Index">
+<div class="header">
 <p>
-Next: <a href="#Function-Index" accesskey="n" rel="next">Function Index</a>, Previous: <a href="#Appendix" accesskey="p" rel="prev">Appendix</a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a> &nbsp; [<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
+Next: <a href="#Function-Index" accesskey="n" rel="next">関数索引</a>, Previous: <a href="#Appendix" accesskey="p" rel="prev">付録</a>, Up: <a href="#Top" accesskey="u" rel="up">FLIM-LB 1.14 MIME 機能説明書</a> &nbsp; [<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
 </div>
 <span id="Gai-Nian-Suo-Yin-"></span><h2 class="chapter">10 概念索引</h2>
 
@@ -2123,9 +2185,11 @@ Next: <a href="#Function-Index" accesskey="n" rel="next">Function Index</a>, Pre
 </td></tr></table>
 
 <hr>
-<span id="Function-Index"></span><div class="header">
+</div>
+<div class="chapter" id="Function-Index">
+<div class="header">
 <p>
-Next: <a href="#Variable-Index" accesskey="n" rel="next">Variable Index</a>, Previous: <a href="#Concept-Index" accesskey="p" rel="prev">Concept Index</a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a> &nbsp; [<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
+Next: <a href="#Variable-Index" accesskey="n" rel="next">変数索引</a>, Previous: <a href="#Concept-Index" accesskey="p" rel="prev">概念索引</a>, Up: <a href="#Top" accesskey="u" rel="up">FLIM-LB 1.14 MIME 機能説明書</a> &nbsp; [<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
 </div>
 <span id="Guan-Shu-Suo-Yin-"></span><h2 class="chapter">11 関数索引</h2>
 
@@ -2210,9 +2274,11 @@ Next: <a href="#Variable-Index" accesskey="n" rel="next">Variable Index</a>, Pre
 </td></tr></table>
 
 <hr>
-<span id="Variable-Index"></span><div class="header">
+</div>
+<div class="chapter" id="Variable-Index">
+<div class="header">
 <p>
-Previous: <a href="#Function-Index" accesskey="p" rel="prev">Function Index</a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a> &nbsp; [<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
+Previous: <a href="#Function-Index" accesskey="p" rel="prev">関数索引</a>, Up: <a href="#Top" accesskey="u" rel="up">FLIM-LB 1.14 MIME 機能説明書</a> &nbsp; [<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
 </div>
 <span id="Bian-Shu-Suo-Yin-"></span><h2 class="chapter">12 変数索引</h2>
 
@@ -2237,6 +2303,8 @@ Previous: <a href="#Function-Index" accesskey="p" rel="prev">Function Index</a>,
 <a class="summary-letter" href="#Variable-Index_vr_letter-M"><b>M</b></a>
  &nbsp; 
 </td></tr></table>
+</div>
+</div>
 <div class="footnote">
 <hr>
 <h4 class="footnotes-heading">Footnotes</h4>
@@ -2247,7 +2315,6 @@ Previous: <a href="#Function-Index" accesskey="p" rel="prev">Function Index</a>,
 <p>バックトレースの取り方は
 <a href="http://www.jpl.org/elips/BUGS-ja.html">http://www.jpl.org/elips/BUGS-ja.html</a>が参考になります。</p>
 </div>
-<hr>
 
 
 

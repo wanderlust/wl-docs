@@ -1,6 +1,6 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-<!-- Created by GNU Texinfo 6.7, http://www.gnu.org/software/texinfo/ -->
+<!-- Created by GNU Texinfo 6.8, http://www.gnu.org/software/texinfo/ -->
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <title>FLIM-LB 1.14 Reference Manual about MIME Features</title>
@@ -10,16 +10,20 @@
 <meta name="resource-type" content="document">
 <meta name="distribution" content="global">
 <meta name="Generator" content="texi2any">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
 <link href="#Top" rel="start" title="Top">
 <link href="#Concept-Index" rel="index" title="Concept Index">
 <link href="dir.html#Top" rel="up" title="(dir)">
+<link href="#Introduction" rel="next" title="Introduction">
+<link href="dir.html#Top" rel="prev" title="(dir)">
 <style type="text/css">
 <!--
+a.copiable-anchor {visibility: hidden; text-decoration: none; line-height: 0em}
 a.summary-letter {text-decoration: none}
 blockquote.indentedblock {margin-right: 0em}
 div.display {margin-left: 3.2em}
 div.example {margin-left: 3.2em}
-div.lisp {margin-left: 3.2em}
 kbd {font-style: oblique}
 pre.display {font-family: inherit}
 pre.format {font-family: inherit}
@@ -28,6 +32,7 @@ pre.menu-preformatted {font-family: serif}
 span.nolinebreak {white-space: nowrap}
 span.roman {font-family: initial; font-weight: normal}
 span.sansserif {font-family: sans-serif; font-weight: normal}
+span:hover a.copiable-anchor {visibility: visible}
 ul.no-bullet {list-style: none}
 -->
 </style>
@@ -38,9 +43,10 @@ ul.no-bullet {list-style: none}
 
 <body lang="en">
 <h1 class="settitle" align="center">FLIM-LB 1.14 Reference Manual about MIME Features</h1>
-<span id="Top"></span><div class="header">
+<div class="top" id="Top">
+<div class="header">
 <p>
-Next: <a href="#Introduction" accesskey="n" rel="next">Introduction</a>, Previous: <a href="dir.html#Top" accesskey="p" rel="prev">(dir)</a>, Up: <a href="dir.html#Top" accesskey="u" rel="up">(dir)</a> &nbsp; [<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
+Next: <a href="#Introduction" accesskey="n" rel="next">What is FLIM-LB?</a>, Previous: <a href="dir.html#Top" accesskey="p" rel="prev">(dir)</a>, Up: <a href="dir.html#Top" accesskey="u" rel="up">(dir)</a> &nbsp; [<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
 </div>
 <span id="FLIM_002dLB-1_002e14-Reference-Manual-about-MIME-Features"></span><h1 class="top">FLIM-LB 1.14 Reference Manual about MIME Features</h1>
 
@@ -48,37 +54,26 @@ Next: <a href="#Introduction" accesskey="n" rel="next">Introduction</a>, Previou
 <p>This file documents MIME features of FLIM-LB, a fundamental library to
 process Internet Messages for GNU Emacsen.
 </p>
-<table class="menu" border="0" cellspacing="0">
-<tr><td align="left" valign="top">&bull; <a href="#Introduction" accesskey="1">Introduction</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">What is FLIM-LB?
-</td></tr>
-<tr><td align="left" valign="top">&bull; <a href="#How-to-use" accesskey="2">How to use</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">How to use MIME features
-</td></tr>
-<tr><td align="left" valign="top">&bull; <a href="#Entity" accesskey="3">Entity</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Message and Entity
-</td></tr>
-<tr><td align="left" valign="top">&bull; <a href="#Content_002dType" accesskey="4">Content-Type</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Information of Content-Type field
-</td></tr>
-<tr><td align="left" valign="top">&bull; <a href="#Content_002dDisposition" accesskey="5">Content-Disposition</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Information of Content-Disposition field
-</td></tr>
-<tr><td align="left" valign="top">&bull; <a href="#Content_002dTransfer_002dEncoding" accesskey="6">Content-Transfer-Encoding</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Encoding Method
-</td></tr>
-<tr><td align="left" valign="top">&bull; <a href="#encoded_002dword" accesskey="7">encoded-word</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Network representation of header
-</td></tr>
-<tr><td align="left" valign="top">&bull; <a href="#custom" accesskey="8">custom</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Various Customization
-</td></tr>
-<tr><td align="left" valign="top">&bull; <a href="#Appendix" accesskey="9">Appendix</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
-</td></tr>
-<tr><td align="left" valign="top">&bull; <a href="#Concept-Index" rel="index">Concept Index</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
-</td></tr>
-<tr><td align="left" valign="top">&bull; <a href="#Function-Index" rel="index">Function Index</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
-</td></tr>
-<tr><td align="left" valign="top">&bull; <a href="#Variable-Index" rel="index">Variable Index</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
-</td></tr>
-</table>
 
+<ul class="section-toc">
+<li><a href="#Introduction" accesskey="1">What is FLIM-LB?</a></li>
+<li><a href="#How-to-use" accesskey="2">How to use MIME features</a></li>
+<li><a href="#Entity" accesskey="3">Message and Entity</a></li>
+<li><a href="#Content_002dType" accesskey="4">Information of Content-Type field</a></li>
+<li><a href="#Content_002dDisposition" accesskey="5">Information of Content-Disposition field</a></li>
+<li><a href="#Content_002dTransfer_002dEncoding" accesskey="6">Encoding Method</a></li>
+<li><a href="#encoded_002dword" accesskey="7">Network representation of header</a></li>
+<li><a href="#custom" accesskey="8">Various Customization</a></li>
+<li><a href="#Appendix" accesskey="9">Appendix</a></li>
+<li><a href="#Concept-Index">Concept Index</a></li>
+<li><a href="#Function-Index">Function Index</a></li>
+<li><a href="#Variable-Index">Variable Index</a></li>
+</ul>
 <hr>
-<span id="Introduction"></span><div class="header">
+<div class="chapter" id="Introduction">
+<div class="header">
 <p>
-Next: <a href="#How-to-use" accesskey="n" rel="next">How to use</a>, Previous: <a href="#Top" accesskey="p" rel="prev">Top</a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a> &nbsp; [<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
+Next: <a href="#How-to-use" accesskey="n" rel="next">How to use MIME features</a>, Previous: <a href="#Top" accesskey="p" rel="prev">FLIM-LB 1.14 Reference Manual about MIME Features</a>, Up: <a href="#Top" accesskey="u" rel="up">FLIM-LB 1.14 Reference Manual about MIME Features</a> &nbsp; [<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
 </div>
 <span id="What-is-FLIM_002dLB_003f"></span><h2 class="chapter">1 What is FLIM-LB?</h2>
 
@@ -88,24 +83,28 @@ features supports to latest Emacs.
 </p>
 
 <hr>
-<span id="How-to-use"></span><div class="header">
+</div>
+<div class="chapter" id="How-to-use">
+<div class="header">
 <p>
-Next: <a href="#Entity" accesskey="n" rel="next">Entity</a>, Previous: <a href="#Introduction" accesskey="p" rel="prev">Introduction</a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a> &nbsp; [<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
+Next: <a href="#Entity" accesskey="n" rel="next">Message and Entity</a>, Previous: <a href="#Introduction" accesskey="p" rel="prev">What is FLIM-LB?</a>, Up: <a href="#Top" accesskey="u" rel="up">FLIM-LB 1.14 Reference Manual about MIME Features</a> &nbsp; [<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
 </div>
 <span id="How-to-use-MIME-features"></span><h2 class="chapter">2 How to use MIME features</h2>
 
 <p>Please eval following to use MIME features provided by FLIM:
 </p>
-<div class="lisp">
+<div class="example lisp">
 <pre class="lisp">(require 'mime)
 </pre></div>
 
 
 
 <hr>
-<span id="Entity"></span><div class="header">
+</div>
+<div class="chapter" id="Entity">
+<div class="header">
 <p>
-Next: <a href="#Content_002dType" accesskey="n" rel="next">Content-Type</a>, Previous: <a href="#How-to-use" accesskey="p" rel="prev">How to use</a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a> &nbsp; [<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
+Next: <a href="#Content_002dType" accesskey="n" rel="next">Information of Content-Type field</a>, Previous: <a href="#How-to-use" accesskey="p" rel="prev">How to use MIME features</a>, Up: <a href="#Top" accesskey="u" rel="up">FLIM-LB 1.14 Reference Manual about MIME Features</a> &nbsp; [<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
 </div>
 <span id="Message-and-Entity"></span><h2 class="chapter">3 Message and Entity</h2>
 <span id="index-mime_002dentity"></span>
@@ -126,50 +125,41 @@ information of entity.  In this document, it is called simply
 &lsquo;mime-entity&rsquo;.
 </p>
 
-<table class="menu" border="0" cellspacing="0">
-<tr><td align="left" valign="top">&bull; <a href="#Entity-creation" accesskey="1">Entity creation</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Functions to create mime-entity
-</td></tr>
-<tr><td align="left" valign="top">&bull; <a href="#Entity-hierarchy" accesskey="2">Entity hierarchy</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Features about message tree
-</td></tr>
-<tr><td align="left" valign="top">&bull; <a href="#Entity-Search" accesskey="3">Entity Search</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Find Entity
-</td></tr>
-<tr><td align="left" valign="top">&bull; <a href="#Entity-Attributes" accesskey="4">Entity Attributes</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Functions about attributes of mime-entity
-</td></tr>
-<tr><td align="left" valign="top">&bull; <a href="#Entity_002dheader" accesskey="5">Entity-header</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Information of entity header
-</td></tr>
-<tr><td align="left" valign="top">&bull; <a href="#entity-formatting" accesskey="6">entity formatting</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Text presentation of entity
-</td></tr>
-<tr><td align="left" valign="top">&bull; <a href="#Entity_002dcontent" accesskey="7">Entity-content</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Contents of Entity
-</td></tr>
-<tr><td align="left" valign="top">&bull; <a href="#Entity_002dnetwork_002drepresentation" accesskey="8">Entity-network-representation</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Network representation of Entity
-</td></tr>
-<tr><td align="left" valign="top">&bull; <a href="#Entity-buffer" accesskey="9">Entity buffer</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Entity as buffer representation
-</td></tr>
-<tr><td align="left" valign="top">&bull; <a href="#mm_002dbackend">mm-backend</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Entity representations and implementations
-</td></tr>
-</table>
 
+<ul class="section-toc">
+<li><a href="#Entity-creation" accesskey="1">Functions to create mime-entity</a></li>
+<li><a href="#Entity-hierarchy" accesskey="2">Features about message tree</a></li>
+<li><a href="#Entity-Search" accesskey="3">Find Entity</a></li>
+<li><a href="#Entity-Attributes" accesskey="4">Functions about attributes of mime-entity</a></li>
+<li><a href="#Entity_002dheader" accesskey="5">Information of entity header</a></li>
+<li><a href="#entity-formatting" accesskey="6">Text presentation of entity</a></li>
+<li><a href="#Entity_002dcontent" accesskey="7">Contents of Entity</a></li>
+<li><a href="#Entity_002dnetwork_002drepresentation" accesskey="8">Network representation of Entity</a></li>
+<li><a href="#Entity-buffer" accesskey="9">Entity as buffer representation</a></li>
+<li><a href="#mm_002dbackend">Entity representations and implementations</a></li>
+</ul>
 <hr>
-<span id="Entity-creation"></span><div class="header">
+<div class="section" id="Entity-creation">
+<div class="header">
 <p>
-Next: <a href="#Entity-hierarchy" accesskey="n" rel="next">Entity hierarchy</a>, Previous: <a href="#Entity" accesskey="p" rel="prev">Entity</a>, Up: <a href="#Entity" accesskey="u" rel="up">Entity</a> &nbsp; [<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
+Next: <a href="#Entity-hierarchy" accesskey="n" rel="next">Features about message tree</a>, Previous: <a href="#Entity" accesskey="p" rel="prev">Message and Entity</a>, Up: <a href="#Entity" accesskey="u" rel="up">Message and Entity</a> &nbsp; [<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
 </div>
 <span id="Functions-to-create-mime_002dentity"></span><h3 class="section">3.1 Functions to create mime-entity</h3>
 
-<dl>
-<dt id="index-mime_002dopen_002dentity">Function: <strong>mime-open-entity</strong> <em>&amp;optional  type location</em></dt>
+<dl class="def">
+<dt id="index-mime_002dopen_002dentity"><span class="category">Function: </span><span><strong>mime-open-entity</strong> <em>&amp;optional  type location</em><a href='#index-mime_002dopen_002dentity' class='copiable-anchor'> &para;</a></span></dt>
 <dd>
 <p>Open an entity and return it.
 </p>
-<p><var>type</var> is representation-type. (cf. <a href="#mm_002dbackend">mm-backend</a>) 
+<p><var>type</var> is representation-type. (cf. <a href="#mm_002dbackend">Entity representations and implementations</a>) 
 </p>
 <p><var>location</var> is location of entity.  Specification of it is depended
 on representation-type.
 </p></dd></dl>
 
 
-<dl>
-<dt id="index-mime_002dparse_002dbuffer">Function: <strong>mime-parse-buffer</strong> <em>&amp;optional  buffer type</em></dt>
+<dl class="def">
+<dt id="index-mime_002dparse_002dbuffer"><span class="category">Function: </span><span><strong>mime-parse-buffer</strong> <em>&amp;optional  buffer type</em><a href='#index-mime_002dparse_002dbuffer' class='copiable-anchor'> &para;</a></span></dt>
 <dd>
 <p>Parse <var>buffer</var> as message, and set the result to buffer local
 variable <code>mime-message-structure</code> of <var>buffer</var> as
@@ -178,15 +168,17 @@ mime-entity.
 <p>If <var>buffer</var> is omitted, current buffer is used.
 </p>
 <p><var>type</var> is representation-type of created
-mime-entity. (cf. <a href="#mm_002dbackend">mm-backend</a>) Default value is <var>buffer</var>.
+mime-entity. (cf. <a href="#mm_002dbackend">Entity representations and implementations</a>) Default value is <var>buffer</var>.
 </p></dd></dl>
 
 
 
 <hr>
-<span id="Entity-hierarchy"></span><div class="header">
+</div>
+<div class="section" id="Entity-hierarchy">
+<div class="header">
 <p>
-Next: <a href="#Entity-Search" accesskey="n" rel="next">Entity Search</a>, Previous: <a href="#Entity-creation" accesskey="p" rel="prev">Entity creation</a>, Up: <a href="#Entity" accesskey="u" rel="up">Entity</a> &nbsp; [<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
+Next: <a href="#Entity-Search" accesskey="n" rel="next">Find Entity</a>, Previous: <a href="#Entity-creation" accesskey="p" rel="prev">Functions to create mime-entity</a>, Up: <a href="#Entity" accesskey="u" rel="up">Message and Entity</a> &nbsp; [<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
 </div>
 <span id="Features-about-message-tree"></span><h3 class="section">3.2 Features about message tree</h3>
 <span id="index-node_002did"></span>
@@ -238,22 +230,22 @@ reversed list of entity-number.  For example, node-id corresponding with
 <p>Each entity can be indicated by entity-number or node-id in
 <code>mime-message-structure</code>.
 </p>
-<dl>
-<dt id="index-mime_002dmessage_002dstructure">Variable: <strong>mime-message-structure</strong></dt>
+<dl class="def">
+<dt id="index-mime_002dmessage_002dstructure"><span class="category">Variable: </span><span><strong>mime-message-structure</strong><a href='#index-mime_002dmessage_002dstructure' class='copiable-anchor'> &para;</a></span></dt>
 <dd>
 <p>Buffer local variable to store mime-entity structure of message.
 </p></dd></dl>
 
 
-<dl>
-<dt id="index-mime_002dentity_002dchildren">Function: <strong>mime-entity-children</strong> <em>entity</em></dt>
+<dl class="def">
+<dt id="index-mime_002dentity_002dchildren"><span class="category">Function: </span><span><strong>mime-entity-children</strong> <em>entity</em><a href='#index-mime_002dentity_002dchildren' class='copiable-anchor'> &para;</a></span></dt>
 <dd>
 <p>Return list of entities included in the <var>entity</var>.
 </p></dd></dl>
 
 
-<dl>
-<dt id="index-mime_002dentity_002dparent">Function: <strong>mime-entity-parent</strong> <em>entity  &amp;optional  message</em></dt>
+<dl class="def">
+<dt id="index-mime_002dentity_002dparent"><span class="category">Function: </span><span><strong>mime-entity-parent</strong> <em>entity  &amp;optional  message</em><a href='#index-mime_002dentity_002dparent' class='copiable-anchor'> &para;</a></span></dt>
 <dd>
 <p>Return parent entity of the <var>entity</var>.
 </p>
@@ -262,22 +254,22 @@ reversed list of entity-number.  For example, node-id corresponding with
 </p></dd></dl>
 
 
-<dl>
-<dt id="index-mime_002droot_002dentity_002dp">Function: <strong>mime-root-entity-p</strong> <em>entity</em></dt>
+<dl class="def">
+<dt id="index-mime_002droot_002dentity_002dp"><span class="category">Function: </span><span><strong>mime-root-entity-p</strong> <em>entity</em><a href='#index-mime_002droot_002dentity_002dp' class='copiable-anchor'> &para;</a></span></dt>
 <dd>
 <p>Return non-<code>nil</code> if <var>entity</var> is root entity (message).
 </p></dd></dl>
 
 
-<dl>
-<dt id="index-mime_002dentity_002dnode_002did">Function: <strong>mime-entity-node-id</strong> <em>entity</em></dt>
+<dl class="def">
+<dt id="index-mime_002dentity_002dnode_002did"><span class="category">Function: </span><span><strong>mime-entity-node-id</strong> <em>entity</em><a href='#index-mime_002dentity_002dnode_002did' class='copiable-anchor'> &para;</a></span></dt>
 <dd>
 <p>Return node-id of <var>entity</var>.
 </p></dd></dl>
 
 
-<dl>
-<dt id="index-mime_002dentity_002dnumber">Function: <strong>mime-entity-number</strong> <em>entity</em></dt>
+<dl class="def">
+<dt id="index-mime_002dentity_002dnumber"><span class="category">Function: </span><span><strong>mime-entity-number</strong> <em>entity</em><a href='#index-mime_002dentity_002dnumber' class='copiable-anchor'> &para;</a></span></dt>
 <dd>
 <p>Return entity-number of <var>entity</var>.
 </p></dd></dl>
@@ -285,14 +277,16 @@ reversed list of entity-number.  For example, node-id corresponding with
 
 
 <hr>
-<span id="Entity-Search"></span><div class="header">
+</div>
+<div class="section" id="Entity-Search">
+<div class="header">
 <p>
-Next: <a href="#Entity-Attributes" accesskey="n" rel="next">Entity Attributes</a>, Previous: <a href="#Entity-hierarchy" accesskey="p" rel="prev">Entity hierarchy</a>, Up: <a href="#Entity" accesskey="u" rel="up">Entity</a> &nbsp; [<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
+Next: <a href="#Entity-Attributes" accesskey="n" rel="next">Functions about attributes of mime-entity</a>, Previous: <a href="#Entity-hierarchy" accesskey="p" rel="prev">Features about message tree</a>, Up: <a href="#Entity" accesskey="u" rel="up">Message and Entity</a> &nbsp; [<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
 </div>
 <span id="Find-Entity"></span><h3 class="section">3.3 Find Entity</h3>
 
-<dl>
-<dt id="index-mime_002dfind_002dentity_002dfrom_002dnumber">Function: <strong>mime-find-entity-from-number</strong> <em>entity-number  &amp;optional  message</em></dt>
+<dl class="def">
+<dt id="index-mime_002dfind_002dentity_002dfrom_002dnumber"><span class="category">Function: </span><span><strong>mime-find-entity-from-number</strong> <em>entity-number  &amp;optional  message</em><a href='#index-mime_002dfind_002dentity_002dfrom_002dnumber' class='copiable-anchor'> &para;</a></span></dt>
 <dd>
 <p>Return entity from <var>entity-number</var> in <var>message</var>.
 </p>
@@ -301,8 +295,8 @@ used.
 </p></dd></dl>
 
 
-<dl>
-<dt id="index-mime_002dfind_002dentity_002dfrom_002dnode_002did">Function: <strong>mime-find-entity-from-node-id</strong> <em>entity-node-id  &amp;optional  message</em></dt>
+<dl class="def">
+<dt id="index-mime_002dfind_002dentity_002dfrom_002dnode_002did"><span class="category">Function: </span><span><strong>mime-find-entity-from-node-id</strong> <em>entity-node-id  &amp;optional  message</em><a href='#index-mime_002dfind_002dentity_002dfrom_002dnode_002did' class='copiable-anchor'> &para;</a></span></dt>
 <dd>
 <p>Return entity from <var>entity-node-id</var> in <var>message</var>.
 </p>
@@ -311,8 +305,8 @@ used.
 </p></dd></dl>
 
 
-<dl>
-<dt id="index-mime_002dfind_002dentity_002dfrom_002dcontent_002did">Function: <strong>mime-find-entity-from-content-id</strong> <em>cid  &amp;optional  message</em></dt>
+<dl class="def">
+<dt id="index-mime_002dfind_002dentity_002dfrom_002dcontent_002did"><span class="category">Function: </span><span><strong>mime-find-entity-from-content-id</strong> <em>cid  &amp;optional  message</em><a href='#index-mime_002dfind_002dentity_002dfrom_002dcontent_002did' class='copiable-anchor'> &para;</a></span></dt>
 <dd>
 <p>Return entity from <var>cid</var> in <var>message</var>.
 </p>
@@ -323,39 +317,41 @@ used.
 
 
 <hr>
-<span id="Entity-Attributes"></span><div class="header">
+</div>
+<div class="section" id="Entity-Attributes">
+<div class="header">
 <p>
-Next: <a href="#Entity_002dheader" accesskey="n" rel="next">Entity-header</a>, Previous: <a href="#Entity-Search" accesskey="p" rel="prev">Entity Search</a>, Up: <a href="#Entity" accesskey="u" rel="up">Entity</a> &nbsp; [<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
+Next: <a href="#Entity_002dheader" accesskey="n" rel="next">Information of entity header</a>, Previous: <a href="#Entity-Search" accesskey="p" rel="prev">Find Entity</a>, Up: <a href="#Entity" accesskey="u" rel="up">Message and Entity</a> &nbsp; [<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
 </div>
 <span id="Functions-about-attributes-of-mime_002dentity"></span><h3 class="section">3.4 Functions about attributes of mime-entity</h3>
 
-<dl>
-<dt id="index-mime_002dentity_002dcontent_002dtype">Function: <strong>mime-entity-content-type</strong> <em>entity</em></dt>
+<dl class="def">
+<dt id="index-mime_002dentity_002dcontent_002dtype"><span class="category">Function: </span><span><strong>mime-entity-content-type</strong> <em>entity</em><a href='#index-mime_002dentity_002dcontent_002dtype' class='copiable-anchor'> &para;</a></span></dt>
 <dd>
-<p>Return content-type of <var>entity</var>.  (cf. <a href="#mime_002dcontent_002dtype">mime-content-type</a>)
+<p>Return content-type of <var>entity</var>.  (cf. <a href="#mime_002dcontent_002dtype">mime-content-type structure</a>)
 </p></dd></dl>
 
 
-<dl>
-<dt id="index-mime_002dentity_002dcontent_002ddisposition">Function: <strong>mime-entity-content-disposition</strong> <em>entity</em></dt>
+<dl class="def">
+<dt id="index-mime_002dentity_002dcontent_002ddisposition"><span class="category">Function: </span><span><strong>mime-entity-content-disposition</strong> <em>entity</em><a href='#index-mime_002dentity_002dcontent_002ddisposition' class='copiable-anchor'> &para;</a></span></dt>
 <dd>
 <p>Return content-disposition of
-<var>entity</var>. (cf. <a href="#mime_002dcontent_002ddisposition">mime-content-disposition</a>)
+<var>entity</var>. (cf. <a href="#mime_002dcontent_002ddisposition">mime-content-disposition structure</a>)
 </p></dd></dl>
 
 
-<dl>
-<dt id="index-mime_002dentity_002dfilename">Function: <strong>mime-entity-filename</strong> <em>entity</em></dt>
+<dl class="def">
+<dt id="index-mime_002dentity_002dfilename"><span class="category">Function: </span><span><strong>mime-entity-filename</strong> <em>entity</em><a href='#index-mime_002dentity_002dfilename' class='copiable-anchor'> &para;</a></span></dt>
 <dd>
 <p>Return file name of <var>entity</var>.
 </p></dd></dl>
 
 
-<dl>
-<dt id="index-mime_002dentity_002dencoding">Function: <strong>mime-entity-encoding</strong> <em>entity  &amp;optional  default-encoding</em></dt>
+<dl class="def">
+<dt id="index-mime_002dentity_002dencoding"><span class="category">Function: </span><span><strong>mime-entity-encoding</strong> <em>entity  &amp;optional  default-encoding</em><a href='#index-mime_002dentity_002dencoding' class='copiable-anchor'> &para;</a></span></dt>
 <dd>
 <p>Return content-transfer-encoding of <var>entity</var>.
-(cf. <a href="#Content_002dTransfer_002dEncoding">Content-Transfer-Encoding</a>) 
+(cf. <a href="#Content_002dTransfer_002dEncoding">Encoding Method</a>) 
 </p>
 <p>If the <var>entity</var> does not have Content-Transfer-Encoding field, this
 function returns <var>default-encoding</var>.  If it is nil, <code>&quot;7bit&quot;</code> is
@@ -363,8 +359,8 @@ used as default value.
 </p></dd></dl>
 
 
-<dl>
-<dt id="index-mime_002dentity_002dcooked_002dp">Function: <strong>mime-entity-cooked-p</strong> <em>entity</em></dt>
+<dl class="def">
+<dt id="index-mime_002dentity_002dcooked_002dp"><span class="category">Function: </span><span><strong>mime-entity-cooked-p</strong> <em>entity</em><a href='#index-mime_002dentity_002dcooked_002dp' class='copiable-anchor'> &para;</a></span></dt>
 <dd>
 <p>Return non-nil if contents of <var>entity</var> has been already
 code-converted.
@@ -373,14 +369,16 @@ code-converted.
 
 
 <hr>
-<span id="Entity_002dheader"></span><div class="header">
+</div>
+<div class="section" id="Entity_002dheader">
+<div class="header">
 <p>
-Next: <a href="#entity-formatting" accesskey="n" rel="next">entity formatting</a>, Previous: <a href="#Entity-Attributes" accesskey="p" rel="prev">Entity Attributes</a>, Up: <a href="#Entity" accesskey="u" rel="up">Entity</a> &nbsp; [<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
+Next: <a href="#entity-formatting" accesskey="n" rel="next">Text presentation of entity</a>, Previous: <a href="#Entity-Attributes" accesskey="p" rel="prev">Functions about attributes of mime-entity</a>, Up: <a href="#Entity" accesskey="u" rel="up">Message and Entity</a> &nbsp; [<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
 </div>
 <span id="Information-of-entity-header"></span><h3 class="section">3.5 Information of entity header</h3>
 
-<dl>
-<dt id="index-mime_002dfetch_002dfield">Function: <strong>mime-fetch-field</strong> <em>field-name  &amp;optional  entity</em></dt>
+<dl class="def">
+<dt id="index-mime_002dfetch_002dfield"><span class="category">Function: </span><span><strong>mime-fetch-field</strong> <em>field-name  &amp;optional  entity</em><a href='#index-mime_002dfetch_002dfield' class='copiable-anchor'> &para;</a></span></dt>
 <dd>
 <p>Return field-body of <var>field-name</var> field in header of
 <var>entity</var>.
@@ -395,8 +393,8 @@ default value.
 </p></dd></dl>
 
 
-<dl>
-<dt id="index-mime_002dread_002dfield">Function: <strong>mime-read-field</strong> <em>field-name  &amp;optional  entity</em></dt>
+<dl class="def">
+<dt id="index-mime_002dread_002dfield"><span class="category">Function: </span><span><strong>mime-read-field</strong> <em>field-name  &amp;optional  entity</em><a href='#index-mime_002dread_002dfield' class='copiable-anchor'> &para;</a></span></dt>
 <dd>
 <p>Parse <var>field-name</var> field in header of <var>entity</var>, and return the
 result.
@@ -418,14 +416,16 @@ default value.
 
 
 <hr>
-<span id="entity-formatting"></span><div class="header">
+</div>
+<div class="section" id="entity-formatting">
+<div class="header">
 <p>
-Next: <a href="#Entity_002dcontent" accesskey="n" rel="next">Entity-content</a>, Previous: <a href="#Entity_002dheader" accesskey="p" rel="prev">Entity-header</a>, Up: <a href="#Entity" accesskey="u" rel="up">Entity</a> &nbsp; [<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
+Next: <a href="#Entity_002dcontent" accesskey="n" rel="next">Contents of Entity</a>, Previous: <a href="#Entity_002dheader" accesskey="p" rel="prev">Information of entity header</a>, Up: <a href="#Entity" accesskey="u" rel="up">Message and Entity</a> &nbsp; [<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
 </div>
 <span id="Text-presentation-of-entity"></span><h3 class="section">3.6 Text presentation of entity</h3>
 
-<dl>
-<dt id="index-mime_002dinsert_002dheader">Function: <strong>mime-insert-header</strong> <em>entity  &amp;optional  invisible-fields visible-fields</em></dt>
+<dl class="def">
+<dt id="index-mime_002dinsert_002dheader"><span class="category">Function: </span><span><strong>mime-insert-header</strong> <em>entity  &amp;optional  invisible-fields visible-fields</em><a href='#index-mime_002dinsert_002dheader' class='copiable-anchor'> &para;</a></span></dt>
 <dd>
 <p>Insert before point a decoded contents of header of <var>entity</var>.
 </p>
@@ -437,14 +437,14 @@ hide.
 and matched with none of <var>visible-fields</var>, this function don&rsquo;t
 insert the field.
 </p>
-<p>Each encoded-word (<a href="#encoded_002dword">encoded-word</a>) in the header is decoded.  &ldquo;Raw
+<p>Each encoded-word (<a href="#encoded_002dword">Network representation of header</a>) in the header is decoded.  &ldquo;Raw
 non us-ascii characters&rdquo; are also decoded as
 <code>default-mime-charset</code>.
 </p></dd></dl>
 
 
-<dl>
-<dt id="index-mime_002dinsert_002dtext_002dcontent">Function: <strong>mime-insert-text-content</strong> <em>entity</em></dt>
+<dl class="def">
+<dt id="index-mime_002dinsert_002dtext_002dcontent"><span class="category">Function: </span><span><strong>mime-insert-text-content</strong> <em>entity</em><a href='#index-mime_002dinsert_002dtext_002dcontent' class='copiable-anchor'> &para;</a></span></dt>
 <dd>
 <p>Insert before point a contents of <var>entity</var> as text entity.
 </p>
@@ -454,8 +454,8 @@ value.
 </p></dd></dl>
 
 
-<dl>
-<dt id="index-default_002dmime_002dcharset">Variable: <strong>default-mime-charset</strong></dt>
+<dl class="def">
+<dt id="index-default_002dmime_002dcharset"><span class="category">Variable: </span><span><strong>default-mime-charset</strong><a href='#index-default_002dmime_002dcharset' class='copiable-anchor'> &para;</a></span></dt>
 <dd>
 <p>Symbol to indicate default value of MIME charset (<a href="#MIME-charset">MIME charset</a>).
 </p>
@@ -467,28 +467,30 @@ value.
 
 
 <hr>
-<span id="Entity_002dcontent"></span><div class="header">
+</div>
+<div class="section" id="Entity_002dcontent">
+<div class="header">
 <p>
-Next: <a href="#Entity_002dnetwork_002drepresentation" accesskey="n" rel="next">Entity-network-representation</a>, Previous: <a href="#entity-formatting" accesskey="p" rel="prev">entity formatting</a>, Up: <a href="#Entity" accesskey="u" rel="up">Entity</a> &nbsp; [<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
+Next: <a href="#Entity_002dnetwork_002drepresentation" accesskey="n" rel="next">Network representation of Entity</a>, Previous: <a href="#entity-formatting" accesskey="p" rel="prev">Text presentation of entity</a>, Up: <a href="#Entity" accesskey="u" rel="up">Message and Entity</a> &nbsp; [<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
 </div>
 <span id="Contents-of-Entity"></span><h3 class="section">3.7 Contents of Entity</h3>
 
-<dl>
-<dt id="index-mime_002dentity_002dcontent">Function: <strong>mime-entity-content</strong> <em>entity</em></dt>
+<dl class="def">
+<dt id="index-mime_002dentity_002dcontent"><span class="category">Function: </span><span><strong>mime-entity-content</strong> <em>entity</em><a href='#index-mime_002dentity_002dcontent' class='copiable-anchor'> &para;</a></span></dt>
 <dd>
 <p>Return content of <var>entity</var> as byte sequence.
 </p></dd></dl>
 
 
-<dl>
-<dt id="index-mime_002dinsert_002dentity_002dcontent">Function: <strong>mime-insert-entity-content</strong> <em>entity</em></dt>
+<dl class="def">
+<dt id="index-mime_002dinsert_002dentity_002dcontent"><span class="category">Function: </span><span><strong>mime-insert-entity-content</strong> <em>entity</em><a href='#index-mime_002dinsert_002dentity_002dcontent' class='copiable-anchor'> &para;</a></span></dt>
 <dd>
 <p>Insert content of <var>entity</var> at point.
 </p></dd></dl>
 
 
-<dl>
-<dt id="index-mime_002dwrite_002dentity_002dcontent">Function: <strong>mime-write-entity-content</strong> <em>entity filename</em></dt>
+<dl class="def">
+<dt id="index-mime_002dwrite_002dentity_002dcontent"><span class="category">Function: </span><span><strong>mime-write-entity-content</strong> <em>entity filename</em><a href='#index-mime_002dwrite_002dentity_002dcontent' class='copiable-anchor'> &para;</a></span></dt>
 <dd>
 <p>Write content of <var>entity</var> into <var>filename</var>.
 </p></dd></dl>
@@ -496,28 +498,30 @@ Next: <a href="#Entity_002dnetwork_002drepresentation" accesskey="n" rel="next">
 
 
 <hr>
-<span id="Entity_002dnetwork_002drepresentation"></span><div class="header">
+</div>
+<div class="section" id="Entity_002dnetwork_002drepresentation">
+<div class="header">
 <p>
-Next: <a href="#Entity-buffer" accesskey="n" rel="next">Entity buffer</a>, Previous: <a href="#Entity_002dcontent" accesskey="p" rel="prev">Entity-content</a>, Up: <a href="#Entity" accesskey="u" rel="up">Entity</a> &nbsp; [<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
+Next: <a href="#Entity-buffer" accesskey="n" rel="next">Entity as buffer representation</a>, Previous: <a href="#Entity_002dcontent" accesskey="p" rel="prev">Contents of Entity</a>, Up: <a href="#Entity" accesskey="u" rel="up">Message and Entity</a> &nbsp; [<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
 </div>
 <span id="Network-representation-of-Entity"></span><h3 class="section">3.8 Network representation of Entity</h3>
 
-<dl>
-<dt id="index-mime_002dinsert_002dentity">Function: <strong>mime-insert-entity</strong> <em>entity</em></dt>
+<dl class="def">
+<dt id="index-mime_002dinsert_002dentity"><span class="category">Function: </span><span><strong>mime-insert-entity</strong> <em>entity</em><a href='#index-mime_002dinsert_002dentity' class='copiable-anchor'> &para;</a></span></dt>
 <dd>
 <p>Insert header and body of <var>entity</var> at point.
 </p></dd></dl>
 
 
-<dl>
-<dt id="index-mime_002dwrite_002dentity">Function: <strong>mime-write-entity</strong> <em>entity filename</em></dt>
+<dl class="def">
+<dt id="index-mime_002dwrite_002dentity"><span class="category">Function: </span><span><strong>mime-write-entity</strong> <em>entity filename</em><a href='#index-mime_002dwrite_002dentity' class='copiable-anchor'> &para;</a></span></dt>
 <dd>
 <p>Write representation of <var>entity</var> into <var>filename</var>.
 </p></dd></dl>
 
 
-<dl>
-<dt id="index-mime_002dwrite_002dentity_002dbody">Function: <strong>mime-write-entity-body</strong> <em>entity filename</em></dt>
+<dl class="def">
+<dt id="index-mime_002dwrite_002dentity_002dbody"><span class="category">Function: </span><span><strong>mime-write-entity-body</strong> <em>entity filename</em><a href='#index-mime_002dwrite_002dentity_002dbody' class='copiable-anchor'> &para;</a></span></dt>
 <dd>
 <p>Write body of <var>entity</var> into <var>filename</var>.
 </p></dd></dl>
@@ -525,61 +529,63 @@ Next: <a href="#Entity-buffer" accesskey="n" rel="next">Entity buffer</a>, Previ
 
 
 <hr>
-<span id="Entity-buffer"></span><div class="header">
+</div>
+<div class="section" id="Entity-buffer">
+<div class="header">
 <p>
-Next: <a href="#mm_002dbackend" accesskey="n" rel="next">mm-backend</a>, Previous: <a href="#Entity_002dnetwork_002drepresentation" accesskey="p" rel="prev">Entity-network-representation</a>, Up: <a href="#Entity" accesskey="u" rel="up">Entity</a> &nbsp; [<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
+Next: <a href="#mm_002dbackend" accesskey="n" rel="next">Entity representations and implementations</a>, Previous: <a href="#Entity_002dnetwork_002drepresentation" accesskey="p" rel="prev">Network representation of Entity</a>, Up: <a href="#Entity" accesskey="u" rel="up">Message and Entity</a> &nbsp; [<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
 </div>
 <span id="Entity-as-buffer-representation"></span><h3 class="section">3.9 Entity as buffer representation</h3>
 
-<dl>
-<dt id="index-mime_002dentity_002dbuffer">Function: <strong>mime-entity-buffer</strong> <em>entity</em></dt>
+<dl class="def">
+<dt id="index-mime_002dentity_002dbuffer"><span class="category">Function: </span><span><strong>mime-entity-buffer</strong> <em>entity</em><a href='#index-mime_002dentity_002dbuffer' class='copiable-anchor'> &para;</a></span></dt>
 <dd>
 <p>Return buffer, which contains <var>entity</var>.
 </p></dd></dl>
 
 
-<dl>
-<dt id="index-mime_002dentity_002dpoint_002dmin">Function: <strong>mime-entity-point-min</strong> <em>entity</em></dt>
+<dl class="def">
+<dt id="index-mime_002dentity_002dpoint_002dmin"><span class="category">Function: </span><span><strong>mime-entity-point-min</strong> <em>entity</em><a href='#index-mime_002dentity_002dpoint_002dmin' class='copiable-anchor'> &para;</a></span></dt>
 <dd>
 <p>Return the start point of <var>entity</var> in the buffer which contains
 <var>entity</var>.
 </p></dd></dl>
 
 
-<dl>
-<dt id="index-mime_002dentity_002dpoint_002dmax">Function: <strong>mime-entity-point-max</strong> <em>entity</em></dt>
+<dl class="def">
+<dt id="index-mime_002dentity_002dpoint_002dmax"><span class="category">Function: </span><span><strong>mime-entity-point-max</strong> <em>entity</em><a href='#index-mime_002dentity_002dpoint_002dmax' class='copiable-anchor'> &para;</a></span></dt>
 <dd>
 <p>Return the end point of <var>entity</var> in the buffer which contains
 <var>entity</var>.
 </p></dd></dl>
 
 
-<dl>
-<dt id="index-mime_002dentity_002dheader_002dstart">Function: <strong>mime-entity-header-start</strong> <em>entity</em></dt>
+<dl class="def">
+<dt id="index-mime_002dentity_002dheader_002dstart"><span class="category">Function: </span><span><strong>mime-entity-header-start</strong> <em>entity</em><a href='#index-mime_002dentity_002dheader_002dstart' class='copiable-anchor'> &para;</a></span></dt>
 <dd>
 <p>Return the start point of header of <var>entity</var> in the buffer which
 contains <var>entity</var>.
 </p></dd></dl>
 
 
-<dl>
-<dt id="index-mime_002dentity_002dheader_002dend">Function: <strong>mime-entity-header-end</strong> <em>entity</em></dt>
+<dl class="def">
+<dt id="index-mime_002dentity_002dheader_002dend"><span class="category">Function: </span><span><strong>mime-entity-header-end</strong> <em>entity</em><a href='#index-mime_002dentity_002dheader_002dend' class='copiable-anchor'> &para;</a></span></dt>
 <dd>
 <p>Return the end point of header of <var>entity</var> in the buffer which
 contains <var>entity</var>.
 </p></dd></dl>
 
 
-<dl>
-<dt id="index-mime_002dentity_002dbody_002dstart">Function: <strong>mime-entity-body-start</strong> <em>entity</em></dt>
+<dl class="def">
+<dt id="index-mime_002dentity_002dbody_002dstart"><span class="category">Function: </span><span><strong>mime-entity-body-start</strong> <em>entity</em><a href='#index-mime_002dentity_002dbody_002dstart' class='copiable-anchor'> &para;</a></span></dt>
 <dd>
 <p>Return the start point of body of <var>entity</var> in the buffer which
 contains <var>entity</var>.
 </p></dd></dl>
 
 
-<dl>
-<dt id="index-mime_002dentity_002dbody_002dend">Function: <strong>mime-entity-body-end</strong> <em>entity</em></dt>
+<dl class="def">
+<dt id="index-mime_002dentity_002dbody_002dend"><span class="category">Function: </span><span><strong>mime-entity-body-end</strong> <em>entity</em><a href='#index-mime_002dentity_002dbody_002dend' class='copiable-anchor'> &para;</a></span></dt>
 <dd>
 <p>Return the end point of body of <var>entity</var> in the buffer which
 contains <var>entity</var>.
@@ -588,9 +594,11 @@ contains <var>entity</var>.
 
 
 <hr>
-<span id="mm_002dbackend"></span><div class="header">
+</div>
+<div class="section" id="mm_002dbackend">
+<div class="header">
 <p>
-Previous: <a href="#Entity-buffer" accesskey="p" rel="prev">Entity buffer</a>, Up: <a href="#Entity" accesskey="u" rel="up">Entity</a> &nbsp; [<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
+Previous: <a href="#Entity-buffer" accesskey="p" rel="prev">Entity as buffer representation</a>, Up: <a href="#Entity" accesskey="u" rel="up">Message and Entity</a> &nbsp; [<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
 </div>
 <span id="Entity-representations-and-implementations"></span><h3 class="section">3.10 Entity representations and implementations</h3>
 <span id="index-mm_002dbackend"></span>
@@ -601,7 +609,7 @@ Previous: <a href="#Entity-buffer" accesskey="p" rel="prev">Entity buffer</a>, U
 representations for their purposes.
 </p>
 <p>Each entity has <strong>representation-type</strong>.  It must be specified when
-an entity is created. (cf. <a href="#Entity-creation">Entity creation</a>) 
+an entity is created. (cf. <a href="#Entity-creation">Functions to create mime-entity</a>) 
 </p>
 <p>Functions about entity are implemented by request processing to the
 entity.  Each entity knows its representation-type.  Each entity calls
@@ -615,22 +623,21 @@ and its representation-type.  The module is required automatically
 when its entity is created at first.
 </p>
 
-<table class="menu" border="0" cellspacing="0">
-<tr><td align="left" valign="top">&bull; <a href="#Request-for-entity" accesskey="1">Request for entity</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Message-passing for entity
-</td></tr>
-<tr><td align="left" valign="top">&bull; <a href="#mm_002dbackend-module" accesskey="2">mm-backend module</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Definition of mm-backend
-</td></tr>
-</table>
 
+<ul class="section-toc">
+<li><a href="#Request-for-entity" accesskey="1">Message-passing for entity</a></li>
+<li><a href="#mm_002dbackend-module" accesskey="2">Definition of mm-backend</a></li>
+</ul>
 <hr>
-<span id="Request-for-entity"></span><div class="header">
+<div class="subsection" id="Request-for-entity">
+<div class="header">
 <p>
-Next: <a href="#mm_002dbackend-module" accesskey="n" rel="next">mm-backend module</a>, Previous: <a href="#mm_002dbackend" accesskey="p" rel="prev">mm-backend</a>, Up: <a href="#mm_002dbackend" accesskey="u" rel="up">mm-backend</a> &nbsp; [<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
+Next: <a href="#mm_002dbackend-module" accesskey="n" rel="next">Definition of mm-backend</a>, Previous: <a href="#mm_002dbackend" accesskey="p" rel="prev">Entity representations and implementations</a>, Up: <a href="#mm_002dbackend" accesskey="u" rel="up">Entity representations and implementations</a> &nbsp; [<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
 </div>
 <span id="Message_002dpassing-for-entity"></span><h4 class="subsection">3.10.1 Message-passing for entity</h4>
 
-<dl>
-<dt id="index-mime_002dentity_002dsend">Function: <strong>mime-entity-send</strong> <em>entity message  &amp;rest  args</em></dt>
+<dl class="def">
+<dt id="index-mime_002dentity_002dsend"><span class="category">Function: </span><span><strong>mime-entity-send</strong> <em>entity message  &amp;rest  args</em><a href='#index-mime_002dentity_002dsend' class='copiable-anchor'> &para;</a></span></dt>
 <dd>
 <p>Send <var>message</var> to <var>entity</var> with <var>args</var>, and return the
 result.
@@ -641,14 +648,16 @@ result.
 
 
 <hr>
-<span id="mm_002dbackend-module"></span><div class="header">
+</div>
+<div class="subsection" id="mm_002dbackend-module">
+<div class="header">
 <p>
-Previous: <a href="#Request-for-entity" accesskey="p" rel="prev">Request for entity</a>, Up: <a href="#mm_002dbackend" accesskey="u" rel="up">mm-backend</a> &nbsp; [<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
+Previous: <a href="#Request-for-entity" accesskey="p" rel="prev">Message-passing for entity</a>, Up: <a href="#mm_002dbackend" accesskey="u" rel="up">Entity representations and implementations</a> &nbsp; [<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
 </div>
 <span id="Definition-of-mm_002dbackend"></span><h4 class="subsection">3.10.2 Definition of mm-backend</h4>
 
-<dl>
-<dt id="index-mm_002ddefine_002dbackend">Macro: <strong>mm-define-backend</strong> <em>type &amp;optional  parents</em></dt>
+<dl class="def">
+<dt id="index-mm_002ddefine_002dbackend"><span class="category">Macro: </span><span><strong>mm-define-backend</strong> <em>type &amp;optional  parents</em><a href='#index-mm_002ddefine_002dbackend' class='copiable-anchor'> &para;</a></span></dt>
 <dd>
 <p>Define <var>type</var> as a mm-backend.
 </p>
@@ -657,14 +666,14 @@ must be representation-type.
 </p>
 <p>Example:
 </p>
-<div class="lisp">
+<div class="example lisp">
 <pre class="lisp">(mm-define-backend chao (generic))
 </pre></div>
 </dd></dl>
 
 
-<dl>
-<dt id="index-mm_002ddefine_002dmethod">Macro: <strong>mm-define-method</strong> <em>name args  &amp;rest  body</em></dt>
+<dl class="def">
+<dt id="index-mm_002ddefine_002dmethod"><span class="category">Macro: </span><span><strong>mm-define-method</strong> <em>name args  &amp;rest  body</em><a href='#index-mm_002ddefine_002dmethod' class='copiable-anchor'> &para;</a></span></dt>
 <dd>
 <p>Define <var>name</var> as a method function of (nth 1 (car <var>args</var>))
 backend.
@@ -676,7 +685,7 @@ and (nth 1 (car <var>args</var>)) is name of backend
 </p>
 <p>Example:
 </p>
-<div class="lisp">
+<div class="example lisp">
 <pre class="lisp">(mm-define-method entity-cooked-p ((entity chao)) nil)
 </pre></div>
 </dd></dl>
@@ -684,9 +693,13 @@ and (nth 1 (car <var>args</var>)) is name of backend
 
 
 <hr>
-<span id="Content_002dType"></span><div class="header">
+</div>
+</div>
+</div>
+<div class="chapter" id="Content_002dType">
+<div class="header">
 <p>
-Next: <a href="#Content_002dDisposition" accesskey="n" rel="next">Content-Disposition</a>, Previous: <a href="#Entity" accesskey="p" rel="prev">Entity</a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a> &nbsp; [<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
+Next: <a href="#Content_002dDisposition" accesskey="n" rel="next">Information of Content-Disposition field</a>, Previous: <a href="#Entity" accesskey="p" rel="prev">Message and Entity</a>, Up: <a href="#Top" accesskey="u" rel="up">FLIM-LB 1.14 Reference Manual about MIME Features</a> &nbsp; [<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
 </div>
 <span id="Information-of-Content_002dType-field"></span><h2 class="chapter">4 Information of Content-Type field</h2>
 <span id="index-mime_002dcontent_002dtype"></span>
@@ -710,21 +723,18 @@ mechanism to represent kind of character code like MIME charset.
 Content-Type field.
 </p>
 
-<table class="menu" border="0" cellspacing="0">
-<tr><td align="left" valign="top">&bull; <a href="#Content_002dType-field" accesskey="1">Content-Type field</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Format of Content-Type field
-</td></tr>
-<tr><td align="left" valign="top">&bull; <a href="#mime_002dcontent_002dtype" accesskey="2">mime-content-type</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">mime-content-type structure
-</td></tr>
-<tr><td align="left" valign="top">&bull; <a href="#Content_002dType-parser" accesskey="3">Content-Type parser</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Parser
-</td></tr>
-<tr><td align="left" valign="top">&bull; <a href="#Content_002dType-utility" accesskey="4">Content-Type utility</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Utility functions
-</td></tr>
-</table>
 
+<ul class="section-toc">
+<li><a href="#Content_002dType-field" accesskey="1">Format of Content-Type field</a></li>
+<li><a href="#mime_002dcontent_002dtype" accesskey="2">mime-content-type structure</a></li>
+<li><a href="#Content_002dType-parser" accesskey="3">Parser</a></li>
+<li><a href="#Content_002dType-utility" accesskey="4">Utility functions</a></li>
+</ul>
 <hr>
-<span id="Content_002dType-field"></span><div class="header">
+<div class="section" id="Content_002dType-field">
+<div class="header">
 <p>
-Next: <a href="#mime_002dcontent_002dtype" accesskey="n" rel="next">mime-content-type</a>, Previous: <a href="#Content_002dType" accesskey="p" rel="prev">Content-Type</a>, Up: <a href="#Content_002dType" accesskey="u" rel="up">Content-Type</a> &nbsp; [<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
+Next: <a href="#mime_002dcontent_002dtype" accesskey="n" rel="next">mime-content-type structure</a>, Previous: <a href="#Content_002dType" accesskey="p" rel="prev">Information of Content-Type field</a>, Up: <a href="#Content_002dType" accesskey="u" rel="up">Information of Content-Type field</a> &nbsp; [<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
 </div>
 <span id="Format-of-Content_002dType-field"></span><h3 class="section">4.1 Format of Content-Type field</h3>
 <span id="index-parameter"></span>
@@ -775,14 +785,16 @@ following:
 
 
 <hr>
-<span id="mime_002dcontent_002dtype"></span><div class="header">
+</div>
+<div class="section" id="mime_002dcontent_002dtype">
+<div class="header">
 <p>
-Next: <a href="#Content_002dType-parser" accesskey="n" rel="next">Content-Type parser</a>, Previous: <a href="#Content_002dType-field" accesskey="p" rel="prev">Content-Type field</a>, Up: <a href="#Content_002dType" accesskey="u" rel="up">Content-Type</a> &nbsp; [<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
+Next: <a href="#Content_002dType-parser" accesskey="n" rel="next">Parser</a>, Previous: <a href="#Content_002dType-field" accesskey="p" rel="prev">Format of Content-Type field</a>, Up: <a href="#Content_002dType" accesskey="u" rel="up">Information of Content-Type field</a> &nbsp; [<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
 </div>
 <span id="mime_002dcontent_002dtype-structure"></span><h3 class="section">4.2 mime-content-type structure</h3>
 
-<dl>
-<dt id="index-mime_002dcontent_002dtype-1">Structure: <strong>mime-content-type</strong></dt>
+<dl class="def">
+<dt id="index-mime_002dcontent_002dtype-1"><span class="category">Structure: </span><span><strong>mime-content-type</strong><a href='#index-mime_002dcontent_002dtype-1' class='copiable-anchor'> &para;</a></span></dt>
 <dd>
 <p>Structure to store information of a Content-Type field.
 </p>
@@ -793,15 +805,15 @@ structure.
 <p>Slots of the structure are following:
 </p>
 <dl compact="compact">
-<dt><var>primary-type</var></dt>
+<dt><span><var>primary-type</var></span></dt>
 <dd><p>primary type of media-type (symbol).
 </p>
 </dd>
-<dt><var>subtype</var></dt>
+<dt><span><var>subtype</var></span></dt>
 <dd><p>subtype of media-type (symbol).
 </p>
 </dd>
-<dt><var>parameters</var></dt>
+<dt><span><var>parameters</var></span></dt>
 <dd><p>parameters of Content-Type field (association-list).
 </p>
 </dd>
@@ -809,16 +821,16 @@ structure.
 </dd></dl>
 
 
-<dl>
-<dt id="index-make_002dmime_002dcontent_002dtype">Function: <strong>make-mime-content-type</strong> <em>type subtype</em></dt>
+<dl class="def">
+<dt id="index-make_002dmime_002dcontent_002dtype"><span class="category">Function: </span><span><strong>make-mime-content-type</strong> <em>type subtype</em><a href='#index-make_002dmime_002dcontent_002dtype' class='copiable-anchor'> &para;</a></span></dt>
 <dd><p>&amp;optional  parameters
 </p>
 <p>Constructor of content-type.
 </p></dd></dl>
 
 
-<dl>
-<dt id="index-mime_002dcontent_002dtype_002dparameter">Function: <strong>mime-content-type-parameter</strong> <em>content-type parameter</em></dt>
+<dl class="def">
+<dt id="index-mime_002dcontent_002dtype_002dparameter"><span class="category">Function: </span><span><strong>mime-content-type-parameter</strong> <em>content-type parameter</em><a href='#index-mime_002dcontent_002dtype_002dparameter' class='copiable-anchor'> &para;</a></span></dt>
 <dd>
 <p>Return value of <var>parameter</var> of <var>content-type</var>.
 </p></dd></dl>
@@ -826,25 +838,27 @@ structure.
 
 
 <hr>
-<span id="Content_002dType-parser"></span><div class="header">
+</div>
+<div class="section" id="Content_002dType-parser">
+<div class="header">
 <p>
-Next: <a href="#Content_002dType-utility" accesskey="n" rel="next">Content-Type utility</a>, Previous: <a href="#mime_002dcontent_002dtype" accesskey="p" rel="prev">mime-content-type</a>, Up: <a href="#Content_002dType" accesskey="u" rel="up">Content-Type</a> &nbsp; [<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
+Next: <a href="#Content_002dType-utility" accesskey="n" rel="next">Utility functions</a>, Previous: <a href="#mime_002dcontent_002dtype" accesskey="p" rel="prev">mime-content-type structure</a>, Up: <a href="#Content_002dType" accesskey="u" rel="up">Information of Content-Type field</a> &nbsp; [<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
 </div>
 <span id="Parser"></span><h3 class="section">4.3 Parser</h3>
 
-<dl>
-<dt id="index-mime_002dparse_002dContent_002dType">Function: <strong>mime-parse-Content-Type</strong> <em>string</em></dt>
+<dl class="def">
+<dt id="index-mime_002dparse_002dContent_002dType"><span class="category">Function: </span><span><strong>mime-parse-Content-Type</strong> <em>string</em><a href='#index-mime_002dparse_002dContent_002dType' class='copiable-anchor'> &para;</a></span></dt>
 <dd>
 <p>Parse <var>string</var> as a field-body of Content-Type field, and return the
-result as mime-content-type (<a href="#mime_002dcontent_002dtype">mime-content-type</a>) structure.
+result as mime-content-type (<a href="#mime_002dcontent_002dtype">mime-content-type structure</a>) structure.
 </p></dd></dl>
 
 
-<dl>
-<dt id="index-mime_002dread_002dContent_002dType">Function: <strong>mime-read-Content-Type</strong></dt>
+<dl class="def">
+<dt id="index-mime_002dread_002dContent_002dType"><span class="category">Function: </span><span><strong>mime-read-Content-Type</strong><a href='#index-mime_002dread_002dContent_002dType' class='copiable-anchor'> &para;</a></span></dt>
 <dd>
 <p>Parse Content-Type field of the current buffer, and return the result as
-mime-content-type (<a href="#mime_002dcontent_002dtype">mime-content-type</a>) structure.
+mime-content-type (<a href="#mime_002dcontent_002dtype">mime-content-type structure</a>) structure.
 </p>
 <p>Return <code>nil</code> if Content-Type field is not found.
 </p></dd></dl>
@@ -852,14 +866,16 @@ mime-content-type (<a href="#mime_002dcontent_002dtype">mime-content-type</a>) s
 
 
 <hr>
-<span id="Content_002dType-utility"></span><div class="header">
+</div>
+<div class="section" id="Content_002dType-utility">
+<div class="header">
 <p>
-Previous: <a href="#Content_002dType-parser" accesskey="p" rel="prev">Content-Type parser</a>, Up: <a href="#Content_002dType" accesskey="u" rel="up">Content-Type</a> &nbsp; [<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
+Previous: <a href="#Content_002dType-parser" accesskey="p" rel="prev">Parser</a>, Up: <a href="#Content_002dType" accesskey="u" rel="up">Information of Content-Type field</a> &nbsp; [<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
 </div>
 <span id="Utility-functions"></span><h3 class="section">4.4 Utility functions</h3>
 
-<dl>
-<dt id="index-mime_002dtype_002fsubtype_002dstring">Function: <strong>mime-type/subtype-string</strong> <em>type  &amp;optional  subtype</em></dt>
+<dl class="def">
+<dt id="index-mime_002dtype_002fsubtype_002dstring"><span class="category">Function: </span><span><strong>mime-type/subtype-string</strong> <em>type  &amp;optional  subtype</em><a href='#index-mime_002dtype_002fsubtype_002dstring' class='copiable-anchor'> &para;</a></span></dt>
 <dd>
 <p>Return type/subtype string from <var>type</var> and <var>subtype</var>.
 </p></dd></dl>
@@ -867,9 +883,12 @@ Previous: <a href="#Content_002dType-parser" accesskey="p" rel="prev">Content-Ty
 
 
 <hr>
-<span id="Content_002dDisposition"></span><div class="header">
+</div>
+</div>
+<div class="chapter" id="Content_002dDisposition">
+<div class="header">
 <p>
-Next: <a href="#Content_002dTransfer_002dEncoding" accesskey="n" rel="next">Content-Transfer-Encoding</a>, Previous: <a href="#Content_002dType" accesskey="p" rel="prev">Content-Type</a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a> &nbsp; [<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
+Next: <a href="#Content_002dTransfer_002dEncoding" accesskey="n" rel="next">Encoding Method</a>, Previous: <a href="#Content_002dType" accesskey="p" rel="prev">Information of Content-Type field</a>, Up: <a href="#Top" accesskey="u" rel="up">FLIM-LB 1.14 Reference Manual about MIME Features</a> &nbsp; [<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
 </div>
 <span id="Information-of-Content_002dDisposition-field"></span><h2 class="chapter">5 Information of Content-Disposition field</h2>
 <span id="index-mime_002dcontent_002ddisposition"></span>
@@ -894,22 +913,21 @@ August 1997, Standards Track.
 Content-Disposition field.
 </p>
 
-<table class="menu" border="0" cellspacing="0">
-<tr><td align="left" valign="top">&bull; <a href="#mime_002dcontent_002ddisposition" accesskey="1">mime-content-disposition</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">mime-content-disposition structure
-</td></tr>
-<tr><td align="left" valign="top">&bull; <a href="#Content_002dDisposition-parser" accesskey="2">Content-Disposition parser</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Parser for Content-Disposition field
-</td></tr>
-</table>
 
+<ul class="section-toc">
+<li><a href="#mime_002dcontent_002ddisposition" accesskey="1">mime-content-disposition structure</a></li>
+<li><a href="#Content_002dDisposition-parser" accesskey="2">Parser for Content-Disposition field</a></li>
+</ul>
 <hr>
-<span id="mime_002dcontent_002ddisposition"></span><div class="header">
+<div class="section" id="mime_002dcontent_002ddisposition">
+<div class="header">
 <p>
-Next: <a href="#Content_002dDisposition-parser" accesskey="n" rel="next">Content-Disposition parser</a>, Previous: <a href="#Content_002dDisposition" accesskey="p" rel="prev">Content-Disposition</a>, Up: <a href="#Content_002dDisposition" accesskey="u" rel="up">Content-Disposition</a> &nbsp; [<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
+Next: <a href="#Content_002dDisposition-parser" accesskey="n" rel="next">Parser for Content-Disposition field</a>, Previous: <a href="#Content_002dDisposition" accesskey="p" rel="prev">Information of Content-Disposition field</a>, Up: <a href="#Content_002dDisposition" accesskey="u" rel="up">Information of Content-Disposition field</a> &nbsp; [<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
 </div>
 <span id="mime_002dcontent_002ddisposition-structure"></span><h3 class="section">5.1 mime-content-disposition structure</h3>
 
-<dl>
-<dt id="index-mime_002dcontent_002ddisposition-1">Structure: <strong>mime-content-disposition</strong></dt>
+<dl class="def">
+<dt id="index-mime_002dcontent_002ddisposition-1"><span class="category">Structure: </span><span><strong>mime-content-disposition</strong><a href='#index-mime_002dcontent_002ddisposition-1' class='copiable-anchor'> &para;</a></span></dt>
 <dd>
 <p>Structure to store information of a Content-Disposition field.
 </p>
@@ -920,11 +938,11 @@ structure.
 <p>Slots of the structure are following:
 </p>
 <dl compact="compact">
-<dt><var>disposition-type</var></dt>
+<dt><span><var>disposition-type</var></span></dt>
 <dd><p>disposition-type (symbol).
 </p>
 </dd>
-<dt><var>parameters</var></dt>
+<dt><span><var>parameters</var></span></dt>
 <dd><p>parameters of Content-Disposition field
 (association-list).
 </p>
@@ -933,15 +951,15 @@ structure.
 </dd></dl>
 
 
-<dl>
-<dt id="index-mime_002dcontent_002ddisposition_002dparameter">Function: <strong>mime-content-disposition-parameter</strong> <em>content-disposition parameter</em></dt>
+<dl class="def">
+<dt id="index-mime_002dcontent_002ddisposition_002dparameter"><span class="category">Function: </span><span><strong>mime-content-disposition-parameter</strong> <em>content-disposition parameter</em><a href='#index-mime_002dcontent_002ddisposition_002dparameter' class='copiable-anchor'> &para;</a></span></dt>
 <dd>
 <p>Return value of <var>parameter</var> of <var>content-disposition</var>.
 </p></dd></dl>
 
 
-<dl>
-<dt id="index-mime_002dcontent_002ddisposition_002dfilename">Function: <strong>mime-content-disposition-filename</strong> <em>content-disposition</em></dt>
+<dl class="def">
+<dt id="index-mime_002dcontent_002ddisposition_002dfilename"><span class="category">Function: </span><span><strong>mime-content-disposition-filename</strong> <em>content-disposition</em><a href='#index-mime_002dcontent_002ddisposition_002dfilename' class='copiable-anchor'> &para;</a></span></dt>
 <dd>
 <p>Return filename of <var>content-disposition</var>.
 </p></dd></dl>
@@ -949,26 +967,28 @@ structure.
 
 
 <hr>
-<span id="Content_002dDisposition-parser"></span><div class="header">
+</div>
+<div class="section" id="Content_002dDisposition-parser">
+<div class="header">
 <p>
-Previous: <a href="#mime_002dcontent_002ddisposition" accesskey="p" rel="prev">mime-content-disposition</a>, Up: <a href="#Content_002dDisposition" accesskey="u" rel="up">Content-Disposition</a> &nbsp; [<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
+Previous: <a href="#mime_002dcontent_002ddisposition" accesskey="p" rel="prev">mime-content-disposition structure</a>, Up: <a href="#Content_002dDisposition" accesskey="u" rel="up">Information of Content-Disposition field</a> &nbsp; [<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
 </div>
 <span id="Parser-for-Content_002dDisposition-field"></span><h3 class="section">5.2 Parser for Content-Disposition field</h3>
 
-<dl>
-<dt id="index-mime_002dparse_002dContent_002dDisposition">Function: <strong>mime-parse-Content-Disposition</strong> <em>string</em></dt>
+<dl class="def">
+<dt id="index-mime_002dparse_002dContent_002dDisposition"><span class="category">Function: </span><span><strong>mime-parse-Content-Disposition</strong> <em>string</em><a href='#index-mime_002dparse_002dContent_002dDisposition' class='copiable-anchor'> &para;</a></span></dt>
 <dd>
 <p>Parse <var>string</var> as field-body of Content-Disposition field, and
 return the result as mime-content-disposition
-(<a href="#mime_002dcontent_002ddisposition">mime-content-disposition</a>) structure.
+(<a href="#mime_002dcontent_002ddisposition">mime-content-disposition structure</a>) structure.
 </p></dd></dl>
 
 
-<dl>
-<dt id="index-mime_002dread_002dContent_002dDisposition">Function: <strong>mime-read-Content-Disposition</strong></dt>
+<dl class="def">
+<dt id="index-mime_002dread_002dContent_002dDisposition"><span class="category">Function: </span><span><strong>mime-read-Content-Disposition</strong><a href='#index-mime_002dread_002dContent_002dDisposition' class='copiable-anchor'> &para;</a></span></dt>
 <dd>
 <p>Parse Content-Disposition field of the current buffer, and return the
-result as mime-content-disposition (<a href="#mime_002dcontent_002ddisposition">mime-content-disposition</a>)
+result as mime-content-disposition (<a href="#mime_002dcontent_002ddisposition">mime-content-disposition structure</a>)
 structure.
 </p>
 <p>Return <code>nil</code> if Content-Disposition field is not found.
@@ -977,9 +997,12 @@ structure.
 
 
 <hr>
-<span id="Content_002dTransfer_002dEncoding"></span><div class="header">
+</div>
+</div>
+<div class="chapter" id="Content_002dTransfer_002dEncoding">
+<div class="header">
 <p>
-Next: <a href="#encoded_002dword" accesskey="n" rel="next">encoded-word</a>, Previous: <a href="#Content_002dDisposition" accesskey="p" rel="prev">Content-Disposition</a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a> &nbsp; [<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
+Next: <a href="#encoded_002dword" accesskey="n" rel="next">Network representation of header</a>, Previous: <a href="#Content_002dDisposition" accesskey="p" rel="prev">Information of Content-Disposition field</a>, Up: <a href="#Top" accesskey="u" rel="up">FLIM-LB 1.14 Reference Manual about MIME Features</a> &nbsp; [<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
 </div>
 <span id="Encoding-Method"></span><h2 class="chapter">6 Encoding Method</h2>
 <span id="index-Content_002dTransfer_002dEncoding-field"></span>
@@ -995,36 +1018,32 @@ string.
 Content-Transfer-Encoding.
 </p>
 
-<table class="menu" border="0" cellspacing="0">
-<tr><td align="left" valign="top">&bull; <a href="#Content_002dTransfer_002dEncoding-parser" accesskey="1">Content-Transfer-Encoding parser</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Parser
-</td></tr>
-<tr><td align="left" valign="top">&bull; <a href="#encoder_002fdecoder" accesskey="2">encoder/decoder</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Encoder/decoder
-</td></tr>
-<tr><td align="left" valign="top">&bull; <a href="#Encoding-information" accesskey="3">Encoding information</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Other utilities
-</td></tr>
-<tr><td align="left" valign="top">&bull; <a href="#mel_002dbackend" accesskey="4">mel-backend</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">How to write encoder/decoder module
-</td></tr>
-<tr><td align="left" valign="top">&bull; <a href="#generic-function-for-mel_002dbackend" accesskey="5">generic function for mel-backend</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">How to add encoding/decoding service
-</td></tr>
-</table>
 
+<ul class="section-toc">
+<li><a href="#Content_002dTransfer_002dEncoding-parser" accesskey="1">Parser</a></li>
+<li><a href="#encoder_002fdecoder" accesskey="2">Encoder/decoder</a></li>
+<li><a href="#Encoding-information" accesskey="3">Other utilities</a></li>
+<li><a href="#mel_002dbackend" accesskey="4">How to write encoder/decoder module</a></li>
+<li><a href="#generic-function-for-mel_002dbackend" accesskey="5">How to add encoding/decoding service</a></li>
+</ul>
 <hr>
-<span id="Content_002dTransfer_002dEncoding-parser"></span><div class="header">
+<div class="section" id="Content_002dTransfer_002dEncoding-parser">
+<div class="header">
 <p>
-Next: <a href="#encoder_002fdecoder" accesskey="n" rel="next">encoder/decoder</a>, Previous: <a href="#Content_002dTransfer_002dEncoding" accesskey="p" rel="prev">Content-Transfer-Encoding</a>, Up: <a href="#Content_002dTransfer_002dEncoding" accesskey="u" rel="up">Content-Transfer-Encoding</a> &nbsp; [<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
+Next: <a href="#encoder_002fdecoder" accesskey="n" rel="next">Encoder/decoder</a>, Previous: <a href="#Content_002dTransfer_002dEncoding" accesskey="p" rel="prev">Encoding Method</a>, Up: <a href="#Content_002dTransfer_002dEncoding" accesskey="u" rel="up">Encoding Method</a> &nbsp; [<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
 </div>
 <span id="Parser-1"></span><h3 class="section">6.1 Parser</h3>
 
-<dl>
-<dt id="index-mime_002dparse_002dContent_002dTransfer_002dEncoding">Function: <strong>mime-parse-Content-Transfer-Encoding</strong> <em>string</em></dt>
+<dl class="def">
+<dt id="index-mime_002dparse_002dContent_002dTransfer_002dEncoding"><span class="category">Function: </span><span><strong>mime-parse-Content-Transfer-Encoding</strong> <em>string</em><a href='#index-mime_002dparse_002dContent_002dTransfer_002dEncoding' class='copiable-anchor'> &para;</a></span></dt>
 <dd>
 <p>Parse <var>string</var> as a field-body of Content-Transfer-Encoding field,
 and return the result.
 </p></dd></dl>
 
 
-<dl>
-<dt id="index-mime_002dread_002dContent_002dTransfer_002dEncoding">Function: <strong>mime-read-Content-Transfer-Encoding</strong> <em>&amp;optional default-encoding</em></dt>
+<dl class="def">
+<dt id="index-mime_002dread_002dContent_002dTransfer_002dEncoding"><span class="category">Function: </span><span><strong>mime-read-Content-Transfer-Encoding</strong> <em>&amp;optional default-encoding</em><a href='#index-mime_002dread_002dContent_002dTransfer_002dEncoding' class='copiable-anchor'> &para;</a></span></dt>
 <dd>
 <p>Parse Content-Transfer-Encoding field of the current buffer, and return
 the result.
@@ -1036,22 +1055,24 @@ found.  If it is not specified, <code>nil</code> is used as the default value.
 
 
 <hr>
-<span id="encoder_002fdecoder"></span><div class="header">
+</div>
+<div class="section" id="encoder_002fdecoder">
+<div class="header">
 <p>
-Next: <a href="#Encoding-information" accesskey="n" rel="next">Encoding information</a>, Previous: <a href="#Content_002dTransfer_002dEncoding-parser" accesskey="p" rel="prev">Content-Transfer-Encoding parser</a>, Up: <a href="#Content_002dTransfer_002dEncoding" accesskey="u" rel="up">Content-Transfer-Encoding</a> &nbsp; [<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
+Next: <a href="#Encoding-information" accesskey="n" rel="next">Other utilities</a>, Previous: <a href="#Content_002dTransfer_002dEncoding-parser" accesskey="p" rel="prev">Parser</a>, Up: <a href="#Content_002dTransfer_002dEncoding" accesskey="u" rel="up">Encoding Method</a> &nbsp; [<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
 </div>
 <span id="Encoder_002fdecoder"></span><h3 class="section">6.2 Encoder/decoder</h3>
 
-<dl>
-<dt id="index-mime_002dencode_002dregion">Function: <strong>mime-encode-region</strong> <em>start end encoding</em></dt>
+<dl class="def">
+<dt id="index-mime_002dencode_002dregion"><span class="category">Function: </span><span><strong>mime-encode-region</strong> <em>start end encoding</em><a href='#index-mime_002dencode_002dregion' class='copiable-anchor'> &para;</a></span></dt>
 <dd>
 <p>Encode region <var>start</var> to <var>end</var> of current buffer using
 <var>encoding</var>.
 </p></dd></dl>
 
 
-<dl>
-<dt id="index-mime_002ddecode_002dregion">Function: <strong>mime-decode-region</strong> <em>start end encoding</em></dt>
+<dl class="def">
+<dt id="index-mime_002ddecode_002dregion"><span class="category">Function: </span><span><strong>mime-decode-region</strong> <em>start end encoding</em><a href='#index-mime_002ddecode_002dregion' class='copiable-anchor'> &para;</a></span></dt>
 <dd>
 <p>Decode region <var>start</var> to <var>end</var> of current buffer using
 <var>encoding</var>.
@@ -1059,8 +1080,8 @@ Next: <a href="#Encoding-information" accesskey="n" rel="next">Encoding informat
 
 
 
-<dl>
-<dt id="index-mime_002ddecode_002dstring">Function: <strong>mime-decode-string</strong> <em>string encoding</em></dt>
+<dl class="def">
+<dt id="index-mime_002ddecode_002dstring"><span class="category">Function: </span><span><strong>mime-decode-string</strong> <em>string encoding</em><a href='#index-mime_002ddecode_002dstring' class='copiable-anchor'> &para;</a></span></dt>
 <dd>
 <p>Decode <var>string</var> which is encoded in <var>encoding</var>, and return the
 result.
@@ -1068,15 +1089,15 @@ result.
 
 
 
-<dl>
-<dt id="index-mime_002dinsert_002dencoded_002dfile">Function: <strong>mime-insert-encoded-file</strong> <em>filename encoding</em></dt>
+<dl class="def">
+<dt id="index-mime_002dinsert_002dencoded_002dfile"><span class="category">Function: </span><span><strong>mime-insert-encoded-file</strong> <em>filename encoding</em><a href='#index-mime_002dinsert_002dencoded_002dfile' class='copiable-anchor'> &para;</a></span></dt>
 <dd>
 <p>Insert file <var>FILENAME</var> encoded by <var>ENCODING</var> format.
 </p></dd></dl>
 
 
-<dl>
-<dt id="index-mime_002dwrite_002ddecoded_002dregion">Function: <strong>mime-write-decoded-region</strong> <em>start end filename encoding</em></dt>
+<dl class="def">
+<dt id="index-mime_002dwrite_002ddecoded_002dregion"><span class="category">Function: </span><span><strong>mime-write-decoded-region</strong> <em>start end filename encoding</em><a href='#index-mime_002dwrite_002ddecoded_002dregion' class='copiable-anchor'> &para;</a></span></dt>
 <dd>
 <p>Decode and write current region encoded by <var>encoding</var> into
 <var>filename</var>.
@@ -1087,14 +1108,16 @@ result.
 
 
 <hr>
-<span id="Encoding-information"></span><div class="header">
+</div>
+<div class="section" id="Encoding-information">
+<div class="header">
 <p>
-Next: <a href="#mel_002dbackend" accesskey="n" rel="next">mel-backend</a>, Previous: <a href="#encoder_002fdecoder" accesskey="p" rel="prev">encoder/decoder</a>, Up: <a href="#Content_002dTransfer_002dEncoding" accesskey="u" rel="up">Content-Transfer-Encoding</a> &nbsp; [<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
+Next: <a href="#mel_002dbackend" accesskey="n" rel="next">How to write encoder/decoder module</a>, Previous: <a href="#encoder_002fdecoder" accesskey="p" rel="prev">Encoder/decoder</a>, Up: <a href="#Content_002dTransfer_002dEncoding" accesskey="u" rel="up">Encoding Method</a> &nbsp; [<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
 </div>
 <span id="Other-utilities"></span><h3 class="section">6.3 Other utilities</h3>
 
-<dl>
-<dt id="index-mime_002dencoding_002dlist">Function: <strong>mime-encoding-list</strong> <em>&amp;optional  SERVICE</em></dt>
+<dl class="def">
+<dt id="index-mime_002dencoding_002dlist"><span class="category">Function: </span><span><strong>mime-encoding-list</strong> <em>&amp;optional  SERVICE</em><a href='#index-mime_002dencoding_002dlist' class='copiable-anchor'> &para;</a></span></dt>
 <dd>
 <p>Return list of Content-Transfer-Encoding.
 </p>
@@ -1103,8 +1126,8 @@ Content-Transfer-Encoding for it.
 </p></dd></dl>
 
 
-<dl>
-<dt id="index-mime_002dencoding_002dalist">Function: <strong>mime-encoding-alist</strong> <em>&amp;optional  SERVICE</em></dt>
+<dl class="def">
+<dt id="index-mime_002dencoding_002dalist"><span class="category">Function: </span><span><strong>mime-encoding-alist</strong> <em>&amp;optional  SERVICE</em><a href='#index-mime_002dencoding_002dalist' class='copiable-anchor'> &para;</a></span></dt>
 <dd>
 <p>Return table of Content-Transfer-Encoding for completion.
 </p>
@@ -1115,14 +1138,16 @@ Content-Transfer-Encoding for it.
 
 
 <hr>
-<span id="mel_002dbackend"></span><div class="header">
+</div>
+<div class="section" id="mel_002dbackend">
+<div class="header">
 <p>
-Next: <a href="#generic-function-for-mel_002dbackend" accesskey="n" rel="next">generic function for mel-backend</a>, Previous: <a href="#Encoding-information" accesskey="p" rel="prev">Encoding information</a>, Up: <a href="#Content_002dTransfer_002dEncoding" accesskey="u" rel="up">Content-Transfer-Encoding</a> &nbsp; [<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
+Next: <a href="#generic-function-for-mel_002dbackend" accesskey="n" rel="next">How to add encoding/decoding service</a>, Previous: <a href="#Encoding-information" accesskey="p" rel="prev">Other utilities</a>, Up: <a href="#Content_002dTransfer_002dEncoding" accesskey="u" rel="up">Encoding Method</a> &nbsp; [<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
 </div>
 <span id="How-to-write-encoder_002fdecoder-module"></span><h3 class="section">6.4 How to write encoder/decoder module</h3>
 
-<dl>
-<dt id="index-mel_002ddefine_002dmethod">Macro: <strong>mel-define-method</strong> <em>name args  &amp;rest  body</em></dt>
+<dl class="def">
+<dt id="index-mel_002ddefine_002dmethod"><span class="category">Macro: </span><span><strong>mel-define-method</strong> <em>name args  &amp;rest  body</em><a href='#index-mel_002ddefine_002dmethod' class='copiable-anchor'> &para;</a></span></dt>
 <dd>
 <p>Define <var>name</var> as a method function of (nth 1 (car (last
 <var>args</var>))) backend.
@@ -1134,7 +1159,7 @@ name of backend (encoding).
 </p>
 <p>Example:
 </p>
-<div class="lisp">
+<div class="example lisp">
 <pre class="lisp">(mel-define-method mime-write-decoded-region (start end filename
 						    (nil &quot;base64&quot;))
   &quot;Decode and write current region encoded by base64 into FILENAME.
@@ -1151,8 +1176,8 @@ START and END are buffer positions.&quot;
 </dd></dl>
 
 
-<dl>
-<dt id="index-mel_002ddefine_002dmethod_002dfunction">Macro: <strong>mel-define-method-function</strong> <em>spec function</em></dt>
+<dl class="def">
+<dt id="index-mel_002ddefine_002dmethod_002dfunction"><span class="category">Macro: </span><span><strong>mel-define-method-function</strong> <em>spec function</em><a href='#index-mel_002ddefine_002dmethod_002dfunction' class='copiable-anchor'> &para;</a></span></dt>
 <dd>
 <p>Set <var>spec</var>&rsquo;s function definition to <var>function</var>.
 </p>
@@ -1165,7 +1190,7 @@ name of backend (encoding).
 </p>
 <p>Example:
 </p>
-<div class="lisp">
+<div class="example lisp">
 <pre class="lisp">(mel-define-method-function (mime-encode-string string (nil &quot;base64&quot;))
 			    'encode-base64-string)
 </pre></div>
@@ -1174,14 +1199,16 @@ name of backend (encoding).
 
 
 <hr>
-<span id="generic-function-for-mel_002dbackend"></span><div class="header">
+</div>
+<div class="section" id="generic-function-for-mel_002dbackend">
+<div class="header">
 <p>
-Previous: <a href="#mel_002dbackend" accesskey="p" rel="prev">mel-backend</a>, Up: <a href="#Content_002dTransfer_002dEncoding" accesskey="u" rel="up">Content-Transfer-Encoding</a> &nbsp; [<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
+Previous: <a href="#mel_002dbackend" accesskey="p" rel="prev">How to write encoder/decoder module</a>, Up: <a href="#Content_002dTransfer_002dEncoding" accesskey="u" rel="up">Encoding Method</a> &nbsp; [<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
 </div>
 <span id="How-to-add-encoding_002fdecoding-service"></span><h3 class="section">6.5 How to add encoding/decoding service</h3>
 
-<dl>
-<dt id="index-mel_002ddefine_002dservice">Macro: <strong>mel-define-service</strong> <em>name &amp;optional  args doc-string</em></dt>
+<dl class="def">
+<dt id="index-mel_002ddefine_002dservice"><span class="category">Macro: </span><span><strong>mel-define-service</strong> <em>name &amp;optional  args doc-string</em><a href='#index-mel_002ddefine_002dservice' class='copiable-anchor'> &para;</a></span></dt>
 <dd>
 <p>Define <var>name</var> as a service for Content-Transfer-Encodings.
 </p>
@@ -1190,7 +1217,7 @@ for the service.
 </p>
 <p>Example:
 </p>
-<div class="lisp">
+<div class="example lisp">
 <pre class="lisp">(mel-define-service encoded-text-encode-string (string encoding)
   &quot;Encode STRING as encoded-text using ENCODING.
 ENCODING must be string.&quot;)
@@ -1200,9 +1227,12 @@ ENCODING must be string.&quot;)
 
 
 <hr>
-<span id="encoded_002dword"></span><div class="header">
+</div>
+</div>
+<div class="chapter" id="encoded_002dword">
+<div class="header">
 <p>
-Next: <a href="#custom" accesskey="n" rel="next">custom</a>, Previous: <a href="#Content_002dTransfer_002dEncoding" accesskey="p" rel="prev">Content-Transfer-Encoding</a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a> &nbsp; [<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
+Next: <a href="#custom" accesskey="n" rel="next">Various Customization</a>, Previous: <a href="#Content_002dTransfer_002dEncoding" accesskey="p" rel="prev">Encoding Method</a>, Up: <a href="#Top" accesskey="u" rel="up">FLIM-LB 1.14 Reference Manual about MIME Features</a> &nbsp; [<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
 </div>
 <span id="Network-representation-of-header"></span><h2 class="chapter">7 Network representation of header</h2>
 <span id="index-RFC-2047"></span>
@@ -1231,20 +1261,20 @@ in headers without encoded-words (it is called &quot;raw&quot; non-ASCII
 invalid &quot;raw&quot; non-ASCII (<a href="#ASCII">ASCII</a>) characters.
 </p>
 
-<table class="menu" border="0" cellspacing="0">
-<tr><td align="left" valign="top">&bull; <a href="#Header-encoder_002fdecoder" accesskey="1">Header encoder/decoder</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Header encoding/decoding
-</td></tr>
-</table>
 
+<ul class="section-toc">
+<li><a href="#Header-encoder_002fdecoder" accesskey="1">Header encoding/decoding</a></li>
+</ul>
 <hr>
-<span id="Header-encoder_002fdecoder"></span><div class="header">
+<div class="section" id="Header-encoder_002fdecoder">
+<div class="header">
 <p>
-Previous: <a href="#encoded_002dword" accesskey="p" rel="prev">encoded-word</a>, Up: <a href="#encoded_002dword" accesskey="u" rel="up">encoded-word</a> &nbsp; [<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
+Previous: <a href="#encoded_002dword" accesskey="p" rel="prev">Network representation of header</a>, Up: <a href="#encoded_002dword" accesskey="u" rel="up">Network representation of header</a> &nbsp; [<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
 </div>
 <span id="Header-encoding_002fdecoding"></span><h3 class="section">7.1 Header encoding/decoding</h3>
 
-<dl>
-<dt id="index-eword_002ddecode_002dheader">Function: <strong>eword-decode-header</strong> <em>&amp;optional  code-conversion separator</em></dt>
+<dl class="def">
+<dt id="index-eword_002ddecode_002dheader"><span class="category">Function: </span><span><strong>eword-decode-header</strong> <em>&amp;optional  code-conversion separator</em><a href='#index-eword_002ddecode_002dheader' class='copiable-anchor'> &para;</a></span></dt>
 <dd>
 <p>Decode MIME encoded-words in header fields.
 </p>
@@ -1252,14 +1282,14 @@ Previous: <a href="#encoded_002dword" accesskey="p" rel="prev">encoded-word</a>,
 If <var>code-conversion</var> is a MIME charset (<a href="#MIME-charset">MIME charset</a>),
 non-ASCII bit patterns are decoded as the MIME charset.  Otherwise
 non-ASCII bit patterns are decoded as the
-<code>default-mime-charset</code>. (cf. <a href="#entity-formatting">entity formatting</a>) 
+<code>default-mime-charset</code>. (cf. <a href="#entity-formatting">Text presentation of entity</a>) 
 </p>
 <p>If <var>separator</var> is not <code>nil</code>, it is used as header separator.
 </p></dd></dl>
 
 
-<dl>
-<dt id="index-eword_002dencode_002dheader">Function: <strong>eword-encode-header</strong> <em>&amp;optional  code-conversion</em></dt>
+<dl class="def">
+<dt id="index-eword_002dencode_002dheader"><span class="category">Function: </span><span><strong>eword-encode-header</strong> <em>&amp;optional  code-conversion</em><a href='#index-eword_002dencode_002dheader' class='copiable-anchor'> &para;</a></span></dt>
 <dd>
 <p>Encode header fields to network representation, such as MIME
 encoded-word.
@@ -1269,8 +1299,8 @@ encoded-word.
 </p></dd></dl>
 
 
-<dl>
-<dt id="index-mime_002dfield_002dencoding_002dmethod_002dalist">Variable: <strong>mime-field-encoding-method-alist</strong></dt>
+<dl class="def">
+<dt id="index-mime_002dfield_002dencoding_002dmethod_002dalist"><span class="category">Variable: </span><span><strong>mime-field-encoding-method-alist</strong><a href='#index-mime_002dfield_002dencoding_002dmethod_002dalist' class='copiable-anchor'> &para;</a></span></dt>
 <dd>
 <p>Association list to specify field encoding method.  Each element looks
 like (FIELD . METHOD).
@@ -1290,14 +1320,17 @@ when it must be convert into network-code.
 
 
 <hr>
-<span id="custom"></span><div class="header">
+</div>
+</div>
+<div class="chapter" id="custom">
+<div class="header">
 <p>
-Next: <a href="#Appendix" accesskey="n" rel="next">Appendix</a>, Previous: <a href="#encoded_002dword" accesskey="p" rel="prev">encoded-word</a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a> &nbsp; [<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
+Next: <a href="#Appendix" accesskey="n" rel="next">Appendix</a>, Previous: <a href="#encoded_002dword" accesskey="p" rel="prev">Network representation of header</a>, Up: <a href="#Top" accesskey="u" rel="up">FLIM-LB 1.14 Reference Manual about MIME Features</a> &nbsp; [<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
 </div>
 <span id="Various-Customization"></span><h2 class="chapter">8 Various Customization</h2>
 
-<dl>
-<dt id="index-mime">group: <strong>mime</strong></dt>
+<dl class="def">
+<dt id="index-mime"><span class="category">group: </span><span><strong>mime</strong><a href='#index-mime' class='copiable-anchor'> &para;</a></span></dt>
 <dd>
 <p>The group associated with functions related to MIME.
 </p>
@@ -1306,79 +1339,58 @@ Next: <a href="#Appendix" accesskey="n" rel="next">Appendix</a>, Previous: <a hr
 
 
 <hr>
-<span id="Appendix"></span><div class="header">
+</div>
+<div class="chapter" id="Appendix">
+<div class="header">
 <p>
-Next: <a href="#Concept-Index" accesskey="n" rel="next">Concept Index</a>, Previous: <a href="#custom" accesskey="p" rel="prev">custom</a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a> &nbsp; [<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
+Next: <a href="#Concept-Index" accesskey="n" rel="next">Concept Index</a>, Previous: <a href="#custom" accesskey="p" rel="prev">Various Customization</a>, Up: <a href="#Top" accesskey="u" rel="up">FLIM-LB 1.14 Reference Manual about MIME Features</a> &nbsp; [<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
 </div>
 <span id="Appendix-1"></span><h2 class="chapter">9 Appendix</h2>
 
 
-<table class="menu" border="0" cellspacing="0">
-<tr><td align="left" valign="top">&bull; <a href="#Glossary" accesskey="1">Glossary</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
-</td></tr>
-<tr><td align="left" valign="top">&bull; <a href="#Bug-report" accesskey="2">Bug report</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">How to report bugs
-</td></tr>
-<tr><td align="left" valign="top">&bull; <a href="#GitHub" accesskey="3">GitHub</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">GitHub based development
-</td></tr>
-<tr><td align="left" valign="top">&bull; <a href="#History" accesskey="4">History</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">History of FLIM
-</td></tr>
-</table>
 
+<ul class="section-toc">
+<li><a href="#Glossary" accesskey="1">Glossary</a></li>
+<li><a href="#Bug-report" accesskey="2">How to report bugs</a></li>
+<li><a href="#GitHub" accesskey="3">GitHub based development</a></li>
+<li><a href="#History" accesskey="4">History of FLIM</a></li>
+</ul>
 <hr>
-<span id="Glossary"></span><div class="header">
+<div class="section" id="Glossary">
+<div class="header">
 <p>
-Next: <a href="#Bug-report" accesskey="n" rel="next">Bug report</a>, Previous: <a href="#Appendix" accesskey="p" rel="prev">Appendix</a>, Up: <a href="#Appendix" accesskey="u" rel="up">Appendix</a> &nbsp; [<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
+Next: <a href="#Bug-report" accesskey="n" rel="next">How to report bugs</a>, Previous: <a href="#Appendix" accesskey="p" rel="prev">Appendix</a>, Up: <a href="#Appendix" accesskey="u" rel="up">Appendix</a> &nbsp; [<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
 </div>
 <span id="Glossary-1"></span><h3 class="section">9.1 Glossary</h3>
 
 
-<table class="menu" border="0" cellspacing="0">
-<tr><td align="left" valign="top">&bull; <a href="#g_t7bit" accesskey="1">7bit</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
-</td></tr>
-<tr><td align="left" valign="top">&bull; <a href="#g_t8bit" accesskey="2">8bit</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
-</td></tr>
-<tr><td align="left" valign="top">&bull; <a href="#ASCII" accesskey="3">ASCII</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
-</td></tr>
-<tr><td align="left" valign="top">&bull; <a href="#Base64" accesskey="4">Base64</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
-</td></tr>
-<tr><td align="left" valign="top">&bull; <a href="#binary" accesskey="5">binary</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
-</td></tr>
-<tr><td align="left" valign="top">&bull; <a href="#coded-character-set" accesskey="6">coded character set</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Coded character set, Character code
-</td></tr>
-<tr><td align="left" valign="top">&bull; <a href="#media_002dtype" accesskey="7">media-type</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
-</td></tr>
-<tr><td align="left" valign="top">&bull; <a href="#message" accesskey="8">message</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
-</td></tr>
-<tr><td align="left" valign="top">&bull; <a href="#MIME" accesskey="9">MIME</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
-</td></tr>
-<tr><td align="left" valign="top">&bull; <a href="#MIME-charset">MIME charset</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
-</td></tr>
-<tr><td align="left" valign="top">&bull; <a href="#MTA">MTA</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
-</td></tr>
-<tr><td align="left" valign="top">&bull; <a href="#MUA">MUA</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
-</td></tr>
-<tr><td align="left" valign="top">&bull; <a href="#Quoted_002dPrintable">Quoted-Printable</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
-</td></tr>
-<tr><td align="left" valign="top">&bull; <a href="#RFC-822">RFC 822</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
-</td></tr>
-<tr><td align="left" valign="top">&bull; <a href="#RFC-1036">RFC 1036</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
-</td></tr>
-<tr><td align="left" valign="top">&bull; <a href="#RFC-2045">RFC 2045</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
-</td></tr>
-<tr><td align="left" valign="top">&bull; <a href="#RFC-2046">RFC 2046</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
-</td></tr>
-<tr><td align="left" valign="top">&bull; <a href="#RFC-2048">RFC 2048</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
-</td></tr>
-<tr><td align="left" valign="top">&bull; <a href="#RFC-2049">RFC 2049</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
-</td></tr>
-<tr><td align="left" valign="top">&bull; <a href="#plain-text">plain text</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
-</td></tr>
-<tr><td align="left" valign="top">&bull; <a href="#us_002dascii">us-ascii</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
-</td></tr>
-</table>
 
+<ul class="section-toc">
+<li><a href="#g_t7bit" accesskey="1">7bit</a></li>
+<li><a href="#g_t8bit" accesskey="2">8bit</a></li>
+<li><a href="#ASCII" accesskey="3">ASCII</a></li>
+<li><a href="#Base64" accesskey="4">Base64</a></li>
+<li><a href="#binary" accesskey="5">binary</a></li>
+<li><a href="#coded-character-set" accesskey="6">Coded character set, Character code</a></li>
+<li><a href="#media_002dtype" accesskey="7">media-type</a></li>
+<li><a href="#message" accesskey="8">message</a></li>
+<li><a href="#MIME" accesskey="9">MIME</a></li>
+<li><a href="#MIME-charset">MIME charset</a></li>
+<li><a href="#MTA">MTA</a></li>
+<li><a href="#MUA">MUA</a></li>
+<li><a href="#Quoted_002dPrintable">Quoted-Printable</a></li>
+<li><a href="#RFC-822">RFC 822</a></li>
+<li><a href="#RFC-1036">RFC 1036</a></li>
+<li><a href="#RFC-2045">RFC 2045</a></li>
+<li><a href="#RFC-2046">RFC 2046</a></li>
+<li><a href="#RFC-2048">RFC 2048</a></li>
+<li><a href="#RFC-2049">RFC 2049</a></li>
+<li><a href="#plain-text">plain text</a></li>
+<li><a href="#us_002dascii">us-ascii</a></li>
+</ul>
 <hr>
-<span id="g_t7bit"></span><div class="header">
+<div class="subsection" id="g_t7bit">
+<div class="header">
 <p>
 Next: <a href="#g_t8bit" accesskey="n" rel="next">8bit</a>, Previous: <a href="#Glossary" accesskey="p" rel="prev">Glossary</a>, Up: <a href="#Glossary" accesskey="u" rel="up">Glossary</a> &nbsp; [<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
 </div>
@@ -1407,7 +1419,9 @@ Quoted-Printable.
 </p>
 
 <hr>
-<span id="g_t8bit"></span><div class="header">
+</div>
+<div class="subsection" id="g_t8bit">
+<div class="header">
 <p>
 Next: <a href="#ASCII" accesskey="n" rel="next">ASCII</a>, Previous: <a href="#g_t7bit" accesskey="p" rel="prev">7bit</a>, Up: <a href="#Glossary" accesskey="u" rel="up">Glossary</a> &nbsp; [<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
 </div>
@@ -1442,7 +1456,9 @@ be encoded by Base64 or Quoted-Printable.
 </p>
 
 <hr>
-<span id="ASCII"></span><div class="header">
+</div>
+<div class="subsection" id="ASCII">
+<div class="header">
 <p>
 Next: <a href="#Base64" accesskey="n" rel="next">Base64</a>, Previous: <a href="#g_t8bit" accesskey="p" rel="prev">8bit</a>, Up: <a href="#Glossary" accesskey="u" rel="up">Glossary</a> &nbsp; [<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
 </div>
@@ -1465,7 +1481,9 @@ Interchange&rdquo;, ANSI X3.4:1986.
 
 
 <hr>
-<span id="Base64"></span><div class="header">
+</div>
+<div class="subsection" id="Base64">
+<div class="header">
 <p>
 Next: <a href="#binary" accesskey="n" rel="next">binary</a>, Previous: <a href="#ASCII" accesskey="p" rel="prev">ASCII</a>, Up: <a href="#Glossary" accesskey="u" rel="up">Glossary</a> &nbsp; [<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
 </div>
@@ -1487,9 +1505,11 @@ translated by non-Internet gateways.
 </p>
 
 <hr>
-<span id="binary"></span><div class="header">
+</div>
+<div class="subsection" id="binary">
+<div class="header">
 <p>
-Next: <a href="#coded-character-set" accesskey="n" rel="next">coded character set</a>, Previous: <a href="#Base64" accesskey="p" rel="prev">Base64</a>, Up: <a href="#Glossary" accesskey="u" rel="up">Glossary</a> &nbsp; [<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
+Next: <a href="#coded-character-set" accesskey="n" rel="next">Coded character set, Character code</a>, Previous: <a href="#Base64" accesskey="p" rel="prev">Base64</a>, Up: <a href="#Glossary" accesskey="u" rel="up">Glossary</a> &nbsp; [<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
 </div>
 <span id="binary-1"></span><h4 class="subsection">9.1.5 binary</h4>
 <span id="index-binary"></span>
@@ -1504,7 +1524,9 @@ Next: <a href="#coded-character-set" accesskey="n" rel="next">coded character se
 </p>
 
 <hr>
-<span id="coded-character-set"></span><div class="header">
+</div>
+<div class="subsection" id="coded-character-set">
+<div class="header">
 <p>
 Next: <a href="#media_002dtype" accesskey="n" rel="next">media-type</a>, Previous: <a href="#binary" accesskey="p" rel="prev">binary</a>, Up: <a href="#Glossary" accesskey="u" rel="up">Glossary</a> &nbsp; [<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
 </div>
@@ -1516,9 +1538,11 @@ bit combinations.
 </p>
 
 <hr>
-<span id="media_002dtype"></span><div class="header">
+</div>
+<div class="subsection" id="media_002dtype">
+<div class="header">
 <p>
-Next: <a href="#message" accesskey="n" rel="next">message</a>, Previous: <a href="#coded-character-set" accesskey="p" rel="prev">coded character set</a>, Up: <a href="#Glossary" accesskey="u" rel="up">Glossary</a> &nbsp; [<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
+Next: <a href="#message" accesskey="n" rel="next">message</a>, Previous: <a href="#coded-character-set" accesskey="p" rel="prev">Coded character set, Character code</a>, Up: <a href="#Glossary" accesskey="u" rel="up">Glossary</a> &nbsp; [<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
 </div>
 <span id="media_002dtype-1"></span><h4 class="subsection">9.1.7 media-type</h4>
 <span id="index-x_002dtoken"></span>
@@ -1534,7 +1558,7 @@ Next: <a href="#message" accesskey="n" rel="next">message</a>, Previous: <a href
 <span id="index-media_002dtype"></span>
 
 <p><strong>media-type</strong> specifies the nature of the data in the body of MIME
-(<a href="#MIME">MIME</a>) entity (<a href="#Entity">Entity</a>).  It consists of <strong>type</strong> and
+(<a href="#MIME">MIME</a>) entity (<a href="#Entity">Message and Entity</a>).  It consists of <strong>type</strong> and
 <strong>subtype</strong>.  It is defined in RFC 2046 (<a href="#RFC-2046">RFC 2046</a>).
 </p>
 <p>Currently there are following standard primary-types:
@@ -1561,12 +1585,14 @@ text/plain, video/mpeg...
 which as the prefix &lsquo;x-&rsquo;.  However you can not use them in
 public.
 </p>
-<p>(cf. <a href="#Content_002dType-field">Content-Type field</a>)
+<p>(cf. <a href="#Content_002dType-field">Format of Content-Type field</a>)
 </p>
 
 
 <hr>
-<span id="message"></span><div class="header">
+</div>
+<div class="subsection" id="message">
+<div class="header">
 <p>
 Next: <a href="#MIME" accesskey="n" rel="next">MIME</a>, Previous: <a href="#media_002dtype" accesskey="p" rel="prev">media-type</a>, Up: <a href="#Glossary" accesskey="u" rel="up">Glossary</a> &nbsp; [<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
 </div>
@@ -1577,7 +1603,9 @@ news message defined in RFC 1036 (<a href="#RFC-1036">RFC 1036</a>).
 </p>
 
 <hr>
-<span id="MIME"></span><div class="header">
+</div>
+<div class="subsection" id="MIME">
+<div class="header">
 <p>
 Next: <a href="#MIME-charset" accesskey="n" rel="next">MIME charset</a>, Previous: <a href="#message" accesskey="p" rel="prev">message</a>, Up: <a href="#Glossary" accesskey="u" rel="up">Glossary</a> &nbsp; [<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
 </div>
@@ -1605,20 +1633,22 @@ bodies,
 
 
 <p>It is defined in RFC 2045 (<a href="#RFC-2045">RFC 2045</a>), RFC 2046 (<a href="#RFC-2046">RFC 2046</a>),
-RFC 2047 (<a href="#encoded_002dword">encoded-word</a>), RFC 2048 (<a href="#RFC-2048">RFC 2048</a>) and RFC 2049
+RFC 2047 (<a href="#encoded_002dword">Network representation of header</a>), RFC 2048 (<a href="#RFC-2048">RFC 2048</a>) and RFC 2049
 (<a href="#RFC-2049">RFC 2049</a>).
 </p>
 
 <hr>
-<span id="MIME-charset"></span><div class="header">
+</div>
+<div class="subsection" id="MIME-charset">
+<div class="header">
 <p>
 Next: <a href="#MTA" accesskey="n" rel="next">MTA</a>, Previous: <a href="#MIME" accesskey="p" rel="prev">MIME</a>, Up: <a href="#Glossary" accesskey="u" rel="up">Glossary</a> &nbsp; [<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
 </div>
 <span id="MIME-charset-1"></span><h4 class="subsection">9.1.10 MIME charset</h4>
 
-<p>Coded character set (<a href="#coded-character-set">coded character set</a>) used in Content-Type
-field (<a href="#Content_002dType-field">Content-Type field</a>) or charset parameter of encoded-word
-(<a href="#encoded_002dword">encoded-word</a>).
+<p>Coded character set (<a href="#coded-character-set">Coded character set, Character code</a>) used in Content-Type
+field (<a href="#Content_002dType-field">Format of Content-Type field</a>) or charset parameter of encoded-word
+(<a href="#encoded_002dword">Network representation of header</a>).
 </p>
 <p>It is defined in RFC 2045 (<a href="#RFC-2045">RFC 2045</a>).
 </p>
@@ -1630,7 +1660,9 @@ charset)
 </p>
 
 <hr>
-<span id="MTA"></span><div class="header">
+</div>
+<div class="subsection" id="MTA">
+<div class="header">
 <p>
 Next: <a href="#MUA" accesskey="n" rel="next">MUA</a>, Previous: <a href="#MIME-charset" accesskey="p" rel="prev">MIME charset</a>, Up: <a href="#Glossary" accesskey="u" rel="up">Glossary</a> &nbsp; [<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
 </div>
@@ -1645,7 +1677,9 @@ Next: <a href="#MUA" accesskey="n" rel="next">MUA</a>, Previous: <a href="#MIME-
 
 
 <hr>
-<span id="MUA"></span><div class="header">
+</div>
+<div class="subsection" id="MUA">
+<div class="header">
 <p>
 Next: <a href="#Quoted_002dPrintable" accesskey="n" rel="next">Quoted-Printable</a>, Previous: <a href="#MTA" accesskey="p" rel="prev">MTA</a>, Up: <a href="#Glossary" accesskey="u" rel="up">Glossary</a> &nbsp; [<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
 </div>
@@ -1660,7 +1694,9 @@ readers.
 
 
 <hr>
-<span id="Quoted_002dPrintable"></span><div class="header">
+</div>
+<div class="subsection" id="Quoted_002dPrintable">
+<div class="header">
 <p>
 Next: <a href="#RFC-822" accesskey="n" rel="next">RFC 822</a>, Previous: <a href="#MUA" accesskey="p" rel="prev">MUA</a>, Up: <a href="#Glossary" accesskey="u" rel="up">Glossary</a> &nbsp; [<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
 </div>
@@ -1678,7 +1714,9 @@ the data remains largely recognizable by humans.
 
 
 <hr>
-<span id="RFC-822"></span><div class="header">
+</div>
+<div class="subsection" id="RFC-822">
+<div class="header">
 <p>
 Next: <a href="#RFC-1036" accesskey="n" rel="next">RFC 1036</a>, Previous: <a href="#Quoted_002dPrintable" accesskey="p" rel="prev">Quoted-Printable</a>, Up: <a href="#Glossary" accesskey="u" rel="up">Glossary</a> &nbsp; [<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
 </div>
@@ -1709,7 +1747,9 @@ August 1982, STD 11.
 
 
 <hr>
-<span id="RFC-1036"></span><div class="header">
+</div>
+<div class="subsection" id="RFC-1036">
+<div class="header">
 <p>
 Next: <a href="#RFC-2045" accesskey="n" rel="next">RFC 2045</a>, Previous: <a href="#RFC-822" accesskey="p" rel="prev">RFC 822</a>, Up: <a href="#Glossary" accesskey="u" rel="up">Glossary</a> &nbsp; [<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
 </div>
@@ -1731,7 +1771,9 @@ December 1987, (obsolete RFC 850).
 
 
 <hr>
-<span id="RFC-2045"></span><div class="header">
+</div>
+<div class="subsection" id="RFC-2045">
+<div class="header">
 <p>
 Next: <a href="#RFC-2046" accesskey="n" rel="next">RFC 2046</a>, Previous: <a href="#RFC-1036" accesskey="p" rel="prev">RFC 1036</a>, Up: <a href="#Glossary" accesskey="u" rel="up">Glossary</a> &nbsp; [<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
 </div>
@@ -1750,7 +1792,9 @@ Standards Track (obsolete RFC 1521, 1522, 1590).
 
 
 <hr>
-<span id="RFC-2046"></span><div class="header">
+</div>
+<div class="subsection" id="RFC-2046">
+<div class="header">
 <p>
 Next: <a href="#RFC-2048" accesskey="n" rel="next">RFC 2048</a>, Previous: <a href="#RFC-2045" accesskey="p" rel="prev">RFC 2045</a>, Up: <a href="#Glossary" accesskey="u" rel="up">Glossary</a> &nbsp; [<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
 </div>
@@ -1769,7 +1813,9 @@ RFC 1521, 1522, 1590).
 
 
 <hr>
-<span id="RFC-2048"></span><div class="header">
+</div>
+<div class="subsection" id="RFC-2048">
+<div class="header">
 <p>
 Next: <a href="#RFC-2049" accesskey="n" rel="next">RFC 2049</a>, Previous: <a href="#RFC-2046" accesskey="p" rel="prev">RFC 2046</a>, Up: <a href="#Glossary" accesskey="u" rel="up">Glossary</a> &nbsp; [<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
 </div>
@@ -1788,7 +1834,9 @@ Standards Track (obsolete RFC 1521, 1522, 1590).
 
 
 <hr>
-<span id="RFC-2049"></span><div class="header">
+</div>
+<div class="subsection" id="RFC-2049">
+<div class="header">
 <p>
 Next: <a href="#plain-text" accesskey="n" rel="next">plain text</a>, Previous: <a href="#RFC-2048" accesskey="p" rel="prev">RFC 2048</a>, Up: <a href="#Glossary" accesskey="u" rel="up">Glossary</a> &nbsp; [<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
 </div>
@@ -1807,19 +1855,23 @@ Standards Track (obsolete RFC 1521, 1522, 1590).
 
 
 <hr>
-<span id="plain-text"></span><div class="header">
+</div>
+<div class="subsection" id="plain-text">
+<div class="header">
 <p>
 Next: <a href="#us_002dascii" accesskey="n" rel="next">us-ascii</a>, Previous: <a href="#RFC-2049" accesskey="p" rel="prev">RFC 2049</a>, Up: <a href="#Glossary" accesskey="u" rel="up">Glossary</a> &nbsp; [<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
 </div>
 <span id="plain-text-1"></span><h4 class="subsection">9.1.20 plain text</h4>
 
-<p>A textual data represented by only coded character set (<a href="#coded-character-set">coded character set</a>).  It does not have information about font or
+<p>A textual data represented by only coded character set (<a href="#coded-character-set">Coded character set, Character code</a>).  It does not have information about font or
 typesetting.
 </p>
 
 
 <hr>
-<span id="us_002dascii"></span><div class="header">
+</div>
+<div class="subsection" id="us_002dascii">
+<div class="header">
 <p>
 Previous: <a href="#plain-text" accesskey="p" rel="prev">plain text</a>, Up: <a href="#Glossary" accesskey="u" rel="up">Glossary</a> &nbsp; [<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
 </div>
@@ -1830,7 +1882,7 @@ Previous: <a href="#plain-text" accesskey="p" rel="prev">plain text</a>, Up: <a 
 <p>A MIME charset (<a href="#MIME-charset">MIME charset</a>) for primary Latin script mainly
 written by English or other languages.
 </p>
-<p>It is a 7bit coded character set (<a href="#coded-character-set">coded character set</a>) based on
+<p>It is a 7bit coded character set (<a href="#coded-character-set">Coded character set, Character code</a>) based on
 ISO 2022, it contains only ASCII (<a href="#ASCII">ASCII</a>) and code
 extension is not allowed.
 </p>
@@ -1842,9 +1894,12 @@ interpreted as us-ascii.
 </p>
 
 <hr>
-<span id="Bug-report"></span><div class="header">
+</div>
+</div>
+<div class="section" id="Bug-report">
+<div class="header">
 <p>
-Next: <a href="#GitHub" accesskey="n" rel="next">GitHub</a>, Previous: <a href="#Glossary" accesskey="p" rel="prev">Glossary</a>, Up: <a href="#Appendix" accesskey="u" rel="up">Appendix</a> &nbsp; [<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
+Next: <a href="#GitHub" accesskey="n" rel="next">GitHub based development</a>, Previous: <a href="#Glossary" accesskey="p" rel="prev">Glossary</a>, Up: <a href="#Appendix" accesskey="u" rel="up">Appendix</a> &nbsp; [<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
 </div>
 <span id="How-to-report-bugs"></span><h3 class="section">9.2 How to report bugs</h3>
 <span id="index-good-bug-report"></span>
@@ -1883,7 +1938,7 @@ first.
 does not work&rdquo;, we can not find such situations.  At least, you
 should write name, type, variants and version of OS, emacs, APEL,
 FLIM, SEMI and MUA, and setting.  In addition, if error occurs, to
-send backtrace is very important. (cf. <a href="https://www.gnu.org/software/emacs/manual/html_mono/emacs.html#Bugs">Reporting Bugs</a> in <cite>GNU Emacs Manual</cite>) 
+send backtrace is very important. (cf. <a data-manual="emacs" href="https://www.gnu.org/software/emacs/manual/html_mono/emacs.html#Bugs">Reporting Bugs</a> in <cite>GNU Emacs Manual</cite>) 
 </p>
 <p>Bug may not appear only your environment, but also in a lot of
 environment (otherwise it might not bug).  Therefor if you send mail
@@ -1892,9 +1947,11 @@ to address for EMACS-MIME Mailing List instead of author.
 </p>
 
 <hr>
-<span id="GitHub"></span><div class="header">
+</div>
+<div class="section" id="GitHub">
+<div class="header">
 <p>
-Next: <a href="#History" accesskey="n" rel="next">History</a>, Previous: <a href="#Bug-report" accesskey="p" rel="prev">Bug report</a>, Up: <a href="#Appendix" accesskey="u" rel="up">Appendix</a> &nbsp; [<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
+Next: <a href="#History" accesskey="n" rel="next">History of FLIM</a>, Previous: <a href="#Bug-report" accesskey="p" rel="prev">How to report bugs</a>, Up: <a href="#Appendix" accesskey="u" rel="up">Appendix</a> &nbsp; [<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
 </div>
 <span id="GitHub-based-development"></span><h3 class="section">9.3 GitHub based development</h3>
 
@@ -1914,9 +1971,11 @@ section of Emacs&rsquo;s CONTRIBUTE file
 </p>
 
 <hr>
-<span id="History"></span><div class="header">
+</div>
+<div class="section" id="History">
+<div class="header">
 <p>
-Previous: <a href="#GitHub" accesskey="p" rel="prev">GitHub</a>, Up: <a href="#Appendix" accesskey="u" rel="up">Appendix</a> &nbsp; [<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
+Previous: <a href="#GitHub" accesskey="p" rel="prev">GitHub based development</a>, Up: <a href="#Appendix" accesskey="u" rel="up">Appendix</a> &nbsp; [<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
 </div>
 <span id="History-of-FLIM"></span><h3 class="section">9.4 History of FLIM</h3>
 
@@ -1971,9 +2030,12 @@ FLIM の枝である &ldquo;FLIM-FLAM&rdquo; となっています。
 </p>
 
 <hr>
-<span id="Concept-Index"></span><div class="header">
+</div>
+</div>
+<div class="chapter" id="Concept-Index">
+<div class="header">
 <p>
-Next: <a href="#Function-Index" accesskey="n" rel="next">Function Index</a>, Previous: <a href="#Appendix" accesskey="p" rel="prev">Appendix</a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a> &nbsp; [<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
+Next: <a href="#Function-Index" accesskey="n" rel="next">Function Index</a>, Previous: <a href="#Appendix" accesskey="p" rel="prev">Appendix</a>, Up: <a href="#Top" accesskey="u" rel="up">FLIM-LB 1.14 Reference Manual about MIME Features</a> &nbsp; [<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
 </div>
 <span id="Concept-Index-1"></span><h2 class="chapter">10 Concept Index</h2>
 
@@ -2163,9 +2225,11 @@ Next: <a href="#Function-Index" accesskey="n" rel="next">Function Index</a>, Pre
 </td></tr></table>
 
 <hr>
-<span id="Function-Index"></span><div class="header">
+</div>
+<div class="chapter" id="Function-Index">
+<div class="header">
 <p>
-Next: <a href="#Variable-Index" accesskey="n" rel="next">Variable Index</a>, Previous: <a href="#Concept-Index" accesskey="p" rel="prev">Concept Index</a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a> &nbsp; [<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
+Next: <a href="#Variable-Index" accesskey="n" rel="next">Variable Index</a>, Previous: <a href="#Concept-Index" accesskey="p" rel="prev">Concept Index</a>, Up: <a href="#Top" accesskey="u" rel="up">FLIM-LB 1.14 Reference Manual about MIME Features</a> &nbsp; [<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
 </div>
 <span id="Function-Index-1"></span><h2 class="chapter">11 Function Index</h2>
 
@@ -2250,9 +2314,11 @@ Next: <a href="#Variable-Index" accesskey="n" rel="next">Variable Index</a>, Pre
 </td></tr></table>
 
 <hr>
-<span id="Variable-Index"></span><div class="header">
+</div>
+<div class="chapter" id="Variable-Index">
+<div class="header">
 <p>
-Previous: <a href="#Function-Index" accesskey="p" rel="prev">Function Index</a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a> &nbsp; [<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
+Previous: <a href="#Function-Index" accesskey="p" rel="prev">Function Index</a>, Up: <a href="#Top" accesskey="u" rel="up">FLIM-LB 1.14 Reference Manual about MIME Features</a> &nbsp; [<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
 </div>
 <span id="Variable-Index-1"></span><h2 class="chapter">12 Variable Index</h2>
 
@@ -2277,6 +2343,8 @@ Previous: <a href="#Function-Index" accesskey="p" rel="prev">Function Index</a>,
 <a class="summary-letter" href="#Variable-Index_vr_letter-M"><b>M</b></a>
  &nbsp; 
 </td></tr></table>
+</div>
+</div>
 <div class="footnote">
 <hr>
 <h4 class="footnotes-heading">Footnotes</h4>
@@ -2287,7 +2355,6 @@ Previous: <a href="#Function-Index" accesskey="p" rel="prev">Function Index</a>,
 <p><a href="http://www.jpl.org/elips/BUGS-ja.html">http://www.jpl.org/elips/BUGS-ja.html</a> describes how to
 in Japanese.</p>
 </div>
-<hr>
 
 
 

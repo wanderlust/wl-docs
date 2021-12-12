@@ -1,6 +1,6 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-<!-- Created by GNU Texinfo 6.7, http://www.gnu.org/software/texinfo/ -->
+<!-- Created by GNU Texinfo 6.8, http://www.gnu.org/software/texinfo/ -->
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <title>SEMI-EPG 1.14 Manual</title>
@@ -10,16 +10,20 @@
 <meta name="resource-type" content="document">
 <meta name="distribution" content="global">
 <meta name="Generator" content="texi2any">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
 <link href="#Top" rel="start" title="Top">
 <link href="#Concept-Index" rel="index" title="Concept Index">
 <link href="dir.html#Top" rel="up" title="(dir)">
+<link href="#Introduction" rel="next" title="Introduction">
+<link href="dir.html#Top" rel="prev" title="(dir)">
 <style type="text/css">
 <!--
+a.copiable-anchor {visibility: hidden; text-decoration: none; line-height: 0em}
 a.summary-letter {text-decoration: none}
 blockquote.indentedblock {margin-right: 0em}
 div.display {margin-left: 3.2em}
 div.example {margin-left: 3.2em}
-div.lisp {margin-left: 3.2em}
 kbd {font-style: oblique}
 pre.display {font-family: inherit}
 pre.format {font-family: inherit}
@@ -28,6 +32,7 @@ pre.menu-preformatted {font-family: serif}
 span.nolinebreak {white-space: nowrap}
 span.roman {font-family: initial; font-weight: normal}
 span.sansserif {font-family: sans-serif; font-weight: normal}
+span:hover a.copiable-anchor {visibility: visible}
 ul.no-bullet {list-style: none}
 -->
 </style>
@@ -40,36 +45,31 @@ ul.no-bullet {list-style: none}
 <h1 class="settitle" align="center">SEMI-EPG 1.14 Manual</h1>
 
 
-<span id="Top"></span><div class="header">
+<div class="top" id="Top">
+<div class="header">
 <p>
-Next: <a href="#Introduction" accesskey="n" rel="next">Introduction</a>, Previous: <a href="dir.html#Top" accesskey="p" rel="prev">(dir)</a>, Up: <a href="dir.html#Top" accesskey="u" rel="up">(dir)</a> &nbsp; [<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
+Next: <a href="#Introduction" accesskey="n" rel="next">What is SEMI-EPG?</a>, Previous: <a href="dir.html#Top" accesskey="p" rel="prev">(dir)</a>, Up: <a href="dir.html#Top" accesskey="u" rel="up">(dir)</a> &nbsp; [<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
 </div>
 <span id="SEMI_002dEPG-1_002e14-Manual"></span><h1 class="top">SEMI-EPG 1.14 Manual</h1>
 
 
 <p>This file documents SEMI, a MIME user interface for GNU Emacs.
 </p>
-<table class="menu" border="0" cellspacing="0">
-<tr><td align="left" valign="top">&bull; <a href="#Introduction" accesskey="1">Introduction</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">What is SEMI-EPG?
-</td></tr>
-<tr><td align="left" valign="top">&bull; <a href="#MIME_002dView" accesskey="2">MIME-View</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">MIME message viewing
-</td></tr>
-<tr><td align="left" valign="top">&bull; <a href="#MIME_002dEdit" accesskey="3">MIME-Edit</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">MIME message editing
-</td></tr>
-<tr><td align="left" valign="top">&bull; <a href="#Various" accesskey="4">Various</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Miscellaneous
-</td></tr>
-<tr><td align="left" valign="top">&bull; <a href="#Concept-Index" rel="index" accesskey="5">Concept Index</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
-</td></tr>
-<tr><td align="left" valign="top">&bull; <a href="#Function-Index" rel="index" accesskey="6">Function Index</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
-</td></tr>
-<tr><td align="left" valign="top">&bull; <a href="#Variable-Index" rel="index" accesskey="7">Variable Index</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
-</td></tr>
-</table>
 
+<ul class="section-toc">
+<li><a href="#Introduction" accesskey="1">What is SEMI-EPG?</a></li>
+<li><a href="#MIME_002dView" accesskey="2">MIME message viewing</a></li>
+<li><a href="#MIME_002dEdit" accesskey="3">MIME message editing</a></li>
+<li><a href="#Various" accesskey="4">Miscellaneous</a></li>
+<li><a href="#Concept-Index" accesskey="5">Concept Index</a></li>
+<li><a href="#Function-Index" accesskey="6">Function Index</a></li>
+<li><a href="#Variable-Index" accesskey="7">Variable Index</a></li>
+</ul>
 <hr>
-<span id="Introduction"></span><div class="header">
+<div class="chapter" id="Introduction">
+<div class="header">
 <p>
-Next: <a href="#MIME_002dView" accesskey="n" rel="next">MIME-View</a>, Previous: <a href="#Top" accesskey="p" rel="prev">Top</a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a> &nbsp; [<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
+Next: <a href="#MIME_002dView" accesskey="n" rel="next">MIME message viewing</a>, Previous: <a href="#Top" accesskey="p" rel="prev">SEMI-EPG 1.14 Manual</a>, Up: <a href="#Top" accesskey="u" rel="up">SEMI-EPG 1.14 Manual</a> &nbsp; [<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
 </div>
 <span id="What-is-SEMI_002dEPG_003f"></span><h2 class="chapter">1 What is SEMI-EPG?</h2>
 
@@ -89,9 +89,11 @@ messages, STD 11 messages or &ldquo;localized RFC 822&rdquo; messages.
 </p>
 
 <hr>
-<span id="MIME_002dView"></span><div class="header">
+</div>
+<div class="chapter" id="MIME_002dView">
+<div class="header">
 <p>
-Next: <a href="#MIME_002dEdit" accesskey="n" rel="next">MIME-Edit</a>, Previous: <a href="#Introduction" accesskey="p" rel="prev">Introduction</a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a> &nbsp; [<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
+Next: <a href="#MIME_002dEdit" accesskey="n" rel="next">MIME message editing</a>, Previous: <a href="#Introduction" accesskey="p" rel="prev">What is SEMI-EPG?</a>, Up: <a href="#Top" accesskey="u" rel="up">SEMI-EPG 1.14 Manual</a> &nbsp; [<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
 </div>
 <span id="MIME-message-viewing"></span><h2 class="chapter">2 MIME message viewing</h2>
 
@@ -103,19 +105,17 @@ creating some representation, or some acting-method which is a program
 for processing the entity. Then you can deal with a variety of entities.
 </p>
 
-<table class="menu" border="0" cellspacing="0">
-<tr><td align="left" valign="top">&bull; <a href="#Overview-of-MIME_002dView" accesskey="1">Overview of MIME-View</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Basic design
-</td></tr>
-<tr><td align="left" valign="top">&bull; <a href="#MIME_002dPreview" accesskey="2">MIME-Preview</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Presentation of mime-preview-buffer
-</td></tr>
-<tr><td align="left" valign="top">&bull; <a href="#mime_002dview_002dmode" accesskey="3">mime-view-mode</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Operation in mime-preview-buffer
-</td></tr>
-</table>
 
+<ul class="section-toc">
+<li><a href="#Overview-of-MIME_002dView" accesskey="1">Basic design</a></li>
+<li><a href="#MIME_002dPreview" accesskey="2">Presentation of mime-preview-buffer</a></li>
+<li><a href="#mime_002dview_002dmode" accesskey="3">Operation in mime-preview-buffer</a></li>
+</ul>
 <hr>
-<span id="Overview-of-MIME_002dView"></span><div class="header">
+<div class="section" id="Overview-of-MIME_002dView">
+<div class="header">
 <p>
-Next: <a href="#MIME_002dPreview" accesskey="n" rel="next">MIME-Preview</a>, Previous: <a href="#MIME_002dView" accesskey="p" rel="prev">MIME-View</a>, Up: <a href="#MIME_002dView" accesskey="u" rel="up">MIME-View</a> &nbsp; [<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
+Next: <a href="#MIME_002dPreview" accesskey="n" rel="next">Presentation of mime-preview-buffer</a>, Previous: <a href="#MIME_002dView" accesskey="p" rel="prev">MIME message viewing</a>, Up: <a href="#MIME_002dView" accesskey="u" rel="up">MIME message viewing</a> &nbsp; [<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
 </div>
 <span id="Basic-design"></span><h3 class="section">2.1 Basic design</h3>
 
@@ -162,9 +162,11 @@ entity there.
 </p>
 
 <hr>
-<span id="MIME_002dPreview"></span><div class="header">
+</div>
+<div class="section" id="MIME_002dPreview">
+<div class="header">
 <p>
-Next: <a href="#mime_002dview_002dmode" accesskey="n" rel="next">mime-view-mode</a>, Previous: <a href="#Overview-of-MIME_002dView" accesskey="p" rel="prev">Overview of MIME-View</a>, Up: <a href="#MIME_002dView" accesskey="u" rel="up">MIME-View</a> &nbsp; [<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
+Next: <a href="#mime_002dview_002dmode" accesskey="n" rel="next">Operation in mime-preview-buffer</a>, Previous: <a href="#Overview-of-MIME_002dView" accesskey="p" rel="prev">Basic design</a>, Up: <a href="#MIME_002dView" accesskey="u" rel="up">MIME message viewing</a> &nbsp; [<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
 </div>
 <span id="Presentation-of-mime_002dpreview_002dbuffer"></span><h3 class="section">2.2 Presentation of mime-preview-buffer</h3>
 
@@ -235,19 +237,17 @@ which you want to insert.
 
 
 
-<table class="menu" border="0" cellspacing="0">
-<tr><td align="left" valign="top">&bull; <a href="#entity_002dbutton" accesskey="1">entity-button</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
-</td></tr>
-<tr><td align="left" valign="top">&bull; <a href="#entity_002dheader" accesskey="2">entity-header</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
-</td></tr>
-<tr><td align="left" valign="top">&bull; <a href="#entity_002dbody" accesskey="3">entity-body</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
-</td></tr>
-</table>
 
+<ul class="section-toc">
+<li><a href="#entity_002dbutton" accesskey="1">entity-button</a></li>
+<li><a href="#entity_002dheader" accesskey="2">entity-header</a></li>
+<li><a href="#entity_002dbody" accesskey="3">entity-body</a></li>
+</ul>
 <hr>
-<span id="entity_002dbutton"></span><div class="header">
+<div class="subsection" id="entity_002dbutton">
+<div class="header">
 <p>
-Next: <a href="#entity_002dheader" accesskey="n" rel="next">entity-header</a>, Previous: <a href="#MIME_002dPreview" accesskey="p" rel="prev">MIME-Preview</a>, Up: <a href="#MIME_002dPreview" accesskey="u" rel="up">MIME-Preview</a> &nbsp; [<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
+Next: <a href="#entity_002dheader" accesskey="n" rel="next">entity-header</a>, Previous: <a href="#MIME_002dPreview" accesskey="p" rel="prev">Presentation of mime-preview-buffer</a>, Up: <a href="#MIME_002dPreview" accesskey="u" rel="up">Presentation of mime-preview-buffer</a> &nbsp; [<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
 </div>
 <span id="entity_002dbutton-1"></span><h4 class="subsection">2.2.1 entity-button</h4>
 <span id="index-entity_002dnumber"></span>
@@ -300,9 +300,11 @@ by pushing 2nd button (the middle button for 3 button mouse) too.
 </p>
 
 <hr>
-<span id="entity_002dheader"></span><div class="header">
+</div>
+<div class="subsection" id="entity_002dheader">
+<div class="header">
 <p>
-Next: <a href="#entity_002dbody" accesskey="n" rel="next">entity-body</a>, Previous: <a href="#entity_002dbutton" accesskey="p" rel="prev">entity-button</a>, Up: <a href="#MIME_002dPreview" accesskey="u" rel="up">MIME-Preview</a> &nbsp; [<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
+Next: <a href="#entity_002dbody" accesskey="n" rel="next">entity-body</a>, Previous: <a href="#entity_002dbutton" accesskey="p" rel="prev">entity-button</a>, Up: <a href="#MIME_002dPreview" accesskey="u" rel="up">Presentation of mime-preview-buffer</a> &nbsp; [<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
 </div>
 <span id="entity_002dheader-1"></span><h4 class="subsection">2.2.2 entity-header</h4>
 <span id="index-entity_002dheader"></span>
@@ -312,9 +314,11 @@ Next: <a href="#entity_002dbody" accesskey="n" rel="next">entity-body</a>, Previ
 It is no more than that.)
 </p>
 <hr>
-<span id="entity_002dbody"></span><div class="header">
+</div>
+<div class="subsection" id="entity_002dbody">
+<div class="header">
 <p>
-Previous: <a href="#entity_002dheader" accesskey="p" rel="prev">entity-header</a>, Up: <a href="#MIME_002dPreview" accesskey="u" rel="up">MIME-Preview</a> &nbsp; [<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
+Previous: <a href="#entity_002dheader" accesskey="p" rel="prev">entity-header</a>, Up: <a href="#MIME_002dPreview" accesskey="u" rel="up">Presentation of mime-preview-buffer</a> &nbsp; [<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
 </div>
 <span id="entity_002dbody-1"></span><h4 class="subsection">2.2.3 entity-body</h4>
 <span id="index-entity_002dbody"></span>
@@ -333,69 +337,72 @@ and the image entity should be converted on XEmacs.
 </p>
 
 <hr>
-<span id="mime_002dview_002dmode"></span><div class="header">
+</div>
+</div>
+<div class="section" id="mime_002dview_002dmode">
+<div class="header">
 <p>
-Previous: <a href="#MIME_002dPreview" accesskey="p" rel="prev">MIME-Preview</a>, Up: <a href="#MIME_002dView" accesskey="u" rel="up">MIME-View</a> &nbsp; [<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
+Previous: <a href="#MIME_002dPreview" accesskey="p" rel="prev">Presentation of mime-preview-buffer</a>, Up: <a href="#MIME_002dView" accesskey="u" rel="up">MIME message viewing</a> &nbsp; [<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
 </div>
 <span id="Operation-in-mime_002dpreview_002dbuffer"></span><h3 class="section">2.3 Operation in mime-preview-buffer</h3>
 
 <p>mime-preview-buffer posesses following functionalities.
 </p>
 <dl compact="compact">
-<dt><kbd><span class="key">u</span></kbd></dt>
+<dt><span><kbd><span class="key">u</span></kbd></span></dt>
 <dd><p>go back to upper part (in the first part of the message,
 go back to the Summary mode (*1))
 </p>
 </dd>
-<dt><kbd><span class="key">p</span></kbd></dt>
+<dt><span><kbd><span class="key">p</span></kbd></span></dt>
 <dd><p>go to previous part
 </p>
 </dd>
-<dt><kbd><span class="key">M-TAB</span></kbd></dt>
+<dt><span><kbd><span class="key">M-TAB</span></kbd></span></dt>
 <dd><p>go to previous part
 </p>
 </dd>
-<dt><kbd><span class="key">n</span></kbd></dt>
+<dt><span><kbd><span class="key">n</span></kbd></span></dt>
 <dd><p>go to next part
 </p>
 </dd>
-<dt><kbd><span class="key">TAB</span></kbd></dt>
+<dt><span><kbd><span class="key">TAB</span></kbd></span></dt>
 <dd><p>go to next part
 </p>
 </dd>
-<dt><kbd><span class="key">SPC</span></kbd></dt>
+<dt><span><kbd><span class="key">SPC</span></kbd></span></dt>
 <dd><p>scroll up
 </p>
 </dd>
-<dt><kbd><span class="key">M-SPC</span></kbd></dt>
+<dt><span><kbd><span class="key">M-SPC</span></kbd></span></dt>
 <dd><p>scroll down
 </p>
 </dd>
-<dt><kbd><span class="key">DEL</span></kbd></dt>
+<dt><span><kbd><span class="key">DEL</span></kbd></span></dt>
 <dd><p>scroll down
 </p>
 </dd>
-<dt><kbd><span class="key">RET</span></kbd></dt>
+<dt><span><kbd><span class="key">RET</span></kbd></span></dt>
 <dd><p>go to next line
 </p>
 </dd>
-<dt><kbd><span class="key">M-RET</span></kbd></dt>
+<dt><span><kbd><span class="key">M-RET</span></kbd></span></dt>
 <dd><p>go to previous line
 </p>
 </dd>
-<dt><kbd><span class="key">v</span></kbd></dt>
+<dt><span><kbd><span class="key">v</span></kbd></span></dt>
 <dd><p>play current part (*2)
 </p>
 </dd>
-<dt><kbd><span class="key">e</span></kbd></dt>
+<dt><span><kbd><span class="key">e</span></kbd></span></dt>
 <dd><p>extract file from current part (*2)
 </p>
 </dd>
-<dt><kbd><span class="key">C-c C-p</span></kbd></dt>
+<dt><span><kbd><span class="key">C-c C-p</span></kbd></span></dt>
 <dd><p>print current part (*2)
 </p>
 </dd>
-<dt><kbd><span class="key">mouse-button-2</span></kbd></dt>
+<dt><span><kbd><span class="key">mouse-button-2</span></kbd></span></dt>
 <dd><p>start the mouse button in preview-buffer
 </p>
 <p>on content-button, play current part (*2)
@@ -417,9 +424,12 @@ configured for mime-view in the MUA.
 
 
 <hr>
-<span id="MIME_002dEdit"></span><div class="header">
+</div>
+</div>
+<div class="chapter" id="MIME_002dEdit">
+<div class="header">
 <p>
-Next: <a href="#Various" accesskey="n" rel="next">Various</a>, Previous: <a href="#MIME_002dView" accesskey="p" rel="prev">MIME-View</a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a> &nbsp; [<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
+Next: <a href="#Various" accesskey="n" rel="next">Miscellaneous</a>, Previous: <a href="#MIME_002dView" accesskey="p" rel="prev">MIME message viewing</a>, Up: <a href="#Top" accesskey="u" rel="up">SEMI-EPG 1.14 Manual</a> &nbsp; [<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
 </div>
 <span id="MIME-message-editing"></span><h2 class="chapter">3 MIME message editing</h2>
 <span id="index-MIME_002dEdit"></span>
@@ -427,27 +437,21 @@ Next: <a href="#Various" accesskey="n" rel="next">Various</a>, Previous: <a href
 <p><strong>MIME-Edit</strong> is a general MIME composer for GNU Emacs.
 </p>
 
-<table class="menu" border="0" cellspacing="0">
-<tr><td align="left" valign="top">&bull; <a href="#mime_002dedit_002dmode" accesskey="1">mime-edit-mode</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Minor-mode to edit MIME message
-</td></tr>
-<tr><td align="left" valign="top">&bull; <a href="#single_002dpart-tags" accesskey="2">single-part tags</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Operations for single-part
-</td></tr>
-<tr><td align="left" valign="top">&bull; <a href="#enclosure-tags" accesskey="3">enclosure tags</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Operations for enclosure
-</td></tr>
-<tr><td align="left" valign="top">&bull; <a href="#other-MIME_002dEdit-operations" accesskey="4">other MIME-Edit operations</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Other operations
-</td></tr>
-<tr><td align="left" valign="top">&bull; <a href="#file_002dtype-specification" accesskey="5">file-type specification</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">How to detect tag for inserted file
-</td></tr>
-<tr><td align="left" valign="top">&bull; <a href="#transfer-level" accesskey="6">transfer level</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
-</td></tr>
-<tr><td align="left" valign="top">&bull; <a href="#message_002fpartial-sending" accesskey="7">message/partial sending</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Splitting
-</td></tr>
-</table>
 
+<ul class="section-toc">
+<li><a href="#mime_002dedit_002dmode" accesskey="1">Minor-mode to edit MIME message</a></li>
+<li><a href="#single_002dpart-tags" accesskey="2">Operations for single-part</a></li>
+<li><a href="#enclosure-tags" accesskey="3">Operations for enclosure</a></li>
+<li><a href="#other-MIME_002dEdit-operations" accesskey="4">Other operations</a></li>
+<li><a href="#file_002dtype-specification" accesskey="5">How to detect tag for inserted file</a></li>
+<li><a href="#transfer-level" accesskey="6">transfer level</a></li>
+<li><a href="#message_002fpartial-sending" accesskey="7">Splitting</a></li>
+</ul>
 <hr>
-<span id="mime_002dedit_002dmode"></span><div class="header">
+<div class="section" id="mime_002dedit_002dmode">
+<div class="header">
 <p>
-Next: <a href="#single_002dpart-tags" accesskey="n" rel="next">single-part tags</a>, Previous: <a href="#MIME_002dEdit" accesskey="p" rel="prev">MIME-Edit</a>, Up: <a href="#MIME_002dEdit" accesskey="u" rel="up">MIME-Edit</a> &nbsp; [<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
+Next: <a href="#single_002dpart-tags" accesskey="n" rel="next">Operations for single-part</a>, Previous: <a href="#MIME_002dEdit" accesskey="p" rel="prev">MIME message editing</a>, Up: <a href="#MIME_002dEdit" accesskey="u" rel="up">MIME message editing</a> &nbsp; [<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
 </div>
 <span id="Minor_002dmode-to-edit-MIME-message"></span><h3 class="section">3.1 Minor-mode to edit MIME message</h3>
 <span id="index-enclosure"></span>
@@ -477,11 +481,11 @@ image, audio, etc.
 </pre></div>
 
 <p>TYPE/SUBTYPE and PARAMETERS indicates type/subtype and parameters of
-Content-Type (<a href="mime-en.html#Content_002dType">Content-Type</a> in <cite>FLIM Manual</cite>) field.
+Content-Type (<a data-manual="mime-en" href="mime-en.html#Content_002dType">Content-Type</a> in <cite>FLIM Manual</cite>) field.
 TYPE/SUBTYPE is required, PARAMETERS is optional.
 </p>
 <p>ENCODING indicates Content-Transfer-Encoding
-(<a href="mime-en.html#Content_002dTransfer_002dEncoding">Content-Transfer-Encoding</a> in <cite>FLIM Manual</cite>) field.  It
+(<a data-manual="mime-en" href="mime-en.html#Content_002dTransfer_002dEncoding">Content-Transfer-Encoding</a> in <cite>FLIM Manual</cite>) field.  It
 is optional too.
 </p>
 <p>OPTIONAL-FIELDS is to represent another fields except Content-Type field
@@ -508,51 +512,53 @@ called as <strong>enclosure</strong>.
 </p>
 
 <hr>
-<span id="single_002dpart-tags"></span><div class="header">
+</div>
+<div class="section" id="single_002dpart-tags">
+<div class="header">
 <p>
-Next: <a href="#enclosure-tags" accesskey="n" rel="next">enclosure tags</a>, Previous: <a href="#mime_002dedit_002dmode" accesskey="p" rel="prev">mime-edit-mode</a>, Up: <a href="#MIME_002dEdit" accesskey="u" rel="up">MIME-Edit</a> &nbsp; [<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
+Next: <a href="#enclosure-tags" accesskey="n" rel="next">Operations for enclosure</a>, Previous: <a href="#mime_002dedit_002dmode" accesskey="p" rel="prev">Minor-mode to edit MIME message</a>, Up: <a href="#MIME_002dEdit" accesskey="u" rel="up">MIME message editing</a> &nbsp; [<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
 </div>
 <span id="Operations-for-single_002dpart"></span><h3 class="section">3.2 Operations for single-part</h3>
 
 <p>Operations to make single-part are following:
 </p>
 <dl compact="compact">
-<dt><kbd><span class="key">C-c C-x C-t</span></kbd></dt>
+<dt><span><kbd><span class="key">C-c C-x C-t</span></kbd></span></dt>
 <dd><p>Insert single-part tag indicates text part.
 </p>
 </dd>
-<dt><kbd><span class="key">C-c C-x C-i</span></kbd></dt>
+<dt><span><kbd><span class="key">C-c C-x C-i</span></kbd></span></dt>
 <dd><p>Insert file as a MIME attachment.  If <kbd>C-u</kbd> is followed by it, it
 asks media-type, subtype or encoding even if their default values are
-specified. (cf. <a href="#file_002dtype-specification">file-type specification</a>)
+specified. (cf. <a href="#file_002dtype-specification">How to detect tag for inserted file</a>)
 </p>
 </dd>
-<dt><kbd><span class="key">C-c C-x C-e</span></kbd></dt>
+<dt><span><kbd><span class="key">C-c C-x C-e</span></kbd></span></dt>
 <dd><p>Insert external part.
 </p>
 </dd>
-<dt><kbd><span class="key">C-c C-x C-v</span></kbd></dt>
+<dt><span><kbd><span class="key">C-c C-x C-v</span></kbd></span></dt>
 <dd><p>Record audio input until <kbd>C-g</kbd> is pressed, and insert as a
 audio part. (It requires /dev/audio in default.)
 </p>
 </dd>
-<dt><kbd><span class="key">C-c C-x C-y</span></kbd></dt>
+<dt><span><kbd><span class="key">C-c C-x C-y</span></kbd></span></dt>
 <dd><p>Insert current (mail or news) message. (It is MUA depended.)
 </p>
 </dd>
-<dt><kbd><span class="key">C-c C-x C-m</span></kbd></dt>
+<dt><span><kbd><span class="key">C-c C-x C-m</span></kbd></span></dt>
 <dd><p>Insert mail message. (It is MUA depended.)
 </p>
 </dd>
-<dt><kbd><span class="key">C-c C-x C-w</span>, <span class="key">C-c C-x C-s</span></kbd></dt>
+<dt><span><kbd><span class="key">C-c C-x C-w</span>, <span class="key">C-c C-x C-s</span></kbd></span></dt>
 <dd><p>Insert signature.
 </p>
 </dd>
-<dt><kbd><span class="key">C-c C-x C-k</span></kbd></dt>
+<dt><span><kbd><span class="key">C-c C-x C-k</span></kbd></span></dt>
 <dd><p>Insert PGP (<a href="#PGP">PGP</a>) public key. (It requires Mailcrypt package.)
 </p>
 </dd>
-<dt><kbd><span class="key">C-c C-x t</span></kbd></dt>
+<dt><span><kbd><span class="key">C-c C-x t</span></kbd></span></dt>
 <dd><p>Insert any single-part tag.
 </p>
 </dd>
@@ -561,40 +567,42 @@ audio part. (It requires /dev/audio in default.)
 
 
 <hr>
-<span id="enclosure-tags"></span><div class="header">
+</div>
+<div class="section" id="enclosure-tags">
+<div class="header">
 <p>
-Next: <a href="#other-MIME_002dEdit-operations" accesskey="n" rel="next">other MIME-Edit operations</a>, Previous: <a href="#single_002dpart-tags" accesskey="p" rel="prev">single-part tags</a>, Up: <a href="#MIME_002dEdit" accesskey="u" rel="up">MIME-Edit</a> &nbsp; [<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
+Next: <a href="#other-MIME_002dEdit-operations" accesskey="n" rel="next">Other operations</a>, Previous: <a href="#single_002dpart-tags" accesskey="p" rel="prev">Operations for single-part</a>, Up: <a href="#MIME_002dEdit" accesskey="u" rel="up">MIME message editing</a> &nbsp; [<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
 </div>
 <span id="Operations-for-enclosure"></span><h3 class="section">3.3 Operations for enclosure</h3>
 
 <p>Operations to make enclosure are following:
 </p>
 <dl compact="compact">
-<dt><kbd><span class="key">C-c C-m C-a</span></kbd></dt>
+<dt><span><kbd><span class="key">C-c C-m C-a</span></kbd></span></dt>
 <dd><p>Enclose specified region as multipart/alternative.
 </p>
 </dd>
-<dt><kbd><span class="key">C-c C-m C-p</span></kbd></dt>
+<dt><span><kbd><span class="key">C-c C-m C-p</span></kbd></span></dt>
 <dd><p>Enclose specified region as multipart/parallel.
 </p>
 </dd>
-<dt><kbd><span class="key">C-c C-m C-m</span></kbd></dt>
+<dt><span><kbd><span class="key">C-c C-m C-m</span></kbd></span></dt>
 <dd><p>Enclose specified region as multipart/mixed.
 </p>
 </dd>
-<dt><kbd><span class="key">C-c C-m C-d</span></kbd></dt>
+<dt><span><kbd><span class="key">C-c C-m C-d</span></kbd></span></dt>
 <dd><p>Enclose specified region as multipart/digest.
 </p>
 </dd>
-<dt><kbd><span class="key">C-c C-m C-s</span></kbd></dt>
+<dt><span><kbd><span class="key">C-c C-m C-s</span></kbd></span></dt>
 <dd><p>Digital-sign to specified region. (cf. <a href="#PGP">PGP</a>)
 </p>
 </dd>
-<dt><kbd><span class="key">C-c C-m C-e</span></kbd></dt>
+<dt><span><kbd><span class="key">C-c C-m C-e</span></kbd></span></dt>
 <dd><p>Encrypt to specified region. (cf. <a href="#PGP">PGP</a>)
 </p>
 </dd>
-<dt><kbd><span class="key">C-c C-m C-q</span></kbd></dt>
+<dt><span><kbd><span class="key">C-c C-m C-q</span></kbd></span></dt>
 <dd><p>avoid to encode tags in specified region.  In other words, tags is
 interpreted as such string.  (In current version, it may be
 incomplete.  Maybe PGP-signature does not work for this enclosure.)
@@ -605,51 +613,53 @@ incomplete.  Maybe PGP-signature does not work for this enclosure.)
 
 
 <hr>
-<span id="other-MIME_002dEdit-operations"></span><div class="header">
+</div>
+<div class="section" id="other-MIME_002dEdit-operations">
+<div class="header">
 <p>
-Next: <a href="#file_002dtype-specification" accesskey="n" rel="next">file-type specification</a>, Previous: <a href="#enclosure-tags" accesskey="p" rel="prev">enclosure tags</a>, Up: <a href="#MIME_002dEdit" accesskey="u" rel="up">MIME-Edit</a> &nbsp; [<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
+Next: <a href="#file_002dtype-specification" accesskey="n" rel="next">How to detect tag for inserted file</a>, Previous: <a href="#enclosure-tags" accesskey="p" rel="prev">Operations for enclosure</a>, Up: <a href="#MIME_002dEdit" accesskey="u" rel="up">MIME message editing</a> &nbsp; [<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
 </div>
 <span id="Other-operations"></span><h3 class="section">3.4 Other operations</h3>
 
 <p>There are another operations in mime-edit-mode.
 </p>
 <dl compact="compact">
-<dt><kbd><span class="key">C-c C-c</span></kbd></dt>
+<dt><span><kbd><span class="key">C-c C-c</span></kbd></span></dt>
 <dd><p>Send current editing message.
 </p>
 </dd>
-<dt><kbd><span class="key">C-c C-x p</span></kbd></dt>
-<dd><p>Preview current editing message. (cf. <a href="#MIME_002dView">MIME-View</a>)
+<dt><span><kbd><span class="key">C-c C-x p</span></kbd></span></dt>
+<dd><p>Preview current editing message. (cf. <a href="#MIME_002dView">MIME message viewing</a>)
 </p>
 </dd>
-<dt><kbd><span class="key">C-c C-x C-z</span></kbd></dt>
+<dt><span><kbd><span class="key">C-c C-x C-z</span></kbd></span></dt>
 <dd><p>Exit mime-edit-mode without sending.
 </p>
 </dd>
-<dt><kbd><span class="key">C-c C-x /</span></kbd></dt>
+<dt><span><kbd><span class="key">C-c C-x /</span></kbd></span></dt>
 <dd><p>Set current editing message to enable automatic splitting or not.
 Form of automatic split messages is message/partial.
 </p>
 </dd>
-<dt><kbd><span class="key">C-c C-x 7</span></kbd></dt>
-<dd><p>Set 7bit (<a href="mime-en.html#g_t7bit">7bit</a> in <cite>FLIM Manual</cite>) to transfer level
+<dt><span><kbd><span class="key">C-c C-x 7</span></kbd></span></dt>
+<dd><p>Set 7bit (<a data-manual="mime-en" href="mime-en.html#g_t7bit">7bit</a> in <cite>FLIM Manual</cite>) to transfer level
 (<a href="#transfer-level">transfer level</a>).
 </p>
 </dd>
-<dt><kbd><span class="key">C-c C-x 8</span></kbd></dt>
-<dd><p>Set 8bit (<a href="mime-en.html#g_t8bit">8bit</a> in <cite>FLIM Manual</cite>) to transfer level
+<dt><span><kbd><span class="key">C-c C-x 8</span></kbd></span></dt>
+<dd><p>Set 8bit (<a data-manual="mime-en" href="mime-en.html#g_t8bit">8bit</a> in <cite>FLIM Manual</cite>) to transfer level
 (<a href="#transfer-level">transfer level</a>).
 </p>
 </dd>
-<dt><kbd><span class="key">C-c C-x v</span></kbd></dt>
+<dt><span><kbd><span class="key">C-c C-x v</span></kbd></span></dt>
 <dd><p>Set current editing message to digital-sign or not. (cf. <a href="#PGP">PGP</a>)
 </p>
 </dd>
-<dt><kbd><span class="key">C-c C-x h</span></kbd></dt>
+<dt><span><kbd><span class="key">C-c C-x h</span></kbd></span></dt>
 <dd><p>Set current editing message to encrypt or not. (cf. <a href="#PGP">PGP</a>)
 </p>
 </dd>
-<dt><kbd><span class="key">C-c C-x ?</span></kbd></dt>
+<dt><span><kbd><span class="key">C-c C-x ?</span></kbd></span></dt>
 <dd><p>Display help message.
 </p>
 </dd>
@@ -658,9 +668,11 @@ Form of automatic split messages is message/partial.
 
 
 <hr>
-<span id="file_002dtype-specification"></span><div class="header">
+</div>
+<div class="section" id="file_002dtype-specification">
+<div class="header">
 <p>
-Next: <a href="#transfer-level" accesskey="n" rel="next">transfer level</a>, Previous: <a href="#other-MIME_002dEdit-operations" accesskey="p" rel="prev">other MIME-Edit operations</a>, Up: <a href="#MIME_002dEdit" accesskey="u" rel="up">MIME-Edit</a> &nbsp; [<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
+Next: <a href="#transfer-level" accesskey="n" rel="next">transfer level</a>, Previous: <a href="#other-MIME_002dEdit-operations" accesskey="p" rel="prev">Other operations</a>, Up: <a href="#MIME_002dEdit" accesskey="u" rel="up">MIME message editing</a> &nbsp; [<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
 </div>
 <span id="How-to-detect-tag-for-inserted-file"></span><h3 class="section">3.5 How to detect tag for inserted file</h3>
 
@@ -675,15 +687,15 @@ detected value is used as default value)
 <p>If you want to change default value for file names, please change
 variable <code>mime-file-types</code>.
 </p>
-<dl>
-<dt id="index-mime_002dfile_002dtypes">Variable: <strong>mime-file-types</strong></dt>
+<dl class="def">
+<dt id="index-mime_002dfile_002dtypes"><span class="category">Variable: </span><span><strong>mime-file-types</strong><a href='#index-mime_002dfile_002dtypes' class='copiable-anchor'> &para;</a></span></dt>
 <dd>
 <p>Specification of default value of tag for file name of inserted
 file.
 </p>
 <p>It is a list of following list:
 </p>
-<div class="lisp">
+<div class="example lisp">
 <pre class="lisp">	(FILE_PAT TYPE SUBTYPE PARAMS ENCODING
 	 DISPOSITION_TYPE DISPOSITION_PARAMS)
 </pre></div>
@@ -692,31 +704,31 @@ file.
 <p>Each element of the list is following:
 </p>
 <dl compact="compact">
-<dt>&lsquo;<samp>FILE_PAT</samp>&rsquo;</dt>
+<dt><span>&lsquo;<samp>FILE_PAT</samp>&rsquo;</span></dt>
 <dd><p>regular expression of file name
 </p>
 </dd>
-<dt>&lsquo;<samp>TYPE</samp>&rsquo;</dt>
+<dt><span>&lsquo;<samp>TYPE</samp>&rsquo;</span></dt>
 <dd><p>primary-type of media-type
 </p>
 </dd>
-<dt>&lsquo;<samp>SUBTYPE</samp>&rsquo;</dt>
+<dt><span>&lsquo;<samp>SUBTYPE</samp>&rsquo;</span></dt>
 <dd><p>subtype of media-type
 </p>
 </dd>
-<dt>&lsquo;<samp>PARAMS</samp>&rsquo;</dt>
+<dt><span>&lsquo;<samp>PARAMS</samp>&rsquo;</span></dt>
 <dd><p>parameters of Content-Type field
 </p>
 </dd>
-<dt>&lsquo;<samp>ENCODING</samp>&rsquo;</dt>
+<dt><span>&lsquo;<samp>ENCODING</samp>&rsquo;</span></dt>
 <dd><p>Content-Transfer-Encoding
 </p>
 </dd>
-<dt>&lsquo;<samp>DISPOSITION_TYPE</samp>&rsquo;</dt>
+<dt><span>&lsquo;<samp>DISPOSITION_TYPE</samp>&rsquo;</span></dt>
 <dd><p>disposition-type
 </p>
 </dd>
-<dt>&lsquo;<samp>DISPOSITION_PARAMS</samp>&rsquo;</dt>
+<dt><span>&lsquo;<samp>DISPOSITION_PARAMS</samp>&rsquo;</span></dt>
 <dd><p>parameters of Content-Disposition field
 </p>
 </dd>
@@ -725,7 +737,7 @@ file.
 <p>Example: Specify application/rtf as default media type for
 <samp>*.rtf</samp>
 </p>
-<div class="lisp">
+<div class="example lisp">
 <pre class="lisp">(eval-after-load
     &quot;mime-edit&quot;
   '(set-alist 'mime-file-types
@@ -739,18 +751,20 @@ file.
 
 
 <hr>
-<span id="transfer-level"></span><div class="header">
+</div>
+<div class="section" id="transfer-level">
+<div class="header">
 <p>
-Next: <a href="#message_002fpartial-sending" accesskey="n" rel="next">message/partial sending</a>, Previous: <a href="#file_002dtype-specification" accesskey="p" rel="prev">file-type specification</a>, Up: <a href="#MIME_002dEdit" accesskey="u" rel="up">MIME-Edit</a> &nbsp; [<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
+Next: <a href="#message_002fpartial-sending" accesskey="n" rel="next">Splitting</a>, Previous: <a href="#file_002dtype-specification" accesskey="p" rel="prev">How to detect tag for inserted file</a>, Up: <a href="#MIME_002dEdit" accesskey="u" rel="up">MIME message editing</a> &nbsp; [<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
 </div>
 <span id="transfer-level-1"></span><h3 class="section">3.6 transfer level</h3>
 <span id="index-transfer-level"></span>
 
 <p>Each content inserted in a message is represented by 7bit
-(<a href="mime-en.html#g_t7bit">7bit</a> in <cite>FLIM Manual</cite>), 8bit (<a href="mime-en.html#g_t8bit">8bit</a> in <cite>FLIM
-Manual</cite>) or binary (<a href="mime-en.html#binary">binary</a> in <cite>FLIM Manual</cite>).
+(<a data-manual="mime-en" href="mime-en.html#g_t7bit">7bit</a> in <cite>FLIM Manual</cite>), 8bit (<a data-manual="mime-en" href="mime-en.html#g_t8bit">8bit</a> in <cite>FLIM
+Manual</cite>) or binary (<a data-manual="mime-en" href="mime-en.html#binary">binary</a> in <cite>FLIM Manual</cite>).
 </p>
-<p>If a message is translated by 7bit-through MTA (<a href="mime-en.html#MTA">MTA</a> in <cite>FLIM Manual</cite>), there is no need to encode 7bit data, but 8bit and
+<p>If a message is translated by 7bit-through MTA (<a data-manual="mime-en" href="mime-en.html#MTA">MTA</a> in <cite>FLIM Manual</cite>), there is no need to encode 7bit data, but 8bit and
 binary data must be encoded to 7bit data.
 </p>
 <p>Similarly, if a message is translated by 8bit-through MTA, there is no
@@ -773,8 +787,8 @@ available.  mime-edit has a variable <code>mime-transfer-level</code>
 to represent transfer level.
 </p>
 
-<dl>
-<dt id="index-mime_002dtransfer_002dlevel">Variable: <strong>mime-transfer-level</strong></dt>
+<dl class="def">
+<dt id="index-mime_002dtransfer_002dlevel"><span class="category">Variable: </span><span><strong>mime-transfer-level</strong><a href='#index-mime_002dtransfer_002dlevel' class='copiable-anchor'> &para;</a></span></dt>
 <dd>
 <p>transfer level.
 </p>
@@ -792,35 +806,37 @@ binary will be 9.  But it will not be implemented.
 <p><strong>[Memo]</strong>
 </p><blockquote>
 <p>transfer level is only for body, not for message header
-(<a href="#entity_002dheader">entity-header</a>).  MIME extends RFC 822 (<a href="mime-en.html#RFC-822">RFC 822</a> in <cite>FLIM Manual</cite>) to use 8bit data in body, but it requires to use
-us-ascii (<a href="mime-en.html#us_002dascii">us-ascii</a> in <cite>FLIM Manual</cite>) in header.
+(<a href="#entity_002dheader">entity-header</a>).  MIME extends RFC 822 (<a data-manual="mime-en" href="mime-en.html#RFC-822">RFC 822</a> in <cite>FLIM Manual</cite>) to use 8bit data in body, but it requires to use
+us-ascii (<a data-manual="mime-en" href="mime-en.html#us_002dascii">us-ascii</a> in <cite>FLIM Manual</cite>) in header.
 </p></blockquote>
 
 
 
 <hr>
-<span id="message_002fpartial-sending"></span><div class="header">
+</div>
+<div class="section" id="message_002fpartial-sending">
+<div class="header">
 <p>
-Previous: <a href="#transfer-level" accesskey="p" rel="prev">transfer level</a>, Up: <a href="#MIME_002dEdit" accesskey="u" rel="up">MIME-Edit</a> &nbsp; [<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
+Previous: <a href="#transfer-level" accesskey="p" rel="prev">transfer level</a>, Up: <a href="#MIME_002dEdit" accesskey="u" rel="up">MIME message editing</a> &nbsp; [<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
 </div>
 <span id="Splitting"></span><h3 class="section">3.7 Splitting</h3>
 
-<dl>
-<dt id="index-mime_002dedit_002dsplit_002dmessage">Variable: <strong>mime-edit-split-message</strong></dt>
+<dl class="def">
+<dt id="index-mime_002dedit_002dsplit_002dmessage"><span class="category">Variable: </span><span><strong>mime-edit-split-message</strong><a href='#index-mime_002dedit_002dsplit_002dmessage' class='copiable-anchor'> &para;</a></span></dt>
 <dd>
 <p>Split large message if it is non-nil.
 </p></dd></dl>
 
 
-<dl>
-<dt id="index-mime_002dedit_002dmessage_002ddefault_002dmax_002dlines">Variable: <strong>mime-edit-message-default-max-lines</strong></dt>
+<dl class="def">
+<dt id="index-mime_002dedit_002dmessage_002ddefault_002dmax_002dlines"><span class="category">Variable: </span><span><strong>mime-edit-message-default-max-lines</strong><a href='#index-mime_002dedit_002dmessage_002ddefault_002dmax_002dlines' class='copiable-anchor'> &para;</a></span></dt>
 <dd>
 <p>Default maximum lines of a message.
 </p></dd></dl>
 
 
-<dl>
-<dt id="index-mime_002dedit_002dmessage_002dmax_002dlines_002dalist">Variable: <strong>mime-edit-message-max-lines-alist</strong></dt>
+<dl class="def">
+<dt id="index-mime_002dedit_002dmessage_002dmax_002dlines_002dalist"><span class="category">Variable: </span><span><strong>mime-edit-message-max-lines-alist</strong><a href='#index-mime_002dedit_002dmessage_002dmax_002dlines_002dalist' class='copiable-anchor'> &para;</a></span></dt>
 <dd>
 <p>Alist of major-mode vs maximum lines of a message.
 </p>
@@ -829,8 +845,8 @@ Previous: <a href="#transfer-level" accesskey="p" rel="prev">transfer level</a>,
 </p></dd></dl>
 
 
-<dl>
-<dt id="index-mime_002dedit_002dsplit_002dblind_002dfield_002dregexp">Variable: <strong>mime-edit-split-blind-field-regexp</strong></dt>
+<dl class="def">
+<dt id="index-mime_002dedit_002dsplit_002dblind_002dfield_002dregexp"><span class="category">Variable: </span><span><strong>mime-edit-split-blind-field-regexp</strong><a href='#index-mime_002dedit_002dsplit_002dblind_002dfield_002dregexp' class='copiable-anchor'> &para;</a></span></dt>
 <dd>
 <p>Regular expression to match field-name to be ignored when split sending.
 </p></dd></dl>
@@ -838,26 +854,27 @@ Previous: <a href="#transfer-level" accesskey="p" rel="prev">transfer level</a>,
 
 
 <hr>
-<span id="Various"></span><div class="header">
+</div>
+</div>
+<div class="chapter" id="Various">
+<div class="header">
 <p>
-Next: <a href="#Concept-Index" accesskey="n" rel="next">Concept Index</a>, Previous: <a href="#MIME_002dEdit" accesskey="p" rel="prev">MIME-Edit</a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a> &nbsp; [<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
+Next: <a href="#Concept-Index" accesskey="n" rel="next">Concept Index</a>, Previous: <a href="#MIME_002dEdit" accesskey="p" rel="prev">MIME message editing</a>, Up: <a href="#Top" accesskey="u" rel="up">SEMI-EPG 1.14 Manual</a> &nbsp; [<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
 </div>
 <span id="Miscellaneous"></span><h2 class="chapter">4 Miscellaneous</h2>
 
 
-<table class="menu" border="0" cellspacing="0">
-<tr><td align="left" valign="top">&bull; <a href="#PGP" accesskey="1">PGP</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Encryption, Sign
-</td></tr>
-<tr><td align="left" valign="top">&bull; <a href="#Buttons" accesskey="2">Buttons</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Mouse button
-</td></tr>
-<tr><td align="left" valign="top">&bull; <a href="#Acting_002dcondition-configuration" accesskey="3">Acting-condition configuration</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Utility for configuration
-</td></tr>
-</table>
 
+<ul class="section-toc">
+<li><a href="#PGP" accesskey="1">PGP</a></li>
+<li><a href="#Buttons" accesskey="2">Mouse button</a></li>
+<li><a href="#Acting_002dcondition-configuration" accesskey="3">Utility for configuration</a></li>
+</ul>
 <hr>
-<span id="PGP"></span><div class="header">
+<div class="section" id="PGP">
+<div class="header">
 <p>
-Next: <a href="#Buttons" accesskey="n" rel="next">Buttons</a>, Previous: <a href="#Various" accesskey="p" rel="prev">Various</a>, Up: <a href="#Various" accesskey="u" rel="up">Various</a> &nbsp; [<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
+Next: <a href="#Buttons" accesskey="n" rel="next">Mouse button</a>, Previous: <a href="#Various" accesskey="p" rel="prev">Miscellaneous</a>, Up: <a href="#Various" accesskey="u" rel="up">Miscellaneous</a> &nbsp; [<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
 </div>
 <span id="PGP-1"></span><h3 class="section">4.1 PGP</h3>
 <span id="index-PGP_002fMIME"></span>
@@ -865,51 +882,53 @@ Next: <a href="#Buttons" accesskey="n" rel="next">Buttons</a>, Previous: <a href
 <p>mime-edit provides PGP encryption, signature and inserting public-key
 features based on <strong>PGP/MIME</strong> (RFC 3156) by using EasyPG.
 </p>
-<dl>
-<dt id="index-mime_002dedit_002dpgp_002dverbose">Variable: <strong>mime-edit-pgp-verbose</strong></dt>
+<dl class="def">
+<dt id="index-mime_002dedit_002dpgp_002dverbose"><span class="category">Variable: </span><span><strong>mime-edit-pgp-verbose</strong><a href='#index-mime_002dedit_002dpgp_002dverbose' class='copiable-anchor'> &para;</a></span></dt>
 <dd><p>When non-nil, ask the user about the current operation more verbosely.
 </p></dd></dl>
 
-<dl>
-<dt id="index-mime_002dedit_002dpgp_002dsigners">Variable: <strong>mime-edit-pgp-signers</strong></dt>
+<dl class="def">
+<dt id="index-mime_002dedit_002dpgp_002dsigners"><span class="category">Variable: </span><span><strong>mime-edit-pgp-signers</strong><a href='#index-mime_002dedit_002dpgp_002dsigners' class='copiable-anchor'> &para;</a></span></dt>
 <dd><p>A list of your own key ID which will be preferredly used to sign a message.
 </p></dd></dl>
 
-<dl>
-<dt id="index-mime_002dedit_002dpgp_002dencrypt_002dto_002dself">Variable: <strong>mime-edit-pgp-encrypt-to-self</strong></dt>
+<dl class="def">
+<dt id="index-mime_002dedit_002dpgp_002dencrypt_002dto_002dself"><span class="category">Variable: </span><span><strong>mime-edit-pgp-encrypt-to-self</strong><a href='#index-mime_002dedit_002dpgp_002dencrypt_002dto_002dself' class='copiable-anchor'> &para;</a></span></dt>
 <dd><p>When non-nil, add sender&rsquo;s key ID to recipient list when encryption.
 When nil, sender can&rsquo;t decrypt encrypted content in general.
 </p></dd></dl>
 
-<dl>
-<dt id="index-mime_002dedit_002dpgp_002dfiltered_002dvalidities">Variable: <strong>mime-edit-pgp-filtered-validities</strong></dt>
+<dl class="def">
+<dt id="index-mime_002dedit_002dpgp_002dfiltered_002dvalidities"><span class="category">Variable: </span><span><strong>mime-edit-pgp-filtered-validities</strong><a href='#index-mime_002dedit_002dpgp_002dfiltered_002dvalidities' class='copiable-anchor'> &para;</a></span></dt>
 <dd><p>A list of keys&rsquo;s validities which are used for neither signing nor encrypting.
 </p></dd></dl>
 
 
 <hr>
-<span id="Buttons"></span><div class="header">
+</div>
+<div class="section" id="Buttons">
+<div class="header">
 <p>
-Next: <a href="#Acting_002dcondition-configuration" accesskey="n" rel="next">Acting-condition configuration</a>, Previous: <a href="#PGP" accesskey="p" rel="prev">PGP</a>, Up: <a href="#Various" accesskey="u" rel="up">Various</a> &nbsp; [<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
+Next: <a href="#Acting_002dcondition-configuration" accesskey="n" rel="next">Utility for configuration</a>, Previous: <a href="#PGP" accesskey="p" rel="prev">PGP</a>, Up: <a href="#Various" accesskey="u" rel="up">Miscellaneous</a> &nbsp; [<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
 </div>
 <span id="Mouse-button"></span><h3 class="section">4.2 Mouse button</h3>
 
-<dl>
-<dt id="index-mime_002dbutton_002dface">Variable: <strong>mime-button-face</strong></dt>
+<dl class="def">
+<dt id="index-mime_002dbutton_002dface"><span class="category">Variable: </span><span><strong>mime-button-face</strong><a href='#index-mime_002dbutton_002dface' class='copiable-anchor'> &para;</a></span></dt>
 <dd>
 <p>Face used for content-button or URL-button of MIME-Preview buffer.
 </p></dd></dl>
 
 
-<dl>
-<dt id="index-mime_002dbutton_002dmouse_002dface">Variable: <strong>mime-button-mouse-face</strong></dt>
+<dl class="def">
+<dt id="index-mime_002dbutton_002dmouse_002dface"><span class="category">Variable: </span><span><strong>mime-button-mouse-face</strong><a href='#index-mime_002dbutton_002dmouse_002dface' class='copiable-anchor'> &para;</a></span></dt>
 <dd>
 <p>Face used for MIME-preview buffer mouse highlighting.
 </p></dd></dl>
 
 
-<dl>
-<dt id="index-mime_002dbrowse_002durl_002dfunction">Variable: <strong>mime-browse-url-function</strong></dt>
+<dl class="def">
+<dt id="index-mime_002dbrowse_002durl_002dfunction"><span class="category">Variable: </span><span><strong>mime-browse-url-function</strong><a href='#index-mime_002dbrowse_002durl_002dfunction' class='copiable-anchor'> &para;</a></span></dt>
 <dd>
 <p>Function to browse URL.
 </p></dd></dl>
@@ -917,14 +936,16 @@ Next: <a href="#Acting_002dcondition-configuration" accesskey="n" rel="next">Act
 
 
 <hr>
-<span id="Acting_002dcondition-configuration"></span><div class="header">
+</div>
+<div class="section" id="Acting_002dcondition-configuration">
+<div class="header">
 <p>
-Previous: <a href="#Buttons" accesskey="p" rel="prev">Buttons</a>, Up: <a href="#Various" accesskey="u" rel="up">Various</a> &nbsp; [<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
+Previous: <a href="#Buttons" accesskey="p" rel="prev">Mouse button</a>, Up: <a href="#Various" accesskey="u" rel="up">Miscellaneous</a> &nbsp; [<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
 </div>
 <span id="Utility-for-configuration"></span><h3 class="section">4.3 Utility for configuration</h3>
 
-<dl>
-<dt id="index-mime_002dadd_002dcondition">Function: <strong>mime-add-condition</strong> <em>target-type condition  &amp;optional  mode file</em></dt>
+<dl class="def">
+<dt id="index-mime_002dadd_002dcondition"><span class="category">Function: </span><span><strong>mime-add-condition</strong> <em>target-type condition  &amp;optional  mode file</em><a href='#index-mime_002dadd_002dcondition' class='copiable-anchor'> &para;</a></span></dt>
 <dd>
 <p>Add <var>condition</var> to database specified by <var>target-type</var>.
 </p>
@@ -943,9 +964,12 @@ is added with default rule.
 
 
 <hr>
-<span id="Concept-Index"></span><div class="header">
+</div>
+</div>
+<div class="chapter" id="Concept-Index">
+<div class="header">
 <p>
-Next: <a href="#Function-Index" accesskey="n" rel="next">Function Index</a>, Previous: <a href="#Various" accesskey="p" rel="prev">Various</a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a> &nbsp; [<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
+Next: <a href="#Function-Index" accesskey="n" rel="next">Function Index</a>, Previous: <a href="#Various" accesskey="p" rel="prev">Miscellaneous</a>, Up: <a href="#Top" accesskey="u" rel="up">SEMI-EPG 1.14 Manual</a> &nbsp; [<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
 </div>
 <span id="Concept-Index-1"></span><h2 class="chapter">5 Concept Index</h2>
 
@@ -993,9 +1017,11 @@ Next: <a href="#Function-Index" accesskey="n" rel="next">Function Index</a>, Pre
 </td></tr></table>
 
 <hr>
-<span id="Function-Index"></span><div class="header">
+</div>
+<div class="chapter" id="Function-Index">
+<div class="header">
 <p>
-Next: <a href="#Variable-Index" accesskey="n" rel="next">Variable Index</a>, Previous: <a href="#Concept-Index" accesskey="p" rel="prev">Concept Index</a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a> &nbsp; [<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
+Next: <a href="#Variable-Index" accesskey="n" rel="next">Variable Index</a>, Previous: <a href="#Concept-Index" accesskey="p" rel="prev">Concept Index</a>, Up: <a href="#Top" accesskey="u" rel="up">SEMI-EPG 1.14 Manual</a> &nbsp; [<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
 </div>
 <span id="Function-Index-1"></span><h2 class="chapter">6 Function Index</h2>
 
@@ -1014,9 +1040,11 @@ Next: <a href="#Variable-Index" accesskey="n" rel="next">Variable Index</a>, Pre
 </td></tr></table>
 
 <hr>
-<span id="Variable-Index"></span><div class="header">
+</div>
+<div class="chapter" id="Variable-Index">
+<div class="header">
 <p>
-Previous: <a href="#Function-Index" accesskey="p" rel="prev">Function Index</a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a> &nbsp; [<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
+Previous: <a href="#Function-Index" accesskey="p" rel="prev">Function Index</a>, Up: <a href="#Top" accesskey="u" rel="up">SEMI-EPG 1.14 Manual</a> &nbsp; [<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
 </div>
 <span id="Variable-Index-1"></span><h2 class="chapter">7 Variable Index</h2>
 
@@ -1045,7 +1073,8 @@ Previous: <a href="#Function-Index" accesskey="p" rel="prev">Function Index</a>,
 <table><tr><th valign="top">Jump to: &nbsp; </th><td><a class="summary-letter" href="#Variable-Index_vr_letter-M"><b>M</b></a>
  &nbsp; 
 </td></tr></table>
-<hr>
+</div>
+</div>
 
 
 
