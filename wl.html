@@ -9710,7 +9710,9 @@ keep it as it is.
 </p>
 </li><li> function
 
-<p>If some function is specified, execute it.
+<p>If some function is specified, execute it.  It is called with two
+arugment, folder and message number.  If it returns non-nil value,
+&lsquo;<samp>delete</samp>&rsquo; action will be performed additionally.
 </p></li></ol>
 
 <p>If the message passes all rules, it will be dealed along &lsquo;<samp>ACTION</samp>&rsquo;
