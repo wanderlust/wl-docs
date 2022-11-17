@@ -145,7 +145,10 @@ Next: <a href="#Introduction" accesskey="n" rel="next">はじめに</a>, Previou
       <li><a id="toc-Ri-Ben-Yu-merubotukusuMing-noXi-i_0028Modified-UTF7_0029" href="#Ri-Ben-Yu-merubotukusuMing-noXi-i_0028Modified-UTF7_0029">3.1.1 日本語メールボックス名の扱い(Modified UTF7)</a></li>
     </ul></li>
     <li><a id="toc-NNTP-huoruda" href="#NNTP-Folder">3.2 NNTP フォルダ</a></li>
-    <li><a id="toc-MH-huoruda" href="#MH-Folder">3.3 MH フォルダ</a></li>
+    <li><a id="toc-MH-huoruda" href="#MH-Folder">3.3 MH フォルダ</a>
+    <ul class="no-bullet">
+      <li><a id="toc-MH-huorudaniGuan-suruBian-Shu-" href="#Localdir-Vars">3.3.1 MH フォルダに関する変数</a></li>
+    </ul></li>
     <li><a id="toc-Maildir-huoruda" href="#Maildir-Folder">3.4 Maildir フォルダ</a></li>
     <li><a id="toc-News-Spool-huoruda" href="#News-Spool-Folder">3.5 News Spool フォルダ</a></li>
     <li><a id="toc-akaibuhuoruda" href="#Archive-Folder">3.6 アーカイブフォルダ</a>
@@ -1248,7 +1251,34 @@ Next: <a href="#Maildir-Folder" accesskey="n" rel="next">Maildir フォルダ</a
 </pre></div>
 
 
+<ul class="section-toc">
+<li><a href="#Localdir-Vars" accesskey="1">MH フォルダに関する変数</a></li>
+</ul>
 <hr>
+<div class="subsection" id="Localdir-Vars">
+<div class="header">
+<p>
+Previous: <a href="#MH-Folder" accesskey="p" rel="prev">MH フォルダ</a>, Up: <a href="#MH-Folder" accesskey="u" rel="up">MH フォルダ</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<span id="MH-huorudaniGuan-suruBian-Shu-"></span><h4 class="subsection">3.3.1 MH フォルダに関する変数</h4>
+<span id="index-Localdir-variables"></span>
+
+<dl compact="compact">
+<dt id='index-elmo_002dlocaldir_002dfolder_002dpath'><span><code>elmo-localdir-folder-path</code><a href='#index-elmo_002dlocaldir_002dfolder_002dpath' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>MH フォルダの基準となるディレクトリを指定します。
+初期値は <samp>~/Mail</samp> です。
+</p>
+</dd>
+<dt id='index-elmo_002dlocaldir_002dwarnings'><span><code>elmo-localdir-warnings</code><a href='#index-elmo_002dlocaldir_002dwarnings' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>non-nilの場合、対象のディレクトに <samp>001</samp> のような 0 で始まる
+ファイルがあると警告を出します。
+対象のファイルはこの変数の値にかかわらず無視されます。
+</p></dd>
+</dl>
+
+
+<hr>
+</div>
 </div>
 <div class="section" id="Maildir-Folder">
 <div class="header">
@@ -10677,6 +10707,7 @@ Next: <a href="#Key-Index" accesskey="n" rel="next">キーバインド索引</a>
 <tr><td colspan="4"> <hr></td></tr>
 <tr><th id="Concept-Index_cp_letter-L">L</th><td></td><td></td></tr>
 <tr><td></td><td valign="top"><a href="#index-LHA">LHA</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Archiver">Archiver</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-Localdir-variables">Localdir variables</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Localdir-Vars">Localdir Vars</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-LSDB">LSDB</a>:</td><td>&nbsp;</td><td valign="top"><a href="#LSDB">LSDB</a></td></tr>
 <tr><td colspan="4"> <hr></td></tr>
 <tr><th id="Concept-Index_cp_letter-M">M</th><td></td><td></td></tr>
@@ -11414,6 +11445,8 @@ Next: <a href="#Function-Index" accesskey="n" rel="next">関数索引</a>, Previ
 <tr><td></td><td valign="top"><a href="#index-elmo_002dfolder_002dupdate_002dconfirm"><code>elmo-folder-update-confirm</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Variables-of-Summary">Variables of Summary</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-elmo_002dfolder_002dupdate_002dthreshold"><code>elmo-folder-update-threshold</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Variables-of-Summary">Variables of Summary</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-elmo_002dimap4_002duse_002dcache"><code>elmo-imap4-use-cache</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Variables-of-Summary">Variables of Summary</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-elmo_002dlocaldir_002dfolder_002dpath"><code>elmo-localdir-folder-path</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Localdir-Vars">Localdir Vars</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-elmo_002dlocaldir_002dwarnings"><code>elmo-localdir-warnings</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Localdir-Vars">Localdir Vars</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-elmo_002dlost_002bfound_002dfolder"><code>elmo-lost+found-folder</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Variables-of-Plugged-Mode">Variables of Plugged Mode</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-elmo_002dmessage_002dfetch_002dconfirm"><code>elmo-message-fetch-confirm</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Variables-of-Summary">Variables of Summary</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-elmo_002dmessage_002dfetch_002dthreshold"><code>elmo-message-fetch-threshold</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Variables-of-Summary">Variables of Summary</a></td></tr>

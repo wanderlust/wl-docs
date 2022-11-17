@@ -133,7 +133,10 @@ Yoichi Nakayama
       <li><a id="toc-International-mailbox-names-_0028Modified-UTF7_0029" href="#International-mailbox-names-_0028Modified-UTF7_0029">3.1.1 International mailbox names (Modified UTF7)</a></li>
     </ul></li>
     <li><a id="toc-NNTP-Folder-1" href="#NNTP-Folder">3.2 NNTP Folder</a></li>
-    <li><a id="toc-MH-Folder-1" href="#MH-Folder">3.3 MH Folder</a></li>
+    <li><a id="toc-MH-Folder-1" href="#MH-Folder">3.3 MH Folder</a>
+    <ul class="no-bullet">
+      <li><a id="toc-Variables-About-MH-Folder" href="#Localdir-Vars">3.3.1 Variables About MH Folder</a></li>
+    </ul></li>
     <li><a id="toc-Maildir-Folder-1" href="#Maildir-Folder">3.4 Maildir Folder</a></li>
     <li><a id="toc-News-Spool-Folder-1" href="#News-Spool-Folder">3.5 News Spool Folder</a></li>
     <li><a id="toc-Archive-Folder-1" href="#Archive-Folder">3.6 Archive Folder</a>
@@ -1248,7 +1251,33 @@ starts with &lsquo;<samp>/</samp>&rsquo; or &lsquo;<samp>~</samp>&rsquo;, then i
 </pre></div>
 
 
+<ul class="section-toc">
+<li><a href="#Localdir-Vars" accesskey="1">Variables About MH Folder</a></li>
+</ul>
 <hr>
+<div class="subsection" id="Localdir-Vars">
+<div class="header">
+<p>
+Previous: <a href="#MH-Folder" accesskey="p" rel="prev">MH Folder</a>, Up: <a href="#MH-Folder" accesskey="u" rel="up">MH Folder</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<span id="Variables-About-MH-Folder"></span><h4 class="subsection">3.3.1 Variables About MH Folder</h4>
+<span id="index-Localdir-variables"></span>
+
+<dl compact="compact">
+<dt id='index-elmo_002dlocaldir_002dfolder_002dpath'><span><code>elmo-localdir-folder-path</code><a href='#index-elmo_002dlocaldir_002dfolder_002dpath' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>Specify root directory of MH folder.
+Default is <samp>~/Mail</samp>.
+</p>
+</dd>
+<dt id='index-elmo_002dlocaldir_002dwarnings'><span><code>elmo-localdir-warnings</code><a href='#index-elmo_002dlocaldir_002dwarnings' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>When non-nil, show warning about filenames with leading 0 such as <samp>001</samp>.
+They are ignored whatever value the variable is.
+</p></dd>
+</dl>
+
+
+<hr>
+</div>
 </div>
 <div class="section" id="Maildir-Folder">
 <div class="header">
@@ -10786,6 +10815,7 @@ Next: <a href="#Key-Index" accesskey="n" rel="next">Key Index</a>, Previous: <a 
 <tr><td colspan="4"> <hr></td></tr>
 <tr><th id="Concept-Index_cp_letter-L">L</th><td></td><td></td></tr>
 <tr><td></td><td valign="top"><a href="#index-LHA">LHA</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Archiver">Archiver</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-Localdir-variables">Localdir variables</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Localdir-Vars">Localdir Vars</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-LSDB">LSDB</a>:</td><td>&nbsp;</td><td valign="top"><a href="#LSDB">LSDB</a></td></tr>
 <tr><td colspan="4"> <hr></td></tr>
 <tr><th id="Concept-Index_cp_letter-M">M</th><td></td><td></td></tr>
@@ -11518,6 +11548,8 @@ Next: <a href="#Function-Index" accesskey="n" rel="next">Function Index</a>, Pre
 <tr><td></td><td valign="top"><a href="#index-elmo_002dfolder_002dupdate_002dconfirm"><code>elmo-folder-update-confirm</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Variables-of-Summary">Variables of Summary</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-elmo_002dfolder_002dupdate_002dthreshold"><code>elmo-folder-update-threshold</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Variables-of-Summary">Variables of Summary</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-elmo_002dimap4_002duse_002dcache"><code>elmo-imap4-use-cache</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Variables-of-Summary">Variables of Summary</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-elmo_002dlocaldir_002dfolder_002dpath"><code>elmo-localdir-folder-path</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Localdir-Vars">Localdir Vars</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-elmo_002dlocaldir_002dwarnings"><code>elmo-localdir-warnings</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Localdir-Vars">Localdir Vars</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-elmo_002dlost_002bfound_002dfolder"><code>elmo-lost+found-folder</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Variables-of-Plugged-Mode">Variables of Plugged Mode</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-elmo_002dmessage_002dfetch_002dconfirm"><code>elmo-message-fetch-confirm</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Variables-of-Summary">Variables of Summary</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-elmo_002dmessage_002dfetch_002dthreshold"><code>elmo-message-fetch-threshold</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Variables-of-Summary">Variables of Summary</a></td></tr>
