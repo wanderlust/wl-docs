@@ -924,7 +924,9 @@ See <a class="xref" href="#Folder-Manager">購読フォルダの編集</a>.
 %inbox  &quot;受信箱&quot;
 +trash  &quot;ゴミ箱&quot;
 +draft  &quot;草稿&quot;
-%#mh/Backup@my.imap.example.com &quot;送信済み&quot;
+%#mh/Backup@my.imap.example.com
+# <span class="r">あだ名は別行でも定義可能</span>
+= %#mh/Backup@my.imap.example.com &quot;送信済み&quot;
 # グループの定義
 Emacsen{
     %#mh/spool/wl            &quot;Wanderlust ML&quot;
@@ -941,6 +943,8 @@ Emacsen{
 %#mh/expire@localhost /
 # <span class="r">MH のフォルダ全てをひとつのグループにする例。</span>
 + /
+# <span class="r">アクセスグループにあだ名をつける。</span>
+= + &quot;メール&quot;
 </pre></div></div>
 
 <p>一行にひとつ、読みたいフォルダを書きます。
@@ -960,6 +964,8 @@ Emacsen{
 は、あるフォルダに含まれるサブフォルダ全てをまとめて一つのグループとするもの
 です。(その動作はフォルダのタイプによって異なります。例えば &lsquo;<samp class="samp">+ /</samp>&rsquo; なら
 MH のサブディレクトリすべてがひとつのグループとなります。)
+アクセスグループにあだ名をつける場合は別行で定義する必要があります。
+1行にまとめて記載することはできません。
 </p>
 <p>実際に試してみて、確認してからの方がわかりやすいかもしれません。
 ちょっと書いて試してみてから、またフォルダの定義をやり直すと良いでしょう。

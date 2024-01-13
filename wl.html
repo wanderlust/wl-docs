@@ -911,7 +911,9 @@ subscribe to as it is.
 %inbox  &quot;Inbox&quot;
 +trash  &quot;Trash&quot;
 +draft  &quot;Drafts&quot;
-%#mh/Backup@my.imap.example.com &quot;Sent&quot;
+%#mh/Backup@my.imap.example.com
+# <span class="r">Nickname can be defined in another line</span>
+= %#mh/Backup@my.imap.example.com &quot;Sent&quot;
 # Folder Group
 Emacsen{
     %#mh/spool/wl            &quot;Wanderlust ML&quot;
@@ -928,6 +930,8 @@ Emacsen{
 %#mh/expire@localhost /
 # <span class="r">All MH folders are included in one folder group.</span>
 + /
+# <span class="r">Define nickname for access group</span>
+= + &quot;Mails&quot;
 </pre></div></div>
 
 <p>Each line contains one folder you want to read. The definition of
@@ -947,7 +951,9 @@ example which the user chooses his favorite folders as a group.
 <p>The other one is <em class="dfn">access group</em> like &lsquo;<samp class="samp">+ /</samp>&rsquo; from above example.
 It collects all sub-folders in the folder to make a group.  (Its
 behavior differs by the type of the folder. For example, &lsquo;<samp class="samp">+</samp>&rsquo;
-followed by &lsquo;<samp class="samp">/</samp>&rsquo; makes entire MH sub-directories to one group)
+followed by &lsquo;<samp class="samp">/</samp>&rsquo; makes entire MH sub-directories to one group) If
+you want nickname access group, you need define it in another line.  You
+can&rsquo;t define in a line as normal folder.
 </p>
 <p>This behavior is better understood if you try it and confirmed the
 function first. You can write and try a small folder definition, so you
