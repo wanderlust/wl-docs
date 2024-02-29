@@ -5620,9 +5620,11 @@ and the cdr part is <code class="code">nil</code>, the field will be deleted.
 
 <p>As in the (1) above, if a header regexp is prepended with <code class="code">reply</code>,
 it is applied when the draft is prepared by <code class="code">wl-summary-reply</code> for
-example, and when it matches the header being replied.  It is ignored
-when there is no buffer being replied, like after <code class="code">wl-draft</code> was
-invoked.
+example, and when it matches the header being replied.  If you use
+<code class="code">forward</code> instead of <code class="code">reply</code> and you invoked
+<code class="code">wl-summary-forward</code>, matching is performed in forwarded message&rsquo;s
+buffer.  It is ignored when there is no buffer being replied, like after
+<code class="code">wl-draft</code> was invoked.
 </p>
 <p>If you want to use name of parent folder, you can refer the buffer local
 variable <code class="code">wl-draft-parent-folder</code>. In the following example, Wanderlust

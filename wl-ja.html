@@ -5584,10 +5584,13 @@ Field の値が <code class="code">nil</code> ならばその Field を削除し
          )))
 </pre></div></div>
 
-<p>この例 (1)のように、ヘッダの正規表現の前に <code class="code">reply</code> をつけると
-<code class="code">wl-summary-reply</code> などでドラフトを作成した場合、返信元のヘッダにマッ
-チすれば適用されるようになります。ただし、<code class="code">wl-draft</code> を実行したとき
-など返信元のバッファがない場合は無視されます。
+<p>この例 (1) のように、ヘッダの正規表現の前に <code class="code">reply</code> をつけると
+<code class="code">wl-summary-reply</code> などでドラフトを作成した際の返信元のヘッダに
+マッチすれば適用されるようになります。また、<code class="code">reply</code> の代わりに
+<code class="code">forward</code> を使うと、<code class="code">wl-summary-forward</code> などでドラフトを
+作成した場合の引用元のヘッダとマッチを試みます。
+ただし、<code class="code">wl-draft</code> を実行したときなど返信元のバッファがない場合は
+無視されます。
 </p>
 <p>親フォルダの名前を利用したい場合には、バッファローカル変数
 <code class="code">wl-draft-parent-folder</code> を利用できます。次の例では、ドラフトを開く時に
