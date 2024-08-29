@@ -5187,7 +5187,7 @@ See <a data-manual="mime-ui-ja" href="mime-ui-ja.html#MIME_002dView">MIME-View</
 </dd>
 <dt><a class="index-entry-id" id="index-wl_002dmessage_002dbutton_002drefer_002darticle"></a>
 <a class="index-entry-id" id="index-wl_002dmessage_002dheader_002dnarrowing"></a>
-<a id="index-Button_002d2-_0028Message_0029"></a><span><kbd class="kbd">Button-2</kbd><a class="copiable-link" href="#index-Button_002d2-_0028Message_0029"> &para;</a></span></dt>
+<a id="index-mouse_002d2-_0028Message_0029"></a><span><kbd class="kbd">mouse-2</kbd><a class="copiable-link" href="#index-mouse_002d2-_0028Message_0029"> &para;</a></span></dt>
 <dd><p>マウスポインタの位置に &lsquo;<samp class="samp">Message-ID:</samp>&rsquo; があったときに対応するメッセー
 ジが見つかれば表示します。(<code class="code">wl-message-button-refer-article</code>)
 </p>
@@ -5196,16 +5196,18 @@ See <a data-manual="mime-ui-ja" href="mime-ui-ja.html#MIME_002dView">MIME-View</
 </p>
 </dd>
 <dt><a class="index-entry-id" id="index-wl_002dmessage_002dwheel_002ddown"></a>
-<a id="index-Button_002d4-_0028Message_0029"></a><span><kbd class="kbd">Button-4 (ホイールつきマウスのホイールを上へ)</kbd><a class="copiable-link" href="#index-Button_002d4-_0028Message_0029"> &para;</a></span></dt>
+<a id="index-mouse_002d4-or-wheel_002dup-_0028Message_0029"></a><span><kbd class="kbd">mouse-4 or wheel-up</kbd><a class="copiable-link" href="#index-mouse_002d4-or-wheel_002dup-_0028Message_0029"> &para;</a></span></dt>
 <dd><p>メッセージを上にスクロールします。メッセージの末尾まで到達すると、
 次のメッセージに移動します。
+実際の割り当ては <code class="code">wl-scroll-function-events</code> の値に依存します。
 (<code class="code">wl-message-wheel-down</code>)
 </p>
 </dd>
 <dt><a class="index-entry-id" id="index-wl_002dmessage_002dwheel_002dup"></a>
-<a id="index-Button_002d5-_0028Message_0029"></a><span><kbd class="kbd">Button-5 (ホイールつきマウスのホイールを下へ)</kbd><a class="copiable-link" href="#index-Button_002d5-_0028Message_0029"> &para;</a></span></dt>
+<a id="index-mouse_002d5-or-wheel_002ddown-_0028Message_0029"></a><span><kbd class="kbd">mouse-5 or wheel-down</kbd><a class="copiable-link" href="#index-mouse_002d5-or-wheel_002ddown-_0028Message_0029"> &para;</a></span></dt>
 <dd><p>メッセージを上にスクロールします。メッセージの先頭まで到達すると、
 前のメッセージに移動します。
+実際の割り当ては <code class="code">wl-scroll-function-events</code> の値に依存します。
 (<code class="code">wl-message-wheel-up</code>)
 </p>
 </dd>
@@ -10152,6 +10154,19 @@ See <a class="xref" href="#x_002dface_002dmule">x-face-mule</a>.
 ジを表示します。
 </p>
 </dd>
+<dt><a id="index-wl_002dscroll_002dfunction_002devents"></a><span><code class="code">wl-scroll-function-events</code><a class="copiable-link" href="#index-wl_002dscroll_002dfunction_002devents"> &para;</a></span></dt>
+<dd><p>初期設定は <code class="code">(mouse)</code>。
+Wanderlust独自のスクロール用の関数を割り当てる操作のタイプを指定します。
+リストの要素に <code class="code">mouse</code> が含まれると、マウスボタンイベントが
+割り当てられます。
+<code class="code">mouse-wheel-buttons</code> もしくは <code class="code">mouse-wheel-down-event</code> と
+<code class="code">mouse-wheel-up-event</code> 変数が割り当てるボタンを示します。
+通常は <kbd class="key">mouse-4</kbd> と <kbd class="key">mouse-5</kbd> になります。
+<code class="code">wheel</code> が含まれると <kbd class="key">wheel-up</kbd> と <kbd class="key">wheel-down</kbd> が
+使われます。
+<code class="code">nil</code> が指定された場合、割り当ては行われません。
+</p>
+</dd>
 <dt><a id="index-elmo_002dnntp_002dlist_002dfolders_002duse_002dcache"></a><span><code class="code">elmo-nntp-list-folders-use-cache</code><a class="copiable-link" href="#index-elmo_002dnntp_002dlist_002dfolders_002duse_002dcache"> &para;</a></span></dt>
 <dd><p>初期設定は 600 (秒)。
 NNTP において &lsquo;<samp class="samp">list</samp>&rsquo; や &lsquo;<samp class="samp">list active</samp>&rsquo; の結果を
@@ -11134,9 +11149,6 @@ Next: <a href="#Variable-Index" accesskey="n" rel="next">変数索引</a>, Previ
 <tr><td></td><td class="printindex-index-entry"><a href="#index-b-_0028Address-Manager_0029"><code>b (Address Manager)</code></a></td><td class="printindex-index-section"><a href="#Address-Manager">Address Manager</a></td></tr>
 <tr><td></td><td class="printindex-index-entry"><a href="#index-B-_0028Summary_0029"><code>B (Summary)</code></a></td><td class="printindex-index-section"><a href="#Key-Bindings-of-Summary">Key Bindings of Summary</a></td></tr>
 <tr><td></td><td class="printindex-index-entry"><a href="#index-BS-_0028Summary_0029"><code><kbd class="key">BS</kbd> (Summary)</code></a></td><td class="printindex-index-section"><a href="#Key-Bindings-of-Summary">Key Bindings of Summary</a></td></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-Button_002d2-_0028Message_0029"><code>Button-2 (Message)</code></a></td><td class="printindex-index-section"><a href="#Message">Message</a></td></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-Button_002d4-_0028Message_0029"><code>Button-4 (Message)</code></a></td><td class="printindex-index-section"><a href="#Message">Message</a></td></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-Button_002d5-_0028Message_0029"><code>Button-5 (Message)</code></a></td><td class="printindex-index-section"><a href="#Message">Message</a></td></tr>
 <tr><td colspan="3"><hr></td></tr>
 <tr><th id="Key-Index_ky_letter-C">C</th></tr>
 <tr><td></td><td class="printindex-index-entry"><a href="#index-c-_0028Address-Manager_0029"><code>c (Address Manager)</code></a></td><td class="printindex-index-section"><a href="#Address-Manager">Address Manager</a></td></tr>
@@ -11292,6 +11304,9 @@ Next: <a href="#Variable-Index" accesskey="n" rel="next">変数索引</a>, Previ
 <tr><td></td><td class="printindex-index-entry"><a href="#index-M_002dt-_0028Summary_0029"><code>M-t (Summary)</code></a></td><td class="printindex-index-section"><a href="#Key-Bindings-of-Summary">Key Bindings of Summary</a></td></tr>
 <tr><td></td><td class="printindex-index-entry"><a href="#index-M_002dw-_0028Folder_0029"><code>M-w (Folder)</code></a></td><td class="printindex-index-section"><a href="#Folder-Manager">Folder Manager</a></td></tr>
 <tr><td></td><td class="printindex-index-entry"><a href="#index-M_002dw-_0028Summary_0029"><code>M-w (Summary)</code></a></td><td class="printindex-index-section"><a href="#Key-Bindings-of-Summary">Key Bindings of Summary</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-mouse_002d2-_0028Message_0029"><code>mouse-2 (Message)</code></a></td><td class="printindex-index-section"><a href="#Message">Message</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-mouse_002d4-or-wheel_002dup-_0028Message_0029"><code>mouse-4 or wheel-up (Message)</code></a></td><td class="printindex-index-section"><a href="#Message">Message</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-mouse_002d5-or-wheel_002ddown-_0028Message_0029"><code>mouse-5 or wheel-down (Message)</code></a></td><td class="printindex-index-section"><a href="#Message">Message</a></td></tr>
 <tr><td colspan="3"><hr></td></tr>
 <tr><th id="Key-Index_ky_letter-N">N</th></tr>
 <tr><td></td><td class="printindex-index-entry"><a href="#index-N-_0028Folder_0029"><code>N (Folder)</code></a></td><td class="printindex-index-section"><a href="#Selecting-Folder">Selecting Folder</a></td></tr>
@@ -11738,6 +11753,7 @@ Next: <a href="#Function-Index" accesskey="n" rel="next">関数索引</a>, Previ
 <tr><td></td><td class="printindex-index-entry"><a href="#index-wl_002dscore_002dinteractive_002ddefault_002dscore"><code>wl-score-interactive-default-score</code></a></td><td class="printindex-index-section"><a href="#Score-Commands">Score Commands</a></td></tr>
 <tr><td></td><td class="printindex-index-entry"><a href="#index-wl_002dscore_002dsimplify_002dfuzzy_002dregexp"><code>wl-score-simplify-fuzzy-regexp</code></a></td><td class="printindex-index-section"><a href="#Score-Commands">Score Commands</a></td></tr>
 <tr><td></td><td class="printindex-index-entry"><a href="#index-wl_002dscore_002dupdate_002dentry_002ddates"><code>wl-score-update-entry-dates</code></a></td><td class="printindex-index-section"><a href="#Score-Commands">Score Commands</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-wl_002dscroll_002dfunction_002devents"><code>wl-scroll-function-events</code></a></td><td class="printindex-index-section"><a href="#Customizable-Valiables">Customizable Valiables</a></td></tr>
 <tr><td></td><td class="printindex-index-entry"><a href="#index-wl_002dsmtp_002dauthenticate_002drealm"><code>wl-smtp-authenticate-realm</code></a></td><td class="printindex-index-section"><a href="#Variables-of-Draft-Mode">Variables of Draft Mode</a></td></tr>
 <tr><td></td><td class="printindex-index-entry"><a href="#index-wl_002dsmtp_002dauthenticate_002dtype"><code>wl-smtp-authenticate-type</code></a></td><td class="printindex-index-section"><a href="#Variables-of-Draft-Mode">Variables of Draft Mode</a></td></tr>
 <tr><td></td><td class="printindex-index-entry"><a href="#index-wl_002dsmtp_002dconnection_002dtype"><code>wl-smtp-connection-type</code></a></td><td class="printindex-index-section"><a href="#Variables-of-Draft-Mode">Variables of Draft Mode</a></td></tr>
