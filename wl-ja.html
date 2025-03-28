@@ -5912,8 +5912,14 @@ Previous: <a href="#Key-Bindings-of-Draft" accesskey="p" rel="prev">キーバイ
 
 </dd>
 <dt><a id="index-wl_002dinsert_002dmail_002dfollowup_002dto"></a><span><code class="code">wl-insert-mail-followup-to</code><a class="copiable-link" href="#index-wl_002dinsert_002dmail_002dfollowup_002dto"> &para;</a></span></dt>
-<dd><p>初期設定は <code class="code">nil</code>。Non-nil なら、&lsquo;<samp class="samp">Mail-Followup-To:</samp>&rsquo; フィールド
-をドラフトバッファに自動的に挿入します。
+<dd><p>初期設定は <code class="code">nil</code>。 <code class="code">reply</code> なら、&lsquo;<samp class="samp">Mail-Followup-To:</samp>&rsquo;
+フィールドをドラフトバッファ作成時に自動的に挿入します。
+他の non-nil 値の際には送信時にフィールドを挿入します。
+この時は <code class="code">wl-draft-send-hook</code> 実行時の最後に挿入されますが、
+順序を制御したい場合は手動で <code class="code">wl-draft-insert-mail-followup-to</code> を
+<code class="code">wl-draft-send-hook</code> に追加してください。
+尚、そうした場合は <code class="code">wl-insert-mail-followup-to</code> の値によらず
+フィールドが挿入されます。
 </p>
 </dd>
 <dt><a id="index-wl_002dinsert_002dmail_002dreply_002dto"></a><span><code class="code">wl-insert-mail-reply-to</code><a class="copiable-link" href="#index-wl_002dinsert_002dmail_002dreply_002dto"> &para;</a></span></dt>

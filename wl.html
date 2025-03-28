@@ -5949,8 +5949,14 @@ connection with the address.
 
 </dd>
 <dt><a id="index-wl_002dinsert_002dmail_002dfollowup_002dto"></a><span><code class="code">wl-insert-mail-followup-to</code><a class="copiable-link" href="#index-wl_002dinsert_002dmail_002dfollowup_002dto"> &para;</a></span></dt>
-<dd><p>The initial setting is <code class="code">nil</code>.  If non-nil, &lsquo;<samp class="samp">Mail-Followup-To:</samp>&rsquo;
-field is automatically inserted in the draft buffer.
+<dd><p>The initial setting is <code class="code">nil</code>.  If <code class="code">reply</code>,
+&lsquo;<samp class="samp">Mail-Followup-To:</samp>&rsquo; field is automatically prepared in creating the
+draft buffer.  When other non-nil value, it is inserted at sending time.
+In this case, inserting function is called as the last function of
+<code class="code">wl-draft-send-hook</code>.  If you want to adjust the order of hook
+functions, add <code class="code">wl-draft-insert-mail-followup-to</code> into
+<code class="code">wl-draft-send-hook</code> manually.  In the case that you do so, the
+field is always inserted in spite of this variable&rsquo;s value.
 </p>
 </dd>
 <dt><a id="index-wl_002dinsert_002dmail_002dreply_002dto"></a><span><code class="code">wl-insert-mail-reply-to</code><a class="copiable-link" href="#index-wl_002dinsert_002dmail_002dreply_002dto"> &para;</a></span></dt>
