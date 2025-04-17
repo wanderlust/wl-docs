@@ -1,0 +1,55 @@
+name: Update documents
+
+on:
+  workflow_call:
+    inputs:
+      repository_name:
+        description: 'source repository'
+        required: true
+        type: string
+      source_files:
+        description: 'source files in repository'
+        required: true
+        type: string
+      texi_files:
+        description: 'source files to make html file'
+        required: true
+        type: string
+
+jobs:
+  update_documents:
+    runs-on: ubuntu-latest
+    concurrency:
+      group: ${{ github.workflow }}-${{ inputs.repository_name }}
+      cancel-in-progress: true
+    env:
+      OWNER: ${{ github.repository_owner }}
+      REPOSITORY_NAME: ${{ inputs.repository_name }}
+      SOURCE_FILES: ${{ inputs.source_files }}
+      SRCDIR: srcdir
+      TEXI_FILES: ${{ inputs.texi_files }}
+    steps:
+      - name: Checkout local repository
+        uses: actions/checkout@v4
+      - name: Checkout ${{ inputs.repository_name }} repository
+        uses: actions/checkout@v4
+        with:
+          repository: ${{ github.repository_owner }}/${{ inputs.repository_name }}
+          path: ${{ env.SRCDIR }}
+      - name: Install required packages
+        run: sudo apt-get install texinfo findutils
+      - name: Update documents
+        run: |
+          ( cd $SRCDIR ; cp $SOURCE_FILES .. )
+          echo $TEXI_FILES | xargs -P 2 -n 1 texi2any --ifinfo  --no-split --html --css-ref=janix-texinfo.css
+      - name: Commit changes
+        id: commit
+        continue-on-error: true
+        run: |
+          git config user.name "GitHub Actions"
+          git config user.email "action@github.com"
+          git commit -a -m "Update $REPOSITORY_NAME documents by GitHub actions"
+      - name: Push commit
+        if: ${{ steps.commit.outcome == 'success' }}
+        run: |
+          git push

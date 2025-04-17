@@ -1,0 +1,12 @@
+name: Update SEMI-EPG documents
+
+on:
+  workflow_dispatch:
+
+jobs:
+  update_semi:
+    uses: ./.github/workflows/update_docs.yml
+    with:
+      repository_name: ${{ vars.SEMI_REPOSITORY_NAME }}
+      source_files: ${{ vars.SEMI_SOURCE_FILES }}
+      texi_files: ${{ vars.SEMI_TEXI_FILES}}

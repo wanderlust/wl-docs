@@ -1,0 +1,12 @@
+name: Update FLIM documents
+
+on:
+  workflow_dispatch:
+
+jobs:
+  update_flim:
+    uses: ./.github/workflows/update_docs.yml
+    with:
+      repository_name: ${{ vars.FLIM_REPOSITORY_NAME }}
+      source_files: ${{ vars.FLIM_SOURCE_FILES }}
+      texi_files: ${{ vars.FLIM_TEXI_FILES}}

@@ -1,0 +1,12 @@
+name: Update Wanderlust documents
+
+on:
+  workflow_dispatch:
+
+jobs:
+  update_wanderlust:
+    uses: ./.github/workflows/update_docs.yml
+    with:
+      repository_name: ${{ vars.WL_REPOSITORY_NAME }}
+      source_files: ${{ vars.WL_SOURCE_FILES }}
+      texi_files: ${{ vars.WL_TEXI_FILES}}
