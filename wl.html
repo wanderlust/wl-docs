@@ -143,8 +143,9 @@ Yoichi Nakayama
     <ul class="toc-numbered-mark">
       <li><a id="toc-Installation" href="#Installation">2.3.1 Installation</a></li>
       <li><a id="toc-WL_002dCFG" href="#WL_002dCFG">2.3.2 <samp class="file">WL-CFG</samp></a></li>
-      <li><a id="toc-Run-in-place" href="#Run-in-place">2.3.3 Run in place</a></li>
-      <li><a id="toc-Manual" href="#Manual">2.3.4 Manual</a></li>
+      <li><a id="toc-Installation-via-package-archive" href="#Installation-via-package-archive">2.3.3 Installation via package archive</a></li>
+      <li><a id="toc-Run-in-place" href="#Run-in-place">2.3.4 Run in place</a></li>
+      <li><a id="toc-Manual" href="#Manual">2.3.5 Manual</a></li>
     </ul></li>
     <li><a id="toc-Set-up-_002eemacs" href="#Minimal-Settings">2.4 Set up .emacs</a>
     <ul class="toc-numbered-mark">
@@ -694,8 +695,9 @@ Next: <a href="#Minimal-Settings" accesskey="n" rel="next">Set up .emacs</a>, Pr
 <ul class="mini-toc">
 <li><a href="#Installation" accesskey="1">Installation</a></li>
 <li><a href="#WL_002dCFG" accesskey="2"><samp class="file">WL-CFG</samp></a></li>
-<li><a href="#Run-in-place" accesskey="3">Run in place</a></li>
-<li><a href="#Manual" accesskey="4">Manual</a></li>
+<li><a href="#Installation-via-package-archive" accesskey="3">Installation via package archive</a></li>
+<li><a href="#Run-in-place" accesskey="4">Run in place</a></li>
+<li><a href="#Manual" accesskey="5">Manual</a></li>
 </ul>
 <div class="subsection-level-extent" id="Installation">
 <h4 class="subsection"><span>2.3.1 Installation<a class="copiable-link" href="#Installation"> &para;</a></span></h4>
@@ -753,8 +755,39 @@ such as &quot;elmo&quot; then add following to <samp class="file">WL-CFG</samp>:
 </pre></div>
 
 </div>
+<div class="subsection-level-extent" id="Installation-via-package-archive">
+<h4 class="subsection"><span>2.3.3 Installation via package archive<a class="copiable-link" href="#Installation-via-package-archive"> &para;</a></span></h4>
+<p>Package archive is made public in MELPA (<a class="url" href="https://melpa.org/">https://melpa.org/</a>) and
+GitHub repository.  You can install via <kbd class="kbd">M-x list-packages &lt;RET&gt;</kbd> by
+adding following URLs into <code class="code">package-archives</code>.
+<a class="index-entry-id" id="index-package_002darchives"></a>
+</p>
+<dl class="table">
+<dt>&lsquo;<samp class="samp">GitHub</samp>&rsquo;</dt>
+<dd><p><a class="url" href="https://wanderlust.github.io/packages/">https://wanderlust.github.io/packages/</a>
+</p></dd>
+<dt>&lsquo;<samp class="samp">MELPA</samp>&rsquo;</dt>
+<dd><p><a class="url" href="https://melpa.org/packages/">https://melpa.org/packages/</a>
+</p></dd>
+</dl>
+
+<p>If you specify the both archives, MELPA&rsquo;s packages are normally prefered
+to GitHub&rsquo;s.  When you want to use GitHub&rsquo;s packges preferentially,
+adjust <code class="code">package-archive-priorities</code>&rsquo;s value.
+<a class="index-entry-id" id="index-package_002darchive_002dpriorities"></a>
+</p>
+<div class="example lisp">
+<div class="group"><pre class="lisp-preformatted">(add-to-list 'package-archives
+             '(&quot;melpa&quot; . &quot;https://melpa.org/packages/&quot;) t)
+(add-to-list 'package-archives
+             '(&quot;wl&quot; . &quot;https://wanderlust.github.io/packages/&quot;) t)
+(setq package-archive-priorities
+      '((&quot;wl&quot; . 100)))
+</pre></div></div>
+
+</div>
 <div class="subsection-level-extent" id="Run-in-place">
-<h4 class="subsection"><span>2.3.3 Run in place<a class="copiable-link" href="#Run-in-place"> &para;</a></span></h4>
+<h4 class="subsection"><span>2.3.4 Run in place<a class="copiable-link" href="#Run-in-place"> &para;</a></span></h4>
 
 <p>If wl and elmo directories are defined in <code class="code">load-path</code>, then
 byte-compilation and installation are not necessary to start Wanderlust.
@@ -768,7 +801,7 @@ invoked with following setting in <samp class="file">~/.emacs</samp>.
 
 </div>
 <div class="subsection-level-extent" id="Manual">
-<h4 class="subsection"><span>2.3.4 Manual<a class="copiable-link" href="#Manual"> &para;</a></span></h4>
+<h4 class="subsection"><span>2.3.5 Manual<a class="copiable-link" href="#Manual"> &para;</a></span></h4>
 
 <p>Manual is described in Info format. Please do following.
 </p>
@@ -9192,7 +9225,7 @@ Previous: <a href="#mime_002dw3m" accesskey="p" rel="prev">mime-w3m.el</a>, Up: 
 <p>You need <samp class="file">oauth2.el</samp>
 (<a class="url" href="https://elpa.gnu.org/packages/oauth2.html">https://elpa.gnu.org/packages/oauth2.html</a>) if you want to use
 oauth2 for IMAP, SMTP authentication.  When you install Wanderlust from
-MELPA (<a class="url" href="https://melpa.org/">https://melpa.org/</a>), the file is installed automatically.
+pacakge archive such as MELPA, the file is installed automatically.
 </p>
 <p>You have to obtain client ID and client secret from your providers such
 as Google or Microsoft.  &lsquo;client&rsquo; means applications and it is supposed
@@ -11630,6 +11663,8 @@ Next: <a href="#Function-Index" accesskey="n" rel="next">Function Index</a>, Pre
  &nbsp; 
 <a class="summary-letter-printindex" href="#Variable-Index_vr_letter-M"><b>M</b></a>
  &nbsp; 
+<a class="summary-letter-printindex" href="#Variable-Index_vr_letter-P"><b>P</b></a>
+ &nbsp; 
 <a class="summary-letter-printindex" href="#Variable-Index_vr_letter-S"><b>S</b></a>
  &nbsp; 
 <a class="summary-letter-printindex" href="#Variable-Index_vr_letter-W"><b>W</b></a>
@@ -11699,6 +11734,10 @@ Next: <a href="#Function-Index" accesskey="n" rel="next">Function Index</a>, Pre
 <tr><td colspan="3"><hr></td></tr>
 <tr><th id="Variable-Index_vr_letter-M">M</th></tr>
 <tr><td></td><td class="printindex-index-entry"><a href="#index-mail_002duser_002dagent"><code>mail-user-agent</code></a></td><td class="printindex-index-section"><a href="#Minimal-Settings">Minimal Settings</a></td></tr>
+<tr><td colspan="3"><hr></td></tr>
+<tr><th id="Variable-Index_vr_letter-P">P</th></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-package_002darchive_002dpriorities"><code>package-archive-priorities</code></a></td><td class="printindex-index-section"><a href="#Install">Install</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-package_002darchives"><code>package-archives</code></a></td><td class="printindex-index-section"><a href="#Install">Install</a></td></tr>
 <tr><td colspan="3"><hr></td></tr>
 <tr><th id="Variable-Index_vr_letter-S">S</th></tr>
 <tr><td></td><td class="printindex-index-entry"><a href="#index-sasl_002dxoauth2_002dhost_002durl_002dtable"><code>sasl-xoauth2-host-url-table</code></a></td><td class="printindex-index-section"><a href="#oauth2">oauth2</a></td></tr>
@@ -11936,6 +11975,8 @@ Next: <a href="#Function-Index" accesskey="n" rel="next">Function Index</a>, Pre
 <table class="vr-letters-footer-printindex"><tr><th>Jump to: &nbsp; </th><td><a class="summary-letter-printindex" href="#Variable-Index_vr_letter-E"><b>E</b></a>
  &nbsp; 
 <a class="summary-letter-printindex" href="#Variable-Index_vr_letter-M"><b>M</b></a>
+ &nbsp; 
+<a class="summary-letter-printindex" href="#Variable-Index_vr_letter-P"><b>P</b></a>
  &nbsp; 
 <a class="summary-letter-printindex" href="#Variable-Index_vr_letter-S"><b>S</b></a>
  &nbsp; 

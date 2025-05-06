@@ -155,8 +155,9 @@ Next: <a href="#Introduction" accesskey="n" rel="next">はじめに</a>, Previou
     <ul class="toc-numbered-mark">
       <li><a id="toc-Tong-Chang-noinsutoru" href="#Tong-Chang-noinsutoru">2.3.1 通常のインストール</a></li>
       <li><a id="toc-WL_002dCFG" href="#WL_002dCFG">2.3.2 <samp class="file">WL-CFG</samp></a></li>
-      <li><a id="toc-insutorusinaideLi-Yong-" href="#insutorusinaideLi-Yong-">2.3.3 インストールしないで利用</a></li>
-      <li><a id="toc-maniyuarunituite" href="#maniyuarunituite">2.3.4 マニュアルについて</a></li>
+      <li><a id="toc-package-archive-woLi-Yong-sitainsutoru" href="#package-archive-woLi-Yong-sitainsutoru">2.3.3 package archive を利用したインストール</a></li>
+      <li><a id="toc-insutorusinaideLi-Yong-" href="#insutorusinaideLi-Yong-">2.3.4 インストールしないで利用</a></li>
+      <li><a id="toc-maniyuarunituite" href="#maniyuarunituite">2.3.5 マニュアルについて</a></li>
     </ul></li>
     <li><a id="toc-_002eemacs_002c-_002ewl-noShe-Ding-" href="#Minimal-Settings">2.4 <samp class="file">.emacs</samp>, <samp class="file">.wl</samp> の設定</a>
     <ul class="toc-numbered-mark">
@@ -710,8 +711,9 @@ Next: <a href="#Minimal-Settings" accesskey="n" rel="next"><samp class="file">.e
 <ul class="mini-toc">
 <li><a href="#Tong-Chang-noinsutoru" accesskey="1">通常のインストール</a></li>
 <li><a href="#WL_002dCFG" accesskey="2"><samp class="file">WL-CFG</samp></a></li>
-<li><a href="#insutorusinaideLi-Yong-" accesskey="3">インストールしないで利用</a></li>
-<li><a href="#maniyuarunituite" accesskey="4">マニュアルについて</a></li>
+<li><a href="#package-archive-woLi-Yong-sitainsutoru" accesskey="3">package archive を利用したインストール</a></li>
+<li><a href="#insutorusinaideLi-Yong-" accesskey="4">インストールしないで利用</a></li>
+<li><a href="#maniyuarunituite" accesskey="5">マニュアルについて</a></li>
 </ul>
 <div class="subsection-level-extent" id="Tong-Chang-noinsutoru">
 <h4 class="subsection"><span>2.3.1 通常のインストール<a class="copiable-link" href="#Tong-Chang-noinsutoru"> &para;</a></span></h4>
@@ -774,8 +776,39 @@ ELMO モジュールはファイル <samp class="file">elmo*.el</samp> <samp cla
 <p>とします。
 </p>
 </div>
+<div class="subsection-level-extent" id="package-archive-woLi-Yong-sitainsutoru">
+<h4 class="subsection"><span>2.3.3 package archive を利用したインストール<a class="copiable-link" href="#package-archive-woLi-Yong-sitainsutoru"> &para;</a></span></h4>
+<p>MELPA (<a class="url" href="https://melpa.org/">https://melpa.org/</a>) や GitHub で package archive が
+公開されていますので、<code class="code">package-archives</code> に以下の URL を追加すると
+<kbd class="kbd">M-x list-packages &lt;RET&gt;</kbd> 等からインストールできます。
+<a class="index-entry-id" id="index-package_002darchives"></a>
+</p>
+<dl class="table">
+<dt>&lsquo;<samp class="samp">GitHub</samp>&rsquo;</dt>
+<dd><p><a class="url" href="https://wanderlust.github.io/packages/">https://wanderlust.github.io/packages/</a>
+</p></dd>
+<dt>&lsquo;<samp class="samp">MELPA</samp>&rsquo;</dt>
+<dd><p><a class="url" href="https://melpa.org/packages/">https://melpa.org/packages/</a>
+</p></dd>
+</dl>
+
+<p>両方の archive を指定すると通常は MELPA のパッケージが優先して
+使用されますので、 GitHub のパッケージを優先したい場合は
+<code class="code">package-archive-priorities</code> の値を調整して下さい。
+<a class="index-entry-id" id="index-package_002darchive_002dpriorities"></a>
+</p>
+<div class="example lisp">
+<div class="group"><pre class="lisp-preformatted">(add-to-list 'package-archives
+             '(&quot;melpa&quot; . &quot;https://melpa.org/packages/&quot;) t)
+(add-to-list 'package-archives
+             '(&quot;wl&quot; . &quot;https://wanderlust.github.io/packages/&quot;) t)
+(setq package-archive-priorities
+      '((&quot;wl&quot; . 100)))
+</pre></div></div>
+
+</div>
 <div class="subsection-level-extent" id="insutorusinaideLi-Yong-">
-<h4 class="subsection"><span>2.3.3 インストールしないで利用<a class="copiable-link" href="#insutorusinaideLi-Yong-"> &para;</a></span></h4>
+<h4 class="subsection"><span>2.3.4 インストールしないで利用<a class="copiable-link" href="#insutorusinaideLi-Yong-"> &para;</a></span></h4>
 
 <p>Wanderlust はバイトコンパイル、インストールをしなくても、<samp class="file">wl</samp>,
 <samp class="file">elmo</samp> のディレクトリに <code class="code">load-path</code> を設定すれば起動する
@@ -789,7 +822,7 @@ ELMO モジュールはファイル <samp class="file">elmo*.el</samp> <samp cla
 
 </div>
 <div class="subsection-level-extent" id="maniyuarunituite">
-<h4 class="subsection"><span>2.3.4 マニュアルについて<a class="copiable-link" href="#maniyuarunituite"> &para;</a></span></h4>
+<h4 class="subsection"><span>2.3.5 マニュアルについて<a class="copiable-link" href="#maniyuarunituite"> &para;</a></span></h4>
 
 <p>マニュアルは Info 形式です。
 インストールするには下記を実行してください。
@@ -9099,7 +9132,7 @@ Previous: <a href="#mime_002dw3m" accesskey="p" rel="prev">mime-w3m.el</a>, Up: 
 <p>IMAP や SMTP の認証に oauth2 を用いるには FLIM のインストール時に
 <samp class="file">oauth2.el</samp> (<a class="url" href="https://elpa.gnu.org/packages/oauth2.html">https://elpa.gnu.org/packages/oauth2.html</a>)
 が必要です。
-MELPA (<a class="url" href="https://melpa.org/">https://melpa.org/</a>)からインストールを行った場合は、
+MELPA 等の package archive からインストールを行った場合は、
 自動的にインストールされます。
 利用するには Google やマイクロフト等のプロバイダから client ID,
 client secret を取得する必要があります。
@@ -11529,6 +11562,8 @@ Next: <a href="#Function-Index" accesskey="n" rel="next">関数索引</a>, Previ
  &nbsp; 
 <a class="summary-letter-printindex" href="#Variable-Index_vr_letter-M"><b>M</b></a>
  &nbsp; 
+<a class="summary-letter-printindex" href="#Variable-Index_vr_letter-P"><b>P</b></a>
+ &nbsp; 
 <a class="summary-letter-printindex" href="#Variable-Index_vr_letter-S"><b>S</b></a>
  &nbsp; 
 <a class="summary-letter-printindex" href="#Variable-Index_vr_letter-W"><b>W</b></a>
@@ -11598,6 +11633,10 @@ Next: <a href="#Function-Index" accesskey="n" rel="next">関数索引</a>, Previ
 <tr><td colspan="3"><hr></td></tr>
 <tr><th id="Variable-Index_vr_letter-M">M</th></tr>
 <tr><td></td><td class="printindex-index-entry"><a href="#index-mail_002duser_002dagent"><code>mail-user-agent</code></a></td><td class="printindex-index-section"><a href="#Minimal-Settings">Minimal Settings</a></td></tr>
+<tr><td colspan="3"><hr></td></tr>
+<tr><th id="Variable-Index_vr_letter-P">P</th></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-package_002darchive_002dpriorities"><code>package-archive-priorities</code></a></td><td class="printindex-index-section"><a href="#Install">Install</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-package_002darchives"><code>package-archives</code></a></td><td class="printindex-index-section"><a href="#Install">Install</a></td></tr>
 <tr><td colspan="3"><hr></td></tr>
 <tr><th id="Variable-Index_vr_letter-S">S</th></tr>
 <tr><td></td><td class="printindex-index-entry"><a href="#index-sasl_002dxoauth2_002dhost_002durl_002dtable"><code>sasl-xoauth2-host-url-table</code></a></td><td class="printindex-index-section"><a href="#oauth2">oauth2</a></td></tr>
@@ -11839,6 +11878,8 @@ Next: <a href="#Function-Index" accesskey="n" rel="next">関数索引</a>, Previ
 <table class="vr-letters-footer-printindex"><tr><th>Jump to: &nbsp; </th><td><a class="summary-letter-printindex" href="#Variable-Index_vr_letter-E"><b>E</b></a>
  &nbsp; 
 <a class="summary-letter-printindex" href="#Variable-Index_vr_letter-M"><b>M</b></a>
+ &nbsp; 
+<a class="summary-letter-printindex" href="#Variable-Index_vr_letter-P"><b>P</b></a>
  &nbsp; 
 <a class="summary-letter-printindex" href="#Variable-Index_vr_letter-S"><b>S</b></a>
  &nbsp; 
