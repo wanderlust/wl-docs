@@ -169,10 +169,7 @@ Next: <a href="#Introduction" accesskey="n" rel="next">はじめに</a>, Previou
   </ul></li>
   <li><a id="toc-Wanderlust-deXi-eruhuorudatati" href="#Folders">3 Wanderlust で扱えるフォルダたち</a>
   <ul class="toc-numbered-mark">
-    <li><a id="toc-IMAP-huoruda" href="#IMAP-Folder">3.1 IMAP フォルダ</a>
-    <ul class="toc-numbered-mark">
-      <li><a id="toc-Ri-Ben-Yu-merubotukusuMing-noXi-i_0028Modified-UTF7_0029" href="#Ri-Ben-Yu-merubotukusuMing-noXi-i_0028Modified-UTF7_0029">3.1.1 日本語メールボックス名の扱い(Modified UTF7)</a></li>
-    </ul></li>
+    <li><a id="toc-IMAP-huoruda" href="#IMAP-Folder">3.1 IMAP フォルダ</a></li>
     <li><a id="toc-NNTP-huoruda" href="#NNTP-Folder">3.2 NNTP フォルダ</a></li>
     <li><a id="toc-MH-huoruda" href="#MH-Folder">3.3 MH フォルダ</a>
     <ul class="toc-numbered-mark">
@@ -1190,22 +1187,16 @@ Next: <a href="#NNTP-Folder" accesskey="n" rel="next">NNTP フォルダ</a>, Pre
                アクセス。
 </pre></div></div>
 
-<ul class="mini-toc">
-<li><a href="#Ri-Ben-Yu-merubotukusuMing-noXi-i_0028Modified-UTF7_0029" accesskey="1">日本語メールボックス名の扱い(Modified UTF7)</a></li>
-</ul>
-<div class="subsection-level-extent" id="Ri-Ben-Yu-merubotukusuMing-noXi-i_0028Modified-UTF7_0029">
-<h4 class="subsection"><span>3.1.1 日本語メールボックス名の扱い(Modified UTF7)<a class="copiable-link" href="#Ri-Ben-Yu-merubotukusuMing-noXi-i_0028Modified-UTF7_0029"> &para;</a></span></h4>
-<a class="index-entry-id" id="index-Modified-UTF7"></a>
+<a class="index-entry-id" id="index-Modified-UTF_002d7"></a>
 <a class="index-entry-id" id="index-UTF7"></a>
 <a class="index-entry-id" id="index-UTF8"></a>
 <a class="index-entry-id" id="index-Unicode"></a>
 
-<p>変数 <code class="code">elmo-imap4-use-modified-utf7</code> に non-nil の値を設定すれば
-(デフォルトは <code class="code">t</code>)、日本語 (や、その他の英語以外の言語) で
-メールボックス名を指定することができます。
+<p>日本語 (や、その他の英語以外の言語) でメールボックス名
+(Modified UTF-7) のサポートを無効にしたい場合は、変数
+<code class="code">elmo-imap4-use-modified-utf7</code> の値を <code class="code">nil</code> にします。
 </p>
 <hr>
-</div>
 </div>
 <div class="section-level-extent" id="NNTP-Folder">
 <div class="nav-panel">
@@ -9168,7 +9159,9 @@ secret に保てないので、ユーザーが各々で取得してもらうよ�
 </pre></div>
 </div>
 
-
+<p><samp class="file">~/.folders</samp> で指定できる<var class="var">認証法</var>は <code class="code">xoauth2</code>
+および <code class="code">oauthbearer</code> になります。
+</p>
 <hr>
 </div>
 </div>
@@ -10856,7 +10849,7 @@ Next: <a href="#Key-Index" accesskey="n" rel="next">キーバインド索引</a>
 <tr><td></td><td class="printindex-index-entry"><a href="#index-MIME-modules">MIME modules</a></td><td class="printindex-index-section"><a href="#MIME-Modules">MIME Modules</a></td></tr>
 <tr><td></td><td class="printindex-index-entry"><a href="#index-mime_002dw3m">mime-w3m</a></td><td class="printindex-index-section"><a href="#mime_002dw3m">mime-w3m</a></td></tr>
 <tr><td></td><td class="printindex-index-entry"><a href="#index-Minimal-Settings">Minimal Settings</a></td><td class="printindex-index-section"><a href="#Minimal-Settings">Minimal Settings</a></td></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-Modified-UTF7">Modified UTF7</a></td><td class="printindex-index-section"><a href="#IMAP-Folder">IMAP Folder</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-Modified-UTF_002d7">Modified UTF-7</a></td><td class="printindex-index-section"><a href="#IMAP-Folder">IMAP Folder</a></td></tr>
 <tr><td></td><td class="printindex-index-entry"><a href="#index-mu">mu</a></td><td class="printindex-index-section"><a href="#mu">mu</a></td></tr>
 <tr><td></td><td class="printindex-index-entry"><a href="#index-mu_002dcite">mu-cite</a></td><td class="printindex-index-section"><a href="#mu_002dcite">mu-cite</a></td></tr>
 <tr><td></td><td class="printindex-index-entry"><a href="#index-Multi-Folder">Multi Folder</a></td><td class="printindex-index-section"><a href="#Multi-Folder">Multi Folder</a></td></tr>

@@ -157,10 +157,7 @@ Yoichi Nakayama
   </ul></li>
   <li><a id="toc-Wanderlust_0027s-folders" href="#Folders">3 Wanderlust&rsquo;s folders</a>
   <ul class="toc-numbered-mark">
-    <li><a id="toc-IMAP-Folder-1" href="#IMAP-Folder">3.1 IMAP Folder</a>
-    <ul class="toc-numbered-mark">
-      <li><a id="toc-International-mailbox-names-_0028Modified-UTF7_0029" href="#International-mailbox-names-_0028Modified-UTF7_0029">3.1.1 International mailbox names (Modified UTF7)</a></li>
-    </ul></li>
+    <li><a id="toc-IMAP-Folder-1" href="#IMAP-Folder">3.1 IMAP Folder</a></li>
     <li><a id="toc-NNTP-Folder-1" href="#NNTP-Folder">3.2 NNTP Folder</a></li>
     <li><a id="toc-MH-Folder-1" href="#MH-Folder">3.3 MH Folder</a>
     <ul class="toc-numbered-mark">
@@ -1184,23 +1181,17 @@ authentication will fall back to <code class="code">clear</code> without confirm
                ('clear).
 </pre></div></div>
 
-<ul class="mini-toc">
-<li><a href="#International-mailbox-names-_0028Modified-UTF7_0029" accesskey="1">International mailbox names (Modified UTF7)</a></li>
-</ul>
-<div class="subsection-level-extent" id="International-mailbox-names-_0028Modified-UTF7_0029">
-<h4 class="subsection"><span>3.1.1 International mailbox names (Modified UTF7)<a class="copiable-link" href="#International-mailbox-names-_0028Modified-UTF7_0029"> &para;</a></span></h4>
-<a class="index-entry-id" id="index-Modified-UTF7"></a>
+<a class="index-entry-id" id="index-Modified-UTF_002d7"></a>
 <a class="index-entry-id" id="index-UTF7"></a>
 <a class="index-entry-id" id="index-UTF8"></a>
 <a class="index-entry-id" id="index-Unicode"></a>
 
-<p>You can use international mailbox names in <var class="var">mailbox</var> part, if
-<code class="code">elmo-imap4-use-modified-utf7</code> is set to non-nil value (default
-value is <code class="code">t</code>).
+<p>You can use international mailbox names in <var class="var">mailbox</var> part.
+If you want to disble the feature, set
+<code class="code">elmo-imap4-use-modified-utf7</code> to <code class="code">nil</code>.
 </p>
 
 <hr>
-</div>
 </div>
 <div class="section-level-extent" id="NNTP-Folder">
 <div class="nav-panel">
@@ -9261,7 +9252,9 @@ Below is author&rsquo;s settings for Gmail.
 </pre></div>
 </div>
 
-
+<p>You can use <code class="code">xoauth2</code> and <code class="code">oauthbearer</code> as
+<var class="var">authenticate-type</var> in <samp class="file">~/.folders</samp>.
+</p>
 <hr>
 </div>
 </div>
@@ -10962,7 +10955,7 @@ Next: <a href="#Key-Index" accesskey="n" rel="next">Key Index</a>, Previous: <a 
 <tr><td></td><td class="printindex-index-entry"><a href="#index-MIME-modules">MIME modules</a></td><td class="printindex-index-section"><a href="#MIME-Modules">MIME Modules</a></td></tr>
 <tr><td></td><td class="printindex-index-entry"><a href="#index-mime_002dw3m">mime-w3m</a></td><td class="printindex-index-section"><a href="#mime_002dw3m">mime-w3m</a></td></tr>
 <tr><td></td><td class="printindex-index-entry"><a href="#index-Minimal-Settings">Minimal Settings</a></td><td class="printindex-index-section"><a href="#Minimal-Settings">Minimal Settings</a></td></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-Modified-UTF7">Modified UTF7</a></td><td class="printindex-index-section"><a href="#IMAP-Folder">IMAP Folder</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-Modified-UTF_002d7">Modified UTF-7</a></td><td class="printindex-index-section"><a href="#IMAP-Folder">IMAP Folder</a></td></tr>
 <tr><td></td><td class="printindex-index-entry"><a href="#index-mu">mu</a></td><td class="printindex-index-section"><a href="#mu">mu</a></td></tr>
 <tr><td></td><td class="printindex-index-entry"><a href="#index-mu_002dcite">mu-cite</a></td><td class="printindex-index-section"><a href="#mu_002dcite">mu-cite</a></td></tr>
 <tr><td></td><td class="printindex-index-entry"><a href="#index-Multi-Folder">Multi Folder</a></td><td class="printindex-index-section"><a href="#Multi-Folder">Multi Folder</a></td></tr>
